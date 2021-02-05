@@ -2,6 +2,10 @@
 
 from model import db, User, Recipe, connect_to_db
 
+# more and more get_users_recipes, etc functions
+
+
+
 def create_user(fname, lname, email, password):   
     """Create and return user."""
 

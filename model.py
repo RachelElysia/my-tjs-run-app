@@ -69,6 +69,21 @@ class User(db.Model):
                 name={self.fname} {self.lname}, 
                 email={self.email}>
                 '''
+
+# This needs to steal from the recipe ingredients after TJ's and populate a table
+class Ingredients(db.Model):
+    """Ingredients for our Recipes."""
+
+    __tablename__ = "ingredients"
+
+    name = db.Column(db.String)
+    id = db.Column(db.Integer, nullable=False, primary_key = True)
+
+    def __repr__(self):
+        return f'''
+                <Ingredient name={self.name}, 
+                id={self.id}>
+                '''
     
 def connect_to_db(flask_app, db_uri='postgresql:///recipes', echo=True):
     flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
