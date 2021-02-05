@@ -34,3 +34,15 @@ for recipe in recipe_data:
     
     recipe_list.append(current_recipe)
 
+with open('data/tags.json') as f:
+    tag_data = json.loads(f.read())
+
+tag_list = []
+
+for tag in tag_data:
+    current_tag = crud.create_tag(tag['name'],
+                                  tag['id'])
+    
+    tag_list.append(current_tag)
+
+

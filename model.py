@@ -33,6 +33,20 @@ class Recipe(db.Model):
                 img={self.img}>
                 '''
 
+class Tag(db.Model):
+    """Tags for our Recipes."""
+
+    __tablename__ = "tags"
+
+    name = db.Column(db.String)
+    id = db.Column(db.Integer, nullable=False, primary_key = True)
+
+    def __repr__(self):
+        return f'''
+                <Tag name={self.name}, 
+                id={self.id}>
+                '''
+
 class User(db.Model):
     """Users created."""
 
