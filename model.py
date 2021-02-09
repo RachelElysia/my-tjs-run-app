@@ -74,13 +74,13 @@ class User(db.Model):
 
     id = db.Column(db.Integer,
                    primary_key = True)
-    fname = db.Column(db.String,
+    fname = db.Column(db.String(20),
                       nullable=False)
-    lname = db.Column(db.String,
+    lname = db.Column(db.String(35),
                       nullable=False)
-    email = db.Column(db.String,
+    email = db.Column(db.String(100),
                       nullable=False)
-    password = db.Column(db.String,
+    password = db.Column(db.String(50),
                       nullable=False) 
 
     def __repr__(self):
