@@ -51,10 +51,27 @@ def create_recipe(img, tags, ingredients, serves, tagIds, title, directions, coo
     
     return recipe
 
+def create_ingredients(ingredient, id):
+    """Create and return recipe."""
+
+    ingredient_added = Ingredient(
+                  ingredient=ingredient,
+                  recipe_id=id
+                  )
+    
+    db.session.add(ingredient_added)
+    db.session.commit()
+    
+    return recipe
+
 def test_every_table():    
     test_user = create_user('Bixby', 'Perkins', 'test@test.com', 'test')
     test_recipe = create_recipe('/img.jpg', 'tags', 'ingredients', '4 servings', 'tagIds', 'title', 'directions', 'cookingTime', 'prepTime', id)
     test_tag = create_tag('Meatless', 10)
+
+    print(test_user)
+    print(test_recipe)
+    print(test_tag)
 
 # Connect to the database when run crud.py interactively
 if __name__ == '__main__':

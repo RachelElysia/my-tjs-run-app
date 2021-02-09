@@ -9,20 +9,20 @@ class Recipe(db.Model):
 
     __tablename__ = "recipes"
 
-    img = db.Column(db.String)
+    img = db.Column(db.String(107))
     tags = db.Column(db.Text, nullable=False)
     ingredients = db.Column(db.Text,
                             nullable=False)
-    serves = db.Column(db.String)
-    tagIds = db.Column(db.String)
-    title = db.Column(db.String, 
+    serves = db.Column(db.String(7))
+    tagIds = db.Column(db.String(9))
+    title = db.Column(db.String(63), 
                         nullable=False
                         )
     directions = db.Column(db.Text,
                            nullable=False)
-    cookingTime = db.Column(db.String)
-    prepTime = db.Column(db.String)
-    id = db.Column(db.String,
+    cookingTime = db.Column(db.String(36))
+    prepTime = db.Column(db.String(16))
+    id = db.Column(db.String(20),
                    primary_key = True)
 
     def __repr__(self):
@@ -33,6 +33,24 @@ class Recipe(db.Model):
                 img={self.img}>
                 '''
 
+class Ingredient(db.Model):
+    """Ingredients for our Recipes."""
+
+    __tablename__ = "ingredients"
+
+    ingredient_id = db.Column(db.Integer,
+                              primary_key = True)
+    ingredient = db.Column(db.String(84))
+    recipe_id = db.Column(db.String(20),
+                          db.ForeignKey('recipes.id'))
+
+    def __repr__(self):
+        return f'''
+                <Tag ingredient_id={self.ingredient_id}
+                name={self.ingredient}, 
+                recipe_id={self.recipe_id}>
+                '''
+
 class Tag(db.Model):
     """Tags for our Recipes."""
 
@@ -40,6 +58,8 @@ class Tag(db.Model):
 
     name = db.Column(db.String)
     id = db.Column(db.Integer, nullable=False, primary_key = True)
+    recipe_id = db.Column(db.String(20),
+                          db.ForeignKey('recipes.id'))
 
     def __repr__(self):
         return f'''

@@ -13,6 +13,7 @@ os.system('createdb recipes')
 model.connect_to_db(server.app)
 model.db.create_all()
 
+# Recipe data
 with open('data/recipes.json') as f:
     recipe_data = json.loads(f.read())
 
@@ -34,6 +35,32 @@ for recipe in recipe_data:
     
     recipe_list.append(current_recipe)
 
+
+# Ingredients data
+ingredients_dict = {}
+individual_ingredients_list = []
+
+for recipe in recipe_data:
+    for ingredient_list in recipe['ingredients']:
+        ingredient_split = re.split('TJ\'s |, ', ingredient_list)
+
+        if len(ingredient_split) > 1:
+            if recipe['id'] not in ingredients_dict:
+                ingredients_dict[recipe['id']] = []
+            ingredients_dict[recipe['id']].append(ingredient_split[1])
+
+for recipe_id, ingredients in ingredients_dict:
+    for ingredient in ingredients:
+        current_ingredient = crud.create_ingredient(
+                                        ingredient,
+                                        recipe_id
+                                        )
+    
+        individual_ingredients_list.append(current_ingredient)
+
+
+
+# Tags data
 with open('data/tags.json') as f:
     tag_data = json.loads(f.read())
 
@@ -44,5 +71,3 @@ for tag in tag_data:
                                   tag['id'])
     
     tag_list.append(current_tag)
-
-
