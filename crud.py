@@ -1,8 +1,8 @@
 """CRUD operations."""
 
-from model import db, User, Recipe, Tag, Ingredient, connect_to_db
+from model import db, User, Recipe, Tag, Ingredient, RecipeTag, connect_to_db
 
-# more and more get_users_recipes, etc functions
+# CREATE USER, TAG, RECIPE, INGREDIENT
 
 def create_user(fname, lname, email, password):   
     """Create and return user."""
@@ -27,7 +27,6 @@ def create_tag(name, tag_id):
     db.session.commit()
     
     return tag
-
 
 def create_recipe(img, serves, title, directions, cookingTime, prepTime, recipe_id):
     """Create and return recipe."""
@@ -61,8 +60,48 @@ def create_ingredient(recipe_id, detailed_ingredient, abridged_ingredient):
     
     return ingredient_added
 
+# CREATE RELATIONSHIP TABLES
+
+def create_recipe_tag_relationship(recipe_id, tag_id):
+    """Create and return a recipe/tag association."""
+
+    recipe_tag = RecipeTag(recipe_id=recipe_id, tag_id=tag_id)
+
+    db.session.add(recipe_tag)
+    db.session.commit()
+
+def create_recipe_ingredient_relationship(recipe_id, ingredient_id):
+    """Create and return a recipe/ingredient association."""
+
+    recipe_ingredient = RecipeIngredient(recipe_id=recipe_id, ingredient_id=ingredient_id)
+
+    db.session.add(recipe_ingredient)
+    db.session.commit()
+
+# THIS WILL BE WORKED ON LATER WHEN USERS CAN UPDATE
+# def create_user_recipe(user_id, recipe_id):
+#     """Create and return a new recipe for individual user."""
+
+#     user_recipe = UserRecipe(user_id=user_id, recipe_id=recipe)
+#     db.session.add(user_recipe)
+#     db.session.commit()
+
+#     return user_recipe
+
+# THIS WILL BE WORKED ON LATER WHEN USERS CAN UPDATE
+# def create_user_groceries(user_id, recipe_id):
+#     """Ceate and return a new grocery list for individual users."""
+
+#     user_groceries = UserGroceries(user_id=user_id, recipe_id=recipe)
+#     db.session.add(user_recipe)
+#     db.session.commit()
+
+#     return user_recipe
+# def create
+
 
 # TESTS: FUNCTIONS TO POPULATE DATA (RECIPES, USERS, TAGS)
+
 def test_every_table():    
     test_user = create_user('Bixby', 'Perkins', 'test@test.com', 'test')
     test_recipe = create_recipe('/img.jpg', '4', 'Bixby Biscuits',
@@ -74,6 +113,8 @@ def test_every_table():
     print(test_recipe)
     print(test_tag)
 
+
+# QUERY FUNCTIONS:
 
 def get_recipes():
     """Return all recipes."""
@@ -90,18 +131,14 @@ def get_users():
 
     return User.query.all()
 
-def create_user_recipe(user, recipe):
-    """Create and return a new recipe for individual user."""
+def get_ingredients():
+    """Return all ingredients."""
 
-    user_recipe = Userrecipe(user=user, recipe=recipe)
-    db.session.add(rating)
-    db.session.commit()
-
-    return user_recipe
+    return Ingredient.query.all()
 
 
 
-# Connect to the database when run crud.py interactively
+# This connects to the database when run crud.py interactively
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)

@@ -2,7 +2,7 @@
 import json
 import re
 
-# JSOM Fixes from Original API
+# JSON Fixes from Original API
 # Added TJ's in several items increasing abridged ingredients (3 large eggs)
 # Found and replace all 1300 apostrophe's that were slanted apostrophes
 # Fixed minor bugs based on my print
@@ -117,10 +117,10 @@ for recipe in recipe_data:
             if len(ingredient_split[1]) > longest_ingredient_name:
                 longest_ingredient_name = len(ingredient_split[1])
 
-print(longest_detailed_ingredient_name)
-print(longest_ingredient_name)
-print(next(iter(detailed_ingredients_dict.items())))
-print(next(iter(abridged_ingredients_dict.items())))
+# print(longest_detailed_ingredient_name)
+# print(longest_ingredient_name)
+# print(next(iter(detailed_ingredients_dict.items())))
+# print(next(iter(abridged_ingredients_dict.items())))
 
 
 

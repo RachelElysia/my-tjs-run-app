@@ -4,6 +4,30 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+class User(db.Model):
+    """Users created."""
+
+    __tablename__ = "users"
+
+    user_id = db.Column(db.Integer,
+                      primary_key = True)
+    fname = db.Column(db.String(20),
+                      nullable=False)
+    lname = db.Column(db.String(35),
+                      nullable=False)
+    email = db.Column(db.String(100),
+                      nullable=False)
+    password = db.Column(db.String(50),
+                      nullable=False) 
+
+    def __repr__(self):
+        return f'''
+                <User id={self.user_id}, 
+                name={self.fname} {self.lname},
+                email={self.email}>
+                '''
+
+
 class Recipe(db.Model):
     """Recipes for our Users to add."""
 
@@ -20,7 +44,6 @@ class Recipe(db.Model):
     prepTime = db.Column(db.String(16))
     recipe_id = db.Column(db.String(20), primary_key=True)
 
-
     ingredients = db.relationship('Ingredient')
 
     # Need to say the relationship is in the middle table recipetags
@@ -33,6 +56,7 @@ class Recipe(db.Model):
                 recipe_id={self.recipe_id},
                 img={self.img}>
                 '''
+
 
 class Ingredient(db.Model):
     """Ingredients for our Recipes."""
@@ -57,8 +81,24 @@ class Ingredient(db.Model):
                 >
                 '''
 
+
+class Tag(db.Model):
+    """Tags used for our Recipes."""
+
+    __tablename__ = "tags"
+
+    name = db.Column(db.String(16), nullable=False)
+    tag_id = db.Column(db.Integer, nullable=False, primary_key=True)
+
+    def __repr__(self):
+        return f'''
+                <Tag name={self.name}, 
+                tag_id={self.tag_id}>
+                '''
+
+
 class RecipeTag(db.Model):
-    """Tags on our Recipes"""
+    """Tags on our Recipes relationship."""
 
     __tablename__ = 'recipestags'
 
@@ -77,44 +117,7 @@ class RecipeTag(db.Model):
                 tag_id={self.tag_id}>
                 '''
 
-class Tag(db.Model):
-    """Tags used for our Recipes."""
-
-    __tablename__ = "tags"
-
-    name = db.Column(db.String(16), nullable=False)
-    tag_id = db.Column(db.Integer, nullable=False, primary_key=True)
-
-    def __repr__(self):
-        return f'''
-                <Tag name={self.name}, 
-                tag_id={self.tag_id}>
-                '''
-
-class User(db.Model):
-    """Users created."""
-
-    __tablename__ = "users"
-
-    user_id = db.Column(db.Integer,
-                      primary_key = True)
-    fname = db.Column(db.String(20),
-                      nullable=False)
-    lname = db.Column(db.String(35),
-                      nullable=False)
-    email = db.Column(db.String(100),
-                      nullable=False)
-    password = db.Column(db.String(50),
-                      nullable=False) 
-
-    def __repr__(self):
-        return f'''
-                <User id={self.user_id}, 
-                name={self.fname} {self.lname},
-                email={self.email}>
-                '''
-    
-
+# THIS MIDDLE TABLE IS UNNEEDED BECAUSE INGREDIENTS HAVE RECIPE ID ON THEM!
 # class RecipeIngredient(db.Model):
 #     """Ingredient x Recipe Relationship."""
 
@@ -131,24 +134,25 @@ class User(db.Model):
 #                 ingredient_id={self.ingredient_id}>
 #                 '''
 
-# class UserRecipe(db.Model):
-#     """Ingredients for our Recipes."""
+# This will be called on in the APP using crud.py create_user_recipes()
+class UserRecipe(db.Model):
+    """Favorite Recipes from our Users."""
 
-#     __tablename__ = "ingredients"
+    __tablename__ = "favoriterecipes"
 
-#     user_recipe_id = db.Column(db.Integer,
-#                               primary_key = True)
-#     user_id = db.Column(db.String(20),
-#                           db.ForeignKey('users.user_id'))
-#     recipe_id = db.Column(db.String(20),
-#                           db.ForeignKey('recipes.recipe_id'))
+    user_recipe_id = db.Column(db.Integer,
+                              primary_key = True, autoincrement=True)
+    user_id = db.Column(db.Integer,
+                          db.ForeignKey('users.user_id'))
+    recipe_id = db.Column(db.String(20),
+                          db.ForeignKey('recipes.recipe_id'))
 
-#     def __repr__(self):
-#         return f'''
-#                 <Userrecipe user_recipe_id={self.user_recipe_id}
-#                 user_id={self.user_id}, 
-#                 recipe_id={self.recipe_id}>
-#                 '''  
+    def __repr__(self):
+        return f'''
+                <Userrecipe user_recipe_id={self.user_recipe_id}
+                user_id={self.user_id}, 
+                recipe_id={self.recipe_id}>
+                '''  
 
 
 

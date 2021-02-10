@@ -15,6 +15,18 @@ os.system('createdb recipes')
 model.connect_to_db(server.app)
 model.db.create_all()
 
+# Populate Tags DATA table (2 Columns, 2 Parameters, PK in API)
+with open('data/tags.json') as g:
+    tag_data = json.loads(g.read())
+
+tag_list = []
+
+for tag in tag_data:
+    current_tag = crud.create_tag(tag['name'],
+                                  tag['id'])
+    
+    tag_list.append(current_tag)
+
 # Populate Recipe DATA table (7 columns, 7 parameters, PK in API)
 with open('data/recipes.json') as f:
     recipe_data = json.loads(f.read())
@@ -63,19 +75,12 @@ for recipe in recipe_data:
                                         detailed_ingredient,
                                         abridged_ingredient=None
                                         )
-    
 
+    # Populate Recipe Tags RELATIONSHIP table
+    for tag in recipe['tagIds']:
 
-# Populate Recipe Tags RELATIONSHIP table
+        current_tag = crud.create_recipe_tag_relationship(
+                                        recipe['id'],
+                                        tag
+                                        )
 
-# Populat Tags DATA table
-with open('data/tags.json') as g:
-    tag_data = json.loads(g.read())
-
-tag_list = []
-
-for tag in tag_data:
-    current_tag = crud.create_tag(tag['name'],
-                                  tag['id'])
-    
-    tag_list.append(current_tag)
