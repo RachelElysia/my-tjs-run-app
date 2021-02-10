@@ -3,10 +3,12 @@
 import os
 import json
 from random import choice, randint
+import re # this is to help split by two delimiters
 
 import crud
 import model
 import server
+
 
 os.system('dropdb recipes')
 os.system('createdb recipes')
@@ -31,7 +33,6 @@ for recipe in recipe_data:
                                         recipe['prepTime'],
                                         recipe['id']
                                         )
-    
     recipe_list.append(current_recipe)
 
 
@@ -48,7 +49,7 @@ for recipe in recipe_data:
                 ingredients_dict[recipe['id']] = []
             ingredients_dict[recipe['id']].append(ingredient_split[1])
 
-for recipe_id, ingredients in ingredients_dict:
+for recipe_id, ingredients in ingredients_dict.items():
     for ingredient in ingredients:
         current_ingredient = crud.create_ingredient(
                                         ingredient,

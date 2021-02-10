@@ -9,16 +9,16 @@ class Recipe(db.Model):
 
     __tablename__ = "recipes"
 
-    recipe_id = db.Column(db.String(20), primary_key=True)
     img = db.Column(db.String(107))
-    tags_full = db.Column(db.String, nullable=False)
-    ingredients_full = db.Column(db.String, nullable=False)
+    tags_full = db.Column(db.Text, nullable=False)
+    ingredients_full = db.Column(SQLAlchemy.types.ARRAY, nullable=False)
     serves = db.Column(db.String(7))
     # REPEAT tagIds = db.Column(db.String(9))
     title = db.Column(db.String(63), nullable=False)
-    directions = db.Column(db.String, nullable=False)
+    directions = db.Column(db.Text, nullable=False)
     cookingTime = db.Column(db.String(36))
     prepTime = db.Column(db.String(16))
+    recipe_id = db.Column(db.String(20), primary_key=True)
 
 
     ingredients = db.relationship('Ingredient')
@@ -30,7 +30,7 @@ class Recipe(db.Model):
         return f'''
                 <Recipe title={self.title}, 
                 ingredients={self.ingredients},
-                id={self.id},
+                recipe_id={self.recipe_id},
                 img={self.img}>
                 '''
 
@@ -175,16 +175,18 @@ if __name__ == '__main__':
     # too annoying; this will tell SQLAlchemy not to print out every
     # query it executes.
 
-    # import os
+    import os
 
-    # os.system('dropdb recipes')
-    # os.system('createdb recipes')
+    os.system('dropdb recipes')
+    os.system('createdb recipes')
 
-    # connect_to_db(app)
+    connect_to_db(app)
 
-    # db.create_all()
-
-    # t = Recipe(cookingTime='2 hours', prepTime='1 hour', directions='look at me, this is taking forever',
-    # title='yay debugging', serves='3', img='/.jpg', recipe_id='alkfdaj3')
+    db.create_all()
 
 
+    test = Recipe(img='cool', tags_full='hi',
+        ingredients_full='hi', serves='hia',
+        title='hello', directions='yo',
+        cookingTime='2hours', prepTime='yup', recipe_id='23r')
+    
