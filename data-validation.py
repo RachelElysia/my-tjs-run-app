@@ -74,6 +74,7 @@ for recipe in recipe_data:
 # THIS IS WHERE I WILL PRACTICE PARSING DATA FOR INGREDIENTS
 
 # for recipe in recipe_data:
+# longest_ingredient_length = 84
 ingredients_dict = {}
 longest_ingredient_name = 0
 # Fixed bug, left off TJ's in 3 large eggs
@@ -92,7 +93,20 @@ for recipe in recipe_data:
                 longest_ingredient_name = len(ingredient_split[1])
                 print(ingredient_split[1])
 # print(ingredients_dict)
-print(longest_ingredient_name)
+# print(longest_ingredient_name)
+
+
+with open('data/tags.json') as g:
+    tag_data = json.loads(g.read())
+
+# Find longest tag
+longest_tag_name = 0
+for tag in  tag_data:
+    print(tag['name'])
+    if len(tag['name']) > longest_tag_name:
+        longest_tag_name = len(tag['name'])
+        print(tag)
+#print(longest_tag_name)
 
 
 

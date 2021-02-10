@@ -9,21 +9,22 @@ class Recipe(db.Model):
 
     __tablename__ = "recipes"
 
+    recipe_id = db.Column(db.String(20), primary_key=True)
     img = db.Column(db.String(107))
-    tags = db.Column(db.Text, nullable=False)
-    ingredients = db.Column(db.Text,
-                            nullable=False)
+    tags_full = db.Column(db.String, nullable=False)
+    ingredients_full = db.Column(db.String, nullable=False)
     serves = db.Column(db.String(7))
-    tagIds = db.Column(db.String(9))
-    title = db.Column(db.String(63), 
-                        nullable=False
-                        )
-    directions = db.Column(db.Text,
-                           nullable=False)
+    # REPEAT tagIds = db.Column(db.String(9))
+    title = db.Column(db.String(63), nullable=False)
+    directions = db.Column(db.String, nullable=False)
     cookingTime = db.Column(db.String(36))
     prepTime = db.Column(db.String(16))
-    id = db.Column(db.String(20),
-                   primary_key = True)
+
+
+    ingredients = db.relationship('Ingredient')
+
+    # Need to say the relationship is in the middle table recipetags
+    tags = db.relationship('Tag', secondary="recipestags", backref="tags")
 
     def __repr__(self):
         return f'''
@@ -42,7 +43,9 @@ class Ingredient(db.Model):
                               primary_key = True)
     ingredient = db.Column(db.String(84))
     recipe_id = db.Column(db.String(20),
-                          db.ForeignKey('recipes.id'))
+                          db.ForeignKey('recipes.recipe_id'))
+
+    recipe = db.relationship('Recipe')
 
     def __repr__(self):
         return f'''
@@ -51,20 +54,38 @@ class Ingredient(db.Model):
                 recipe_id={self.recipe_id}>
                 '''
 
+class RecipeTag(db.Model):
+    """Tags on our Recipes"""
+
+    __tablename__ = 'recipestags'
+
+    recipetag_id = db.Column(db.Integer, nullable=False, primary_key=True)
+    recipe_id = db.Column(db.String(20),
+                          db.ForeignKey('recipes.recipe_id'),
+                          nullable=False)
+    tag_id = db.Column(db.Integer,
+                          db.ForeignKey('tags.tag_id'),
+                          nullable=False)
+
+    def __repr__(self):
+        return f'''
+                <RecipeTag recipetag_id={self.recipetag_id},
+                recipe_id={self.recipetag_id}  
+                tag_id={self.tag_id}>
+                '''
+
 class Tag(db.Model):
-    """Tags for our Recipes."""
+    """Tags used for our Recipes."""
 
     __tablename__ = "tags"
 
-    name = db.Column(db.String)
-    id = db.Column(db.Integer, nullable=False, primary_key = True)
-    recipe_id = db.Column(db.String(20),
-                          db.ForeignKey('recipes.id'))
+    name = db.Column(db.String(16), nullable=False)
+    tag_id = db.Column(db.Integer, nullable=False, primary_key=True)
 
     def __repr__(self):
         return f'''
                 <Tag name={self.name}, 
-                id={self.id}>
+                tag_id={self.tag_id}>
                 '''
 
 class User(db.Model):
@@ -72,8 +93,8 @@ class User(db.Model):
 
     __tablename__ = "users"
 
-    id = db.Column(db.Integer,
-                   primary_key = True)
+    user_id = db.Column(db.Integer,
+                      primary_key = True)
     fname = db.Column(db.String(20),
                       nullable=False)
     lname = db.Column(db.String(35),
@@ -85,26 +106,49 @@ class User(db.Model):
 
     def __repr__(self):
         return f'''
-                <User id={self.id}, 
-                name={self.fname} {self.lname}, 
+                <User id={self.user_id}, 
+                name={self.fname} {self.lname},
                 email={self.email}>
                 '''
-
-# This needs to steal from the recipe ingredients after TJ's and populate a table
-class Ingredients(db.Model):
-    """Ingredients for our Recipes."""
-
-    __tablename__ = "ingredients"
-
-    name = db.Column(db.String)
-    id = db.Column(db.Integer, nullable=False, primary_key = True)
-
-    def __repr__(self):
-        return f'''
-                <Ingredient name={self.name}, 
-                id={self.id}>
-                '''
     
+
+# class RecipeIngredient(db.Model):
+#     """Ingredient x Recipe Relationship."""
+
+#     __tablename__ = "recipeingredient"
+
+#     r_x_i_id = db.Column(db.Integer, primary_key = True),
+#     recipe_id = db.Column(db.String(20), db.ForeignKey('recipes.recipe_id')),
+#     ingredient_id = db.Column(db.String(20), db.ForeignKey('ingredients.ingredient_id'))
+    
+#     def __repr__(self):
+#         return f'''
+#                 <recipeingredient r_x_i_id={self.r_x_i_id}, 
+#                 recipe_id={self.recipe_id},
+#                 ingredient_id={self.ingredient_id}>
+#                 '''
+
+# class UserRecipe(db.Model):
+#     """Ingredients for our Recipes."""
+
+#     __tablename__ = "ingredients"
+
+#     user_recipe_id = db.Column(db.Integer,
+#                               primary_key = True)
+#     user_id = db.Column(db.String(20),
+#                           db.ForeignKey('users.user_id'))
+#     recipe_id = db.Column(db.String(20),
+#                           db.ForeignKey('recipes.recipe_id'))
+
+#     def __repr__(self):
+#         return f'''
+#                 <Userrecipe user_recipe_id={self.user_recipe_id}
+#                 user_id={self.user_id}, 
+#                 recipe_id={self.recipe_id}>
+#                 '''  
+
+
+
 def connect_to_db(flask_app, db_uri='postgresql:///recipes', echo=True):
     flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
     flask_app.config['SQLALCHEMY_ECHO'] = echo
@@ -131,4 +175,16 @@ if __name__ == '__main__':
     # too annoying; this will tell SQLAlchemy not to print out every
     # query it executes.
 
-    connect_to_db(app)
+    # import os
+
+    # os.system('dropdb recipes')
+    # os.system('createdb recipes')
+
+    # connect_to_db(app)
+
+    # db.create_all()
+
+    # t = Recipe(cookingTime='2 hours', prepTime='1 hour', directions='look at me, this is taking forever',
+    # title='yay debugging', serves='3', img='/.jpg', recipe_id='alkfdaj3')
+
+

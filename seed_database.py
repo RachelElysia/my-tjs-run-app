@@ -20,12 +20,11 @@ with open('data/recipes.json') as f:
 recipe_list = []
 
 for recipe in recipe_data:
-    # release_date = datetime.strptime(movie['release_date'], '%Y-%m-%d')
     current_recipe = crud.create_recipe(recipe['img'],
                                         recipe['tags'],
                                         recipe['ingredients'],
                                         recipe['serves'],
-                                        recipe['tagIds'],
+                                        # recipe['tagIds'],
                                         recipe['title'],
                                         recipe['directions'],
                                         recipe['cookingTime'],
