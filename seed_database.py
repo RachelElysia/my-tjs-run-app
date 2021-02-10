@@ -15,7 +15,7 @@ os.system('createdb recipes')
 model.connect_to_db(server.app)
 model.db.create_all()
 
-# Recipe data
+# Populate Recipe DATA table (7 columns, 7 parameters, PK in API)
 with open('data/recipes.json') as f:
     recipe_data = json.loads(f.read())
 
@@ -23,10 +23,7 @@ recipe_list = []
 
 for recipe in recipe_data:
     current_recipe = crud.create_recipe(recipe['img'],
-                                        recipe['tags'],
-                                        recipe['ingredients'],
                                         recipe['serves'],
-                                        # recipe['tagIds'],
                                         recipe['title'],
                                         recipe['directions'],
                                         recipe['cookingTime'],
@@ -36,33 +33,44 @@ for recipe in recipe_data:
     recipe_list.append(current_recipe)
 
 
-# Ingredients data
-ingredients_dict = {}
-individual_ingredients_list = []
+# Populate Ingredients DATA table (4 Columns, 3 Parameters, Generate PK)
+abridged_ingredients_dict = {}
+detailed_ingredients_dict = {}
 
 for recipe in recipe_data:
-    for ingredient_list in recipe['ingredients']:
-        ingredient_split = re.split('TJ\'s |, ', ingredient_list)
 
+    for detailed_ingredient in recipe['ingredients']:
+
+        # Detailed Dictionary
+        if recipe['id'] not in detailed_ingredients_dict:
+            detailed_ingredients_dict[recipe['id']] = []  
+        detailed_ingredients_dict[recipe['id']].append(detailed_ingredient)             
+
+        # Split detailed ingredient
+        ingredient_split = re.split('TJ\'s |, ', detailed_ingredient)
+        # print(ingredient_split)
+
+        # Abridged Dictionary
         if len(ingredient_split) > 1:
-            if recipe['id'] not in ingredients_dict:
-                ingredients_dict[recipe['id']] = []
-            ingredients_dict[recipe['id']].append(ingredient_split[1])
+            if recipe['id'] not in abridged_ingredients_dict:
+                abridged_ingredients_dict[recipe['id']] = []
+            abridged_ingredient = ingredient_split[1]
+            abridged_ingredients_dict[recipe['id']].append(abridged_ingredient)
+            # print(ingredient_split[1])
 
-for recipe_id, ingredients in ingredients_dict.items():
-    for ingredient in ingredients:
         current_ingredient = crud.create_ingredient(
-                                        ingredient,
-                                        recipe_id
+                                        recipe['id'],
+                                        detailed_ingredient,
+                                        abridged_ingredient=None
                                         )
     
-        individual_ingredients_list.append(current_ingredient)
 
 
+# Populate Recipe Tags RELATIONSHIP table
 
-# Tags data
-with open('data/tags.json') as f:
-    tag_data = json.loads(f.read())
+# Populat Tags DATA table
+with open('data/tags.json') as g:
+    tag_data = json.loads(g.read())
 
 tag_list = []
 

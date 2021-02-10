@@ -10,8 +10,8 @@ class Recipe(db.Model):
     __tablename__ = "recipes"
 
     img = db.Column(db.String(107))
-    tags_full = db.Column(db.Text, nullable=False)
-    ingredients_full = db.Column(SQLAlchemy.types.ARRAY, nullable=False)
+    # tags_full = db.Column(db.Text, nullable=False)
+    # ingredients_full = db.Column(SQLAlchemy.types.ARRAY, nullable=False)
     serves = db.Column(db.String(7))
     # REPEAT tagIds = db.Column(db.String(9))
     title = db.Column(db.String(63), nullable=False)
@@ -41,17 +41,20 @@ class Ingredient(db.Model):
 
     ingredient_id = db.Column(db.Integer,
                               primary_key = True)
-    ingredient = db.Column(db.String(84))
     recipe_id = db.Column(db.String(20),
                           db.ForeignKey('recipes.recipe_id'))
+    detailed_ingredient = db.Column(db.String(197), nullable=False)
+    abridged_ingredient = db.Column(db.String(84))
 
     recipe = db.relationship('Recipe')
 
     def __repr__(self):
         return f'''
-                <Tag ingredient_id={self.ingredient_id}
-                name={self.ingredient}, 
-                recipe_id={self.recipe_id}>
+                <Ingredient ingredient_id={self.ingredient_id}
+                recipe_id={self.recipe_id}
+                detailed_ingredient={self.detailed_ingredient[0:20]}
+                abridged_ingredient={self.abridged_ingredient[0:20]}                
+                >
                 '''
 
 class RecipeTag(db.Model):

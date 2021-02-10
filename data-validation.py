@@ -2,10 +2,17 @@
 import json
 import re
 
+# JSOM Fixes from Original API
+# Added TJ's in several items increasing abridged ingredients (3 large eggs)
+# Found and replace all 1300 apostrophe's that were slanted apostrophes
+# Fixed minor bugs based on my print
+
 with open('data/recipes.json') as f:
     recipe_data = json.loads(f.read())
 
+print("\n\n*****\n\nFIRST DATA POINT ONLY\n\n")
 print(recipe_data[0])
+print("\n\nFIRST DATA POINT ONLY\n\n*****\n\n")
 
 # Found longest_img_url = 107
 longest_img_url = 0
@@ -75,25 +82,46 @@ for recipe in recipe_data:
 
 # for recipe in recipe_data:
 # longest_ingredient_length = 84
-ingredients_dict = {}
+# longest_detailed_ingredient_name = 197
+abridged_ingredients_dict = {}
+detailed_ingredients_dict = {}
 longest_ingredient_name = 0
-# Fixed bug, left off TJ's in 3 large eggs
-# Had to find and replace all 1300 apostrophe's that were slanted apostrophes
-# Fixed minor bugs in JSON file based on my print
+longest_detailed_ingredient_name = 0
+
 for recipe in recipe_data:
-    for ingredient_list in recipe['ingredients']:
-        ingredient_split = re.split('TJ\'s |, ', ingredient_list)
+    recipe_id = recipe['id']
+    for detailed_ingredient in recipe['ingredients']:
+
+        # Detailed Dictionary
+        if recipe['id'] not in detailed_ingredients_dict:
+            detailed_ingredients_dict[recipe['id']] = []  
+        detailed_ingredients_dict[recipe['id']].append(detailed_ingredient)             
+
+        # Longest Detailed Ingredient Length
+        if len(detailed_ingredient) > longest_detailed_ingredient_name:
+            longest_detailed_ingredient_name = len(detailed_ingredient)
+
+        # Split detailed ingredient
+        ingredient_split = re.split('TJ\'s |, ', detailed_ingredient)
         # print(ingredient_split)
 
+        # Abridged Dictionary
         if len(ingredient_split) > 1:
-            if recipe['id'] not in ingredients_dict:
-                ingredients_dict[recipe['id']] = []
-            ingredients_dict[recipe['id']].append(ingredient_split[1])
+            if recipe['id'] not in abridged_ingredients_dict:
+                abridged_ingredients_dict[recipe['id']] = []
+            abridged_ingredient = ingredient_split[1]
+            abridged_ingredients_dict[recipe['id']].append(abridged_ingredient)
+            # print(ingredient_split[1])
+
+            # Find longest ingredient
             if len(ingredient_split[1]) > longest_ingredient_name:
                 longest_ingredient_name = len(ingredient_split[1])
-                print(ingredient_split[1])
-# print(ingredients_dict)
-# print(longest_ingredient_name)
+
+print(longest_detailed_ingredient_name)
+print(longest_ingredient_name)
+print(next(iter(detailed_ingredients_dict.items())))
+print(next(iter(abridged_ingredients_dict.items())))
+
 
 
 with open('data/tags.json') as g:
@@ -102,10 +130,8 @@ with open('data/tags.json') as g:
 # Find longest tag
 longest_tag_name = 0
 for tag in  tag_data:
-    print(tag['name'])
     if len(tag['name']) > longest_tag_name:
         longest_tag_name = len(tag['name'])
-        print(tag)
 #print(longest_tag_name)
 
 
