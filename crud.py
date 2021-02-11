@@ -105,11 +105,11 @@ def create_recipe_tag_relationship(recipe_id, tag_id):
 # TESTS: FUNCTIONS TO POPULATE DATA (RECIPES, USERS, TAGS)
 
 def test_every_table():    
-    test_user = create_user('Bixby', 'Perkins', 'test@test.com', 'test')
+    test_user = create_user('Bixby', 'Perkins', 'test1@test1.com', 'test')
     test_recipe = create_recipe('/img.jpg', '4', 'Bixby Biscuits',
                                 'Cook biscuits according to package directions. Remove soy chorizo from casing. In a large skillet over medium heat, add soy chorizo, breaking it up into pieces as it cooks, about 8-10 minutes. When soy chorizo reaches 165ºF, reduce heat to medium. Add salsa and stir to combine. Add almond milk to pan and cook for 5-7 minutes as gravy thickens, stirring occasionally. Remove from heat.\nTo serve, break open 2 biscuits in a shallow serving dish and top with 1/4 of gravy and green chiles, if using. Repeat with remaining biscuits',
-                                '2 hours', '1 hour', 'bixbyrecipeid')
-    test_tag = create_tag('Meatless', 10)
+                                '2 hours', '1 hour', 'bixbyid')
+    test_tag = create_tag('Not So Yummy', 999)
 
 
     print(test_user)
@@ -134,14 +134,17 @@ def get_users():
 
     return User.query.all()
 
+def get_user_by_email(email):
+    """Return a user by email."""
+
+    return User.query.filter(User.email == email).first()
+
 def get_ingredients():
     """Return all ingredients."""
 
     return Ingredient.query.all()
 
-
-
-# This connects to the database when run crud.py interactively
+# This connects to the database when running crud.py interactively
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)

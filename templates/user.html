@@ -1,4 +1,4 @@
-
+{% extends 'base.html' %}
       {% block title %}
 
  My TJ's Run Account
@@ -37,7 +37,7 @@
   <div id="log-in">
   <h2>Log In</h2>
   <p>See your recipes and grocery list!</p>
-  <form action="/" method="POST">
+  <form action="/login" method="POST">
 
     <p>
       Email: <input type="text" name="email">
@@ -54,7 +54,4 @@
   </div>
     {% endblock %}
 
-    {% block after_body %}
-    
-    
-    {% endblock %}
+  

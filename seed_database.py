@@ -6,14 +6,14 @@ from random import choice, randint
 import re # this is to help split by two delimiters
 
 import crud
-import model
-import server
+# import model
+# # import server
 
 
-os.system('dropdb recipes')
-os.system('createdb recipes')
-model.connect_to_db(server.app)
-model.db.create_all()
+# os.system('dropdb recipes')
+# os.system('createdb recipes')
+# # model.connect_to_db(server.app)
+# model.db.create_all()
 
 # Populate Tags DATA table (2 Columns, 2 Parameters, PK in API)
 with open('data/tags.json') as g:
