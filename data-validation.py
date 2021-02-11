@@ -122,8 +122,6 @@ for recipe in recipe_data:
 # print(next(iter(detailed_ingredients_dict.items())))
 # print(next(iter(abridged_ingredients_dict.items())))
 
-
-
 with open('data/tags.json') as g:
     tag_data = json.loads(g.read())
 

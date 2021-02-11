@@ -70,13 +70,15 @@ def create_recipe_tag_relationship(recipe_id, tag_id):
     db.session.add(recipe_tag)
     db.session.commit()
 
-def create_recipe_ingredient_relationship(recipe_id, ingredient_id):
-    """Create and return a recipe/ingredient association."""
+# A middle table is unneeded because they share FKs and it's a one to many relationship
+# Why 1 to many? It was too hard to get the single ingredient without instructions to make many to many
+# def create_recipe_ingredient_relationship(recipe_id, ingredient_id):
+#     """Create and return a recipe/ingredient association."""
 
-    recipe_ingredient = RecipeIngredient(recipe_id=recipe_id, ingredient_id=ingredient_id)
+#     recipe_ingredient = RecipeIngredient(recipe_id=recipe_id, ingredient_id=ingredient_id)
 
-    db.session.add(recipe_ingredient)
-    db.session.commit()
+#     db.session.add(recipe_ingredient)
+#     db.session.commit()
 
 # THIS WILL BE WORKED ON LATER WHEN USERS CAN UPDATE
 # def create_user_recipe(user_id, recipe_id):
@@ -97,7 +99,7 @@ def create_recipe_ingredient_relationship(recipe_id, ingredient_id):
 #     db.session.commit()
 
 #     return user_recipe
-# def create
+
 
 
 # TESTS: FUNCTIONS TO POPULATE DATA (RECIPES, USERS, TAGS)
@@ -108,6 +110,7 @@ def test_every_table():
                                 'Cook biscuits according to package directions. Remove soy chorizo from casing. In a large skillet over medium heat, add soy chorizo, breaking it up into pieces as it cooks, about 8-10 minutes. When soy chorizo reaches 165ºF, reduce heat to medium. Add salsa and stir to combine. Add almond milk to pan and cook for 5-7 minutes as gravy thickens, stirring occasionally. Remove from heat.\nTo serve, break open 2 biscuits in a shallow serving dish and top with 1/4 of gravy and green chiles, if using. Repeat with remaining biscuits',
                                 '2 hours', '1 hour', 'bixbyrecipeid')
     test_tag = create_tag('Meatless', 10)
+
 
     print(test_user)
     print(test_recipe)
