@@ -1,54 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>
-      {% block title %}{% endblock %}
-    </title>
+<head>
+  <title>{% block title %}{% endblock %}</title>
 
-    {% block js %}{% endblock %}
-  </head>
-  <body>
-    <!--Nav Component-->
-    <nav>
-      <img src="/static/logo.jpg" alt="My TJ's Run Logo">
-      <ul id="left-nav">
-        <li>My Recipes</li>
-        <li>My Grocery List</li>
-      </ul>
-      <!--Align left the nav before this point, align right the nav after this point-->
-      <ul id="right-nav">
-        <li>Search</li>
-        <li>Find a Store</li>
+  <!-- We'll load React dependencies on all pages for this app. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
-        <li>Create Account </li><!--SHOW TWO DIFFERENT THINGS BASED ON CONDITIONAL {this.userin ? My Account | Create Account, Log In}-->
-        <li>Log In </li> 
-        <li>My Account</li>
+  <!-- Include any page-specific Javascript using this block. -->
+  {% block js %}
+  {% endblock %}
 
-      </ul>
-      </nav>
-  <!--End Nav Component-->
+  <link href="/static/css/site.css" rel="stylesheet">
+</head>
+<body>
+  <h1>Welcome to Balloonicorn's Trading Card site</h1>
 
-  <!--Secondary Nav Component-->
-      <div id="trader-joes-recipe-dropdown"><!--Dropdown menu on hover-->
-        Trader Joe's Recipes
-      </div>
-  <!--End Secondary Nav Component-->
-
-    {% block body %}{% endblock %}
-
-    {% block after_body %}{% endblock %}
-  </body>
-
-
-  <!--Footer component-->
-  <footer>
-    <ul>
-      <li>Accessibility</li>
-      <li><a href="http://www.rachelelysia.com">A Project by Rachel Perkins</a></li>
-      <li>Hackbright Academy Software Engineering 2021</li>
-    </ul>
-  </footer>
-  <!--End footer component-->
+  <!-- Include the page's content with this block. -->
+  {% block body %}
+  {% endblock %}
+</body>
 </html>

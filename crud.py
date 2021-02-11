@@ -119,10 +119,14 @@ def test_every_table():
 
 # QUERY FUNCTIONS:
 
-def get_recipes():
+# Use this function to create 24 recipes JSON
+
+def get_recipes(limit=24):
     """Return all recipes."""
 
-    return Recipe.query.all()
+    return Recipe.query.limit(limit).all()
+
+
 
 def get_tags():
     """Return all tags."""
