@@ -1,6 +1,6 @@
 """Server for TJ shopping by recipe app."""
 
-from flask import Flask, render_template, request, flash, session, redirect
+from flask import Flask, render_template, request, flash, session, redirect, jsonify
 from flask_debugtoolbar import DebugToolbarExtension #added by Lucia
 from model import connect_to_db
 import crud
@@ -8,73 +8,88 @@ from jinja2 import StrictUndefined
 
 app = Flask(__name__)
 
+
 ## added by Lucia
 app.secret_key = '123abcEFG'
 
 app.jinja_env.undefined = StrictUndefined
 ###
 
-@app.route("/")
-def show_homepage():
-	"""Show the application's homepage."""
+few_datapoints =  [
+  {
+    "title": 'Balloonicornuts',
+    "description": 'This is a really long "description" to see what is happening to my sentence',
+    "img": '/static/img/balloonicorn.jpg'
+  },
 
-	return render_template("homepage.html")
+  {
+    "title": 'Float',
+    "description": 'I never knew that everything was on a cue. To turn around when all I needed was the truth.',
+    "img": '/static/img/float.jpg'
+  },
+
+  {
+    "title": 'Llambda',
+    "description": 'knitting scarves',
+    "img": '/static/img/llambda.jpg'
+  },
+
+
+  {
+    "title": 'Off-By-One',
+    "description": 'climbing mountains',
+    "img": '/static/img/off-by-one.jpg'
+  },
+
+  {
+    "title": 'Seed.py',
+    "description": 'making curry dishes',
+    "img": '/static/img/seedpy.jpg'
+  },
+
+  {
+    "title": 'Polymorphism',
+    "description": 'costumes',
+    "img": '/static/img/polymorphism.jpg'
+  },
+
+  {
+    "title": 'Short Stack Overflow',
+    "description": 'ocean animal trivia',
+    "img": '/static/img/shortstack-overflow.jpg'
+  },
+
+  {
+    "title": 'Merge',
+    "description": 'bullet journaling',
+    "img": '/static/img/merge.jpg'
+  }
+]
+
+@app.route('/')
+def show_homepage():
+    """Show the application's homepage."""
+
+    return render_template('homepage.html')
+
 
 @app.route('/recipes')
 def show_recipes():
     """Show all recipes."""
 
-    return render_template('homepage.html')
+    return render_template('recipes.html')
 
-@app.route('/user')
-def view_homepage():
-    """View homepage."""
+# @app.route('/recipes_data')
+# def recipes_data():
+#     """Show all recipes."""
 
-    return render_template('user.html')
+#     return jsonify(few_datapoints)
 
-@app.route('/users', methods=['POST'])
-def register_user():
-    """Create a new user."""
+@app.route('/recipes_data')
+def recipes_data():
+    """Show all recipes."""
 
-    fname = request.form.get('fname')
-    lname = request.form.get('lname')
-    email = request.form.get('email')
-    print(email)
-    password = request.form.get('password')
-    
-    user = crud.get_user_by_email(email)
-    print(user)
-
-    if user:
-        flash('Email address already associated with an account. Try again.')
-    else:
-        user = crud.create_user(fname, lname, email, password)
-        flash('Account successfully created! Please log in to add favorite recipes!')
-
-    return redirect('/user')
-
-
-@app.route('/login', methods=['POST'])
-def log_in():
-    """Log In user."""
-
-    email_entered = request.form.get('email')
-    password_entered = request.form.get('password')
-    
-    user = crud.get_user_by_email(email_entered)
-
-    if user is None:
-        flash('This email address is not associated with an account. Please try again.')
-        return redirect('/user')
-    elif password_entered == user.password:
-        session['primary_key'] = user.user_id 
-        flash('You are successfully logged in!')
-        return redirect('/')
-    else:
-        flash('Incorrect password. Please try again.')
-        return redirect('/user')
-
-
+    return jsonify(crud.get_recipes())
 
 
 if __name__ == '__main__':
