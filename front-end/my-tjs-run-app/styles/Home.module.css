@@ -122,8 +122,8 @@
 }
 
 .recipe-img {
-    max-width: 16em;
-    max-height: 10em;
+    max-width: 17em;
+    max-height: 9em;
 }
 
 /* CONTAINER HOLDING ALL INFO */
@@ -207,7 +207,7 @@ title,
 .description {
   text-align: center;
 } */
-
+/* 
 .description {
   line-height: 1.5;
   font-size: 1.5rem;
@@ -230,13 +230,13 @@ title,
   max-width: 800px;
   margin-top: 3rem;
   overflow-y: scroll;
-}
+} */
 
 
 
 /* MY RECIPES FLEX BOX */
 .my-recipe-flex {
-  border-radius: 5%;
+  border-radius: 10px;
   border: 2px solid black;
   width: 95%;
   min-height:25em;
@@ -264,4 +264,42 @@ title,
   display: table;
   clear: both;
 }
+
+ /* SIGN UP AND SIGN IN */
+
+ /* Clear floats after the columns */
+#container-inup {
+  display: flex;
+  top: 9rem;    /* NavBar TJNavBar height */
+  padding-top: 9em;
+  padding-bottom: 5.5rem;    /* Footer height */
+  max-width: 90em;
+  overflow-y: scroll;
+  align-content: center;
+}
+
+#container-inup:after {
+  display: flex;
+}
+#log-in, #create-account {
+  content: "";
+  width: 50%;
+  border-radius: 15px;
+  box-shadow:0 0 10px grey;
+  border: 2px solid black;
+  max-width: 30em;
+  height: 30em;
+  /* padding: 1em; */
+  vertical-align: top;
+  overflow: hidden;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  line-height: 120%;
+  margin: 0.5em;
+  padding: 1em 2em;
+}
+
+
+
 

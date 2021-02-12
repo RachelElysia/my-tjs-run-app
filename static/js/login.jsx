@@ -7,41 +7,60 @@ let recipesData;
 //  This is going to fetch the data and it's going to wait until it's fetched.
 
 // this is the recipe cards themselves
-function RecipeCard(props) {
+function CreateAccount() {
 
   return (
-    <div className="tiles-flex">
-      <a href="/recipes/{recipe.recipe_id}">
-        <img src={props.img} className="tile-img" />
-      </a>
+    <div id="create-account">
+  <h2>Create an Account</h2>
+  <p>Start favoriting recipes and populate your grocery list!</p>
+  <form action="/users" method="POST">
+    <p>
+      First Name <input type="text" name="fname">
+    </p>
+
+    <p>
+      Last Name <input type="text" name="lname">
+    </p>
+
+    <p>
+      Email <input type="text" name="email">
+    </p>
+
+    <p>
+      Password <input type="password" name="password">
+    </p>
+
+    <p>
+      <input type="submit">
+    </p>
+  </form>
   </div>
   );
 }
 
-//this is the container that will rendor
-//notice the syntax is we input recipe info
-function RecipeCardContainer() {
+function CreateAccount() {
 
-  const recipeCards = [];
+return (
+  <div id={log-in}>
+    <h2>Log In</h2>
+    <p>See your recipes and grocery list!</p>
+    <form action="/login" method="POST">
 
-  for (const recipe of recipesData) {
-    recipeCards.push(
-      <RecipeCard
-      title={recipe.title}
-      directions={recipe.directions}
-      recipe_id={recipe.recipe_id}
-      img={recipe.img}
-      />
-    );
-  }
+      <p>
+        Email: <input type="text" name="email">
+      </p>
 
-  return (
-    <React.Fragment>
-      {recipeCards}
-    </React.Fragment>
-  );
-};
+      <p>
+        Password: <input type="password" name="password">
+      </p>
 
+      <p>
+        <input type="submit">
+      </p>
+    </form>
+  </div>
+);
+}
 
 
 

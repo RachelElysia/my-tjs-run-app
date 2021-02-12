@@ -13,7 +13,7 @@ function RecipeCard(props) {
   let splitIndex = 0;
   for (let i=0; i< directionsSplit.length; i++) {
     count += directionsSplit[i].length;
-      if (count>120) {
+      if (count>115) {
         splitIndex = i;
         break;
       };
@@ -22,13 +22,13 @@ function RecipeCard(props) {
 
   // Split title on the word if awkward 2 liner
   let recipeTitle = props.title;
-  if (recipeTitle.length > 33 && recipeTitle.length < 48) {
+  if (recipeTitle.length > 40 && recipeTitle.length < 48) {
     let titleSplit = recipeTitle.split(" ");
     let count = 0;
     let spliceIndex = 0;
     for (let i=0; i< titleSplit.length; i++) {
       count += titleSplit[i].length;
-      if (count>25) {
+      if (count>23) {
         spliceIndex = i-1;
         break;
       }

@@ -38,14 +38,14 @@ function RecipeCard(props) {
 
   // Split title on the word if awkward 2 liner
   let recipeTitle = props.title;
-  if (recipeTitle.length > 33 && recipeTitle.length < 48) {
+  if (recipeTitle.length > 31 && recipeTitle.length < 43) {
     let titleSplit = recipeTitle.split(" ");
     let count = 0;
     let spliceIndex = 0;
     for (let i=0; i< titleSplit.length; i++) {
       count += titleSplit[i].length;
-      if (count>25) {
-        spliceIndex = i-1;
+      if (count>20) {
+        spliceIndex = i;
         break;
       }
     }
@@ -91,11 +91,11 @@ function RecipeCardContainer(props) {
 
 export default function Home(props) {
   return (
-    <div>
+    <>
       <NavBar />
       <TJNavBar />
       <RecipeCardContainer recipeData24={props.recipeData24} />
       <Footer />
-    </div>
+    </>
   )
 }

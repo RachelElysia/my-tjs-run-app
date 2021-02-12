@@ -7,15 +7,15 @@ function NavBar() {
   return (
     <nav>
       <div className={styles['nav-left']}>
-        <img src="/static/logo.jpg" alt="My TJ's Run Logo" />
-        <a href="cool.com" className={styles['left']}>My Recipes</a>
-        <a href="" className={styles['left']}>My Grocery List</a>
+        <a href="/"><img src="/static/logo.jpg" alt="My TJ's Run Logo" /></a>
+        <a href="/myrecipes" className={styles['left']}>My Recipes</a>
+        <a href="/mygrocerylist" className={styles['left']}>My Grocery List</a>
 
       </div><div className={styles['nav-right']}>
 
         Search
-        <a href="" className={styles['right']}>Find a Store</a>
-        <a href="" className={styles['right']}>Create Account</a>
+        <a href="/map" className={styles['right']}>Find a Store</a>
+        <a href="/login" className={styles['right']}>Create Account</a>
         Log In 
         My Account
       </div>

@@ -4,22 +4,22 @@ import {NavBar, Footer} from '../components/headersfooter'
 
 //fetch('/recipes_data') -> Promise<response>
 //  This is going to fetch the data and it's going to wait until it's fetched.
-function RecipeCard(props) {
+// function RecipeCard(props) {
 
 
-  return (
+//   return (
 
-  );
-}
+//   );
+// }
  
-function RecipeCardContainer(props) {
+// function RecipeCardContainer(props) {
 
 
 
-  return (
+//   return (
 
-  );
-};
+//   );
+// };
 
 // LEARN HOW TO DO AN IFRAME AND PUT IT IN HERE!
 
