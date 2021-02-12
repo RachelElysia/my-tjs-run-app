@@ -79,13 +79,19 @@ def show_recipes():
 
     return render_template('recipes.html')
 
+@app.route('/recipes/<recipe_by_id>')
+def show_one_recipe(recipe_by_id):
+    """Show one recipe."""
+
+    return render_template('recipe.html', recipe_id=recipe_by_id)
+
 # @app.route('/recipes_data')
 # def recipes_data():
 #     """Show all recipes."""
 
 #     return jsonify(few_datapoints)
 
-@app.route('/recipes_data')
+@app.route('/api/recipes')
 def recipes_data():
   """Show all recipes."""
 
@@ -96,7 +102,19 @@ def recipes_data():
 
   return jsonify(serialized_recipe_data)
 
-@app.route('/recipes_data_hungry')
+
+@app.route('/api/recipes/<recipe_id>')
+def recipe_by_id_data(recipe_id):
+  """Show one recipes."""
+
+  # The default is 24, you can change this parameter
+  recipe_by_id = crud.get_recipe_by_id(recipe_id)
+
+  serialized_recipe_data = [recipe_by_id.serialize]
+
+  return jsonify(serialized_recipe_data)
+
+@app.route('/api/recipes_hungry')
 def recipes_data_hungry():
   """Show all recipes."""
 

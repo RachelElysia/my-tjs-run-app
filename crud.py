@@ -126,7 +126,12 @@ def get_recipes(limit=24):
 
     return Recipe.query.limit(limit).all()
 
+def get_recipe_by_id(recipe_id):
+    """Return one recipe."""
 
+    return Recipe.query.filter_by(recipe_id=recipe_id).one()
+
+#  one recipe id 08Ifren64xtMVpoG03Qx
 
 def get_tags():
     """Return all tags."""

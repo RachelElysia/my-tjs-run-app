@@ -17,7 +17,7 @@ body {
 
 nav {
   overflow: hidden;
-  background-color: #5c546d;
+  background-color: #eee;
   position: fixed; /* Set the navbar to fixed position */
   top: 0px; /* Position the navbar at the top of the page */
   left: 0px;
@@ -72,7 +72,7 @@ li {
   right: 0;
   bottom: 0;
   overflow-y: scroll;
-  background: #ddd;
+  background: #fff;
   justify-content: center;
 }
 
@@ -100,8 +100,8 @@ li {
   right: 0;
   bottom: 0;
   overflow-y: scroll;
-  background: green;
-  color: #fff;
+  background: #eee;
+  color: #000;
 }
 
 .strong {
@@ -157,6 +157,10 @@ div .recipe {
     max-width: 18em;
 }
 
+.recipe-img-1 {
+  max-width: 38em;
+}
+
 
 div.info {
   width: 95%;
@@ -168,6 +172,8 @@ div.info {
   flex-direction: column;
   align-items: center;
 }
+
+.recipe-flex p { margin:0 }
 
 div .tiles-flex {
   border: 2px solid black;

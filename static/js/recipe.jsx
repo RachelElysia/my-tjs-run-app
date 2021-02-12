@@ -1,6 +1,6 @@
 "use strict";
 
-let recipesData;
+let recipeData;
 
 //fetch('/recipes_data') -> Promise<response>
 //  This is going to fetch the data and it's going to wait until it's fetched.
@@ -8,10 +8,13 @@ function RecipeCard(props) {
 
   return (
     <div className="recipe recipe-flex">
-      <img src={props.img} className="recipe-img" />
+      <img src={props.img} className="recipe-img-1" />
       <div className="info">
         <p className="center strong">{props.title}</p>
-        <p className="center text_small">{props.directions.slice(0, 120)}...</p>
+        <p className="center text_small">Serves: {props.serves}</p>       
+        <p className="center text_small">Directions: {props.directions</p>
+        <p className="center text_small">Prep Time: {props.prepTime}</p>
+        <p className="center text_small">Cooking Time: {props.cookingTime</p>
       </div>
   </div>
   );
@@ -21,15 +24,17 @@ function RecipeCardContainer() {
 
   const recipeCards = [];
 
-  for (const recipe of recipesData) {
-    recipeCards.push(
-      <RecipeCard
-      title={recipe.title}
-      directions={recipe.directions}
-      img={recipe.img}
-      />
-    );
-  }
+  recipeCards.push(
+    <RecipeCard
+    cookingTime={recipeData.cookingTime}
+    directions={recipeData.directions}
+    img={recipeData.img}
+    prepTime={recipeData.prepTime}
+    recipe_id={recipeData.recipe_id}
+    serves={recipeData.serves}
+    />
+  );
+  
 
   return (
     <React.Fragment>
@@ -44,10 +49,10 @@ function RecipeCardContainer() {
 
 
 (async () => {
-  const response = await fetch('/recipes_data');
+  const response = await fetch(`/api/recipes/${recipe_id});
 
-  // When it's fetched, it will load into this variable recipesData.
-  recipesData = await response.json();
+  // When it's fetched, it will load into this variable recipeData.
+  recipeData = await response.json();
 
   debugger
 
