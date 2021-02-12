@@ -1,65 +1,66 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import {NavBar, Footer} from '../components/headersfooter'
 
-export default function Home() {
+
+// MUST USE ABSOLUTE PATH FOR THIS TO WORK
+export async function getStaticProps(context) {
+  const res = await fetch('http://localhost:5000/api/recipes_hungry')
+  const recipeData48 = await res.json()
+
+  if (!recipeData48) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: {recipeData48,}, // will be passed to the page component as props
+  }
+}
+
+function RecipeCard(props) {
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Welcome to My TJ's Run pp!!! cool</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <div className={styles['tiles-flex']}>
+      <a href="/recipes/{recipe.recipe_id}">
+        <img src={props.img} className={styles['tile-img']} />
+      </a>
+  </div>
+  );
+}
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to My TJ's Ru App!
-        </h1>
+//this is the container that will rendor
+//notice the syntax is we input recipe info
+function RecipeCardContainer(props) {
 
-        <p className={styles.description}>
-          Glkjlkjlkjet started by creating an account {' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+  const recipeCards = [];
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+  for (const recipe of props.recipeData48) {
+    recipeCards.push(
+      <RecipeCard
+      title={recipe.title}
+      directions={recipe.directions}
+      recipe_id={recipe.recipe_id}
+      img={recipe.img}
+      />
+    );
+  }
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+  return (
+    <div className={styles['container']}>
+      {recipeCards}
     </div>
+  );
+};
+
+//THIS IS TELLING ME THAT Home IS THE INDEX / ROUTE
+export default function Home(props) {
+  return (
+    <>
+      <NavBar />
+      <RecipeCardContainer recipeData48={props.recipeData48} />
+      <Footer />
+    </>
   )
 }

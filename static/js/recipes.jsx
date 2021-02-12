@@ -13,7 +13,6 @@ function RecipeCard(props) {
   let splitIndex = 0;
   for (let i=0; i< directionsSplit.length; i++) {
     count += directionsSplit[i].length;
-    console.log(directionsSplit[i]);
       if (count>120) {
         splitIndex = i;
         break;
@@ -21,14 +20,32 @@ function RecipeCard(props) {
   }
   recipeDirections = directionsSplit.slice(0, splitIndex).join(" ");
 
+  // Split title on the word if awkward 2 liner
+  let recipeTitle = props.title;
+  if (recipeTitle.length > 33 && recipeTitle.length < 48) {
+    let titleSplit = recipeTitle.split(" ");
+    let count = 0;
+    let spliceIndex = 0;
+    for (let i=0; i< titleSplit.length; i++) {
+      count += titleSplit[i].length;
+      if (count>25) {
+        spliceIndex = i-1;
+        break;
+      }
+    }
+    titleSplit.splice(spliceIndex, 0, '{"\n"}');
+    recipeTitle = titleSplit.join(" ");
+  }
+
+
   return (
-    <div className="recipe recipe-flex">
-      <img src={props.img} className="recipe-img" />
-      <div className="info">
-        <p className="center strong">{props.title}</p>
-        <p className="center text_small">{recipeDirections}...</p>
+      <div className="recipe recipe-flex">
+          <img src={props.img} className="recipe-img" />
+          <div className="info">
+            <p className="center strong"><text>{recipeTitle}</text></p>
+            <p className="center text_small">{recipeDirections}...</p>
+        </div>
       </div>
-  </div>
   );
 }
 

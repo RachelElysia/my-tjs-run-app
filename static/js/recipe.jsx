@@ -12,9 +12,9 @@ function RecipeCard(props) {
       <div className="info">
         <p className="center strong">{props.title}</p>
         <p className="center text_small">Serves: {props.serves}</p>       
-        <p className="center text_small">Directions: {props.directions</p>
+        <p className="center text_small">Directions: {props.directions}</p>
         <p className="center text_small">Prep Time: {props.prepTime}</p>
-        <p className="center text_small">Cooking Time: {props.cookingTime</p>
+        <p className="center text_small">Cooking Time: {props.cookingTime}</p>
       </div>
   </div>
   );
@@ -49,7 +49,7 @@ function RecipeCardContainer() {
 
 
 (async () => {
-  const response = await fetch(`/api/recipes/${recipe_id});
+  const response = await fetch(`/api/recipes/${recipe_id}`);
 
   // When it's fetched, it will load into this variable recipeData.
   recipeData = await response.json();
@@ -60,5 +60,4 @@ function RecipeCardContainer() {
 ReactDOM.render(<RecipeCardContainer />,
   document.querySelector('#container')
 );
-
 })();

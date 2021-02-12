@@ -6,5 +6,14 @@ module.exports = {
         aggregateTimeout: 300,   // delay before rebuilding
         };
         return config;
+    },
+
+    async rewrites() {
+        return [
+        {
+            source: '/api/:path*',
+            destination: 'http://localhost:5000/:path*' // Proxy to Backend
+        }
+        ]
     }
 };

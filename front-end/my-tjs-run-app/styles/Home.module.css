@@ -1,48 +1,175 @@
+/* TILES RECIPE-FLEX NAVBAR TJBAR*/
+
+
+/* MAIN CONTAINER FOR ENTIRE SITE */
 .container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  position: fixed;
+  padding-top: 8rem;    /* Header height */
+  padding-bottom: 2.5rem;    /* Footer height */
 }
 
 .main {
-  padding: 5rem 0;
-  flex: 1;
+  min-height: 100vh;
+  top: 130px; /* height under tjbar */
+  padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  overflow-y: scroll;
+  background: #eee;
+  color: #000;
+  margin: auto;
 }
 
-.footer {
+/* NAVBAR ONLY  */
+navbar a .left {
+  float: left;
+  display: flex;
+  color: #e5eaf5;
+  text-align: center;
+  padding: 0.5rem 20px;
+  text-decoration: none;
+  font-family: 'Poppins', opensans;
+  font-weight: bold;
+  height: 5rem;
+}
+navbar a:hover .left {
+  background: #d0bdf4;
+  color: #5c546d;
+  font-family: 'Poppins', opensans;
+  font-weight: 500;
+}
+navbar a .right {
+  float: right;
+  display: flex;
+  color: #e5eaf5;
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-family: 'Poppins', opensans;
+  font-weight: 500;
+}
+navbar a:hover .right {
+  background: #d0bdf4;
+  color: #5c546d;
+  font-family: 'Poppins', opensans;
+  font-weight: 500;
+}
+
+/*  TJBAR ONLY */
+#tjbar {
+  position: fixed;
+  top: 100px; /*  height under navbar */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  background: #fff;
+  justify-content: center;
+}
+
+#tjbar a {
+  color: #D21242;
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-family: 'Poppins', opensans;
+  font-weight: 500;
+}
+#tjbar a:hover {
+  background: #D21242;
+  color: #fff;
+  font-family: 'Poppins', opensans;
+  font-weight: 500;
+} 
+
+/* RECIPE ON RECIPES PAGES */
+.recipe-title {
+  font-weight: 800;
+}
+
+.recipe-img {
+    max-width: 16em;
+}
+
+.recipe-img-1 {
+  max-width: 38em;
+}
+
+.info {
   width: 100%;
-  height: 100px;
-  border-top: 1px solid #eaeaea;
+}
+
+
+/* CONTAINER HOLDING ALL INFO */
+.flex-container {
+  /* We first create a flex layout context */
   display: flex;
+  flex-direction: column;
+  
+  /* Then we define the flow direction 
+     and if we allow the items to wrap 
+   * Remember this is the same as:
+   * flex-direction: row;
+   * flex-wrap: wrap;
+   */
+  flex-flow: row wrap;
+  
+  /* Then we define how is distributed the remaining space */
+  margin: 1em;
+  list-style: none;
+  justify-content: flex;
+}
+
+/* MORE SPECIFIED CONTAINER HOLDING RECIPES */
+.recipe-flex {
+  border-radius: 10%;
+  border: 2px solid black;
+  width: 15em;
+  height: 18em;
+  /* padding: 1em; */
+  vertical-align: top;
+  overflow: hidden;
+  display: inline-block;
   justify-content: center;
   align-items: center;
+  line-height: 120%;
+  text-align: center;
+  margin: 0.5em;
 }
 
-.footer img {
-  margin-left: 0.5rem;
-}
+.recipe-flex p { margin:0 }
+.recipe-title {padding: 5px;}
 
-.footer a {
-  display: flex;
+/* MAIN PAGE TILES */
+.tiles-flex {
+  border: 2px solid black;
+  width: 14em;
+  height: 8em;
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
   justify-content: center;
-  align-items: center;
+  horizontal-align: center;
 }
 
-.title a {
+.tile-img {
+  /* display: block; */
+  max-width: 100%;
+  position: relative;
+  top: 0px;
+  right: 0px;
+}
+/* 
+title a {
   color: #0070f3;
   text-decoration: none;
 }
 
-.title a:hover,
-.title a:focus,
-.title a:active {
+title a:hover,
+title a:focus,
+title a:active {
   text-decoration: underline;
 }
 
@@ -52,10 +179,10 @@
   font-size: 4rem;
 }
 
-.title,
+title,
 .description {
   text-align: center;
-}
+} */
 
 .description {
   line-height: 1.5;
@@ -120,3 +247,6 @@
     flex-direction: column;
   }
 }
+
+
+

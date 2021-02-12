@@ -10,7 +10,7 @@ let recipesData;
 function RecipeCard(props) {
 
   return (
-    <div className="tiles-flex">
+    <div className="tiles-flex container">
       <a href="/recipes/{recipe.recipe_id}">
         <img src={props.img} className="tile-img" />
       </a>
