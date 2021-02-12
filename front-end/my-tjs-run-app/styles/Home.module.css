@@ -2,15 +2,23 @@
 
 
 /* MAIN CONTAINER FOR ENTIRE SITE */
+
+.text_small {
+  font-size: 0.8rem;
+  padding: 0.3em;
+}
+
 .container {
-  position: fixed;
-  padding-top: 8rem;    /* Header height */
-  padding-bottom: 2.5rem;    /* Footer height */
+  top: 9rem;    /* NavBar TJNavBar height */
+  padding-top: 9em;
+  padding-bottom: 5.5rem;    /* Footer height */
+  max-width: 90em;
+  overflow-y: scroll;
 }
 
 .main {
   min-height: 100vh;
-  top: 130px; /* height under tjbar */
+  top: 330px; /* height under tjbar */
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
@@ -23,84 +31,100 @@
 }
 
 /* NAVBAR ONLY  */
-navbar a .left {
-  float: left;
-  display: flex;
-  color: #e5eaf5;
+.nav-left a {
+  color: #D21242;
   text-align: center;
-  padding: 0.5rem 20px;
   text-decoration: none;
   font-family: 'Poppins', opensans;
-  font-weight: bold;
-  height: 5rem;
+  font-weight: 500;
+  padding: 0.5em;
 }
-navbar a:hover .left {
-  background: #d0bdf4;
-  color: #5c546d;
+
+.nav-left a:hover {
+  background: #D21242;
+  color: #fff;
   font-family: 'Poppins', opensans;
   font-weight: 500;
+  padding: 0.5em;
+
+} 
+
+.nav-right a {
+  background-color: #D21242;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Poppins', opensans;
+  font-weight: 500;
+  padding: 0.5em;
 }
-navbar a .right {
+
+.nav-right a:hover {
+  color: #D21242;
+  background-color: #fff;
+  font-family: 'Poppins', opensans;
+  font-weight: 500;
+  padding: 0.5em;
+
+} 
+
+/* Right-aligned section inside the top navigation */
+.nav-right {
   float: right;
-  display: flex;
-  color: #e5eaf5;
-  text-align: center;
-  padding: 10px 20px;
-  text-decoration: none;
-  font-family: 'Poppins', opensans;
-  font-weight: 500;
+  padding: 2em;
 }
-navbar a:hover .right {
-  background: #d0bdf4;
-  color: #5c546d;
-  font-family: 'Poppins', opensans;
-  font-weight: 500;
+
+.nav-left {
+  float: left;
+  padding: 2em;
 }
 
 /*  TJBAR ONLY */
 #tjbar {
   position: fixed;
-  top: 100px; /*  height under navbar */
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 5.5rem;    /* NavBar TJNavBar height */
+  border-top: 2px solid #eaeaea;
+  border-bottom: 2px solid #eaeaea;
+  height: 2.5rem;
+  width: 100%;
+  padding: 0.3em;
   overflow-y: scroll;
   background: #fff;
-  justify-content: center;
+  text-align: center;
 }
 
 #tjbar a {
   color: #D21242;
   text-align: center;
-  padding: 10px 20px;
+  padding: 8px 25em;
   text-decoration: none;
   font-family: 'Poppins', opensans;
   font-weight: 500;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 #tjbar a:hover {
   background: #D21242;
   color: #fff;
   font-family: 'Poppins', opensans;
   font-weight: 500;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 3em;
 } 
+
 
 /* RECIPE ON RECIPES PAGES */
 .recipe-title {
   font-weight: 800;
+  color:#D21242;
 }
 
 .recipe-img {
     max-width: 16em;
+    max-height: 10em;
 }
-
-.recipe-img-1 {
-  max-width: 38em;
-}
-
-.info {
-  width: 100%;
-}
-
 
 /* CONTAINER HOLDING ALL INFO */
 .flex-container {
@@ -205,48 +229,39 @@ title,
   flex-wrap: wrap;
   max-width: 800px;
   margin-top: 3rem;
+  overflow-y: scroll;
 }
 
-.card {
-  margin: 1rem;
-  flex-basis: 45%;
-  padding: 1.5rem;
+
+
+/* MY RECIPES FLEX BOX */
+.my-recipe-flex {
+  border-radius: 5%;
+  border: 2px solid black;
+  width: 95%;
+  min-height:25em;
+  max-width: 200em;
+  /* padding: 1em; */
+  vertical-align: top;
+  line-height: 120%;
   text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  margin: 0.5em;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+.column {
+  float: left;
+  width: 33.33%;
+  margin: 1em;
 }
 
-.card h3 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+#column-right {
+  width: 40%;
 }
 
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
-
-.logo {
-  height: 1em;
-}
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
-}
-
-
 

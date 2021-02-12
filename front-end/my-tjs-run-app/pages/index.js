@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import {NavBar, Footer} from '../components/headersfooter'
+import {NavBar, TJNavBar, Footer} from '../components/headersfooter'
 
 
 // MUST USE ABSOLUTE PATH FOR THIS TO WORK
@@ -59,6 +59,7 @@ export default function Home(props) {
   return (
     <>
       <NavBar />
+      <TJNavBar />
       <RecipeCardContainer recipeData48={props.recipeData48} />
       <Footer />
     </>

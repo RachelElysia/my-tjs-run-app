@@ -22,44 +22,20 @@ export async function getStaticProps(context) {
 //  This is going to fetch the data and it's going to wait until it's fetched.
 function RecipeCard(props) {
   // Split data on the word instead of on the letter
-  let recipeDirections = props.directions;
-  let directionsSplit = recipeDirections.split(" ");
-  
-  let count = 0;
-  let splitIndex = 0;
-  for (let i=0; i< directionsSplit.length; i++) {
-    count += directionsSplit[i].length;
-      if (count>100) {
-        splitIndex = i;
-        break;
-      };
-  }
-  recipeDirections = directionsSplit.slice(0, splitIndex).join(" ");
-
-  // Split title on the word if awkward 2 liner
-  let recipeTitle = props.title;
-  if (recipeTitle.length > 33 && recipeTitle.length < 48) {
-    let titleSplit = recipeTitle.split(" ");
-    let count = 0;
-    let spliceIndex = 0;
-    for (let i=0; i< titleSplit.length; i++) {
-      count += titleSplit[i].length;
-      if (count>25) {
-        spliceIndex = i-1;
-        break;
-      }
-    }
-    titleSplit.splice(spliceIndex, 0, '{"\n"}');
-    recipeTitle = titleSplit.join(" ");
-  }
-
+ 
 
   return (
-      <div className={styles['recipe-flex']}>
-          <img src={props.img} className={styles['recipe-img']} />
-          <div className={styles['info']}>
-            <p className={styles['recipe-title']}><text>{recipeTitle}</text></p>
-            <p className={styles['text_small']}>{recipeDirections}...</p>
+      <div className={styles['my-recipe-flex']}>
+        <div className={styles['column']} id={styles['column-left']}>
+          <p className={styles['recipe-title']}><text>{props.title}</text></p>
+          <p className={styles['text_small']}>FIX ME: TAGS <text></text></p>
+          <img src={props.img} className={styles['my-recipe-img']} width="400em" />
+          </div>
+          <div className={styles['column']}>
+            <p>FIX ME: INGREDIENTS {props.ingredients}</p>
+        </div>
+        <div className={styles['column']} id={styles['column-right']}>
+        <p>{props.directions}</p>
         </div>
       </div> 
   );
@@ -76,6 +52,7 @@ function RecipeCardContainer(props) {
       title={recipe.title}
       directions={recipe.directions}
       img={recipe.img}
+      tags={recipe.tags}
       />
     );
   }
@@ -91,11 +68,11 @@ function RecipeCardContainer(props) {
 
 export default function Home(props) {
   return (
-    <div>
+    <>
       <NavBar />
       <TJNavBar />
       <RecipeCardContainer recipeData24={props.recipeData24} />
       <Footer />
-    </div>
+    </>
   )
 }
