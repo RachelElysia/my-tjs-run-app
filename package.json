@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "react-scroll-motion": "^0.2.1"
+  }
+}

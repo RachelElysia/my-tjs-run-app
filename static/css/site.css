@@ -1,54 +1,185 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Roboto&display=swap');
 
-div.recipe {
-  border-radius: 3px;
-  border: 3px solid black;
-  width: 20em;
-  height: 23em;
-  margin: 1em;
-  padding: 1em;
-  border-radius: 10%;
-  display: inline-block;
-  vertical-align: top;
-  background-color: hsl(310, 100%, 90%);
-  color: hsl(220, 100%, 40%);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
+
+html {font-size: 100%;} /*12px*/
+body {
+  background: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #000000;
 }
 
-body {
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
+
+/* NAV BAR START */
+
+nav {
+  overflow: hidden;
+  background-color: #5c546d;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0px; /* Position the navbar at the top of the page */
+  left: 0px;
+  width: 100%; /* Full width */
+} 
+navbar a .left {
+  float: left;
+  display: flex;
+  color: #e5eaf5;
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-family: 'Poppins', opensans;
+  font-weight: bold;
+}
+navbar a:hover .left {
+  background: #d0bdf4;
+  color: #5c546d;
+  font-family: 'Poppins', opensans;
+  font-weight: 500;
+}
+navbar a .right {
+  float: right;
+  display: flex;
+  color: #e5eaf5;
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-family: 'Poppins', opensans;
+  font-weight: 500;
+}
+navbar a:hover .right {
+  background: #d0bdf4;
+  color: #5c546d;
+  font-family: 'Poppins', opensans;
+  font-weight: 500;
+}
+ ul {
+  list-style-type: none;
+  margin: 5px;
+  padding: 5px;
+}
+li {
+  display: inline-table;
+  padding: 5px;
+}
+
+#tjbar {
+  position: fixed;
+  top: 100px; /*  height under navbar */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  background: #ddd;
+  justify-content: center;
+}
+
+#tjbar a {
+  color: ##D21242;
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-family: 'Poppins', opensans;
+  font-weight: 500;
+}
+#tjbar a:hover {
+  background: #D21242;
+  color: #fff;
+  font-family: 'Poppins', opensans;
+  font-weight: 500;
+} 
+
+/* NAV BAR END */
+
+#away {
+  position: fixed;
+  top: 130px; /* height under tjbar */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  background: green;
+  color: #fff;
+}
+
+.strong {
+  font-weight: 800;
+}
+
+p {margin-bottom: 1rem;}
+
+h1, h2, h3, h4, h5 {
+  margin: 3rem 0 1.38rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  line-height: 1.3;
 }
 
 h1 {
-  font-family: 'Merriweather Sans', sans-serif;
-  color: hsl(220, 100%, 40%);
+  margin-top: 0;
+  font-size: 3.052rem;
 }
 
-a {
-  font-family: "Roboto", sans-serif;
-  color: hsl(200, 100%, 40%);
-}
-a:hover {
-  color: hsl(220, 100%, 40%);
+h2 {font-size: 2.441rem;}
+
+h3 {font-size: 1.953rem;}
+
+h4 {font-size: 1.563rem;}
+
+h5 {font-size: 1.25rem;}
+
+small, .text_small {font-size: 0.8rem;}
+
+div .recipe {
+    border-radius: 2px;
+    border: 2px solid black;
+    width: 18em;
+    height: 20em;
+    margin: 0.5em;
+    /* padding: 1em; */
+    border-radius: 10%;
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+  }
+
+.tile-img {
+    /* display: block; */
+    max-width: 16em;
+    position: relative;
+    top: 0px;
+    right: 0px;
 }
 
-.flex-box {
+.recipe-img {
+    max-width: 18em;
+}
+
+
+div.info {
+  width: 95%;
+}
+
+.recipe-flex {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 }
 
-
-img {
-  border-radius: 10%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+div .tiles-flex {
+  border: 2px solid black;
+  width: 14em;
+  height: 8em;
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
 }
 
+
 img:hover {
-  border-radius: 10%;
   opacity: 0.3;
   filter: alpha(opacity=30);
 }

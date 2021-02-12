@@ -15,10 +15,46 @@
   <link href="/static/css/site.css" rel="stylesheet">
 </head>
 <body>
-  <h1>Welcome to Balloonicorn's Trading Card site</h1>
+
+    <!--Nav Component-->
+    <nav class="navbar">
+      <ul id="left-nav">
+        <li>      <img src="/static/logo.jpg" alt="My TJ's Run Logo"></li>
+        <li> <h1>My TJ's Run</h1></li>
+        <li>My Recipes</li>
+        <li>My Grocery List</li>
+      <!--Align left the nav before this point, align right the nav after this point-->
+        <li>Search</li>
+        <li>Find a Store</li>
+
+        <li>Create Account </li><!--SHOW TWO DIFFERENT THINGS BASED ON CONDITIONAL {this.userin ? My Account | Create Account, Log In}-->
+        <li>Log In </li> 
+        <li>My Account</li>
+
+      </ul>
+      </nav>
+  <!--End Nav Component-->
+
+  <!--Secondary Nav Component-->
+  <div id="tjbar" class="center"><!--Dropdown menu on hover-->
+    <a href="/recipes">Trader Joe's Recipes</a>
+  </div>
+<!--End Secondary Nav Component-->
 
   <!-- Include the page's content with this block. -->
+  <div id="away">
   {% block body %}
   {% endblock %}
+  </div>
+
+  <!--Footer component-->
+  <footer>
+    <ul>
+      <li>Accessibility</li>
+      <li><a href="http://www.rachelelysia.com">A Project by Rachel Perkins</a></li>
+      <li>Hackbright Academy Software Engineering 2021</li>
+    </ul>
+  </footer>
+  <!--End footer component-->
 </body>
 </html>

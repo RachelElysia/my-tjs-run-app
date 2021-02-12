@@ -20,6 +20,17 @@ class User(db.Model):
     password = db.Column(db.String(50),
                       nullable=False) 
 
+    @property
+    def serialize(self):
+        """Return object data in easily serializable format"""
+        return {
+            'user_id'         : self.user_id,
+            'fname'           : self.fname,
+            'lname'           : self.lname,
+            'email'           : self.email,
+            'password'        : self.password
+        }
+
     def __repr__(self):
         return f'''
                 <User id={self.user_id}, 
@@ -49,9 +60,32 @@ class Recipe(db.Model):
     # Need to say the relationship is in the middle table recipetags
     tags = db.relationship('Tag', secondary="recipestags", backref="tags")
 
+
+    @property
+    def serialize(self):
+        """Return object data in easily serializable format"""
+        return {
+            'img'         : self.img,
+            'serves'      : self.serves,
+            'title'       : self.title,
+            'directions'  : self.directions,
+            'cookingTime' : self.cookingTime,
+            'prepTime'    : self.prepTime,
+            'recipe_id'   : self.recipe_id
+        }
+
+    @property
+    def serialize_many2many(self):
+       """
+       Return object's relations in easily serializable format.
+       NB! Calls many2many's serialize property.
+       """
+       return [ item.serialize for item in self.ingredients]
+
     def __repr__(self):
         return f'''
                 <Recipe title={self.title}, 
+# figure out how to add detailed ingredients onto here.
                 recipe_id={self.recipe_id},
                 img={self.img}>
                 '''
@@ -89,6 +123,14 @@ class Tag(db.Model):
     name = db.Column(db.String(16), nullable=False)
     tag_id = db.Column(db.Integer, nullable=False, primary_key=True)
 
+    @property
+    def serialize(self):
+        """Return object data in easily serializable format"""
+        return {
+            'name'         : self.name,
+            'tag_id'       : self.tag_id,
+        }
+
     def __repr__(self):
         return f'''
                 <Tag name={self.name}, 
@@ -108,6 +150,16 @@ class RecipeTag(db.Model):
     tag_id = db.Column(db.Integer,
                           db.ForeignKey('tags.tag_id'),
                           nullable=False)
+
+    @property
+    def serialize(self):
+        """Return object data in easily serializable format"""
+        return {'recipetag_id' : self.recipetag_id,
+                 'recipe_id'   : self.recipe_id,
+                 'tag_id'    : self.tag_id
+                }
+
+
 
     def __repr__(self):
         return f'''
