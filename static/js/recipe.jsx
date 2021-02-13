@@ -20,7 +20,7 @@ function RecipeCard(props) {
   );
 }
 
-function RecipeCardContainer() {
+function RecipeDetailsContainer() {
 
   const recipeCards = [];
 
@@ -57,7 +57,7 @@ function RecipeCardContainer() {
   debugger
 
 // Good to go.
-ReactDOM.render(<RecipeCardContainer />,
+ReactDOM.render(<RecipeDetailsContainer />,
   document.querySelector('#container')
 );
 })();

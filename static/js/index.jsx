@@ -20,7 +20,7 @@ function RecipeCard(props) {
 
 //this is the container that will rendor
 //notice the syntax is we input recipe info
-function RecipeCardContainer() {
+function RecipeTileContainer() {
 
   const recipeCards = [];
 
@@ -57,7 +57,7 @@ function RecipeCardContainer() {
   debugger
 
 // Good to go.
-ReactDOM.render(<RecipeCardContainer />,
+ReactDOM.render(<RecipeTileContainer />,
   document.querySelector('#container')
 );
 

@@ -12,7 +12,7 @@ import {NavBar, Footer} from '../components/headersfooter'
 //   );
 // }
  
-// function TJMapContainer(props) {
+// function MyGroceryList(props) {
 
 
 
@@ -29,7 +29,7 @@ export default function Home(props) {
   return (
     <>
       <NavBar />
-        {/* <TJMapContainer /> */}
+        {/* <MyGroceryList /> */}
       <Footer />
     </>
      )

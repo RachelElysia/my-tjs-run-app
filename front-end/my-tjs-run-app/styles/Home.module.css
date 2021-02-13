@@ -149,7 +149,7 @@
 /* MORE SPECIFIED CONTAINER HOLDING RECIPES */
 .recipe-flex {
   border-radius: 10%;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   width: 15em;
   height: 18em;
   /* padding: 1em; */
@@ -161,6 +161,7 @@
   line-height: 120%;
   text-align: center;
   margin: 0.5em;
+  box-shadow:0 0 5px grey;
 }
 
 .recipe-flex p { margin:0 }
@@ -168,7 +169,7 @@
 
 /* MAIN PAGE TILES */
 .tiles-flex {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   width: 14em;
   height: 8em;
   display: inline-block;
@@ -176,6 +177,7 @@
   overflow: hidden;
   justify-content: center;
   horizontal-align: center;
+  box-shadow:0 0 5px grey;
 }
 
 .tile-img {
@@ -237,7 +239,7 @@ title,
 /* MY RECIPES FLEX BOX */
 .my-recipe-flex {
   border-radius: 10px;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   width: 95%;
   min-height:25em;
   max-width: 200em;
@@ -246,6 +248,12 @@ title,
   line-height: 120%;
   text-align: left;
   margin: 0.5em;
+  box-shadow:0 0 5px grey;
+}
+
+.my-recipe-flex img {
+  border-radius: 5px;
+  box-shadow:0 0 5px grey;
 }
 
 .column {
@@ -285,7 +293,7 @@ title,
   content: "";
   width: 50%;
   border-radius: 15px;
-  box-shadow:0 0 10px grey;
+  box-shadow:0 0 5px grey;
   border: 2px solid black;
   max-width: 30em;
   height: 30em;

@@ -19,7 +19,7 @@ export async function getStaticProps(context) {
   }
 }
 
-function RecipeCard(props) {
+function RecipeTile(props) {
 
   return (
     <div className={styles['tiles-flex']}>
@@ -32,13 +32,13 @@ function RecipeCard(props) {
 
 //this is the container that will rendor
 //notice the syntax is we input recipe info
-function RecipeCardContainer(props) {
+function IndexContainerYay(props) {
 
   const recipeCards = [];
 
   for (const recipe of props.recipeData48) {
     recipeCards.push(
-      <RecipeCard
+      <RecipeTile
       title={recipe.title}
       directions={recipe.directions}
       recipe_id={recipe.recipe_id}
@@ -60,7 +60,7 @@ export default function Home(props) {
     <>
       <NavBar />
       <TJNavBar />
-      <RecipeCardContainer recipeData48={props.recipeData48} />
+      <IndexContainerYay recipeData48={props.recipeData48} />
       <Footer />
     </>
   )

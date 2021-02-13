@@ -42,7 +42,7 @@ function RecipeCard(props) {
 }
  
 
-function RecipeCardContainer(props) {
+function MyRecipesContainer(props) {
 
   const recipeCards = [];
 
@@ -51,6 +51,7 @@ function RecipeCardContainer(props) {
       <RecipeCard
       title={recipe.title}
       directions={recipe.directions}
+      ingredients={recipe.ingredients}
       img={recipe.img}
       tags={recipe.tags}
       />
@@ -71,7 +72,7 @@ export default function Home(props) {
     <>
       <NavBar />
       <TJNavBar />
-      <RecipeCardContainer recipeData24={props.recipeData24} />
+      <MyRecipesContainer recipeData24={props.recipeData24} />
       <Footer />
     </>
   )
