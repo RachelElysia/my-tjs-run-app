@@ -4,13 +4,13 @@ from model import db, User, Recipe, Tag, Ingredient, RecipeTag, connect_to_db
 
 # CREATE USER, TAG, RECIPE, INGREDIENT
 
-def create_user(fname, lname, email, password):   
+def create_user(fname, lname, email, password_hash):   
     """Create and return user."""
 
     user = User(fname=fname,
                 lname=lname,
                 email=email,
-                password=password)
+                password_hash=password_hash)
 
     db.session.add(user)
     db.session.commit()

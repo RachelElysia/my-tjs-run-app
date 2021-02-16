@@ -15,57 +15,7 @@ app.secret_key = '123abcEFG'
 app.jinja_env.undefined = StrictUndefined
 ###
 
-# few_datapoints =  [
-#   {
-#     "title": 'Balloonicornuts',
-#     "description": 'This is a really long "description" to see what is happening to my sentence',
-#     "img": '/static/img/balloonicorn.jpg'
-#   },
-
-#   {
-#     "title": 'Float',
-#     "description": 'I never knew that everything was on a cue. To turn around when all I needed was the truth.',
-#     "img": '/static/img/float.jpg'
-#   },
-
-#   {
-#     "title": 'Llambda',
-#     "description": 'knitting scarves',
-#     "img": '/static/img/llambda.jpg'
-#   },
-
-
-#   {
-#     "title": 'Off-By-One',
-#     "description": 'climbing mountains',
-#     "img": '/static/img/off-by-one.jpg'
-#   },
-
-#   {
-#     "title": 'Seed.py',
-#     "description": 'making curry dishes',
-#     "img": '/static/img/seedpy.jpg'
-#   },
-
-#   {
-#     "title": 'Polymorphism',
-#     "description": 'costumes',
-#     "img": '/static/img/polymorphism.jpg'
-#   },
-
-#   {
-#     "title": 'Short Stack Overflow',
-#     "description": 'ocean animal trivia',
-#     "img": '/static/img/shortstack-overflow.jpg'
-#   },
-
-#   {
-#     "title": 'Merge',
-#     "description": 'bullet journaling',
-#     "img": '/static/img/merge.jpg'
-#   }
-# ]
-
+########### THIS IS REPLACED WITH REACT ONSUBMIT #############
 @app.route('/')
 def show_homepage():
     """Show the application's homepage."""
@@ -73,6 +23,7 @@ def show_homepage():
     return render_template('homepage.html')
 
 
+########### THIS IS REPLACED WITH REACT ONSUBMIT #############
 @app.route('/recipes')
 def show_recipes():
     """Show all recipes."""
@@ -107,7 +58,6 @@ def recipes_data():
 def recipe_by_id_data(recipe_id):
   """Show one recipes."""
 
-  # The default is 24, you can change this parameter
   recipe_by_id = crud.get_recipe_by_id(recipe_id)
 
   serialized_recipe_data = [recipe_by_id.serialize]
@@ -124,6 +74,46 @@ def recipes_data_hungry():
   serialized_recipe_data = [i.serialize for i in recipe_data]
 
   return jsonify(serialized_recipe_data)
+
+########### THIS IS REPLACED WITH REACT ONSUBMIT #############
+@app.route('/users', methods=['POST'])
+def register_user():
+    """Create a new user."""
+
+    fname = request.form.get('fname')
+    lname = request.form.get('lname')
+    email = request.form.get('email')
+    password_hash = request.form.get('password_hash')
+    
+    user = crud.get_user_by_email(email)
+
+    if user:
+        flash('Email address already associated to an account. Try again.')
+    else:
+        user = crud.create_user(email, password)
+        flash('Account successfully created! Please log in to rate movies.')
+
+    return redirect('/')
+
+########### THIS IS REPLACED WITH REACT ONSUBMIT #############
+@app.route('/log-in', methods=['POST'])
+def log_in():
+    """Log In user."""
+
+    email_entered = request.form.get('email')
+    password_entered = request.form.get('password_hash')
+    
+    user = crud.get_user_by_email(email_entered)
+
+    if user is None:
+        flash('This email address is not associated with an account. Please try again.')
+    elif password_entered == user.password_hash:
+        session['primary_key'] = user.user_id 
+        flash('You are successfully logged in!')
+    else:
+        flash('Incorrect password. Please try again.')
+
+    return redirect('/')
 
 if __name__ == '__main__':
     ####### added by Lucia 2/11
