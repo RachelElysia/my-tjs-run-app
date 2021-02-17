@@ -44,16 +44,6 @@ def show_homepage():
 
 #     return jsonify(few_datapoints)
 
-@app.route('/api/recipes')
-def recipes_data():
-  """Show all recipes."""
-
-  # The default is 24, you can change this parameter
-  recipe_data = crud.get_recipes()
-
-  serialized_recipe_data = [i.serialize for i in recipe_data]
-
-  return jsonify(serialized_recipe_data)
 
 @app.route('/api/<recipe_id>/tags')
 def recipes_tags_by_id(recipe_id):
@@ -83,6 +73,59 @@ def recipes_tags_by_id(recipe_id):
 
   return jsonify(serialized_recipe_tags)
 
+
+@app.route('/api/recipes')
+def recipes_data():
+  """Show all recipes."""
+
+  # The default is 24, you can change this parameter
+  recipe_data = crud.get_recipes()
+
+  serialized_recipe_data = [i.serialize for i in recipe_data]
+
+  return jsonify(serialized_recipe_data)
+
+
+@app.route('/api/tags/<tag_id>')
+def recipes_by_tag_id(tag_id):
+  """Show all recipes and their info for a tag.
+  
+  http://localhost:5000/api/tags/104
+  SHOWS JSON:
+[
+  10 big objects
+]
+  
+  """
+    
+  # This crud function returns a list so I don't need to serialize!
+  recipe_ids = crud.get_recipe_ids_by_tag_id(tag_id)
+
+  detailed_recipes_by_tag = []
+
+  for id in recipe_ids:
+    detailed_recipes_by_tag.append(crud.get_recipe_by_id(id))
+
+  serialized_recipe_data_by_tag = [i.serialize for i in detailed_recipes_by_tag]
+
+  return jsonify(serialized_recipe_data_by_tag)
+
+@app.route('/api/tags/<tag_id>/name')
+def tag_name_by_tag_id(tag_id):
+  """Show all recipes and their info for a tag.
+  
+  http://localhost:5000/api/tags/104/name
+  SHOWS JSON:
+[
+  cocktails
+]
+  
+  """
+    
+  # This crud function returns a list so I don't need to serialize!
+  tag_name = crud.get_tag_name(tag_id)
+
+  return jsonify(tag_name.name)
 
 @app.route('/api/<recipe_id>/tagnames')
 def recipes_tag_names_by_id(recipe_id):
@@ -170,24 +213,30 @@ def recipes_data_hungry():
   return jsonify(serialized_recipe_data)
 
 ########### THIS IS REPLACED WITH REACT ONSUBMIT #############
-@app.route('/api/users', methods=['POST'])
-def register_user():
-    """Create a new user."""
+# @app.route('/api/users', methods=['POST'])
+# def register_user():
+#     """Create a new user."""
 
-    fname = request.form.get('fname')
-    lname = request.form.get('lname')
-    phone = request.form.get('phone')
-    password_hash = generate_password_hash(request.form.get('password'))
+#     fname = request.form.get('fname')
+#     lname = request.form.get('lname')
+#     phone = request.form.get('phone')
+#     password_hash = generate_password_hash(request.form.get('password'))
     
-    user = crud.get_user_by_phone(phone)
+#     user = crud.get_user_by_phone(phone)
 
-    if user:
-        flash('Phone number already associated to an account. Try again.')
-    else:
-        user = crud.create_user(fname, lname, phone, password_hash)
-        flash('Account successfully created! Please log in to favorite recipes.')
+#     # ONLY IF YOU'RE USING PYTHON FOR FRONT END
+#     # NEED JAVASCRIPT ALERT
+#     # if user:
+#     #     flash('Phone number already associated to an account. Try again.')
+#     # else:
+#     #     user = crud.create_user(fname, lname, phone, password_hash)
+#     #     flash('Account successfully created! Please log in to favorite recipes.')
 
-    return redirect('/')
+#     if !user: 
+#       crud.create_user(fname, lname, phone, password_hash)
+#     else:
+
+#     return 
 
 ########### THIS IS REPLACED WITH REACT ONSUBMIT #############
 @app.route('/api/userlogin', methods=['POST'])
@@ -201,11 +250,14 @@ def log_in():
     if user is None:
         flash('This phone number is not associated with an account. Please try again.')
     
+
+    # ONLY IF YOU'RE USING PYTHON FOR FRONT END
+    # NEED JAVASCRIPT ALERT
     # first value is the password_hash, second value is the password entered
-    elif check_password_hash(user.password_hash, request.form.get('password')):
-        flash('You are successfully logged in!')
-    else:
-        flash('Incorrect password. Please try again.')
+    # elif check_password_hash(user.password_hash, request.form.get('password')):
+    #     flash('You are successfully logged in!')
+    # else:
+    #     flash('Incorrect password. Please try again.')
 
     return redirect('/')
 

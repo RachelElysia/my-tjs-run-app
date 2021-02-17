@@ -139,6 +139,11 @@ def get_tags():
 
     return Tag.query.all()
 
+def get_tag_name(tag_id):
+    """Return tag name."""
+
+    return Tag.query.filter(Tag.tag_id == tag_id).one()
+
 def get_users():
     """Return all users."""
 
@@ -194,6 +199,34 @@ def get_tag_names_by_recipe_id(recipe_id):
         recipe_tags_names.append(tag.name)
 
     return recipe_tags_names
+
+def get_recipe_ids_by_tag_id(tag_id):
+    """Return multiple recipes.
+    
+    >>> get_recipe_id_by_tag_id(104)
+
+    [
+                <RecipeTag recipetag_id=1,
+                recipe_id=1  
+                tag_id=10>
+                , 
+                <RecipeTag recipetag_id=2,
+                recipe_id=2  
+                tag_id=47>
+                ]
+    """
+
+    #THIS IS WEIRD TO DO TWO QUERIES NO?
+
+    response = RecipeTag.query.filter(RecipeTag.tag_id == tag_id).all()
+
+    recipe_ids_list = []
+
+    for item in response:
+        recipe_id_append = Recipe.query.filter(Recipe.recipe_id == item.recipe_id).one()
+        recipe_ids_list.append(recipe_id_append.recipe_id)
+
+    return recipe_ids_list
 
 
 # This went the wrong way, save this just in case

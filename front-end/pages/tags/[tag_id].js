@@ -1,9 +1,13 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import {NavBar, TJNavBar, Footer} from '../components/headersfooter'
+import styles from '../../styles/Home.module.css'
+import {NavBar, TJNavBar, Footer} from '../../components/headersfooter'
 
 // needed for client side data fetching, see next.js docs
 import useSWR from 'swr'
+
+// needed to use dynamic front-end routes
+import { useRouter } from 'next/router'
+
 
 // MUST USE ABSOLUTE PATH FOR THIS TO WORK
 // export async function getStaticProps(context) {
@@ -20,6 +24,23 @@ import useSWR from 'swr'
 //     props: {recipeData24,}, // will be passed to the page component as props
 //   }
 // }
+
+  //self calling function to work around useSWR issues with using it twice
+
+  // let data2;
+
+  // (function ok(){
+
+  //   const router = useRouter()
+  //   const {tag_id} = router.query
+  
+  // const { data2, error2 } = useSWR(`/api/tags/${tag_id}/name`, fetchTagName)
+
+  // if (error2) return <div>failed to load</div>
+  // if (!data2) return <div>loading...</div>
+  // })();
+
+  // let tag_name = data2;
 
 //fetch('/recipes_data') -> Promise<response>
 //  This is going to fetch the data and it's going to wait until it's fetched.
@@ -83,10 +104,33 @@ function RecipeCardContainer(props) {
     );
   }
 
+  // THIS ERRORS OUT IF YOU PUT MORE THAN ONE USE SWR IN THE SAME COMPONENT
+  // WITH TWO OF THEM, IT SOMEHOW COMPLAINS THERES MORE THAN ONE HOOK SO 
+  // THE PREVIOUS RENDER RENDERED MORE HOOKS, IT MIGHT EARLY EXIT AND NOT LOAD CORRECTLY
+  
+  // COME BACK THIS WEEKEND AND SIT DOWN WITH STEVEN TO MAKE IT SO THE USE SWR WON'T LOAD
+  // UNTIL ALL USE SWR's LOAD. THIS CAN BE A WEEKEND PROJECT
+
+  // need next.js built in dynamic router
+  const router = useRouter()
+  const {tag_id} = router.query
+
+  const fetchTagName = url => fetch(url).then(r => r.json())
+  
+  // result = useSWR object that has keys {data, error} built in
+  const tagNameResult = useSWR(`/api/tags/${tag_id}/name`, fetchTagName)
+
+  if (tagNameResult.error) return <div>failed to load</div>
+  if (!tagNameResult.data) return <div>loading...</div>
+
+
+  // refactor me your tag name rendering as a flex - yourself 1am 2/17
   return (
     <div className={styles['flex-container']}>
+      <h1>{tagNameResult.data}</h1>
       {recipeCards}
     </div>
+    
   );
 };
 
@@ -94,23 +138,51 @@ function RecipeCardContainer(props) {
 
 export default function Home(props) {
 
+  // need next.js built in dynamic router
+  const router = useRouter()
+  const {tag_id} = router.query
 
-  const fetcher3 = url => fetch(url).then(r => r.json())
+  // let data2;
+
+  // (function ok(){
+
+  //   const router = useRouter()
+  //   const {tag_id} = router.query
+  
+  // const { data2, error2 } = useSWR(`/api/tags/${tag_id}/name`, fetchTagName)
+
+  // if (error2) return <div>failed to load</div>
+  // if (!data2) return <div>loading...</div>
+  // })();
+
+  // let tag_name = data2;
+
+
+
+  // NEW SCHOOL FETCHING!
+  const fetcherRecipesByTag = url => fetch(url).then(r => r.json())
 
   // useSWR takes 2 parameters: the URL, and how to fetch it (.then promise)
   // beneath the hood useSWR has 1 object with 2 keys returned, data and error
   // we call this destructuring :)
-  const { data, error } = useSWR('/api/recipes', fetcher3)
+  // const { data, error } = useSWR(`/api/tags/${tag_id}`, fetcherRecipeIdsByTag)
+    // result = useSWR object that has keys {data, error} built in
+  const tagRecipesResult = useSWR(`/api/tags/${tag_id}`, fetcherRecipesByTag)
 
-  if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
+  if (tagRecipesResult.error) return <div>failed to load</div>
+  if (!tagRecipesResult.data) return <div>loading...</div>
 
+  
+
+  // useSWR takes 2 parameters: the URL, and how to fetch it (.then promise)
+  // beneath the hood useSWR has 1 object with 2 keys returned, data and error
+  // we call this destructuring :)
 
   return (
     <>
       <NavBar />
       <TJNavBar />
-      <RecipeCardContainer recipeData24={data} />
+      <RecipeCardContainer recipeData24={tagRecipesResult.data}/>
       <Footer />
     </>
   )
