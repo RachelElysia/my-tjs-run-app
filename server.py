@@ -87,18 +87,7 @@ def recipes_ingredients_by_id(recipe_id):
   
   http://localhost:5000/08Ifren64xtMVpoG03Qx/ingredients
   SHOWS JSON:
-  [
-  {
-    "recipe_id": "08Ifren64xtMVpoG03Qx", 
-    "recipetag_id": 1, 
-    "tag_id": 10
-  }, 
-  {
-    "recipe_id": "08Ifren64xtMVpoG03Qx", 
-    "recipetag_id": 2, 
-    "tag_id": 47
-  }
-  ]
+
   
   """
 

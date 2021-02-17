@@ -108,12 +108,19 @@ class Ingredient(db.Model):
 
     def __repr__(self):
         return f'''
-                <Ingredient ingredient_id={self.ingredient_id}
-                recipe_id={self.recipe_id}
-                detailed_ingredient={self.detailed_ingredient[0:20]}
-                abridged_ingredient={self.abridged_ingredient[0:20]}                
-                >
+                <Ingredient ingredient_id={self.ingredient_id},
+                recipe_id={self.recipe_id},
+                detailed_ingredient={self.detailed_ingredient[0:20]}>
                 '''
+
+    @property
+    def serialize(self):
+        """Return object data in easily serializable format"""
+        return {
+            'recipe_id'                 : self.recipe_id,
+            'detailed_ingredient'       : self.detailed_ingredient,
+            'abridged_ingredient'       : self.abridged_ingredient
+        }
 
 
 class Tag(db.Model):
@@ -238,6 +245,7 @@ if __name__ == '__main__':
     # too annoying; this will tell SQLAlchemy not to print out every
     # query it executes.
 
+# uncomment the next three when if wanting to reseed database! - had to do this 2/16 to fix abridged_ingredients
     # import os
 
     # os.system('dropdb recipes')

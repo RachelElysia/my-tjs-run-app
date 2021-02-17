@@ -172,10 +172,30 @@ def get_ingredients_by_recipe_id(recipe_id):
     
     >>> get_ingredients_by_recipe_id('08Ifren64xtMVpoG03Qx')
 
-    DOES NOT WORK PLEASE FIX!
+    [
+    <Ingredient ingredient_id=1,
+    recipe_id=08Ifren64xtMVpoG03Qx,
+    detailed_ingredient=1 can TJ's Buttermil>
+    , 
+    <Ingredient ingredient_id=2,
+    recipe_id=08Ifren64xtMVpoG03Qx,
+    detailed_ingredient=1 package TJ's Soy C>
+    , 
+    <Ingredient ingredient_id=3,
+    recipe_id=08Ifren64xtMVpoG03Qx,
+    detailed_ingredient=2/3 cup TJ's Island >
+    , 
+    <Ingredient ingredient_id=4,
+    recipe_id=08Ifren64xtMVpoG03Qx,
+    detailed_ingredient=1 cup TJ's Unsweeten>
+    , 
+    <Ingredient ingredient_id=5,
+    recipe_id=08Ifren64xtMVpoG03Qx,
+    detailed_ingredient=TJ's Fire Roasted Di>
+    ]
     """
 
-    return Ingredient.query.filter(Ingredient.recipe_id == recipe_id).all()
+    return db.session.query(Ingredient).filter_by(recipe_id=recipe_id).all()
 
 
 def get_ingredients():

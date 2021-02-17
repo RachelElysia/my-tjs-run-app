@@ -4,15 +4,16 @@ import os
 import json
 from random import choice, randint
 import re # this is to help split by two delimiters
-
 import crud
+
+# I COMMENTED THIS OUT BECAUSE  I DONT WANT TO DROP AND RECREATE A NEW DATA BASE ANYTIME SOON
 # import model
-# # import server
+# import server
 
 
 # os.system('dropdb recipes')
 # os.system('createdb recipes')
-# # model.connect_to_db(server.app)
+# model.connect_to_db(server.app)
 # model.db.create_all()
 
 # Populate Tags DATA table (2 Columns, 2 Parameters, PK in API)
@@ -69,11 +70,13 @@ for recipe in recipe_data:
             abridged_ingredient = ingredient_split[1]
             abridged_ingredients_dict[recipe['id']].append(abridged_ingredient)
             # print(ingredient_split[1])
+        else:
+            abridged_ingredient = None
 
         current_ingredient = crud.create_ingredient(
                                         recipe['id'],
                                         detailed_ingredient,
-                                        abridged_ingredient=None
+                                        abridged_ingredient
                                         )
 
     # Populate Recipe Tags RELATIONSHIP table
