@@ -81,7 +81,7 @@ function RecipeCardContainer(props) {
   }
 
   return (
-    <div className={styles['container']}>
+    <div className={styles['flex-container']}>
       {recipeCards}
     </div>
   );

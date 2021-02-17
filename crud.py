@@ -144,10 +144,10 @@ def get_users():
 
     return User.query.all()
 
-def get_user_by_email(email):
-    """Return a user by email."""
+def get_user_by_phone(phone):
+    """Return a user by phone."""
 
-    return User.query.filter(User.email == email).first()
+    return User.query.filter(User.phone == phone).first()
 
 def get_tags_by_recipe_id(recipe_id):
     """Return multiple tags.

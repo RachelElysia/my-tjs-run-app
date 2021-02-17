@@ -39,13 +39,13 @@ onMouseLeave={() => setIsShown(false)}>
 <div id={styles['tjbar-dropdown']}>
   <table id={styles['tjbar-table']}>
   <td>
-  <tr><button>Get Started</button></tr>
-  <tr><p className={styles["text_small"]}>Choose your recipes</p></tr>
-  <tr><p className={styles["text_small"]}>Generate your ingredients list</p></tr>
-  <tr><p className={styles["text_small"]}>Receive your list as a text message!</p></tr>
+  <tr><a href="/login"><center><button>Get Started</button></center></a></tr>
+  <tr><span className={styles["text_small"]}>Choose your recipes</span></tr>
+  <tr><span className={styles["text_small"]}>Generate your grocery list</span></tr>
+  <tr><span className={styles["text_small"]}>Receive your list as a text message!</span></tr>
 </td>
   <td>
-  <tr><h5>Party Favorites</h5></tr>
+  <th>Party Favorites</th>
   <tr><a href="/tags/desserts">Desserts</a></tr>
   <tr><a href="/tags/appetizers">Appetizers</a></tr>
   <tr><a href="/tags/sides">Sides</a></tr>
@@ -53,7 +53,7 @@ onMouseLeave={() => setIsShown(false)}>
   <tr><a href="/tags/snacks">Snacks</a></tr>
 </td>
     <td>
-  <tr><h5>Featured</h5></tr>
+  <th>Featured</th>
   <tr><a href="/tags/stpatricksday">St. Patrick's Day</a></tr>
   <tr><a href="/tags/spring">Spring</a></tr>
   <tr><a href="/tags/breakfast">Breakfast</a></tr>

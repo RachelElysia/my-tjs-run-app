@@ -170,7 +170,7 @@ def recipes_data_hungry():
   return jsonify(serialized_recipe_data)
 
 ########### THIS IS REPLACED WITH REACT ONSUBMIT #############
-@app.route('/users', methods=['POST'])
+@app.route('/api/users', methods=['POST'])
 def register_user():
     """Create a new user."""
 
@@ -190,7 +190,7 @@ def register_user():
     return redirect('/')
 
 ########### THIS IS REPLACED WITH REACT ONSUBMIT #############
-@app.route('/log-in', methods=['POST'])
+@app.route('/api/userlogin', methods=['POST'])
 def log_in():
     """Log In user."""
 

@@ -10,7 +10,6 @@ import crud
 # import model
 # import server
 
-
 # os.system('dropdb recipes')
 # os.system('createdb recipes')
 # model.connect_to_db(server.app)

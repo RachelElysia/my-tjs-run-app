@@ -55,7 +55,7 @@ function handleSubmitSignIn(event) {
   event.preventDefault();
   const data = new FormData(event.target);
   
-  fetch('/api/users', {
+  fetch('/api/userlogin', {
     method: 'POST',
     body: data,
   });

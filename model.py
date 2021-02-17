@@ -15,7 +15,7 @@ class User(db.Model):
                       nullable=False)
     lname = db.Column(db.String(35),
                       nullable=False)
-    phone = db.Column(db.Integer(10),
+    phone = db.Column(db.BigInteger(),
                       nullable=False)
     password_hash = db.Column(db.String(100),
                       nullable=False) 
@@ -255,12 +255,12 @@ if __name__ == '__main__':
     # query it executes.
 
 # uncomment the next three when if wanting to reseed database! - had to do this 2/16 to fix abridged_ingredients
-    # import os
+    import os
 
     # os.system('dropdb recipes')
     # os.system('createdb recipes')
 
-    connect_to_db(app)
+    # connect_to_db(app)
 
     db.create_all()
 

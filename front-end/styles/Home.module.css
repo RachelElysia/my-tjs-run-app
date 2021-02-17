@@ -64,6 +64,7 @@
   padding-bottom: 5.5rem;    /* Footer height */
   max-width: 90em;
   overflow-y: scroll;
+  justify-items: center;
 }
 
 .main {
@@ -146,7 +147,7 @@
 #tjbar a {
   color: #D21242;
   text-align: center;
-  padding: 8px 25em;
+  padding: 8px 20em;
   text-decoration: none;
   font-family: 'Poppins', opensans;
   font-weight: 500;
@@ -156,31 +157,25 @@
 
 }
 #tjbar a:hover {
-  background: #D21242;
-  color: #fff;
+  background: #fff;
+  color: #D21242;
   font-family: 'Poppins', opensans;
   font-weight: 500;
   justify-content: center;
   align-items: center;
-  padding-bottom: 3em;
+  padding-bottom: 20em;
 } 
 
 #tjbar-dropdown {
-  position:fixed;
+  position:relative;
   top: 8rem;    /* NavBar TJNavBar height */
-  width: 35em;
+  width: 40em;
   background: #D21242;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
   z-index: 999;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+
 }
 
 #tjbar-table {
-  display: block;
   margin-left: auto;
   margin-right: auto;
 }
@@ -222,6 +217,7 @@
   /* We first create a flex layout context */
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   
   /* Then we define the flow direction 
@@ -235,6 +231,12 @@
   /* Then we define how is distributed the remaining space */
   margin: 1em;
   list-style: none;
+  top: 9rem;    /* NavBar TJNavBar height */
+  padding-top: 9em;
+  padding-bottom: 5.5rem;    /* Footer height */
+  max-width: 90em;
+  overflow-y: scroll;
+  justify-items: center;
 }
 
 /* MORE SPECIFIED CONTAINER HOLDING RECIPES */
@@ -247,8 +249,6 @@
   vertical-align: top;
   overflow: hidden;
   display: inline-block;
-  justify-content: center;
-  align-items: center;
   line-height: 120%;
   text-align: center;
   margin: 0.5em;
@@ -334,15 +334,16 @@ title,
   height: 33%;
   min-height:16em;
   max-height:18em; 
-  max-width: 200em;
+  max-width: 70em;
   /* padding: 1em; */
   vertical-align: top;
   line-height: 120%;
   text-align: left;
   margin: 1em;
   box-shadow:0 0 5px grey;
-  display: flexbox;
   align-items: center;
+  display: inline-block;
+  overflow: hidden;
   justify-content: center;
 }
 
@@ -351,7 +352,7 @@ title,
   padding: 0.2em;
 }
 
-.my-recipe-flex img {
+.my-recipe-flex img, .my-ingredient-flex img {
   border-radius: 5px;
   max-width: 100%;
   box-shadow:0 0 5px grey;
@@ -359,7 +360,6 @@ title,
 
 
 #column-left {
-  float: left;
   width: 32%;
   height: 100%;
   max-width: 50em;
@@ -368,7 +368,6 @@ title,
 }
 
 #column-middle {
-  float: left;
   width: 28%;
   height: 95%;
   margin: 1%;
@@ -381,6 +380,35 @@ title,
   display: inline-block;
 
 }
+
+.table-wide {
+  width: 24em;
+
+}
+
+/* MY GROCERY LIST */
+#column-left-ingredients {
+  width: 22%;
+  height: 100%;
+  max-width: 50em;
+  padding: 0.5em;
+  display: inline-block;
+}
+#column-ingredients {
+  width: 65%;
+  margin: 1%;
+  display: inline-block;
+
+}
+
+#ingredients-table td{
+  padding-right: 3em;
+}
+
+#ingredients-table th {
+    text-align: left;
+}
+
 
 .scrollable {
   width: 100%;
