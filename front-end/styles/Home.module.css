@@ -119,7 +119,7 @@
 } 
 
 #tjbar-dropdown {
-  position:relative;
+  position:fixed;
   top: 8rem;    /* NavBar TJNavBar height */
   width: 40em;
   background: #D21242;
