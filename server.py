@@ -42,7 +42,7 @@ def show_homepage():
 
 #     return jsonify(few_datapoints)
 
-@app.route('/recipes')
+@app.route('/api/recipes')
 def recipes_data():
   """Show all recipes."""
 
@@ -53,11 +53,11 @@ def recipes_data():
 
   return jsonify(serialized_recipe_data)
 
-@app.route('/<recipe_id>/tags')
+@app.route('/api/<recipe_id>/tags')
 def recipes_tags_by_id(recipe_id):
   """Show all tags for a recipe.
   
-  http://localhost:5000/08Ifren64xtMVpoG03Qx/tags
+  http://localhost:5000/api/08Ifren64xtMVpoG03Qx/tags
   SHOWS JSON:
   [
   {
@@ -73,7 +73,7 @@ def recipes_tags_by_id(recipe_id):
 ]
   
   """
-
+    
   # The default is 24, you can change this parameter
   recipe_data = crud.get_tags_by_recipe_id(recipe_id)
 
@@ -81,14 +81,60 @@ def recipes_tags_by_id(recipe_id):
 
   return jsonify(serialized_recipe_tags)
 
-@app.route('/<recipe_id>/ingredients')
+
+@app.route('/api/<recipe_id>/tagnames')
+def recipes_tag_names_by_id(recipe_id):
+  """Show all tags for a recipe.
+  
+  http://localhost:5000/api/08Ifren64xtMVpoG03Qx/tagnames
+  SHOWS JSON:
+
+  [
+  "Meatless", 
+  "Salsa"
+]
+  """
+    
+  recipe_tags_names_data = crud.get_tag_names_by_recipe_id(recipe_id)
+
+  return jsonify(recipe_tags_names_data)
+
+
+
+@app.route('/api/<recipe_id>/ingredients')
 def recipes_ingredients_by_id(recipe_id):
   """Show all ingredients for a recipe.
   
-  http://localhost:5000/08Ifren64xtMVpoG03Qx/ingredients
+  http://localhost:5000/api/08Ifren64xtMVpoG03Qx/ingredients
   SHOWS JSON:
 
-  
+    [
+  {
+    "abridged_ingredient": "Buttermilk Biscuits", 
+    "detailed_ingredient": "1 can TJ's Buttermilk Biscuits", 
+    "recipe_id": "08Ifren64xtMVpoG03Qx"
+  }, 
+  {
+    "abridged_ingredient": "Soy Chorizo", 
+    "detailed_ingredient": "1 package TJ's Soy Chorizo", 
+    "recipe_id": "08Ifren64xtMVpoG03Qx"
+  }, 
+  {
+    "abridged_ingredient": "Island Salsa", 
+    "detailed_ingredient": "2/3 cup TJ's Island Salsa", 
+    "recipe_id": "08Ifren64xtMVpoG03Qx"
+  }, 
+  {
+    "abridged_ingredient": "Unsweetened Almond Milk", 
+    "detailed_ingredient": "1 cup TJ's Unsweetened Almond Milk", 
+    "recipe_id": "08Ifren64xtMVpoG03Qx"
+  }, 
+  {
+    "abridged_ingredient": "Fire Roasted Diced Green Chiles", 
+    "detailed_ingredient": "TJ's Fire Roasted Diced Green Chiles, for garnish (optional)", 
+    "recipe_id": "08Ifren64xtMVpoG03Qx"
+  }
+    ]  
   """
 
   # The default is 24, you can change this parameter
@@ -98,7 +144,7 @@ def recipes_ingredients_by_id(recipe_id):
 
   return jsonify(serialized_recipe_ingredients)
 
-@app.route('/recipes/<recipe_id>')
+@app.route('/api/recipes/<recipe_id>')
 def recipe_by_id_data(recipe_id):
   """Show one recipes."""
 
@@ -110,8 +156,7 @@ def recipe_by_id_data(recipe_id):
   return jsonify(serialized_recipe_data)
 
 
-
-@app.route('/recipes_hungry')
+@app.route('/api/recipes_hungry')
 def recipes_data_hungry():
   """Show all recipes."""
 

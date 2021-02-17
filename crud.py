@@ -167,6 +167,44 @@ def get_tags_by_recipe_id(recipe_id):
 
     return RecipeTag.query.filter(RecipeTag.recipe_id == recipe_id).all()
 
+def get_tag_names_by_recipe_id(recipe_id):
+    """Return multiple tags.
+    
+    >>> get_tag_names_by_recipe_id('08Ifren64xtMVpoG03Qx')
+
+    [
+                <RecipeTag recipetag_id=1,
+                recipe_id=1  
+                tag_id=10>
+                , 
+                <RecipeTag recipetag_id=2,
+                recipe_id=2  
+                tag_id=47>
+                ]
+    """
+
+    #THIS IS WEIRD TO DO TWO QUERIES NO?
+    
+    response = RecipeTag.query.filter(RecipeTag.recipe_id == recipe_id).all()
+
+    recipe_tags_names = []
+
+    for item in response:
+        tag = Tag.query.filter(Tag.tag_id == item.tag_id).one()
+        recipe_tags_names.append(tag.name)
+
+    return recipe_tags_names
+
+
+# This went the wrong way, save this just in case
+# def get_tag_names_by_recipe_id(recipe_id):
+#     """Return tag names attached to recipe_id"""
+    
+#     joined = db.session.query(Recipe).options(db.joinedload('tags')).all();
+
+
+#     return joined
+
 def get_ingredients_by_recipe_id(recipe_id):
     """Return multiple tags.
     
