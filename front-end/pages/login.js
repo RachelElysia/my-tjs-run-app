@@ -3,25 +3,6 @@ import styles from '../styles/Home.module.css'
 import {NavBar, TJNavBar, Footer} from '../components/headersfooter'
 import Fade from 'react-reveal/fade';
 
-// MUST USE ABSOLUTE PATH FOR THIS TO WORK
-export async function getStaticProps(context) {
-  const res = await fetch('http://localhost:5000/recipes')
-  const recipeData24 = await res.json()
-
-  if (!recipeData24) {
-    return {
-      notFound: true,
-    }
-  }
-
-  return {
-    props: {recipeData24,}, // will be passed to the page component as props
-  }
-}
-
-//fetch('/recipes_data') -> Promise<response>
-//  This is going to fetch the data and it's going to wait until it's fetched.
-
 function handleSubmit(event) {
   event.preventDefault();
   const data = new FormData(event.target);
@@ -43,21 +24,22 @@ function SignUp() {
       <tr>
         <td>
       <label for="fname">First Name:</label> <br />
-      <input type="text" name="fname" id="fname" placeholder="Joe" />
+      <input type="text" name="fname" id="fname" placeholder="Joe" required/>
     </td>
     <td>
       <label for="lname">Last Name:</label> <br />
-      <input type="text" name="lname" id="lname" placeholder="Coulombe" />
+      <input type="text" name="lname" id="lname" placeholder="Coulombe" required/>
     </td>
     </tr>
     <tr>
       <td>
-      <label for="email">Email:</label> <br />
-      <input type="email" name="email" id="email" placeholder="joe@email.com"/>
+      <label for="phone">10-digit Phone Number:</label> <br />
+      <input type="tel" name="phone" id="phone"
+      placeholder="4158631292" pattern="[0-9]{10}" required/>
     </td>
     <td>
-    <label for="fname">Password <i>Unsecure</i>:</label><br />
-      <input type="password" name="password" id="password" placeholder="Unsecure Password"/>
+    <label for="fname">Password:</label><br />
+      <input type="password" name="password" id="password" placeholder="Password"/>
     </td>
     </tr>
     <tr>
@@ -87,11 +69,11 @@ function SignIn() {
       <form onSubmit={handleSubmitSignIn}>
 
         <p>
-          <label for="email">Email:</label> <br />
-          <input type="text" name="email" id="email" placeholder="Your email" />
+          <label for="phone">Phone Number:</label> <br />
+          <input type="text" name="phone" id="phone" placeholder="4158631292" />
         </p>
         <p>
-          <label for="fname">Password</label> <br />
+          <label for="password">Password</label> <br />
           <input type="password" name="password" id="password" placeholder="Your password" />
         </p>
         <p>

@@ -21,6 +21,8 @@ export async function getStaticProps(context) {
   }
 }
 
+
+
 //fetch('/recipes_data') -> Promise<response>
 //  This is going to fetch the data and it's going to wait until it's fetched.
 function RecipeCard(props) {
@@ -28,6 +30,7 @@ function RecipeCard(props) {
  
     //Figure out how to split directions to digestible chunks
   let directionsSplit = props.directions;
+
   // directionsSplit = directionsSplit.split(". ", ".");
 
 
@@ -35,43 +38,77 @@ function RecipeCard(props) {
   // save it as a variable and use SWR which takes in two parameters, the url and the function
   // to do behind the scenes work
 
-  const fetcher = url => fetch(url).then(r => r.json())
+  // const fetcher = url => fetch(url).then(r => r.json())
 
-  const { data, error } = useSWR(`/api/${props.recipe_id}/tagnames`, fetcher)
+  // const { data, error } = useSWR(`/api/${props.recipe_id}/tagnames`, fetcher)
 
-  if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
+  // if (error) return <div>failed to load</div>
+  // if (!data) return <div>loading...</div>
 
-  let tags = data.join(", ")
-
+  // const tags = data => {
+  //   linkedTags = [];
+  //   for (let i=0; i<data.length; i++) {
+  //     let cool = '<a href="{data[i]}">{data[i]}</a>';
+  //       linkedTags.push(cool);
+  //   } 
+  //   return linkedTags.join(", ");
+  // }
+  
   //Somehow make the tags clickable
+
   // function tagsComponent(tags) {
     
   // }
 
-  // const fetcher2 = url => fetch(url).then(r => r.json())
+  // https://nextjs.org/docs/routing/introduction FIGURE OUT DYNAMIC LINKS!!!!! 
 
-  // const { data2, error } = useSWR(`/api/${props.recipe_id}/ingredients`, fetcher2)
+  // https://dev.to/ryanccn/data-fetching-with-next-js-38b6
+  // https://nextjs.org/docs/basic-features/data-fetching
+  // https://swr.vercel.app/
+  const fetcher2 = url => fetch(url).then(r => r.json())
 
-  // if (error) return <div>failed to load</div>
-  // if (!data2) return <div>loading...</div>
+  const { data, error } = useSWR(`/api/${props.recipe_id}/ingredients`, fetcher2)
 
-  // let ingredients = data.join("\n")
+  if (error) return <div>failed to load</div>
+  if (!data) return <div>loading...</div>
 
+  const ingredientItems = data.map((ingredients) =>
+  <li key={ingredients.recipe_id}>
+    {ingredients.detailed_ingredient}
+  </li>
+);
   
+  //background image
+  // https://stackoverflow.com/questions/48288176/set-background-image-to-full-screen-in-reactjs/50769188
+  // https://www.w3schools.com/cssref/css3_pr_background-size.asp
+  const backgroundStyle = {
+    backgroundImage: `url(${props.img})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: '500px'
+  };
+
   return (
-      <div className={styles['my-recipe-flex']}>
-        <div className={styles['column']} id={styles['column-left']}>
-          <p className={styles['recipe-title']}><text>{props.title}</text></p>
-          <p className={styles['text_small']}>Tags:  {tags}<text></text></p>
-          <img src={props.img} className={styles['my-recipe-img']} width="400em" />
+      <div className={styles['my-recipe-flex']}
+      style={backgroundStyle}>
+
+        <div id={styles['column-left']}>
+          <p className={styles['recipe-title']}><span>{props.title}</span></p>
+          <p className={styles['text_small']}><span>Tags: </span></p>
+          {/* <img src={props.img} className={styles['my-recipe-img']} alt={props.title}/> */}
         </div>
-        <div className={styles['column']} id={styles['column-middle']}>
-            <p>Ingredients: </p>
+
+        <div id={styles['column-middle']}>
+          <p><span>Ingredients:</span></p>
+          <div className={styles['scrollable']}>
+            <ul className="styles['text_small']">{ingredientItems}</ul>
+          </div>
         </div>
-        <div className={styles['column']} id={styles['column-right']}>
-        <p>Directions:</p>
-        <p>{directionsSplit}</p>
+
+        <div id={styles['column-right']}>
+          <p><span>Directions:</span></p>
+          <div className={styles['scrollable']}>
+            <p className={styles['text_small']}>{directionsSplit}</p>
+          </div>
         </div>
 
       </div> 

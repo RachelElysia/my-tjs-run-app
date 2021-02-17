@@ -1,7 +1,6 @@
 """Models for movie ratings app."""
 
 from flask_sqlalchemy import SQLAlchemy
-from werkzeug.security import generate_password_hash, check_password_hash
 
 db = SQLAlchemy()
 
@@ -16,10 +15,20 @@ class User(db.Model):
                       nullable=False)
     lname = db.Column(db.String(35),
                       nullable=False)
-    email = db.Column(db.String(100),
+    phone = db.Column(db.Integer(10),
                       nullable=False)
-    password_hash = db.Column(db.String(50),
+    password_hash = db.Column(db.String(100),
                       nullable=False) 
+    
+
+    # # Password hashing functions below User Model
+
+    # def set_password(self, password):
+    #     self.password_hash = generate_password_hash(password)
+
+    # def check_password(self, password):
+    #     return check_password_hash(self.password_hash, password)
+
 
     @property
     def serialize(self):
@@ -28,15 +37,15 @@ class User(db.Model):
             'user_id'         : self.user_id,
             'fname'           : self.fname,
             'lname'           : self.lname,
-            'email'           : self.email,
-            'password_hash'   : self.password_has
+            'phone'           : self.phone,
+            'password_hash'   : self.password_hash
         }
 
     def __repr__(self):
         return f'''
                 <User id={self.user_id}, 
                 name={self.fname} {self.lname},
-                email={self.email}>
+                phone={self.phone}>
                 '''
 
 

@@ -4,12 +4,12 @@ from model import db, User, Recipe, Tag, Ingredient, RecipeTag, connect_to_db
 
 # CREATE USER, TAG, RECIPE, INGREDIENT
 
-def create_user(fname, lname, email, password_hash):   
+def create_user(fname, lname, phone, password_hash):   
     """Create and return user."""
 
     user = User(fname=fname,
                 lname=lname,
-                email=email,
+                phone=phone,
                 password_hash=password_hash)
 
     db.session.add(user)
@@ -184,7 +184,7 @@ def get_tag_names_by_recipe_id(recipe_id):
     """
 
     #THIS IS WEIRD TO DO TWO QUERIES NO?
-    
+
     response = RecipeTag.query.filter(RecipeTag.recipe_id == recipe_id).all()
 
     recipe_tags_names = []

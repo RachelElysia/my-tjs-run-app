@@ -71,9 +71,9 @@
   top: 330px; /* height under tjbar */
   padding: 0 0.5rem;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   overflow-y: scroll;
   background: #eee;
   color: #000;
@@ -201,21 +201,27 @@
   padding: 0.2em;
 } 
 
-/* RECIPE ON RECIPES PAGES */
+/* RECIPE ON TJ'S RECIPES PAGES */
 .recipe-title {
   font-weight: 800;
   color:#D21242;
 }
 
+.recipe-tags {
+  font-size: 0.8rem;
+}
+
 .recipe-img {
     max-width: 17em;
     max-height: 9em;
+
 }
 
 /* CONTAINER HOLDING ALL INFO */
 .flex-container {
   /* We first create a flex layout context */
   display: flex;
+  justify-content: center;
   flex-direction: column;
   
   /* Then we define the flow direction 
@@ -229,7 +235,6 @@
   /* Then we define how is distributed the remaining space */
   margin: 1em;
   list-style: none;
-  justify-content: flex;
 }
 
 /* MORE SPECIFIED CONTAINER HOLDING RECIPES */
@@ -237,7 +242,7 @@
   border-radius: 10%;
   /* border: 2px solid black; */
   width: 15em;
-  height: 18em;
+  height: 20em;
   /* padding: 1em; */
   vertical-align: top;
   overflow: hidden;
@@ -250,7 +255,6 @@
   box-shadow:0 0 5px grey;
 }
 
-.recipe-flex p { margin:0 }
 .recipe-title {padding: 5px;}
 
 /* MAIN PAGE TILES */
@@ -327,17 +331,24 @@ title,
   border-radius: 10px;
   /* border: 2px solid black; */
   width: 95%;
-  height: 35%;
-  min-height:26em;
-  max-height:35em; 
+  height: 33%;
+  min-height:16em;
+  max-height:18em; 
   max-width: 200em;
   /* padding: 1em; */
   vertical-align: top;
   line-height: 120%;
   text-align: left;
-  margin: 0.5em;
+  margin: 1em;
   box-shadow:0 0 5px grey;
   display: flexbox;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-recipe-flex span {
+  background-color: #fff;
+  padding: 0.2em;
 }
 
 .my-recipe-flex img {
@@ -346,31 +357,40 @@ title,
   box-shadow:0 0 5px grey;
 }
 
+
 #column-left {
   float: left;
-  width: 30%;
+  width: 32%;
   height: 100%;
   max-width: 50em;
-  padding: 1em;
+  padding: 0.5em;
   display: inline-block;
 }
+
 #column-middle {
   float: left;
-  width: 26%;
+  width: 28%;
   height: 95%;
-  max-height: 30em;
-  margin: 2%;
+  margin: 1%;
   display: inline-block;
-  overflow-y: scroll;
 }
 
 #column-right {
   width: 36%;
-  max-height: 30em;
-  margin: 2%;
+  margin: 1%;
   display: inline-block;
-  overflow-y:scroll
+
 }
+
+.scrollable {
+  width: 100%;
+  overflow-y:scroll; 
+  position:relative;
+  height: 13em;
+  background-color: #FFF;
+}
+
+
 
 /* Clear floats after the columns */
 .row:after {
@@ -381,6 +401,8 @@ title,
 
  /* SIGN UP AND SIGN IN */
 
+
+
  /* Clear floats after the columns */
 #container-inup {
   display: flex;
@@ -390,11 +412,14 @@ title,
   max-width: 90em;
   overflow-y: scroll;
   align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 
 #container-inup:after {
   display: flex;
 }
+
 #log-in, #create-account {
   content: "";
   width: 50%;
@@ -413,56 +438,4 @@ title,
   margin: 2em;
   padding: 1em 2em;
 }
-
-
-/* FAVORITE BUTTON BELOW */
-
-
-.favorite-button {
-  cursor: pointer;
-}
-.favorite-button .fill {
-  fill: #f86379;
-  transform: scale(0.2);
-  transform-origin: 50%;
-}
-.favorite-button .heart {
-  fill: #789898;
-}
-
-
-.favorite-button--no-stroke .stroke {
-  display: none;
-}
-
-.favorite-button--small {
-  border-radius: 50%;
-  overflow: visible;
-  box-shadow: 0 15px 35px rgba(3, 51, 68, 0.1), 0 3px 10px rgba(3, 51, 68, 0.07);
-}
-
-@keyframes ani {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.25);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-
-.flex {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  padding: 0;
-  margin: 0;
-}
-
-
-
 

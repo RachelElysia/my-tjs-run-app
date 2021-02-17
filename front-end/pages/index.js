@@ -3,7 +3,8 @@ import styles from '../styles/Home.module.css'
 import {NavBar, TJNavBar, Footer} from '../components/headersfooter'
 import Fade from 'react-reveal/fade';
 
-// MUST USE ABSOLUTE PATH FOR THIS TO WORK
+// MUST USE ABSOLUTE PATH FOR THIS TO WORK,
+// GET STATIC PROPS IS FOR SERVER SIDE RENDERING
 export async function getStaticProps(context) {
   const res = await fetch('http://localhost:5000/api/recipes_hungry')
   const recipeData48 = await res.json()

@@ -58,7 +58,7 @@ function RecipeCard(props) {
       <div className={styles['recipe-flex']}>
           <img src={props.img} className={styles['recipe-img']} />
           <div className={styles['info']}>
-            <p className={styles['recipe-title']}><text>{recipeTitle}</text></p>
+            <p className={styles['recipe-title']}>{recipeTitle}</p>
             <p className={styles['text_small']}>{recipeDirections}...</p>
         </div>
       </div> 

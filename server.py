@@ -5,6 +5,8 @@ from flask_debugtoolbar import DebugToolbarExtension #added by Lucia
 from model import connect_to_db
 import crud
 from jinja2 import StrictUndefined
+from werkzeug.security import generate_password_hash, check_password_hash
+
 
 app = Flask(__name__)
 
@@ -174,16 +176,16 @@ def register_user():
 
     fname = request.form.get('fname')
     lname = request.form.get('lname')
-    email = request.form.get('email')
-    password_hash = request.form.get('password_hash')
+    phone = request.form.get('phone')
+    password_hash = generate_password_hash(request.form.get('password'))
     
-    user = crud.get_user_by_email(email)
+    user = crud.get_user_by_phone(phone)
 
     if user:
-        flash('Email address already associated to an account. Try again.')
+        flash('Phone number already associated to an account. Try again.')
     else:
-        user = crud.create_user(email, password)
-        flash('Account successfully created! Please log in to rate movies.')
+        user = crud.create_user(fname, lname, phone, password_hash)
+        flash('Account successfully created! Please log in to favorite recipes.')
 
     return redirect('/')
 
@@ -192,15 +194,15 @@ def register_user():
 def log_in():
     """Log In user."""
 
-    email_entered = request.form.get('email')
-    password_entered = request.form.get('password_hash')
-    
-    user = crud.get_user_by_email(email_entered)
+    phone_entered = request.form.get('phone')
+
+    user = crud.get_user_by_phone(phone_entered)
 
     if user is None:
-        flash('This email address is not associated with an account. Please try again.')
-    elif password_entered == user.password_hash:
-        session['primary_key'] = user.user_id 
+        flash('This phone number is not associated with an account. Please try again.')
+    
+    # first value is the password_hash, second value is the password entered
+    elif check_password_hash(user.password_hash, request.form.get('password')):
         flash('You are successfully logged in!')
     else:
         flash('Incorrect password. Please try again.')
