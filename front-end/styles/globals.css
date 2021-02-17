@@ -39,16 +39,17 @@ nav {
 } 
 
 /* Change the color of links on hover */
-nav a:hover {
-background-color: #ddd;
-color:#D21242;
+a:hover {
+font-weight: bold;
 }
 
 /* Add a color to the active/current link */
-nav a.active {
+a {
 background-color: #fff;
 color: #D21242;
+text-decoration: none;
 }
+
 /* a {
   color: inherit;
   text-decoration: none;

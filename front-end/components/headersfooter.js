@@ -44,7 +44,7 @@ onMouseLeave={() => setIsShown(false)}>
   <tr><span className={styles["text_small"]}>Generate your grocery list</span></tr>
   <tr><span className={styles["text_small"]}>Receive your list as a text message!</span></tr>
 </td>
-  <td>
+<td>
   <th>Party Favorites</th>
   <tr><a href="/tags/desserts">Desserts</a></tr>
   <tr><a href="/tags/appetizers">Appetizers</a></tr>
@@ -52,7 +52,7 @@ onMouseLeave={() => setIsShown(false)}>
   <tr><a href="/tags/salads">Salads</a></tr>
   <tr><a href="/tags/snacks">Snacks</a></tr>
 </td>
-    <td>
+<td>
   <th>Featured</th>
   <tr><a href="/tags/stpatricksday">St. Patrick's Day</a></tr>
   <tr><a href="/tags/spring">Spring</a></tr>

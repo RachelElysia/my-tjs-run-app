@@ -27,6 +27,9 @@ export async function getStaticProps(context) {
 //  This is going to fetch the data and it's going to wait until it's fetched.
 function GroceryCard(props) {
 
+  let ingredientsTable;
+  
+  function ingredients() {
   const fetcher2 = url => fetch(url).then(r => r.json())
 
   const { data, error } = useSWR(`/api/${props.recipe_id}/ingredients`, fetcher2)
@@ -34,14 +37,30 @@ function GroceryCard(props) {
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
 
-  const ingredientsTable = data.map((ingredients) =>
+  ingredientsTable = data.map((ingredients) =>
   <tr>
   <td className={styles['table-wide']}>{ingredients.abridged_ingredient}</td>
   <td className={styles['text_small']}>{ingredients.detailed_ingredient}</td>
   </tr> 
-);
+  );
+  };
 
+  ingredients();
 
+  let tagItems;
+
+  function tagFetch() {
+    const fetcher = url => fetch(url).then(r => r.json())
+  
+    const { data, error } = useSWR(`/api/${props.recipe_id}/tagnames`, fetcher)
+  
+    if (error) return <div>failed to load</div>
+    if (!data) return <div>loading...</div>
+  
+    tagItems = data.map((tag) => <a href='/recipes'>  {tag.toUpperCase()}  </a>);
+  };
+  
+  tagFetch();
   
 
   return (
@@ -50,7 +69,7 @@ function GroceryCard(props) {
         <div id={styles['column-left-ingredients']}>
 
           <p className={styles['recipe-title']}><span>{props.title}</span></p>
-          <p className={styles['text_small']}><span>Tags: </span></p>
+          <p className={styles['text_small']}><span>Tags {tagItems} </span></p>
           <img src={props.img} className={styles['my-recipe-img']} alt={props.title}/>
         </div>
 

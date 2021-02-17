@@ -1,57 +1,4 @@
-/* TILES RECIPE-FLEX NAVBAR TJBAR*/
 
-
-/* MAIN CONTAINER FOR ENTIRE SITE */
-#map {
-  height: 400px;
-  /* The height is 400 pixels */
-  width: 95%;
-  max-width: 100em;
-  background-color: grey;
-  /* The width is the width of the web page */
-}
-
-
-/* Styling for an info pane that slides out from the left. 
-    * Hidden by default. */
-    #panel {
-      height: 100%;
-      width: null;
-      background-color: white;
-      position: fixed;
-      z-index: 1;
-      overflow-x: hidden;
-      transition: all .2s ease-out;
-  }
-  
-  .open {
-      width: 250px;
-  }
-  
-  /* Styling for place details */
-  .hero {
-      width: 100%;
-      height: auto;
-      max-height: 166px;
-      display: block;
-  }
-  
-  .place, {
-      font-family: 'open sans', arial, sans-serif;
-      padding-left: 18px;
-      padding-right: 18px;
-  }
-  
-  .details {
-      color: darkslategrey;
-  }
-  
-  /* a {
-      text-decoration: none;
-      color: cadetblue;
-  } */
-
-  /* END MAP hERE */
 
 .text_small {
   font-size: 0.8rem;
@@ -129,7 +76,12 @@
   padding: 2em;
 }
 
+/* END NAV BAR */
+
+
+
 /*  TJBAR ONLY */
+
 #tjbar {
   position: fixed;
   top: 5.5rem;    /* NavBar TJNavBar height */
@@ -195,6 +147,8 @@
   font-family: 'Poppins', opensans;
   padding: 0.2em;
 } 
+
+/* END TJBAR */
 
 /* RECIPE ON TJ'S RECIPES PAGES */
 .recipe-title {
@@ -277,6 +231,9 @@
   top: 0px;
   right: 0px;
 }
+
+/* END MAIN PAGE TILES */
+
 /* 
 title a {
   color: #0070f3;
@@ -327,6 +284,7 @@ title,
 
 
 /* MY RECIPES FLEX BOX */
+
 .my-recipe-flex {
   border-radius: 10px;
   /* border: 2px solid black; */
@@ -358,6 +316,9 @@ title,
   box-shadow:0 0 5px grey;
 }
 
+/* END MY RECIPES FLEX BOX */
+
+/* MY RECIPES PAGE */
 
 #column-left {
   width: 32%;
@@ -386,7 +347,11 @@ title,
 
 }
 
-/* MY GROCERY LIST */
+/* END MY RECIPES PAGE */
+
+
+
+/* MY GROCERY LIST PAGE */
 #column-left-ingredients {
   width: 22%;
   height: 100%;
@@ -400,7 +365,11 @@ title,
   display: inline-block;
 
 }
+/*  END MY GROCERY LIST PAGE */
 
+
+
+/* USED ON MY GROCERY AND SINGLE RECIPE */
 #ingredients-table td{
   padding-right: 3em;
 }
@@ -408,8 +377,35 @@ title,
 #ingredients-table th {
     text-align: left;
 }
+/* 
+END USED ON MY GROCERY LIST AND SINGLE RECIPE */
 
 
+
+/* SINGLE RECIPE PAGE */
+#column-recipe-left {
+  width: 40%;
+  height: 100%;
+  max-width: 50em;
+  padding: 0.5em;
+  display: inline-block;
+}
+
+#coilumn-recipe-right {
+  width: 45%;
+  margin: 1%;
+  display: inline-block;
+}
+#row-recipe {
+  width: 100%;
+  margin: 1%;
+}
+
+/*  END USED ON SINGLE RECIPE PAGE */
+
+
+
+/* FOR DIV BOX THAT SCROLLS */
 .scrollable {
   width: 100%;
   overflow-y:scroll; 
@@ -444,6 +440,10 @@ title,
   align-items: center;
 }
 
+
+
+/*  LOG IN PAGE */
+
 #container-inup:after {
   display: flex;
 }
@@ -467,3 +467,58 @@ title,
   padding: 1em 2em;
 }
 
+/* END LOG IN PAGE */
+
+
+
+/* TJ MAP */
+#map {
+  height: 400px;
+  /* The height is 400 pixels */
+  width: 95%;
+  max-width: 100em;
+  background-color: grey;
+  /* The width is the width of the web page */
+}
+
+
+/* Styling for an info pane that slides out from the left. 
+    * Hidden by default. */
+    #panel {
+      height: 100%;
+      width: null;
+      background-color: white;
+      position: fixed;
+      z-index: 1;
+      overflow-x: hidden;
+      transition: all .2s ease-out;
+  }
+  
+  .open {
+      width: 250px;
+  }
+  
+  /* Styling for place details */
+  .hero {
+      width: 100%;
+      height: auto;
+      max-height: 166px;
+      display: block;
+  }
+  
+  .place, {
+      font-family: 'open sans', arial, sans-serif;
+      padding-left: 18px;
+      padding-right: 18px;
+  }
+  
+  .details {
+      color: darkslategrey;
+  }
+  
+  /* a {
+      text-decoration: none;
+      color: cadetblue;
+  } */
+
+  /* END OF MAP */
