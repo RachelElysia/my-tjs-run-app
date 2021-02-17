@@ -131,7 +131,8 @@ def get_recipe_by_id(recipe_id):
 
     return Recipe.query.filter_by(recipe_id=recipe_id).one()
 
-#  one recipe id 08Ifren64xtMVpoG03Qx
+# recipe 1 id: 08Ifren64xtMVpoG03Qx
+# recipe 2 id: 08OniGKxjkMtCTb7tX7d
 
 def get_tags():
     """Return all tags."""
@@ -147,6 +148,35 @@ def get_user_by_email(email):
     """Return a user by email."""
 
     return User.query.filter(User.email == email).first()
+
+def get_tags_by_recipe_id(recipe_id):
+    """Return multiple tags.
+    
+    >>> get_tags_by_recipe_id('08Ifren64xtMVpoG03Qx')
+
+    [
+                <RecipeTag recipetag_id=1,
+                recipe_id=1  
+                tag_id=10>
+                , 
+                <RecipeTag recipetag_id=2,
+                recipe_id=2  
+                tag_id=47>
+                ]
+    """
+
+    return RecipeTag.query.filter(RecipeTag.recipe_id == recipe_id).all()
+
+def get_ingredients_by_recipe_id(recipe_id):
+    """Return multiple tags.
+    
+    >>> get_ingredients_by_recipe_id('08Ifren64xtMVpoG03Qx')
+
+    DOES NOT WORK PLEASE FIX!
+    """
+
+    return Ingredient.query.filter(Ingredient.recipe_id == recipe_id).all()
+
 
 def get_ingredients():
     """Return all ingredients."""

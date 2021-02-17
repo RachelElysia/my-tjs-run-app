@@ -5,7 +5,7 @@ import Fade from 'react-reveal/fade';
 
 // MUST USE ABSOLUTE PATH FOR THIS TO WORK
 export async function getStaticProps(context) {
-  const res = await fetch('http://localhost:5000/api/recipes')
+  const res = await fetch('http://localhost:5000/recipes')
   const recipeData24 = await res.json()
 
   if (!recipeData24) {

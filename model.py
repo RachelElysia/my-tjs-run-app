@@ -124,6 +124,9 @@ class Tag(db.Model):
     name = db.Column(db.String(16), nullable=False)
     tag_id = db.Column(db.Integer, nullable=False, primary_key=True)
 
+
+    recipes = db.relationship('Recipe', secondary="recipestags", backref="recipes")
+
     @property
     def serialize(self):
         """Return object data in easily serializable format"""

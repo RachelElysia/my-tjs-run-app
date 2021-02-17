@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import {NavBar, TJNavBar, Footer} from '../components/headersfooter'
+import {FavoriteButton} from '../components/favoritebutton.js'
 
 // MUST USE ABSOLUTE PATH FOR THIS TO WORK
 export async function getStaticProps(context) {
@@ -74,10 +75,7 @@ function MyRecipesContainer(props) {
 export default function Home(props) {
   return (
     <>
-      <NavBar />
-      <TJNavBar />
-      <MyRecipesContainer recipeData24={props.recipeData24} />
-      <Footer />
+      <FavoriteButton />
     </>
   )
 }
