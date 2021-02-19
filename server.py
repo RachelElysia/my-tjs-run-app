@@ -56,6 +56,16 @@ def recipes_data():
 
   return jsonify(serialized_recipe_data)
 
+@app.route('/api/recipes/random')
+def recipes_random_data():
+  """Show random recipes."""
+
+  # The default is 24, you can change this parameter
+  recipe_data = crud.get_random_recipes()
+
+  serialized_recipe_data = [i.serialize for i in recipe_data]
+
+  return jsonify(serialized_recipe_data)
 
 @app.route('/api/tags/<tag_id>')
 def recipes_by_tag_id(tag_id):
@@ -201,7 +211,7 @@ def recipes_data_hungry():
   """Show all recipes."""
 
   # The default is 24, you can change this parameter
-  recipe_data = crud.get_recipes(48)
+  recipe_data = crud.get_random_recipes(48)
 
   serialized_recipe_data = [i.serialize for i in recipe_data]
 

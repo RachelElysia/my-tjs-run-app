@@ -4,8 +4,7 @@ import React, { useState } from 'react';
 
 import useSWR from 'swr'
 
-//fetch('/recipes_data') -> Promise<response>
-//  This is going to fetch the data and it's going to wait until it's fetched.
+// Render ROUNDEDTILES
 function RecipeCard(props) {
     // Split data on the word instead of on the letter
     let directions = props.directions;
@@ -23,7 +22,7 @@ function RecipeCard(props) {
     }
 
 
-    // Fetching tag items and rendering with capitalized letters
+    // Fetching and Rendering TAGS
     let tagItems;
   
     function tagFetch() {

@@ -1,5 +1,4 @@
 
-
 .text_small {
   font-size: 0.8rem;
   padding: 0.3em;
@@ -56,23 +55,34 @@
 
 } 
 
-.nav-right a {
+.nav-right button {
   background-color: #D21242;
+  border: none;
   color: #fff;
+  padding: 10px 15px;
   text-align: center;
   text-decoration: none;
-  font-family: 'Poppins', opensans;
-  font-weight: 500;
-  padding: 0.4em;
+  display: inline-block;
+  font-size: 1rem;
 }
 
-.nav-right a:hover {
-  color: #D21242;
-  background-color: #fff;
-  font-family: 'Poppins', opensans;
-  font-weight: 500;
-  padding: 0.4em;
-} 
+.nav-right button:hover {
+  background-color: #bd0d39;
+  border: none;
+  color: #fff;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+ }
+
+.nav-right button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+
 
 /* Right-aligned section inside the top navigation */
 .nav-right {
@@ -272,6 +282,8 @@
   opacity: 0.3;
   filter: alpha(opacity=30);
 }
+
+
 
 /* END MAIN PAGE TILES */
 

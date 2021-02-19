@@ -1,0 +1,13 @@
+
+React useState: Toggle Favorite Recipes Selected https://www.codecademy.com/courses/react-101/lessons/the-state-hook/exercises/arrays-in-state
+React useSWR Fetcher: Client Side Fetching https://swr.vercel.app/
+React Reveal: Transitions library https://www.react-reveal.com/examples/common/fade/
+Next.js useRouter: Dynamic Routing https://nextjs.org/docs/routing/dynamic-routes
+
+Trader Joe's Font https://www.fontspace.com/trader-joes-font-f34830
+Free graphics https://www.canva.com
+Create Image Transparency  Adobe Photoshop CC
+Convert to .ico Image https://www.icoconvererter.com
+Position Background image in Position of Div 
+  // https://stackoverflow.com/questions/48288176/set-background-image-to-full-screen-in-reactjs/50769188
+  // https://www.w3schools.com/cssref/css3_pr_background-size.asp

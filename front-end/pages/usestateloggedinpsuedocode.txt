@@ -1,0 +1,49 @@
+*********************
+headers/footers DONE NOT TESTED
+
+login logout button
+
+const logInOutButton = (user_id === null) ? 'Log In' : 'Log Out';
+const logInOutUrl = (user_id ===null) ? '/login' : '/logout';
+
+const logInOrOut <a href="{logInOutUrl}" className={styles['right']}>{logInOutButton}</a>
+
+
+*********************
+myrecipes mygrocerylist
+
+only show if they are logged in!
+
+show the create an account or sign in otherwise!!!
+
+if (user_id === null) {
+    redirect to login page
+    show message "Please log in to view your favorite recipes!
+}
+
+if (user_favorites)
+
+https://stackoverflow.com/questions/58173809/next-js-redirect-from-to-another-page
+
+import { useRouter } from 'next/router'
+
+function RedirectPage() {
+  const router = useRouter()
+  // Make sure we're in the browser
+  if (typeof window !== 'undefined') {
+    router.push('/home')
+  }
+}
+
+export default RedirectPage
+
+*********************
+[recipe_id]
+
+const userQueryRecipe = 
+
+const favoriteAddRemove = (userQueryRecipe) ? 'Favorite' : 'Remove Favorite';
+const favoriteAddRemoveUrl = (userQueryRecipe) ? 'users/{user_id}/add/{recipe_id}' : '';
+
+const logInOrOut <a href="{logInOutUrl}" className={styles['right']}>{logInOutButton}</a>
+

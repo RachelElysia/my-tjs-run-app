@@ -82,9 +82,6 @@ function RecipeCard(props) {
 
   fetch2()
   
-  //background image
-  // https://stackoverflow.com/questions/48288176/set-background-image-to-full-screen-in-reactjs/50769188
-  // https://www.w3schools.com/cssref/css3_pr_background-size.asp
   const backgroundStyle = {
     backgroundImage: `url(${props.img})`,
     backgroundRepeat: 'no-repeat',
@@ -164,10 +161,12 @@ export default function Home(props) {
 
   const fetcher3 = url => fetch(url).then(r => r.json())
 
+  let user_id = 1;
+
   // useSWR takes 2 parameters: the URL, and how to fetch it (.then promise)
   // beneath the hood useSWR has 1 object with 2 keys returned, data and error
   // we call this destructuring :)
-  const { data, error } = useSWR('/api/users/1/recipes', fetcher3)
+  const { data, error } = useSWR(`/api/users/${user_id}/recipes`, fetcher3)
 
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>

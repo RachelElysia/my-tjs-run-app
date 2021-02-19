@@ -2,29 +2,43 @@
 import styles from '../styles/Home.module.css';
 import React, { useState } from 'react';
 
-// THIS IS THE NAV BAR
 function NavBar() {
+
+  const user_id = 1;
+
+  const logInOutButton = (user_id === null) ? 'Log In' : 'Log Out';
+  const logInOutUrl = (user_id === null) ? '/login' : '/logout';
+
+  const logInOrOut = (
+    <button className={styles['right']} id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); window.location.href='{`${logInOutUrl}`}'; }}>
+    {logInOutButton}
+  </button>
+  )
 
   return (
     <nav>
       <div className={styles['nav-left']}>
         <a href="/"><img src="http://localhost:5000/static/img/logo.png" alt="My TJ's Run Logo" height="60px" /></a>
-        <a href="/myrecipes" className={styles['left']}>My Recipes</a>
-        <a href="/mygrocerylist" className={styles['left']}>My Grocery List</a>
+        <button className={styles['left']} id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); window.location.href='/myrecipes'; }}>
+          My Recipes
+        </button>
+        <button className={styles['left']} id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); window.location.href='/mygrocerylist'; }}>
+          My Grocery List
+        </button>
 
       </div><div className={styles['nav-right']}>
 
-        Search
-        <a href="/map" className={styles['right']}>Find a Store</a>
-        <a href="/login" className={styles['right']}>Create Account</a>
-        Log In 
-        My Account
+      <input type="text" placeholder="Search.." className="search-bar"/>
+        <button className={styles['right']} type="button" onClick={(e) => { e.preventDefault(); window.location.href='/map'; }}>
+          Find A Store
+        </button>
+
+        {logInOrOut}
       </div>
   </nav>
   );
 }
 
-// THIS IS THE NAV BAR
 function TJNavBar() {
   const [isShown, setIsShown] = useState(false);
 
@@ -43,7 +57,7 @@ onMouseLeave={() => setIsShown(false)}>
     <table id={styles['tjbar-table']}>
       <thead>
         <tr><center>
-       <button type="button" onClick={(e) => { e.preventDefault(); window.location.href='/login'; }}>
+       <button id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); window.location.href='/login'; }}>
           Get Started
         </button>
    </center><br /></tr>
@@ -105,8 +119,6 @@ function Footer() {
     </footer>
   );
 } 
-
-// self calling function... turn a function into an object and then call it with ()
 
 
 export {NavBar, TJNavBar, Footer};

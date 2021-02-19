@@ -1,6 +1,7 @@
 """CRUD operations."""
 
 from model import db, User, Recipe, Tag, Ingredient, RecipeTag, UserRecipe, connect_to_db
+from random import sample
 
 # CREATE USER, TAG, RECIPE, INGREDIENT
 
@@ -125,9 +126,15 @@ def test_every_table():
 # Use this function to create 24 recipes JSON
 
 def get_recipes(limit=24):
-    """Return all recipes."""
+    """Return all recipes. Default 24."""
 
     return Recipe.query.limit(limit).all()
+
+
+def get_random_recipes(limit=24):
+    """Return all recipes. Default 24."""
+
+    return sample(Recipe.query.all(), limit)
 
 def get_recipe_by_id(recipe_id):
     """Return one recipe."""
@@ -207,6 +214,27 @@ def get_user_recipes_data(user_id):
     
     return all_user_favorites
 
+def get_favorite_boolean(user_id, recipe_id):
+    """Given a user_id input, return all the recipes that they have favorited.
+    
+    >>> get_user_recioes_data(1)
+    [
+                <Userrecipe user_recipe_id=1
+                user_id=1, 
+                recipe_id=MWL6CyjVxqoOnYVH55eQ>
+                , 
+                <Userrecipe user_recipe_id=2
+                user_id=1, 
+                recipe_id=3YiI1WbzAzaj7J4GFbkF>
+    ]
+    """
+    
+    query = UserRecipe.query.filter(UserRecipe.user_id == user_id, UserRecipe.recipe_id == recipe_id).one()
+
+def does_it(user_id, recipe_id):
+    hi = get_favorite_boolean(user_id, recipe_id)
+
+    print(hi)
 
 def get_tag_names_by_recipe_id(recipe_id):
     """Return multiple tags.

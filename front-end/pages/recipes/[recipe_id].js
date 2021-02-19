@@ -4,12 +4,8 @@ import {NavBar, TJNavBar, Footer} from '../../components/headersfooter'
 import Fade from 'react-reveal/fade';
 import {RecipeCard} from '../../components/detailedrecipe'
 
-
-// needed for client side data fetching, see next.js docs
 import useSWR from 'swr'
 
-// https://nextjs.org/docs/routing/dynamic-routes
-// needed to use dynamic front-end routes
 import { useRouter } from 'next/router'
 
 
@@ -39,10 +35,10 @@ function MyRecipesContainer(props) {
   );
 
   } else {
+  
   return (
     <div>
       <h1>Log in or create an account!</h1>
-        <p>Just render log in page when you get a chance.</p>
     </div>
     );
   }

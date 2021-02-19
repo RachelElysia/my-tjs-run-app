@@ -24,7 +24,7 @@ function SignUp() {
       <tr>
         <td>
       <label for="fname">First Name:</label> <br />
-      <input type="text" name="fname" id="fname" placeholder="Joe" required/>
+      <input type="text" name="fname" id="fname" placeholder="Joe" required autofocus/>
     </td>
     <td>
       <label for="lname">Last Name:</label> <br />

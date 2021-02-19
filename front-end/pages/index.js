@@ -6,23 +6,6 @@ import Fade from 'react-reveal/fade';
 // needed for client side data fetching, see next.js docs
 import useSWR from 'swr'
 
-// MUST USE ABSOLUTE PATH FOR THIS TO WORK,
-// GET STATIC PROPS IS FOR SERVER SIDE RENDERING
-// EVOLVED MY CODE 2/17/21 11:00 PM
-// export async function getStaticProps(context) {
-//   const res = await fetch('http://localhost:5000/api/recipes_hungry')
-//   const recipeData48 = await res.json()
-
-//   if (!recipeData48) {
-//     return {
-//       notFound: true,
-//     }
-//   }
-
-//   return {
-//     props: {recipeData48,}, // will be passed to the page component as props
-//   }
-// }
 
 function RecipeTile(props) {
 
