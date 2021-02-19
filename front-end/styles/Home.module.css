@@ -4,18 +4,6 @@
   padding: 0.3em;
 }
 
-/* This is used on My Recipes and my grocery list */
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  top: 9rem;    /* NavBar TJNavBar height */
-  padding-top: 9em;
-  padding-bottom: 5.5rem;    /* Footer height */
-  overflow-y: scroll;
-  justify-content: center;
-  align-items: center;
-  justify-items: center;
-}
 
 .main {
   min-height: 100vh;
@@ -208,6 +196,21 @@
     max-height: 9em;
 }
 
+/* This is used on My Recipes and my grocery list */
+.container {
+  display: inline-block;
+  top: 9rem;    /* NavBar TJNavBar height */
+  padding-top: 9em;
+  padding-bottom: 5.5rem;    /* Footer height */
+  overflow-y: scroll;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  padding-bottom: 2.5rem;
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
 
 /* CONTAINER HOLDING ALL INFO */
 .flex-container {
@@ -219,6 +222,13 @@
   flex-direction: column;
   padding-bottom: 2.5rem;
   background-color: #f2f2f2;
+  top: 9rem;    /* NavBar TJNavBar height */
+  padding-top: 9em;
+  overflow-y: scroll;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  margin: 0 auto;
   
   /* Then we define the flow direction 
      and if we allow the items to wrap 

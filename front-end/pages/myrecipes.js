@@ -140,7 +140,7 @@ function MyRecipesContainer(props) {
 
   if (signedIn === true) {
   return (
-    <div className={styles['container']}>
+    <div className={styles['flex-container']}>
       {recipeCards}
     </div>
   );

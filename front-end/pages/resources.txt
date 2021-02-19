@@ -3,6 +3,7 @@ React useState: Toggle Favorite Recipes Selected https://www.codecademy.com/cour
 React useSWR Fetcher: Client Side Fetching https://swr.vercel.app/
 React Reveal: Transitions library https://www.react-reveal.com/examples/common/fade/
 Next.js useRouter: Dynamic Routing https://nextjs.org/docs/routing/dynamic-routes
+React onHover: Dropdown menu https://upmostly.com/tutorials/react-onhover-event-handling-with-examples
 
 Trader Joe's Font https://www.fontspace.com/trader-joes-font-f34830
 Free graphics https://www.canva.com

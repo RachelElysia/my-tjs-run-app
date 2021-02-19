@@ -2,7 +2,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import {NavBar, TJNavBar, Footer} from '../components/headersfooter'
 import {RecipeCard} from '../components/roundedtiles'
-import Fade from '../react-reveal/fade';
+// import Fade from '../react-reveal/fade';
 
 // needed for client side data fetching, see next.js docs
 import useSWR from 'swr'
@@ -23,11 +23,13 @@ function RecipeCardContainer(props) {
   }
 
   return (
-    <Fade bottom>
-    <div className={styles['flex-container']}>
-      {recipeCards}
+    // <Fade bottom>
+    <div className={styles['container']}><center>
+      <div className={styles['container-flex']}>
+        {recipeCards}
+      </div></center>
     </div>
-    </Fade>
+    // </Fade>
   );
 };
 

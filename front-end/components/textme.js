@@ -1,17 +1,25 @@
 "use strict";
 import styles from '../styles/Home.module.css';
 import React, { useState } from "react";
+import useSWR from 'swr'
 
 
-const options = USERRECIPE QUERY FOR FAVORITES STORED WRITTEN AS A LIST OF NAMES
+function PersonalizedShoppingList(props) {
 
-function PersonalizedShoppingList() {
+    let options = [];
+
+
+    for (const recipe of props.userRecipesData) {
+        options.push(recipe.title);
+    }
+
+
     const [selected, setSelected] = useState([]);
 
     const toggleRecipeSelected = ({target}) => {
         const clickedRecipe = target.value;
         setSelected((prev) => {
-            if prev.includes(clickedRecipe) {
+            if (prev.includes(clickedRecipe)) {
                 return prev.filter(r => r !== clickedRecipe);
             }
             else {
@@ -22,14 +30,16 @@ function PersonalizedShoppingList() {
 
     return (
         <div>
-          {options.map(option => (
-            <button value={option} onClick={toggleRecipe} key={option}>
-              {selected.includes(option) ? "Remove " : "Add "}
-              {option}
-            </button>
-          ))}
-          <p>Viewing your grocery list for: {selected.join(", ")}.</p>
+            {options.map(option => (
+                <button value={option} onClick={toggleRecipeSelected} key={option}>
+                {selected.includes(option) ? "Remove " : "Add "}
+                {option}
+                </button>
+            ))}
+            <p>Viewing your grocery list for: {selected.join(", ")}</p>
         </div>
-      );
-    }
- 
+    );
+}
+
+
+export {PersonalizedShoppingList};

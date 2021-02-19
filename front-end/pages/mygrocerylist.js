@@ -1,9 +1,15 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import {NavBar, TJNavBar, Footer} from '../components/headersfooter'
+import {PersonalizedShoppingList} from '../components/textme'
 import Fade from 'react-reveal/fade';
 
 import useSWR from 'swr'
+
+
+
+
+
 
 function GroceryCard(props) {
 
@@ -57,8 +63,10 @@ function GroceryCard(props) {
         <div id={styles['column-ingredients']}>
           <table id={styles['ingredients-table']}>
             <thead>
-              <th>My Grocery List</th>
-              <th>Details</th>
+              <tr>
+                <th>My Grocery List</th>
+                <th>Details</th>
+              </tr>
             </thead>
               {ingredientsTable}
           </table>
@@ -72,7 +80,7 @@ function MyGroceriesContainer(props) {
 
   const groceryCards = [];
 
-  for (const recipe of props.recipeData24) {
+  for (const recipe of props.userRecipesData) {
     groceryCards.push(
       <GroceryCard
       recipe_id={recipe.recipe_id}
@@ -89,13 +97,19 @@ function MyGroceriesContainer(props) {
 
   if (signedIn === true) {
   return (
+    <Fade right>
     <div className={styles['container']}>
-      <Fade right>
-        <div className={styles['my-ingredient-flex']}>
+    <h1> My Grocery List</h1>
+      <p> Choose from your favorite recipes to generate your personalized grocery list!</p>
+      <PersonalizedShoppingList userRecipeData={props.userRecipesData} />
+      <div className={styles['container-flex']}>
+      <div className={styles['my-ingredient-flex']}>
         {groceryCards}
       </div>
-      </Fade>
+      </div>
     </div>
+  </Fade>
+
   );
 
   } else {
@@ -126,7 +140,7 @@ export default function Home(props) {
     <>
       <NavBar />
       <TJNavBar />
-      <MyGroceriesContainer recipeData24={data} />
+      <MyGroceriesContainer userRecipesData={data} />
       <Footer />
     </>
   )
