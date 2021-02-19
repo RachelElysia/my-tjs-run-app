@@ -42,9 +42,14 @@ function RecipeCard(props) {
   
     return (
         <div className={styles['recipe-flex']}>
-            <img src={props.img} className={styles['recipe-img']} />
-            <div className={styles['info']}>
-              {props.title}<br />
+            <a href={`/recipes/${props.recipe_id}`}>
+                <img src={props.img} className={styles['recipe-img']} />
+            </a>
+                <div className={styles['info']}>
+                <a href={`/recipes/${props.recipe_id}`}>
+                {props.title}
+                </a>
+                <br />
               <span className={styles['text_small']}>
                 {recipeDirections}...<br />
                 {tagItems}

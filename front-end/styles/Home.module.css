@@ -5,6 +5,32 @@
   padding: 0.3em;
 }
 
+/* This is used on My Recipes and my grocery list */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  top: 9rem;    /* NavBar TJNavBar height */
+  padding-top: 9em;
+  padding-bottom: 5.5rem;    /* Footer height */
+  overflow-y: scroll;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
+
+.main {
+  min-height: 100vh;
+  top: 330px; /* height under tjbar */
+  padding: 0 0.5rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  background: #f2f2f2;
+  color: #000;
+  margin: auto;
+}
 
 /* NAVBAR ONLY  */
 .nav-left {
@@ -13,7 +39,7 @@
 }
 .nav-left a {
   color: #D21242;
-  background: #eee;
+  background: #f2f2f2;
   text-align: center;
   text-decoration: none;
   font-family: 'Poppins', opensans;
@@ -68,8 +94,8 @@
 #tjbar {
   position: fixed;
   top: 4.7rem;    /* NavBar TJNavBar height */
-  border-top: 2px solid #eaeaea;
-  border-bottom: 2px solid #eaeaea;
+  /* border-top: 1px solid #D21242;
+  border-bottom: 1px solid #D21242; */
   height: 2.5rem;
   width: 100%;
   padding: 0.3em;
@@ -77,6 +103,7 @@
   text-align: center;
   z-index: 999;
   overflow: hidden;
+  box-shadow:0 0 5px grey;
 }
 
 #tjbar a {
@@ -108,19 +135,22 @@
   width: 36em;
   left: calc(50% - 288px);
   background: #fff;
-  z-index: 999;
+  z-index: 99;
   display: flex;
   padding: 10px;
   justify-content: center;
   border: 2px solid #eaeaea;
+  border-top: 2px solid #D21242;
 
 }
 
+#tj-table-div {
+}
 
 #tjbar-table {
   margin-right: auto;
-  padding-top: 30px;
-  padding-left: 8px;
+  padding-top: 40px;
+  padding-left: 10px;
 }
 
 
@@ -130,14 +160,14 @@
   text-align: center;
   text-decoration: none;
   font-family: 'Poppins', opensans;
-  padding: 0.1em;
+  padding: 0.2em;
 }
 
 #tjbar-table a:hover {
-  color: #fff;
-  background-color: #D21242;
+  color: #D21242;
+  background-color: #fff;
   font-family: 'Poppins', opensans;
-  padding: 0.1em;
+  padding: 0.2em;
 } 
 
 /* END TJBAR */
@@ -166,7 +196,6 @@
 .recipe-img {
     max-width: 17em;
     max-height: 9em;
-
 }
 
 
@@ -176,9 +205,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  justify-items: center;
   flex-direction: column;
   padding-bottom: 2.5rem;
-  background-color: #eee;
+  background-color: #f2f2f2;
   
   /* Then we define the flow direction 
      and if we allow the items to wrap 
@@ -194,13 +224,13 @@
   padding-top: 9em;
   padding-bottom: 5.5rem;    /* Footer height */
   overflow-y: scroll;
-  justify-items: center;
 }
 
 /* MORE SPECIFIED CONTAINER HOLDING RECIPES */
 .recipe-flex {
   border-radius: 10%;
   /* border: 2px solid black; */
+  background-color: #FFF;
   width: 15em;
   height: 21em;
   /* padding: 1em; */
@@ -213,11 +243,14 @@
   box-shadow:0 0 5px grey;
 }
 
-.recipe-title {padding: 8px;}
+.recipe-title {
+  padding: 8px;
+  line-height: 1.5;}
 
 /* MAIN PAGE TILES */
 .tiles-flex {
   /* border: 2px solid black; */
+  background-color: #FFF;
   width: 14em;
   height: 8em;
   display: inline-block;
@@ -235,7 +268,7 @@
   top: 0px;
   right: 0px;
 }
-.tile-img:hover {
+.tile-img:hover, .recipe-img:hover {
   opacity: 0.3;
   filter: alpha(opacity=30);
 }
@@ -297,8 +330,10 @@ title,
   border-radius: 10px;
   /* border: 2px solid black; */
   width: 100%;
+  background-color: #fff;
   min-height:16em;
   max-height:52em; 
+  min-width: 25em;
   max-width: 50em;
   /* padding: 1em; */
   vertical-align: top;
@@ -315,6 +350,21 @@ title,
 .my-recipe-flex span {
   background-color: #fff;
   padding: 0.2em;
+}
+
+.my-ingredient-flex {
+  border-radius: 10px;
+  /* border: 2px solid black; */
+  width: 100%;
+  background-color: #fff;
+  max-width: 60em;
+  /* padding: 1em; */
+  vertical-align: top;
+  line-height: 120%;
+  text-align: left;
+  margin: 1em;
+  box-shadow:0 0 5px grey;
+  overflow: hidden;
 }
 
 .my-recipe-flex img, .my-ingredient-flex img {
@@ -346,7 +396,7 @@ title,
 #column-right {
   flex: 1 0 auto;
   max-width: 90%;
-  margin: 1%;
+  margin: auto;
 }
 
 .table-wide {
@@ -462,8 +512,8 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
 #log-in, #create-account {
   content: "";
   border-radius: 15px;
+  background-color: #fff;
   box-shadow:0 0 5px grey;
-  border: 2px solid black;
   height: 25em;
   /* padding: 1em; */
   vertical-align: top;
@@ -477,12 +527,13 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
 }
 
 #log-in {
-  width: 21em;
+  width: 18em;
 }
 
 #create-account {
   width: 32em;
 }
+
 
 /* END LOG IN PAGE */
 
@@ -539,3 +590,5 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
   } */
 
   /* END OF MAP */
+
+

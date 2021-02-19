@@ -70,14 +70,14 @@ function GroceryCard(props) {
   
   tagFetch();
   
+
+  
   // My main div
   return (
-    <Fade right>
-      <div className={styles['my-ingredient-flex']}>
-
+    <>
         <div id={styles['column-left-ingredients']}>
-          <p className={styles['recipe-title']}><span>{props.title}</span></p>
-          <p className={styles['text_small']}><span>Tags {tagItems} </span></p>
+          <p className={styles['recipe-title']}><a href={`/recipes/${props.recipe_id}`}>{props.title}</a></p>
+          <p className={styles['text_small']}><span>{tagItems} </span></p>
           <img src={props.img} className={styles['my-recipe-img']} alt={props.title}/>
         </div>
 
@@ -90,10 +90,9 @@ function GroceryCard(props) {
               {ingredientsTable}
           </table>
         </div>
-
-      </div> 
-    </Fade>
+    </>
   );
+
 }
  
 
@@ -119,7 +118,11 @@ function MyGroceriesContainer(props) {
   if (signedIn === true) {
   return (
     <div className={styles['container']}>
-      {groceryCards}
+      <Fade right>
+        <div className={styles['my-ingredient-flex']}>
+        {groceryCards}
+      </div>
+      </Fade>
     </div>
   );
 

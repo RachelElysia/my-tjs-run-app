@@ -88,7 +88,7 @@ function RecipeCard(props) {
   const backgroundStyle = {
     backgroundImage: `url(${props.img})`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: '500px'
+    backgroundSize: '550px'
   
   };
 
@@ -97,10 +97,9 @@ function RecipeCard(props) {
       style={backgroundStyle}>
 
         <div id={styles['column-left']}>
-          <p className={styles['recipe-title']}><span>{props.title}</span><br />
+          <p className={styles['recipe-title']}><a href={`/recipes/${props.recipe_id}`}>{props.title}</a><br />
           </p>
           <p className={styles['text_small']}><span>Tags: {tagItems}</span></p>
-          {/* <img src={props.img} className={styles['my-recipe-img']} alt={props.title}/> */}
         </div>
 
         <div id={styles['column-middle']}>

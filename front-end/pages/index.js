@@ -28,7 +28,7 @@ function RecipeTile(props) {
 
   return (
     <div className={styles['tiles-flex']}>
-      <a href="/recipes/{recipe.recipe_id}">
+      <a href={`/recipes/${props.recipe_id}`}>
         <img src={props.img} className={styles['tile-img']} />
       </a>
   </div>

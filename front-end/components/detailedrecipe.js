@@ -58,9 +58,11 @@ function RecipeCard(props) {
   const backgroundStyle = {
     backgroundImage: `url(${props.img})`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: '500px'
+    backgroundSize: '550px'
   
   };
+
+
 
   return (<Fade right>
     <div className={styles['my-recipe-flex']}
@@ -68,9 +70,9 @@ function RecipeCard(props) {
 
       <div id={styles['column-left']}>
         <p className={styles['recipe-title']}><span>{props.title}</span></p>
-        <p className={styles['text_small']}><span>Prep & Cook Time: {props.prepTime} {props.cookTime}</span></p>
+        {/* <p className={styles['text_small']}><span>Prep & Cook Time: {props.prepTime} {props.cookTime}</span></p> */}
         <p className={styles['text_small']}><span>Serves: {props.serves}</span></p>
-        <p className={styles['text_small']}><span>Tags: {tagItems}</span></p>
+        <p className={styles['text_small']}><span>{tagItems}</span></p>
         {/* <img src={props.img} className={styles['my-recipe-img']} alt={props.title}/> */}
       </div>
 
