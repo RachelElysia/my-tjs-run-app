@@ -95,7 +95,6 @@ class Recipe(db.Model):
     def __repr__(self):
         return f'''
                 <Recipe title={self.title}, 
-# figure out how to add detailed ingredients onto here.
                 recipe_id={self.recipe_id},
                 img={self.img}>
                 '''

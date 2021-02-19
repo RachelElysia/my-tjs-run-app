@@ -1,6 +1,6 @@
 """CRUD operations."""
 
-from model import db, User, Recipe, Tag, Ingredient, RecipeTag, connect_to_db
+from model import db, User, Recipe, Tag, Ingredient, RecipeTag, UserRecipe, connect_to_db
 
 # CREATE USER, TAG, RECIPE, INGREDIENT
 
@@ -81,14 +81,17 @@ def create_recipe_tag_relationship(recipe_id, tag_id):
 #     db.session.commit()
 
 # THIS WILL BE WORKED ON LATER WHEN USERS CAN UPDATE
-# def create_user_recipe(user_id, recipe_id):
-#     """Create and return a new recipe for individual user."""
+def create_user_recipe(user_id, recipe_id):
+    """Create and return a new recipe for individual user.
+    
+    I'm user 1, I have 2 things on here.
+    """
 
-#     user_recipe = UserRecipe(user_id=user_id, recipe_id=recipe)
-#     db.session.add(user_recipe)
-#     db.session.commit()
+    user_recipe = UserRecipe(user_id=user_id, recipe_id=recipe_id)
+    db.session.add(user_recipe)
+    db.session.commit()
 
-#     return user_recipe
+    return user_recipe
 
 # THIS WILL BE WORKED ON LATER WHEN USERS CAN UPDATE
 # def create_user_groceries(user_id, recipe_id):
@@ -154,10 +157,10 @@ def get_user_by_phone(phone):
 
     return User.query.filter(User.phone == phone).first()
 
-def get_tags_by_recipe_id(recipe_id):
+def get_tags_info_by_recipe_id(recipe_id):
     """Return multiple tags.
     
-    >>> get_tags_by_recipe_id('08Ifren64xtMVpoG03Qx')
+    >>> get_tags_info_by_recipe_id('08Ifren64xtMVpoG03Qx')
 
     [
                 <RecipeTag recipetag_id=1,
@@ -169,8 +172,41 @@ def get_tags_by_recipe_id(recipe_id):
                 tag_id=47>
                 ]
     """
+    recipe_tag_id_only = RecipeTag.query.filter(RecipeTag.recipe_id == recipe_id).all()
 
-    return RecipeTag.query.filter(RecipeTag.recipe_id == recipe_id).all()
+    all_recipe_tag_info = []
+
+    for tag in recipe_tag_id_only:
+        tag_info = Tag.query.filter(Tag.tag_id == tag.tag_id).one()
+        all_recipe_tag_info.append(tag_info)
+
+    return all_recipe_tag_info
+
+
+def get_user_recipes_data(user_id):
+    """Given a user_id input, return all the recipes that they have favorited.
+    
+    >>> get_user_recioes_data(1)
+    [
+                <Userrecipe user_recipe_id=1
+                user_id=1, 
+                recipe_id=MWL6CyjVxqoOnYVH55eQ>
+                , 
+                <Userrecipe user_recipe_id=2
+                user_id=1, 
+                recipe_id=3YiI1WbzAzaj7J4GFbkF>
+    ]
+    """
+
+    user_favorites = UserRecipe.query.filter(UserRecipe.user_id == user_id).all()
+
+    all_user_favorites = []
+    for recipe in user_favorites:
+        recipe_info = Recipe.query.filter(Recipe.recipe_id == recipe.recipe_id).one()
+        all_user_favorites.append(recipe_info)
+    
+    return all_user_favorites
+
 
 def get_tag_names_by_recipe_id(recipe_id):
     """Return multiple tags.

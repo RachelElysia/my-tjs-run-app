@@ -12,6 +12,8 @@
   max-width: 90em;
   overflow-y: scroll;
   justify-items: center;
+  cursor: e-resize;
+  cursor: auto;
 }
 
 .main {
@@ -29,13 +31,17 @@
 }
 
 /* NAVBAR ONLY  */
+.nav-left {
+  position: absolute;
+  margin-left: 70px;
+}
 .nav-left a {
   color: #D21242;
   text-align: center;
   text-decoration: none;
   font-family: 'Poppins', opensans;
   font-weight: 500;
-  padding: 0.5em;
+  padding: 0.4em;
 }
 
 .nav-left a:hover {
@@ -43,7 +49,7 @@
   color: #fff;
   font-family: 'Poppins', opensans;
   font-weight: 500;
-  padding: 0.5em;
+  padding: 0.4em;
 
 } 
 
@@ -54,7 +60,7 @@
   text-decoration: none;
   font-family: 'Poppins', opensans;
   font-weight: 500;
-  padding: 0.5em;
+  padding: 0.4em;
 }
 
 .nav-right a:hover {
@@ -62,18 +68,18 @@
   background-color: #fff;
   font-family: 'Poppins', opensans;
   font-weight: 500;
-  padding: 0.5em;
+  padding: 0.4em;
 } 
 
 /* Right-aligned section inside the top navigation */
 .nav-right {
   float: right;
-  padding: 2em;
+  padding: 1.5em;
 }
 
 .nav-left {
   float: left;
-  padding: 2em;
+  padding: 1.5em;
 }
 
 /* END NAV BAR */
@@ -84,7 +90,7 @@
 
 #tjbar {
   position: fixed;
-  top: 5.5rem;    /* NavBar TJNavBar height */
+  top: 4.7rem;    /* NavBar TJNavBar height */
   border-top: 2px solid #eaeaea;
   border-bottom: 2px solid #eaeaea;
   height: 2.5rem;
@@ -99,7 +105,8 @@
 #tjbar a {
   color: #D21242;
   text-align: center;
-  padding: 8px 20em;
+  padding: 8px 0px;
+  width: 40%;
   text-decoration: none;
   font-family: 'Poppins', opensans;
   font-weight: 500;
@@ -119,18 +126,27 @@
 } 
 
 #tjbar-dropdown {
-  position:fixed;
-  top: 8rem;    /* NavBar TJNavBar height */
-  width: 40em;
+  position:absolute;
+  top: 7rem;    /* NavBar TJNavBar height */
+  width: 36em;
+  left: calc(50% - 288px);
   background: #D21242;
   z-index: 999;
+  display: flex;
+  padding: 10px;
+  justify-content: center;
 
+}
+
+#tj-table-div {
 }
 
 #tjbar-table {
-  margin-left: auto;
   margin-right: auto;
+  padding-top: 40px;
+  padding-left: 10px;
 }
+
 
 #tjbar-table a {
   background-color: #D21242;
@@ -150,6 +166,12 @@
 
 /* END TJBAR */
 
+#tag-heading {
+  position: absolute;
+  left: auto;
+  top: 0px;
+}
+
 /* RECIPE ON TJ'S RECIPES PAGES */
 .recipe-title {
   font-weight: 800;
@@ -158,6 +180,11 @@
 
 .recipe-tags {
   font-size: 0.8rem;
+}
+
+.info {
+  margin: auto;
+  padding: 0.1em;
 }
 
 .recipe-img {
@@ -173,6 +200,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 2.5rem;
   
   /* Then we define the flow direction 
      and if we allow the items to wrap 
@@ -198,7 +226,7 @@
   border-radius: 10%;
   /* border: 2px solid black; */
   width: 15em;
-  height: 20em;
+  height: 21em;
   /* padding: 1em; */
   vertical-align: top;
   overflow: hidden;
@@ -209,7 +237,7 @@
   box-shadow:0 0 5px grey;
 }
 
-.recipe-title {padding: 5px;}
+.recipe-title {padding: 8px;}
 
 /* MAIN PAGE TILES */
 .tiles-flex {
@@ -289,10 +317,9 @@ title,
   border-radius: 10px;
   /* border: 2px solid black; */
   width: 95%;
-  height: 33%;
   min-height:16em;
-  max-height:18em; 
-  max-width: 70em;
+  max-height:42em; 
+  max-width: 50em;
   /* padding: 1em; */
   vertical-align: top;
   line-height: 120%;
@@ -300,9 +327,10 @@ title,
   margin: 1em;
   box-shadow:0 0 5px grey;
   align-items: center;
-  display: inline-block;
   overflow: hidden;
   justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .my-recipe-flex span {
@@ -321,25 +349,24 @@ title,
 /* MY RECIPES PAGE */
 
 #column-left {
-  width: 32%;
   height: 100%;
-  max-width: 50em;
+  width: 300px;
+  max-width: 95%;
   padding: 0.5em;
-  display: inline-block;
 }
 
 #column-middle {
   width: 28%;
+  min-width: 20em;
+  max-width: 30em;
   height: 95%;
   margin: 1%;
-  display: inline-block;
 }
 
 #column-right {
-  width: 36%;
+  flex: 1 0 auto;
+  max-width: 90%;
   margin: 1%;
-  display: inline-block;
-
 }
 
 .table-wide {
@@ -354,15 +381,19 @@ title,
 /* MY GROCERY LIST PAGE */
 #column-left-ingredients {
   width: 22%;
-  height: 100%;
+  max-height: 80%;
   max-width: 50em;
   padding: 0.5em;
-  display: inline-block;
+  display: inline-table;
+  margin-top: -2px;
+  vertical-align: 2px;
+  
 }
 #column-ingredients {
-  width: 65%;
+  width: 75%;
+  max-width: 45em;
   margin: 1%;
-  display: inline-block;
+  display: inline-table;
 
 }
 /*  END MY GROCERY LIST PAGE */
@@ -407,10 +438,10 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
 
 /* FOR DIV BOX THAT SCROLLS */
 .scrollable {
-  width: 100%;
+  width: 95%;
   overflow-y:scroll; 
   position:relative;
-  height: 13em;
+  max-height: 13em;
   background-color: #FFF;
 }
 
@@ -450,21 +481,27 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
 
 #log-in, #create-account {
   content: "";
-  width: 50%;
   border-radius: 15px;
   box-shadow:0 0 5px grey;
   border: 2px solid black;
-  max-width: 28em;
-  height: 30em;
+  height: 25em;
   /* padding: 1em; */
   vertical-align: top;
-  overflow: hidden;
+  overflow: scroll;
   display: inline-block;
   justify-content: center;
   align-items: center;
   line-height: 120%;
   margin: 2em;
-  padding: 1em 2em;
+  padding: 0em 2em;
+}
+
+#log-in {
+  width: 21em;
+}
+
+#create-account {
+  width: 32em;
 }
 
 /* END LOG IN PAGE */

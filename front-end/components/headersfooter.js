@@ -8,7 +8,7 @@ function NavBar() {
   return (
     <nav>
       <div className={styles['nav-left']}>
-        <a href="/"><img src="/static/logo.jpg" alt="My TJ's Run Logo" /></a>
+        <a href="/"><img src="http://localhost:5000/static/img/logo.png" alt="My TJ's Run Logo" height="60px" /></a>
         <a href="/myrecipes" className={styles['left']}>My Recipes</a>
         <a href="/mygrocerylist" className={styles['left']}>My Grocery List</a>
 
@@ -37,30 +37,51 @@ onMouseLeave={() => setIsShown(false)}>
 {isShown && (
 
 <div id={styles['tjbar-dropdown']}>
-  <table id={styles['tjbar-table']}>
-  <td>
-  <tr><a href="/login"><center><button>Get Started</button></center></a></tr>
-  <tr><span className={styles["text_small"]}>Choose your recipes</span></tr>
-  <tr><span className={styles["text_small"]}>Generate your grocery list</span></tr>
-  <tr><span className={styles["text_small"]}>Receive your list as a text message!</span></tr>
-</td>
-<td>
-  <th>Party Favorites</th>
-  <tr><a href="/tags/desserts">Desserts</a></tr>
-  <tr><a href="/tags/appetizers">Appetizers</a></tr>
-  <tr><a href="/tags/sides">Sides</a></tr>
-  <tr><a href="/tags/salads">Salads</a></tr>
-  <tr><a href="/tags/snacks">Snacks</a></tr>
-</td>
-<td>
-  <th>Featured</th>
-  <tr><a href="/tags/stpatricksday">St. Patrick's Day</a></tr>
-  <tr><a href="/tags/spring">Spring</a></tr>
-  <tr><a href="/tags/breakfast">Breakfast</a></tr>
-  <tr><a href="/tags/meatless">Meatless</a></tr>
-  <tr><a href="/tags/cocktails">Cocktails</a></tr>
-</td>
+  <div id={styles['tjbar-table-div']}>
+    <table id={styles['tjbar-table']}>
+      <thead>
+        <tr>
+        <center><button onClick="window.location.href='/login'">Get Started</button></center>
+   <br /></tr>
+      </thead>
+      <tbody>
+        <tr><img src="http://localhost:5000/static/img/check.png" width="18px" /> Choose your recipes</tr>
+        <tr><img src="http://localhost:5000/static/img/check.png" width="18px" /> Generate your grocery list</tr>
+        <tr><img src="http://localhost:5000/static/img/check.png" width="18px" /> Receive your list as a text message!</tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+  <table id={styles['tjbar-table2']}>
+    <thead>
+      <tr>
+        <td>Party Favorites</td>
+        <td>Featured</td>
+      </tr>
+    </thead>
+    <tbody><tr>
+      <td><a href="/tags/33">Baking</a></td>
+      <td width="150px"><a href="/tags/102">St. Patrick's Day</a></td>
+    </tr>
+    <tr>
+      <td><a href="/tags/16">Party</a></td>
+      <td><a href="/tags/154">Easter</a></td>
+    </tr>
+    <tr>
+      <td><a href="/tags/8">Salads</a></td>
+      <td><a href="/tags/43">Spring</a></td>
+    </tr>
+    <tr>
+      <td><a href="/tags/5">Snacks</a></td>
+      <td><a href="/tags/147">Breakfast</a></td>
+    </tr>
+    <tr>
+      <td><a href="/tags/104">Cocktails</a></td>
+      <td><a href="/tags/10">Meatless</a></td>
+    </tr>
+    </tbody>
   </table>
+  </div>
 </div>
       )}
 </div>

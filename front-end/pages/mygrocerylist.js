@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import {NavBar, TJNavBar, Footer} from '../components/headersfooter'
+import Fade from 'react-reveal/fade';
 
 // needed for client side data fetching, see next.js docs
 import useSWR from 'swr'
@@ -27,7 +28,6 @@ import useSWR from 'swr'
 // }
 
 
-
 //fetch('/recipes_data') -> Promise<response>
 //  This is going to fetch the data and it's going to wait until it's fetched.
 function GroceryCard(props) {
@@ -43,10 +43,10 @@ function GroceryCard(props) {
   if (!data) return <div>loading...</div>
 
   ingredientsTable = data.map((ingredients) =>
-  <tr>
+  <tbody>
   <td className={styles['table-wide']}>{ingredients.abridged_ingredient}</td>
   <td className={styles['text_small']}>{ingredients.detailed_ingredient}</td>
-  </tr> 
+  </tbody> 
   );
   };
 
@@ -59,22 +59,23 @@ function GroceryCard(props) {
   function tagFetch() {
     const fetcher = url => fetch(url).then(r => r.json())
   
-    const { data, error } = useSWR(`/api/${props.recipe_id}/tagnames`, fetcher)
+    const { data, error } = useSWR(`/api/${props.recipe_id}/tags`, fetcher)
   
     if (error) return <div>failed to load</div>
     if (!data) return <div>loading...</div>
   
-    tagItems = data.map((tag) => <a href='/recipes'>  {tag.toUpperCase()}  </a>);
+    // NEEDED EXTRA {} AROUND IT TO SAY "yo, I'm a javascript template string!"
+    tagItems = data.map((tag) => <a href={`/tags/${tag.tag_id}`}>  {tag.name.toUpperCase()}  </a>);
   };
   
   tagFetch();
   
   // My main div
   return (
+    <Fade right>
       <div className={styles['my-ingredient-flex']}>
 
         <div id={styles['column-left-ingredients']}>
-
           <p className={styles['recipe-title']}><span>{props.title}</span></p>
           <p className={styles['text_small']}><span>Tags {tagItems} </span></p>
           <img src={props.img} className={styles['my-recipe-img']} alt={props.title}/>
@@ -82,15 +83,16 @@ function GroceryCard(props) {
 
         <div id={styles['column-ingredients']}>
           <table id={styles['ingredients-table']}>
-            <tr>
+            <thead>
               <th>My Grocery List</th>
               <th>Details</th>
-            </tr>
+            </thead>
               {ingredientsTable}
           </table>
         </div>
 
       </div> 
+    </Fade>
   );
 }
  
@@ -112,12 +114,25 @@ function MyGroceriesContainer(props) {
     );
   }
 
+  let signedIn = true;
+
+  if (signedIn === true) {
   return (
-    <div className={styles['flex-container']}>
+    <div className={styles['container']}>
       {groceryCards}
     </div>
   );
+
+  } else {
+  return (
+    <div>
+      <h1>Log in or create an account!</h1>
+        <p>Just render log in page when you get a chance.</p>
+    </div>
+    );
+  }
 };
+
 
 // self calling function... turn a function into an object and then call it with ()
 
@@ -129,7 +144,7 @@ export default function Home(props) {
   // useSWR takes 2 parameters: the URL, and how to fetch it (.then promise)
   // beneath the hood useSWR has 1 object with 2 keys returned, data and error
   // we call this destructuring :)
-  const { data, error } = useSWR('/api/recipes', fetcher3)
+  const { data, error } = useSWR('/api/users/1/recipes', fetcher3)
 
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>

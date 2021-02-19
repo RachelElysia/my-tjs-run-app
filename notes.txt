@@ -1,0 +1,41 @@
+notes:
+
+How I originally fetched recipes using get static props.
+This is server side rendering.
+I moved away from this on Monday 2/15 or Tuesday
+
+// MUST USE ABSOLUTE PATH FOR THIS TO WORK
+// export async function getStaticProps(context) {
+//   const res = await fetch('http://localhost:5000/api/recipes')
+//   const recipeData24 = await res.json()
+
+//   if (!recipeData24) {
+//     return {
+//       notFound: true,
+//     }
+//   }
+
+//   return {
+//     props: {recipeData24,}, // will be passed to the page component as props
+//   }
+// }
+
+
+Tried this but couldn't get it to work, gave up on it earlier this wee
+Thursday 2/18
+  // Split title on the word if awkward 2 liner
+  let recipeTitle = props.title;
+  if (recipeTitle.length > 31 && recipeTitle.length < 43) {
+    let titleSplit = recipeTitle.split(" ");
+    let count = 0;
+    let spliceIndex = 0;
+    for (let i=0; i< titleSplit.length; i++) {
+      count += titleSplit[i].length;
+      if (count>20) {
+        spliceIndex = i;
+        break;
+      }
+    }
+    titleSplit.splice(spliceIndex, 0, '{"\n"}');
+    recipeTitle = titleSplit.join(" ");
+  }

@@ -227,8 +227,9 @@ export default function Home(props) {
     <>
       <NavBar />
       <TJNavBar />
-        <TJMapContainer />
       <Footer />
+        {/* <TJMapContainer /> */}
+
     </>
      )
 }

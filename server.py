@@ -1,6 +1,6 @@
 """Server for TJ shopping by recipe app."""
 
-from flask import Flask, render_template, request, flash, session, redirect, jsonify
+from flask import Flask, render_template, request, flash, session, redirect, jsonify, make_response
 from flask_debugtoolbar import DebugToolbarExtension #added by Lucia
 from model import connect_to_db
 import crud
@@ -43,35 +43,6 @@ def show_homepage():
 #     """Show all recipes."""
 
 #     return jsonify(few_datapoints)
-
-
-@app.route('/api/<recipe_id>/tags')
-def recipes_tags_by_id(recipe_id):
-  """Show all tags for a recipe.
-  
-  http://localhost:5000/api/08Ifren64xtMVpoG03Qx/tags
-  SHOWS JSON:
-  [
-  {
-    "recipe_id": "08Ifren64xtMVpoG03Qx", 
-    "recipetag_id": 1, 
-    "tag_id": 10
-  }, 
-  {
-    "recipe_id": "08Ifren64xtMVpoG03Qx", 
-    "recipetag_id": 2, 
-    "tag_id": 47
-  }
-]
-  
-  """
-    
-  # The default is 24, you can change this parameter
-  recipe_data = crud.get_tags_by_recipe_id(recipe_id)
-
-  serialized_recipe_tags =  [i.serialize for i in recipe_data]
-
-  return jsonify(serialized_recipe_tags)
 
 
 @app.route('/api/recipes')
@@ -127,23 +98,47 @@ def tag_name_by_tag_id(tag_id):
 
   return jsonify(tag_name.name)
 
-@app.route('/api/<recipe_id>/tagnames')
+@app.route('/api/<recipe_id>/tags')
 def recipes_tag_names_by_id(recipe_id):
   """Show all tags for a recipe.
   
-  http://localhost:5000/api/08Ifren64xtMVpoG03Qx/tagnames
+  http://localhost:5000/api/08Ifren64xtMVpoG03Qx/tags
   SHOWS JSON:
 
-  [
-  "Meatless", 
-  "Salsa"
+[
+  {
+    "name": "Meatless", 
+    "tag_id": 10
+  }, 
+  {
+    "name": "Salsa", 
+    "tag_id": 47
+  }
 ]
   """
     
-  recipe_tags_names_data = crud.get_tag_names_by_recipe_id(recipe_id)
+  recipe_tags_data = crud.get_tags_info_by_recipe_id(recipe_id)
 
-  return jsonify(recipe_tags_names_data)
+  serialized_tag_info =  [i.serialize for i in recipe_tags_data]
 
+  return jsonify(serialized_tag_info)
+
+
+@app.route('/api/users/<user_id>/recipes')
+def user_recipes_by_user_id(user_id):
+  """Show all tags for a recipe.
+  
+  http://localhost:5000/api/1/recipes
+  SHOWS JSON:
+
+
+  """
+    
+  userfavoritesdata = crud.get_user_recipes_data(user_id)
+
+  userfavorites =  [i.serialize for i in userfavoritesdata]
+
+  return jsonify(userfavorites)
 
 
 @app.route('/api/<recipe_id>/ingredients')
@@ -213,30 +208,41 @@ def recipes_data_hungry():
   return jsonify(serialized_recipe_data)
 
 ########### THIS IS REPLACED WITH REACT ONSUBMIT #############
-# @app.route('/api/users', methods=['POST'])
-# def register_user():
-#     """Create a new user."""
+@app.route('/api/users', methods=['POST'])
+def register_user():
+    """Create a new user."""
 
-#     fname = request.form.get('fname')
-#     lname = request.form.get('lname')
-#     phone = request.form.get('phone')
-#     password_hash = generate_password_hash(request.form.get('password'))
+    fname = request.form.get('fname')
+    lname = request.form.get('lname')
+    phone = request.form.get('phone')
+    password_hash = generate_password_hash(request.form.get('password'))
     
-#     user = crud.get_user_by_phone(phone)
+    user = crud.get_user_by_phone(phone)
 
-#     # ONLY IF YOU'RE USING PYTHON FOR FRONT END
-#     # NEED JAVASCRIPT ALERT
-#     # if user:
-#     #     flash('Phone number already associated to an account. Try again.')
-#     # else:
-#     #     user = crud.create_user(fname, lname, phone, password_hash)
-#     #     flash('Account successfully created! Please log in to favorite recipes.')
+    # ONLY IF YOU'RE USING PYTHON FOR FRONT END
+    # NEED JAVASCRIPT ALERT
+    # if user:
+    #     flash('Phone number already associated to an account. Try again.')
+    # else:
+    #     user = crud.create_user(fname, lname, phone, password_hash)
+    #     flash('Account successfully created! Please log in to favorite recipes.')
 
-#     if !user: 
-#       crud.create_user(fname, lname, phone, password_hash)
-#     else:
+    if user:
+      response = make_response(jsonify(
+        {
+          "errorMessage": "This phone number is already associated to an account. Try logging in.",
+          "image": "https://http.cat/409.jpg",
+        }
+      ))
 
-#     return 
+      return response
+    
+    else:
+      userCreated = crud.create_user(fname, lname, phone, password_hash)
+      
+      return jsonify(userCreated)
+
+
 
 ########### THIS IS REPLACED WITH REACT ONSUBMIT #############
 @app.route('/api/userlogin', methods=['POST'])
@@ -253,13 +259,14 @@ def log_in():
 
     # ONLY IF YOU'RE USING PYTHON FOR FRONT END
     # NEED JAVASCRIPT ALERT
+    # WE SPEAK IN JSON ONLY
     # first value is the password_hash, second value is the password entered
     # elif check_password_hash(user.password_hash, request.form.get('password')):
     #     flash('You are successfully logged in!')
     # else:
     #     flash('Incorrect password. Please try again.')
 
-    return redirect('/')
+    return 
 
 if __name__ == '__main__':
     ####### added by Lucia 2/11

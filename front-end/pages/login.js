@@ -73,7 +73,7 @@ function SignIn() {
           <input type="text" name="phone" id="phone" placeholder="4158631292" />
         </p>
         <p>
-          <label for="password">Password</label> <br />
+          <label for="password">Password:</label> <br />
           <input type="password" name="password" id="password" placeholder="Your password" />
         </p>
         <p>
