@@ -111,11 +111,6 @@ small, .text_small {font-size: 0.8rem;}
 /* suggested 0.889 */
 
 
-img:hover {
-  opacity: 0.3;
-  filter: alpha(opacity=30);
-}
-
 footer {
   position: relative;
   bottom: 0;

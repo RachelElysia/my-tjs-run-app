@@ -70,14 +70,14 @@ export default function Home(props) {
   const {tag_id} = router.query
 
   // NEW SCHOOL FETCHING!
-  const fetcherRecipesByTag = url => fetch(url).then(r => r.json())
+  const fetchRecipesByTagFunction = url => fetch(url).then(r => r.json())
 
   // useSWR takes 2 parameters: the URL, and how to fetch it (.then promise)
   // beneath the hood useSWR has 1 object with 2 keys returned, data and error
   // we call this destructuring :)
   // const { data, error } = useSWR(`/api/tags/${tag_id}`, fetcherRecipeIdsByTag)
     // result = useSWR object that has keys {data, error} built in
-  const tagRecipesResult = useSWR(`/api/tags/${tag_id}`, fetcherRecipesByTag)
+  const tagRecipesResult = useSWR(`/api/tags/${tag_id}`, fetchRecipesByTagFunction)
 
   // useSWR takes 2 parameters: the URL, and how to fetch it (.then promise)
   // beneath the hood useSWR has 1 object with 2 keys returned, data and error

@@ -97,7 +97,8 @@ function RecipeCard(props) {
       style={backgroundStyle}>
 
         <div id={styles['column-left']}>
-          <p className={styles['recipe-title']}><span>{props.title}</span></p>
+          <p className={styles['recipe-title']}><span>{props.title}</span><br />
+          </p>
           <p className={styles['text_small']}><span>Tags: {tagItems}</span></p>
           {/* <img src={props.img} className={styles['my-recipe-img']} alt={props.title}/> */}
         </div>

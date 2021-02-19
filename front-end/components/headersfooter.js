@@ -36,13 +36,17 @@ onMouseLeave={() => setIsShown(false)}>
 </div>
 {isShown && (
 
+
+
 <div id={styles['tjbar-dropdown']}>
   <div id={styles['tjbar-table-div']}>
     <table id={styles['tjbar-table']}>
       <thead>
-        <tr>
-        <center><button onClick="window.location.href='/login'">Get Started</button></center>
-   <br /></tr>
+        <tr><center>
+       <button type="button" onClick={(e) => { e.preventDefault(); window.location.href='/login'; }}>
+          Get Started
+        </button>
+   </center><br /></tr>
       </thead>
       <tbody>
         <tr><img src="http://localhost:5000/static/img/check.png" width="18px" /> Choose your recipes</tr>
@@ -87,9 +91,6 @@ onMouseLeave={() => setIsShown(false)}>
 </div>
   );
 }
-
-
-
 
 function Footer() {
 
