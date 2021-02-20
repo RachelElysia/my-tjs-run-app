@@ -60,11 +60,11 @@ export default function Home(props) {
   if (!recipeIdResult.data) return <div>loading...</div>
 
   return (
-    <>
+    <div id="page-container">
       <NavBar />
       <TJNavBar />
       <MyRecipesContainer mySingleRecipeData={recipeIdResult.data} />
       <Footer />
-    </>
+    </div>
   )
 }

@@ -13,7 +13,7 @@ function StoreLocator(props) {
         title="Trader Joe's Near You"
         width="80%"
         height="80%"
-        max-height="400px"
+        max-height="800px"
         src="/static/storefinder.html">
       </iframe>
     </div>
@@ -23,12 +23,12 @@ function StoreLocator(props) {
 
 export default function Home(props) {
   return (
-    <>
+    <div id="page-container">
       <NavBar />
       <TJNavBar />
       <StoreLocator />
       <Footer />
 
-    </>
+    </div>
      )
 }

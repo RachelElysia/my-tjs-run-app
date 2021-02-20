@@ -38,7 +38,7 @@
   background: #D21242;
   color: #fff;
   font-family: 'Poppins', opensans;
-  font-weight: 500;
+  font-weight: 600;
   padding: 0.4em;
 
 } 
@@ -101,7 +101,7 @@
   text-align: center;
   z-index: 999;
   overflow: hidden;
-  box-shadow:0 0 5px grey;
+  box-shadow:0 0 3fpx grey;
 }
 
 #tjbar a {
@@ -111,17 +111,16 @@
   width: 40%;
   text-decoration: none;
   font-family: 'Poppins', opensans;
-  font-weight: 500;
+  font-weight: 600;
   text-align: center;
   justify-content: center;
   align-items: center;
 
 }
 #tjbar a:hover {
-  background: #fff;
-  color: #D21242;
+  color:#bd0d39;
   font-family: 'Poppins', opensans;
-  font-weight: 500;
+  font-weight: 600;
   justify-content: center;
   align-items: center;
   padding-bottom: 20em;
@@ -558,59 +557,3 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
 
 
 /* END LOG IN PAGE */
-
-
-
-/* TJ MAP */
-#map {
-  height: 400px;
-  /* The height is 400 pixels */
-  width: 95%;
-  max-width: 100em;
-  background-color: grey;
-  /* The width is the width of the web page */
-}
-
-
-/* Styling for an info pane that slides out from the left. 
-    * Hidden by default. */
-    #panel {
-      height: 100%;
-      width: null;
-      background-color: white;
-      position: fixed;
-      z-index: 1;
-      overflow-x: hidden;
-      transition: all .2s ease-out;
-  }
-  
-  .open {
-      width: 250px;
-  }
-  
-  /* Styling for place details */
-  .hero {
-      width: 100%;
-      height: auto;
-      max-height: 166px;
-      display: block;
-  }
-  
-  .place, {
-      font-family: 'open sans', arial, sans-serif;
-      padding-left: 18px;
-      padding-right: 18px;
-  }
-  
-  .details {
-      color: darkslategrey;
-  }
-  
-  /* a {
-      text-decoration: none;
-      color: cadetblue;
-  } */
-
-  /* END OF MAP */
-
-

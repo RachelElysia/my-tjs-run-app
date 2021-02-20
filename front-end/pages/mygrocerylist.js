@@ -101,7 +101,7 @@ function MyGroceriesContainer(props) {
     <div className={styles['container']}>
     <h1> My Grocery List</h1>
       <p> Choose from your favorite recipes to generate your personalized grocery list!</p>
-      <PersonalizedShoppingList userRecipeData={props.userRecipesData} />
+      <PersonalizedShoppingList userRecipesData={props.userRecipesData} />
       <div className={styles['container-flex']}>
       <div className={styles['my-ingredient-flex']}>
         {groceryCards}
@@ -137,11 +137,11 @@ export default function Home(props) {
   if (!data) return <div>loading...</div>
 
   return (
-    <>
+    <div id="page-container">
       <NavBar />
       <TJNavBar />
       <MyGroceriesContainer userRecipesData={data} />
       <Footer />
-    </>
+    </div>
   )
 }

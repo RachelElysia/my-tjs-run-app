@@ -172,11 +172,11 @@ export default function Home(props) {
   if (!data) return <div>loading...</div>
 
   return (
-    <>
+    <div id="page-container">
       <NavBar />
       <TJNavBar />
       <MyRecipesContainer recipeData24={data} />
       <Footer />
-    </>
+    </div>
   )
 }

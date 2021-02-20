@@ -111,10 +111,10 @@ function Footer() {
   return (
     <footer>
       <ul>
-        <li>Accessibility</li>
         <li>A Project by <a href="http://www.rachelelysia.com" target="_blank">Rachel Elysia Perkins</a></li>
+        <li><a href="/resources">Resources</a></li>
         <li><a href="mailto:me@rachelelysia.com">Email Me</a></li>
-        <li>Hackbright Academy Engineering 2021</li>
+        <li><a href="http://hackbright.com" target="_blank">Hackbright Academy</a> Engineering 2021</li>
       </ul>
     </footer>
   );

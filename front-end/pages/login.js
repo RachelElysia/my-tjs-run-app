@@ -99,11 +99,11 @@ function SignInUp() {
 
 export default function Home(props) {
   return (
-    <>
+    <div id="page-container">
       <NavBar />
       <TJNavBar /><Fade bottom>
       <SignInUp /></Fade>
       <Footer />
-    </>
+    </div>
   )
 }

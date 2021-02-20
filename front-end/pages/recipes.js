@@ -45,11 +45,11 @@ export default function Home() {
   if (!recipes.data) return <div>loading...</div>
 
   return (
-    <>
+    <div id="page-container">
       <NavBar />
       <TJNavBar />
       <RecipeCardContainer recipeData24={recipes.data} />
       <Footer />
-    </>
+    </div>
   )
 }

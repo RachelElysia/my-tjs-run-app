@@ -87,11 +87,11 @@ export default function Home(props) {
 
 
   return (
-    <>
+    <div id="page-container">
       <NavBar />
       <TJNavBar />
       <RecipeCardContainer recipeData24={tagRecipesResult.data}/>
       <Footer />
-    </>
+    </div>
   )
 }

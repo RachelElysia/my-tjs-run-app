@@ -2,6 +2,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
 
 /* HTML BODY NAV LINKS LISTS HEADERS PARAGRAPHS IMG:HOVER */
 
@@ -27,6 +31,7 @@ button {
   text-decoration: none;
   display: inline-block;
   font-size: 1rem;
+  font-weight: 600;
 }
 
 button:hover {
@@ -38,6 +43,8 @@ button:hover {
   text-decoration: none;
   display: inline-block;
   font-size: 1rem;
+  font-weight: 600;
+  
 }
 
 button:focus {
@@ -128,7 +135,7 @@ small, .text_small {font-size: 0.8rem;}
 
 
 footer {
-  position: relative;
+  position: absolute;
   bottom: 0;
   width: 100%;
   height: 2.5rem; 
@@ -138,7 +145,8 @@ footer {
   align-items: center;
   background-color: #fff;
   z-index: 999;
-}
+  box-shadow:0 -3px 3px -3px grey;
+} 
 
 footer img {
   margin-left: 0.5rem;
@@ -146,6 +154,7 @@ footer img {
 
 footer a {
   color: #D21242;
+  background-color: #fff;
   text-align: center;
   text-decoration: none;
   font-family: 'Poppins', opensans;
@@ -154,8 +163,8 @@ footer a {
 }
 
 footer a:hover {
-  background: #D21242;
-  color: #fff;
+  background: #eaeaea;
+  color: #D21242;
   font-family: 'Poppins', opensans;
   font-weight: 500;
   padding: 0.5em;

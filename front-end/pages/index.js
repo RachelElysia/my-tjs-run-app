@@ -53,11 +53,11 @@ export default function Home() {
   if (!data) return <div>loading...</div>
 
   return (
-    <>
+    <div id="page-container">
       <NavBar />
       <TJNavBar />
       <Fade><IndexContainerYay recipeData48={data} /></Fade>
       <Footer />
-    </>
+    </div>
   )
 };
