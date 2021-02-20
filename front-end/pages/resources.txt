@@ -1,4 +1,6 @@
 
+React Framework: Next.js https://nextjs.org/
+
 React useState: Toggle Favorite Recipes Selected https://www.codecademy.com/courses/react-101/lessons/the-state-hook/exercises/arrays-in-state
 React useSWR Fetcher: Client Side Fetching https://swr.vercel.app/
 React Reveal: Transitions library https://www.react-reveal.com/examples/common/fade/

@@ -29,7 +29,7 @@ function NavBar() {
       </div><div className={styles['nav-right']}>
 
       <input type="text" placeholder="Search.." className="search-bar"/>
-        <button className={styles['right']} type="button" onClick={(e) => { e.preventDefault(); window.location.href='/map'; }}>
+        <button className={styles['right']} type="button" onClick={(e) => { e.preventDefault(); window.location.href='/storelocator'; }}>
           Find A Store
         </button>
 
