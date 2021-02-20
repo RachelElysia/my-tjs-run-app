@@ -4,16 +4,28 @@ import React, { useState } from 'react';
 
 function NavBar() {
 
-  const user_id = 1;
+  const user_id = 2;
+
+  const handleLogIn = ((e) => { e.preventDefault(); window.location.href='/login'; } ); 
+
+  const handleLogOut = (e) => {
+    e.preventDefault(); window.location.href='/';
+    setCurrentName({});
+    setCurrentPhone("");
+    localStorage.clear();
+  };
 
   const logInOutButton = (user_id === null) ? 'Log In' : 'Log Out';
-  const logInOutUrl = (user_id === null) ? '/login' : '/logout';
+  const handleLogInOrOut = (user_id === null) ? handleLogIn : handleLogOut;
 
   const logInOrOut = (
-    <button className={styles['right']} id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); window.location.href='{`${logInOutUrl}`}'; }}>
+    <button className={styles['right']} id={styles['get-started-button']} type="button" onClick={handleLogInOrOut}>
     {logInOutButton}
-  </button>
+    </button>
   )
+
+
+
 
   return (
     <nav>
@@ -56,16 +68,16 @@ onMouseLeave={() => setIsShown(false)}>
   <div id={styles['tjbar-table-div']}>
     <table id={styles['tjbar-table']}>
       <thead>
-        <tr><center>
+        <tr><td><center>
        <button id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); window.location.href='/login'; }}>
           Get Started
         </button>
-   </center><br /></tr>
+   </center></td></tr>
       </thead>
       <tbody>
-        <tr><img src="http://localhost:5000/static/img/check.png" width="18px" /> Choose your recipes</tr>
-        <tr><img src="http://localhost:5000/static/img/check.png" width="18px" /> Generate your grocery list</tr>
-        <tr><img src="http://localhost:5000/static/img/check.png" width="18px" /> Receive your list as a text message!</tr>
+        <tr><td><img src="http://localhost:5000/static/img/check.png" width="18px" /> Choose your recipes</td></tr>
+        <tr><td><img src="http://localhost:5000/static/img/check.png" width="18px" /> Generate your grocery list</td></tr>
+        <tr><td><img src="http://localhost:5000/static/img/check.png" width="18px" /> Receive your list as a text message!</td></tr>
       </tbody>
     </table>
   </div>

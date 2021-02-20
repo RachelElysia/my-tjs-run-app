@@ -229,14 +229,6 @@ def register_user():
     
     user = crud.get_user_by_phone(phone)
 
-    # ONLY IF YOU'RE USING PYTHON FOR FRONT END
-    # NEED JAVASCRIPT ALERT
-    # if user:
-    #     flash('Phone number already associated to an account. Try again.')
-    # else:
-    #     user = crud.create_user(fname, lname, phone, password_hash)
-    #     flash('Account successfully created! Please log in to favorite recipes.')
-
     if user:
       response = make_response(jsonify(
         {
@@ -249,8 +241,10 @@ def register_user():
     
     else:
       userCreated = crud.create_user(fname, lname, phone, password_hash)
-      
-      return jsonify(userCreated)
+    
+      userAccountMade = crud.get_user_by_phone(phone)
+
+      return jsonify(userAccountMade)
 
 
 
@@ -263,20 +257,20 @@ def log_in():
 
     user = crud.get_user_by_phone(phone_entered)
 
-    if user is None:
-        flash('This phone number is not associated with an account. Please try again.')
+    if user:
+      response = {
+        "errorMessage": "This phone number is already associated to an account. Try logging in.",
+        "image": "https://http.cat/409.jpg",
+      }
+
+      return jsonify(response)
     
+    else:
+      userCreated = crud.create_user(fname, lname, phone, password_hash)
 
-    # ONLY IF YOU'RE USING PYTHON FOR FRONT END
-    # NEED JAVASCRIPT ALERT
-    # WE SPEAK IN JSON ONLY
-    # first value is the password_hash, second value is the password entered
-    # elif check_password_hash(user.password_hash, request.form.get('password')):
-    #     flash('You are successfully logged in!')
-    # else:
-    #     flash('Incorrect password. Please try again.')
+      userAccountMade = crud.get_user_by_phone(phone)
 
-    return 
+      return jsonify(userAccountMade)
 
 if __name__ == '__main__':
     ####### added by Lucia 2/11

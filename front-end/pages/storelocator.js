@@ -12,7 +12,7 @@ function StoreLocator(props) {
       <iframe id="inlineFrameExample"
         title="Trader Joe's Near You"
         width="80%"
-        height="80%"
+        height="100%"
         max-height="800px"
         src="/static/storefinder.html">
       </iframe>
@@ -28,7 +28,6 @@ export default function Home(props) {
       <TJNavBar />
       <StoreLocator />
       <Footer />
-
     </div>
-     )
+    )
 }
