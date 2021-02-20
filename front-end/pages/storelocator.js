@@ -12,8 +12,7 @@ function StoreLocator(props) {
       <iframe id="inlineFrameExample"
         title="Trader Joe's Near You"
         width="80%"
-        height="100%"
-        max-height="800px"
+        height="90%"
         src="/static/storefinder.html">
       </iframe>
     </div>

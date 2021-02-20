@@ -68,16 +68,16 @@ onMouseLeave={() => setIsShown(false)}>
   <div id={styles['tjbar-table-div']}>
     <table id={styles['tjbar-table']}>
       <thead>
-        <tr><td><center>
+        <tr><td></td><td><center>
        <button id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); window.location.href='/login'; }}>
           Get Started
         </button>
    </center></td></tr>
       </thead>
       <tbody>
-        <tr><td><img src="http://localhost:5000/static/img/check.png" width="18px" /> Choose your recipes</td></tr>
-        <tr><td><img src="http://localhost:5000/static/img/check.png" width="18px" /> Generate your grocery list</td></tr>
-        <tr><td><img src="http://localhost:5000/static/img/check.png" width="18px" /> Receive your list as a text message!</td></tr>
+        <tr><td><img src="http://localhost:5000/static/img/check.png" width="18px" /></td><td>Choose your favorite recipes</td></tr>
+        <tr><td><img src="http://localhost:5000/static/img/check.png" width="18px" /></td><td>Generate your grocery list</td></tr>
+        <tr><td><img src="http://localhost:5000/static/img/check.png" width="18px" /></td><td>Receive your list as a text message!</td></tr>
       </tbody>
     </table>
   </div>

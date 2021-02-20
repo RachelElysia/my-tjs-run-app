@@ -15,8 +15,6 @@ function MyRecipesContainer(props) {
 
   if (signedIn === true) {
 
-  console.log(props)
-
   return (
     <Fade>
     <div className={styles['container']}>
@@ -53,8 +51,6 @@ export default function Home(props) {
   const fetchFunction = url => fetch(url).then(r => r.json())
 
   const recipeIdResult = useSWR(`/api/recipes/${recipe_id}`, fetchFunction)
-
-  console.log("PRINT PRINT PRINT HELLO" + recipe_id)
 
   if (recipeIdResult.error) return <div>failed to load</div>
   if (!recipeIdResult.data) return <div>loading...</div>

@@ -30,10 +30,11 @@ function MyGroceriesContainer(props) {
   if (signedIn === true) {
   return (
     <Fade right>
-    <div className={styles['container']}>
-    <h1> My Grocery List</h1>
+    <div className={styles['flex-container']}>
+    <div><center><h1> My Grocery List</h1>
       <p> Choose from your favorite recipes to generate your personalized grocery list!</p>
-      <PersonalizedShoppingList userRecipesData={props.userRecipesData} />
+      <PersonalizedShoppingList userRecipesData={props.userRecipesData} /></center>
+    </div>
     </div>
   </Fade>
 
@@ -54,7 +55,7 @@ export default function Home(props) {
 
   const fetcher3 = url => fetch(url).then(r => r.json())
 
-  let user_id = 2;
+  let user_id = 2
   // useSWR takes 2 parameters: the URL, and how to fetch it (.then promise)
   // beneath the hood useSWR has 1 object with 2 keys returned, data and error
   // we call this destructuring :)

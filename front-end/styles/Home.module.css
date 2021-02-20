@@ -101,7 +101,7 @@
   text-align: center;
   z-index: 999;
   overflow: hidden;
-  box-shadow:0 0 3fpx grey;
+  box-shadow:0 0 3px grey;
 }
 
 #tjbar a {

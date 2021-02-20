@@ -11,7 +11,12 @@ function RecipeCard(props) {
     // Split data on the word instead of on the letter
      //Figure out how to split directions to digestible chunks
   
-    let directionsSplit = props.directions;
+    let directions = props.directions;
+
+
+    let directionsSplit = directions.split("\n");
+
+    const directionsForRecipe = directionsSplit.map((direction) => <li key={props.title}>{direction}</li>);
 
   //need fetcher, need to pass a url to a promise and turn the response to json
   // save it as a variable and use SWR which takes in two parameters, the url and the function
@@ -86,7 +91,7 @@ function RecipeCard(props) {
       <div id={styles['column-right']}>
         <p><span>Directions:</span></p>
         <div className={styles['scrollable']}>
-          <p className={styles['text_small']}>{directionsSplit}</p>
+          <ol className={styles['text_small']}>{directionsForRecipe}</ol>
         </div>
       </div>
 
