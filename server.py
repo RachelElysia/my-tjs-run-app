@@ -230,21 +230,28 @@ def register_user():
     user = crud.get_user_by_phone(phone)
 
     if user:
-      response = make_response(jsonify(
-        {
-          "errorMessage": "This phone number is already associated to an account. Try logging in.",
-          "image": "https://http.cat/409.jpg",
-        }
-      ))
+      response = {
+        "errorMessage": "This phone number is already associated to an account. Try logging in.",
+        "image": "https://http.cat/409",
+      }
+      status_code = 409
+      print("THIS NUMBER EXISTS ALREADY!")
+      print(jsonify(response, status_code))
+      return jsonify(response, status_code)
 
-      return response
-    
     else:
       userCreated = crud.create_user(fname, lname, phone, password_hash)
     
       userAccountMade = crud.get_user_by_phone(phone)
 
-      return jsonify(userAccountMade)
+      response = {
+        "image": "https://http.cat/409.jpg",
+        "user": userAccountMade.serialize,
+      }
+      status_code = 200
+      print("YOU MADE A LOG IN!")
+      print(jsonify(response, status_code))
+      return jsonify(response, status_code)
 
 
 
@@ -254,23 +261,41 @@ def log_in():
     """Log In user."""
 
     phone_entered = request.form.get('phone')
+    password_entered = request.form.get('password')
 
     user = crud.get_user_by_phone(phone_entered)
 
-    if user:
+    if user and check_password_hash(user.password_hash, password_entered):
+      userAccountLoggedIn = crud.get_user_by_phone(phone_entered)
+
       response = {
-        "errorMessage": "This phone number is already associated to an account. Try logging in.",
         "image": "https://http.cat/409.jpg",
+        "user": userAccountLoggedIn.serialize,
       }
+      status_code = 200
+      print("YOU MADE A LOG IN!")
+      print(jsonify(response, status_code))
+      return jsonify(response, status_code)
 
-      return jsonify(response)
-    
-    else:
-      userCreated = crud.create_user(fname, lname, phone, password_hash)
+    if not user:
+      response = {
+        "errorMessage": "This phone number is not associated to an account. Create your account.",
+        "image": "https://http.cat/422",
+      }
+      status_code = 422
+      print("YOU TYPED IN A RANDOM PHONE NUMBER")
+      print(jsonify(response, status_code))
+      return jsonify(response, status_code)
 
-      userAccountMade = crud.get_user_by_phone(phone)
-
-      return jsonify(userAccountMade)
+    if user and not check_password_hash(user.password_hash, password_entered):
+      response = {
+        "errorMessage": "Password is incorrect. Please try again.",
+        "image": "https://http.cat/401",
+      }
+      status_code = 401
+      print("YOU TYPED IN A WRONG PASSWORD")
+      print(jsonify(response, status_code))
+      return jsonify(response, status_code)
 
 if __name__ == '__main__':
     ####### added by Lucia 2/11

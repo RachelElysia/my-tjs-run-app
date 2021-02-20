@@ -26,12 +26,13 @@ Centering CSS
   // https://www.w3.org/Style/Examples/007/center.en.html
 
 PYTHON & BACKEND
-https://www.w3schools.com/python/ref_random_choices.asp
+Render random recipes https://www.w3schools.com/python/ref_random_choices.asp
+Werkzeug: Password Hashing in Flask https://www.youtube.com/watch?v=jJ4awOToB6k
 
 JAVASCRIPT & FRONTEND
 ARRAY METHODS
  // map https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
- // ncludes https://www.w3schools.com/jsref/jsref_includes_array.asp
+ // includes https://www.w3schools.com/jsref/jsref_includes_array.asp
  // forEach https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
  // slice https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
 
@@ -41,3 +42,4 @@ Checking if data exists https://docs.sqlalchemy.org/en/13/orm/query.html?highlig
 
  PRACTICE / TEST CODE
  https://Repl.it
+

@@ -17,7 +17,7 @@ function MyRecipesContainer(props) {
 
   return (
     <Fade>
-    <div className={styles['container']}>
+    <div className={styles['flex-container']}>
       <RecipeCard
       recipe_id={props.mySingleRecipeData.recipe_id}
       title={props.mySingleRecipeData.title}

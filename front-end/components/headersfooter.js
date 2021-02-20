@@ -120,13 +120,18 @@ onMouseLeave={() => setIsShown(false)}>
 
 function Footer() {
 
+  let myIngredients = ['TJ\'s Avocado Oil', 'TJ\'s Garlic Spread',
+    'TJ\'s Pumpkin Cranberry Crisps', 'TJ\'s Fig Butter', 'TJ\'s Bourbon Vanilla Extract',
+    'Neopolitan Joe Joe\'s', 'TJ\'s Crumbled Feta', 'TJ\'s Lemon Elderflower Soda',
+    'TJ\'s Panko Breadcrumbs', 'TJ\'s Freeze Dried Strawberries', 'TJ\'s Island Salsa',
+    'TJ\'s Garlic Naan']
+  let randomIngredient = myIngredients[Math.floor(Math.random() * myIngredients.length)]
   return (
     <footer>
       <ul>
         <li>A Project by <a href="http://www.rachelelysia.com" target="_blank">Rachel Elysia Perkins</a></li>
         <li><a href="/resources">Resources</a></li>
-        <li><a href="mailto:me@rachelelysia.com">Email Me</a></li>
-        <li><a href="http://hackbright.com" target="_blank">Hackbright Academy</a> Engineering 2021</li>
+        <li><a href="https://venmo.com/Rachel-Perkins" target="_blank">Buy me {randomIngredient}</a></li>
       </ul>
     </footer>
   );

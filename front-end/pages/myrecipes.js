@@ -166,7 +166,7 @@ export default function Home(props) {
 
   const fetcher3 = url => fetch(url).then(r => r.json())
 
-  let user_id = 1;
+  let user_id = 2;
 
   // useSWR takes 2 parameters: the URL, and how to fetch it (.then promise)
   // beneath the hood useSWR has 1 object with 2 keys returned, data and error

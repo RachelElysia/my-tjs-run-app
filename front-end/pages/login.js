@@ -15,36 +15,49 @@ function handleSubmit(event) {
 
 function SignUp() {
 
+  // const [name, setName] = useState();
+  // const [phone, setPhone] = useState();
+
+  // useEffect (() => {
+  //   console.log(name);
+  //   console.log(phone);
+  // });
+
+
+
   return (
     <div id={styles['create-account']}>
   <h2>Create an Account</h2>
   <h3>Start favoriting recipes and populate your grocery list!</h3>
   <form onSubmit={handleSubmit}>
-    <table>
+    <table><tbody>
       <tr>
         <td>
-      <label for="fname">First Name:</label> <br />
-      <input type="text" name="fname" id="fname" placeholder="Joe" required autofocus/>
+      <label htmlFor="fname">First Name:</label> <br />
+      <input type="text" name="fname" id="fname" placeholder="Joe" required autoFocus/>
     </td>
     <td>
-      <label for="lname">Last Name:</label> <br />
+      <label htmlFor="lname">Last Name:</label> <br />
       <input type="text" name="lname" id="lname" placeholder="Coulombe" required/>
     </td>
     </tr>
     <tr>
       <td>
-      <label for="phone">10-digit Phone Number:</label> <br />
+      <label htmlFor="phone">10-digit Phone Number:</label> <br />
       <input type="tel" name="phone" id="phone"
       placeholder="4158631292" pattern="[0-9]{10}" required/>
     </td>
     <td>
-    <label for="fname">Password:</label><br />
+    <label htmlFor="fname">Password:</label><br />
       <input type="password" name="password" id="password" placeholder="Password"/>
     </td>
     </tr>
     <tr>
-      <input type="submit"/ >
+      <td>
+      <input type="submit" />
+      </td>
     </tr>
+    </tbody>
     </table>
   </form>
   </div>
@@ -69,12 +82,12 @@ function SignIn() {
       <form onSubmit={handleSubmitSignIn}>
 
         <p>
-          <label for="phone">Phone Number:</label> <br />
-          <input type="tel" name="phone" id="phone" placeholder="4158631292" />
+          <label htmlFor="phonein">Phone Number:</label> <br />
+          <input type="tel" name="phone" id="phonein" placeholder="4158631292" />
         </p>
         <p>
-          <label for="password">Password:</label> <br />
-          <input type="password" name="password" id="password" placeholder="Your password" />
+          <label htmlFor="passwordin">Password:</label> <br />
+          <input type="password" name="password" id="passwordin" placeholder="Your password" />
         </p>
         <p>
           <input type="submit" />

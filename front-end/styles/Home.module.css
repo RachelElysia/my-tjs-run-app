@@ -227,6 +227,8 @@
   justify-content: center;
   align-items: center;
   justify-items: center;
+  height: 70rem;
+  max-height: 90%;
   margin: 0 auto;
   
   /* Then we define the flow direction 
