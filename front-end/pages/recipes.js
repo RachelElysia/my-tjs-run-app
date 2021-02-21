@@ -39,7 +39,7 @@ export default function Home() {
 
   // useSWR takes 2 parameters: the URL, and how to fetch it (.then promise)
   // beneath the hood useSWR has 1 object with 2 keys returned, data and error
-  const recipes = useSWR('/api/recipes', fetchRecipesFunction)
+  const recipes = useSWR('/api/recipes/random', fetchRecipesFunction)
 
   if (recipes.error) return <div>failed to load</div>
   if (!recipes.data) return <div>loading...</div>

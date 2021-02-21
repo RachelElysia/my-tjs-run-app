@@ -4,6 +4,11 @@ import {NavBar, TJNavBar, Footer} from '../components/headersfooter'
 import Fade from 'react-reveal/fade';
 
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faThList } from '@fortawesome/free-solid-svg-icons'
+
+const listicon = <FontAwesomeIcon icon={faThList} />
+
 // needed for client side data fetching, see next.js docs
 import useSWR from 'swr'
 
@@ -95,6 +100,10 @@ function RecipeCard(props) {
   };
 
   return (<Fade right>
+    <div className={styles['flex-container']}>
+      <div><h1>{listicon} My Recipes</h1>
+      <p> Viewing your favorite recipes!</p>
+      </div>
       <div className={styles['my-recipe-flex']}
       style={backgroundStyle}>
 
@@ -118,8 +127,9 @@ function RecipeCard(props) {
           </div>
         </div>
 
-      </div> 
-      </Fade>
+      </div>
+    </div> 
+    </Fade>
   );
 }
  

@@ -3,6 +3,14 @@ import styles from '../styles/Home.module.css';
 import React, { useState } from "react";
 import useSWR from 'swr'
 
+// import ReactDOM from 'react-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusSquare, faMinusSquare } from '@fortawesome/free-solid-svg-icons'
+
+
+const add = <FontAwesomeIcon icon={faPlusSquare} />
+const remove = <FontAwesomeIcon icon={faMinusSquare} />
+
 
 function PersonalizedShoppingList(props) {
 
@@ -36,11 +44,12 @@ function PersonalizedShoppingList(props) {
             <div>
                 {options.map(option => (
                     <button value={option} onClick={toggleRecipeSelected} key={option}>
-                    {selected.includes(option) ? "Remove " : "Add "}
-                    {option}
+                    {selected.includes(option) ? remove : add} { option }
                     </button>
                 ))}
-                <p>WRITE THE CODE FOR PUTTING THIS INTO A LIST WHEN YOUR LESS FRUSTRATED Viewing your grocery list for: {selected.join(", ")}</p>
+                <p>Viewing your grocery list for: 
+                    {/* {selected.join(", ")} */}
+                    </p>
                 <table><tbody>
                 {selected.map((item, index) => (
           <tr><td>

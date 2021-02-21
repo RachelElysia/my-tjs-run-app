@@ -3,7 +3,13 @@ import styles from '../styles/Home.module.css';
 import React, { useState } from 'react';
 import MyModal from './venmomodal.js';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingBasket, faThList, faSearchLocation } from '@fortawesome/free-solid-svg-icons'
 
+
+const basketicon = <FontAwesomeIcon icon={faShoppingBasket} />
+const listicon = <FontAwesomeIcon icon={faThList} />
+const searchlocationicon = <FontAwesomeIcon icon={faSearchLocation} />
 
 function NavBar() {
 
@@ -35,17 +41,17 @@ function NavBar() {
       <div className={styles['nav-left']}>
         <a href="/"><img src="http://localhost:5000/static/img/logo.png" alt="My TJ's Run Logo" height="60px" /></a>
         <button className={styles['left']} id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); window.location.href='/myrecipes'; }}>
-          My Recipes
+          {listicon} My Recipes
         </button>
         <button className={styles['left']} id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); window.location.href='/mygrocerylist'; }}>
-          My Grocery List
+          {basketicon} My Grocery List
         </button>
 
       </div><div className={styles['nav-right']}>
 
       <input type="text" placeholder="Search.." className="search-bar"/>
         <button className={styles['right']} type="button" onClick={(e) => { e.preventDefault(); window.location.href='/storelocator'; }}>
-          Find A Store
+          <font size="3rem">{searchlocationicon}</font>
         </button>
 
         {logInOrOut}

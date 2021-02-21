@@ -308,10 +308,10 @@ def test_user(user_id):
 def log_in():
     """Log In user."""
 
-    phone = request.form.get('phonein')
-    password = request.form.get('passwordin')
+    phone_entered = request.form.get('phonein')
+    password_entered = request.form.get('passwordin')
     print("WHAT IS GOING ON??")
-    print(phone)
+    print(phone_entered)
     print("WHAT IS GOING ON??")
 
     user = crud.get_user_by_phone(phone_entered)

@@ -20,6 +20,7 @@ Send Text Messages: https://www.twilio.com/console
 
 CSS & STYLING
 Trader Joe's Font https://www.fontspace.com/trader-joes-font-f34830
+Free Icons http://www.fontawesome.com/icons
 Free graphics https://www.canva.com
 Create Image Transparency  Adobe Photoshop CC
 Convert to .ico Image https://www.icoconvererter.com
@@ -45,9 +46,44 @@ ARRAY METHODS
  // slice https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
 
 
+REACT LOCAL STORAGE HANDLE SUBMIT
+https://programmingwithmosh.com/react/localstorage-react/
+
+
 SQLALCHEMY & QUERIES
 Checking if data exists https://docs.sqlalchemy.org/en/13/orm/query.html?highlight=exists#sqlalchemy.orm.query.Query.exists
 
  PRACTICE / TEST CODE
  https://Repl.it
 
+
+LOOK INTO TESTING
+https://jestjs.io/
+https://testing-library.com/docs/react-testing-library/intro/
+
+
+
+JAVASCRIPT OBJECT destructuring TO USE USER DATA FOR 
+
+if (!user) {
+
+}
+
+if (user) {
+  const {fname, phone, user_id} = user;
+}
+
+
+LIFE CYCLE METHODS
+CLASS COMPONENT > COMPONENTDIDUPDATE()
+LIKELY NOT NEED TO USE THEM IN project
+THEY COME UP A loT 
+life cycle of react app different things trigger different METHODS
+
+useEffect = easy to do simple things, can do a lot of things, can get really complicated
+
+if you say you're a react developer, you really need to know useEffect
+
+might use useEffect for a hoverstate or a watcher,
+e.g. like a variable when it changes it's value and do something based on it
+e.g. like adding to a counter and using that value to change something on the page

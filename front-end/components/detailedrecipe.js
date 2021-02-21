@@ -5,6 +5,13 @@ import Fade from 'react-reveal/fade'
 
 import useSWR from 'swr'
 
+// import ReactDOM from 'react-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons'
+
+const addFavorite = <FontAwesomeIcon icon={faHeart} />
+const remove = <FontAwesomeIcon icon={faHeartBroken} />
+
 //fetch('/recipes_data') -> Promise<response>
 //  This is going to fetch the data and it's going to wait until it's fetched.
 function RecipeCard(props) {
@@ -67,12 +74,51 @@ function RecipeCard(props) {
   
   };
 
+// THINGS I NEED TO MAKE FAVORITE AND UNFAVORITE TOGGLE BUTTON:
+// 1. Favorite and unfavorite Icons : faHeart and faHeartBroken (DONE)
+        // Import icons to detailedrecipe.js (DONE)
+// 2. A way to reach crud to add or delete from the database
+//      - My add/delete crud functions on the backend (DONE)
+//        - crud.create_user_recipe(user_id, recipe_id) (DONE)
+//        - crud.delete_user_recipe(user_id, recipe_id) (DONE)
+//    How to I call them on a button or from the front end?
+//      - Do I need to route through server.py with dynamic routing?
+// 3. A button that toggles on selected (WORKING ON)
+// 4. The button shows the default icon based on boolean if a user/recipe relationship exists
+//      - Crud function on the backend: crud.get_favorite_boolean(user_id, recipe_id) (DONE)
+//      - useState defaults to boolean of query if the favorite already exists
+//          - favorite, setFavorite
+// 5. The button adds or deletes from the database on click
+//      - The button setFavorite on the front end toggle
+//      - The button adds or deletes from database, using dynamic routing?
+
+
+
+  // this toggles my button
+  const [favorite, setFavorite] = useState(true);
+  //WRITE TO BE BOOLEAN OF QUERY INTO USER RECIPE DATABASE
+
+
+  const toggleFavorite = ({target}) => {
+      const clickedRecipe = target.value;
+
+      // this sets the state for my selected recipes (adds/ removes)
+      setFavorite((prev) => {
+          return !prev;
+      });
+  }
 
 
   return (<Fade right>
     <div className={styles['my-recipe-flex']} style={backgroundStyle}>
       <div id={styles['column-left']}>
         <p className={styles['card-recipe-title']}><span>{props.title}</span></p>
+
+        <button value={props.recipe_id} onClick={toggleFavorite} key={props.recipe_id}>
+                    {favorite ? removeFavorite : addFavorite} 
+                    {option}
+                    </button>
+
         {/* <p className={styles['text_small']}><span>Prep & Cook Time: {props.prepTime} {props.cookTime}</span></p> */}
         <p className={styles['text_small']}><span>Serves: {props.serves}</span></p>
         <p className={styles['text_small']}><span>{tagItems}</span></p>

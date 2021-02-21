@@ -94,15 +94,9 @@ def create_user_recipe(user_id, recipe_id):
 
     return user_recipe
 
-# THIS WILL BE WORKED ON LATER WHEN USERS CAN UPDATE
-# def create_user_groceries(user_id, recipe_id):
-#     """Ceate and return a new grocery list for individual users."""
+def delete_user_recipe(user_id, recipe_id):
 
-#     user_groceries = UserGroceries(user_id=user_id, recipe_id=recipe)
-#     db.session.add(user_recipe)
-#     db.session.commit()
-
-#     return user_recipe
+    UserRecipe.query.filter(UserRecipe.user_id == user_id, UserRecipe.recipe_id == recipe_id).delete()
 
 
 
@@ -193,7 +187,7 @@ def get_tags_info_by_recipe_id(recipe_id):
 def get_user_recipes_data(user_id):
     """Given a user_id input, return all the recipes that they have favorited.
     
-    >>> get_user_recioes_data(1)
+    >>> get_user_recipes_data(1)
     [
                 <Userrecipe user_recipe_id=1
                 user_id=1, 
@@ -217,7 +211,7 @@ def get_user_recipes_data(user_id):
 def get_favorite_boolean(user_id, recipe_id):
     """Given a user_id input, return all the recipes that they have favorited.
     
-    >>> get_user_recioes_data(1)
+    >>> get_user_recipes_data(1)
     [
                 <Userrecipe user_recipe_id=1
                 user_id=1, 
@@ -229,12 +223,10 @@ def get_favorite_boolean(user_id, recipe_id):
     ]
     """
     
-    query = UserRecipe.query.filter(UserRecipe.user_id == user_id, UserRecipe.recipe_id == recipe_id).one()
+    query = UserRecipe.query.filter(UserRecipe.user_id == user_id, UserRecipe.recipe_id == recipe_id).first()
 
-def does_it(user_id, recipe_id):
-    hi = get_favorite_boolean(user_id, recipe_id)
+    return query is not None
 
-    print(hi)
 
 def get_tag_names_by_recipe_id(recipe_id):
     """Return multiple tags.

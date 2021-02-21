@@ -6,6 +6,9 @@ import Fade from 'react-reveal/fade';
 
 import useSWR from 'swr'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons'
+const basketicon = <FontAwesomeIcon icon={faShoppingBasket} />
 
 
 function MyGroceriesContainer(props) {
@@ -31,7 +34,7 @@ function MyGroceriesContainer(props) {
   return (
     <Fade right>
     <div className={styles['flex-container']}>
-    <div><center><h1> My Grocery List</h1>
+    <div><center><h1>{basketicon} My Grocery List</h1>
       <p> Choose from your favorite recipes to generate your personalized grocery list!</p>
       <PersonalizedShoppingList userRecipesData={props.userRecipesData} /></center>
     </div>
