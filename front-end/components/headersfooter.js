@@ -1,31 +1,52 @@
 "use strict";
 import styles from '../styles/Home.module.css';
-import React, { useState } from 'react';
-import MyModal from './venmomodal.js';
+import React, { useState, useEffect } from 'react';
+// import MyModal from './venmomodal.js';
+
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingBasket, faThList, faSearchLocation } from '@fortawesome/free-solid-svg-icons'
-
-
+import { faShoppingBasket, faBook, faMapMarkedAlt, faCheckSquare } from '@fortawesome/free-solid-svg-icons'
 const basketicon = <FontAwesomeIcon icon={faShoppingBasket} />
-const listicon = <FontAwesomeIcon icon={faThList} />
-const searchlocationicon = <FontAwesomeIcon icon={faSearchLocation} />
+const bookicon = <FontAwesomeIcon icon={faBook} />
+const searchlocationicon = <FontAwesomeIcon icon={faMapMarkedAlt} />
+const checkicon = <FontAwesomeIcon icon={faCheckSquare} />
+
+// let hasStorage = (function() {
+// 	try {
+// 		localStorage.setItem(mod, mod);
+// 		localStorage.removeItem(mod);
+// 		return true;
+// 	} catch (exception) {
+// 		return false;
+// 	}
+// }());
+
+// if (hasStorage) {
+//   user = localStorage.getItem('user')
+// };
+
 
 function NavBar() {
+  
+  const [user, setUser] = useState(null);
 
-  const user_id = 2;
+  useEffect(() => {
+  const loggedInUser = localStorage.getItem('user');
+  if (loggedInUser) {
+    setUser(JSON.parse(loggedInUser));
+  }
+}, []);
 
   const handleLogIn = ((e) => { e.preventDefault(); window.location.href='/login'; } ); 
 
   const handleLogOut = (e) => {
     e.preventDefault(); window.location.href='/';
-    setCurrentName({});
-    setCurrentPhone("");
+    setUser(null);
     localStorage.clear();
   };
 
-  const logInOutButton = (user_id === null) ? 'Log In' : 'Log Out';
-  const handleLogInOrOut = (user_id === null) ? handleLogIn : handleLogOut;
+  const logInOutButton = (user === null) ? 'Log In' : `Log Out ${user.fname}`;
+  const handleLogInOrOut = (user === null) ? handleLogIn : handleLogOut;
 
   const logInOrOut = (
     <button className={styles['right']} id={styles['get-started-button']} type="button" onClick={handleLogInOrOut}>
@@ -33,15 +54,12 @@ function NavBar() {
     </button>
   )
 
-
-
-
   return (
     <nav>
       <div className={styles['nav-left']}>
         <a href="/"><img src="http://localhost:5000/static/img/logo.png" alt="My TJ's Run Logo" height="60px" /></a>
         <button className={styles['left']} id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); window.location.href='/myrecipes'; }}>
-          {listicon} My Recipes
+          {bookicon} My Recipes
         </button>
         <button className={styles['left']} id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); window.location.href='/mygrocerylist'; }}>
           {basketicon} My Grocery List
@@ -51,10 +69,10 @@ function NavBar() {
 
       <input type="text" placeholder="Search.." className="search-bar"/>
         <button className={styles['right']} type="button" onClick={(e) => { e.preventDefault(); window.location.href='/storelocator'; }}>
-          <font size="3rem">{searchlocationicon}</font>
+        { searchlocationicon }
         </button>
 
-        {logInOrOut}
+        { logInOrOut }
       </div>
   </nav>
   );
@@ -84,9 +102,9 @@ onMouseLeave={() => setIsShown(false)}>
    </center></td></tr>
       </thead>
       <tbody>
-        <tr><td><img src="http://localhost:5000/static/img/check.png" width="18px" /></td><td>Choose your favorite recipes</td></tr>
-        <tr><td><img src="http://localhost:5000/static/img/check.png" width="18px" /></td><td>Generate your grocery list</td></tr>
-        <tr><td><img src="http://localhost:5000/static/img/check.png" width="18px" /></td><td>Receive your list as a text message!</td></tr>
+        <tr><td className={styles['checkicon']}>{ checkicon }</td><td>Choose your favorite recipes</td></tr>
+        <tr><td className={styles['checkicon']}>{ checkicon }</td><td>Generate your grocery list</td></tr>
+        <tr><td className={styles['checkicon']}>{ checkicon }</td><td>Receive your list as a text message!</td></tr>
       </tbody>
     </table>
   </div>

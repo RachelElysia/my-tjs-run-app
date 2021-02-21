@@ -52,6 +52,7 @@
   text-decoration: none;
   display: inline-block;
   font-size: 1rem;
+  border-radius: 10px;
 }
 
 .nav-right button:hover {
@@ -63,6 +64,7 @@
   text-decoration: none;
   display: inline-block;
   font-size: 1rem;
+  border-radius: 10px;
  }
 
 .nav-right button:focus {
@@ -139,6 +141,10 @@
   border: 2px solid #eaeaea;
   border-top: 2px solid #D21242;
 
+}
+
+.checkicon {
+  color:#D21242; 
 }
 
 #tjbar-table {
@@ -221,7 +227,7 @@
 
 /* This is used on My Recipes and my grocery list */
 .container {
-  display: inline-block;
+  /* display: inline-block; */
   top: 9rem;    /* NavBar TJNavBar height */
   padding-top: 9em;
   padding-bottom: 5.5rem;    /* Footer height */
@@ -234,6 +240,35 @@
   text-align: center;
 }
 
+
+.flex-container-myrecipes {
+  /* We first create a flex layout context */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+  padding-bottom: 2.5rem;
+  background-color: #f2f2f2;
+  overflow-y: scroll;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  margin: 0 auto;
+    /* Then we define the flow direction 
+     and if we allow the items to wrap 
+   * Remember this is the same as:
+   * flex-direction: row;
+   * flex-wrap: wrap;
+   */
+   flex-flow: row wrap;
+  
+   /* Then we define how is distributed the remaining space */
+   list-style: none;
+   padding-bottom: 5.5rem;    /* Footer height */
+   overflow-y: scroll;
+
+}
 
 /* CONTAINER HOLDING ALL INFO */
 .flex-container {
@@ -249,10 +284,42 @@
   justify-content: center;
   align-items: center;
   justify-items: center;
-  height: 50rem;
-  max-height: 90%;
   margin: 0 auto;
+    /* Then we define the flow direction 
+     and if we allow the items to wrap 
+   * Remember this is the same as:
+   * flex-direction: row;
+   * flex-wrap: wrap;
+   */
+   flex-flow: row wrap;
   
+   /* Then we define how is distributed the remaining space */
+   list-style: none;
+   top: 9rem;    /* NavBar TJNavBar height */
+   padding-top: 9em;
+   padding-bottom: 5.5rem;    /* Footer height */
+   overflow-y: scroll;
+
+}
+
+  .flex-container-store {
+    /* We first create a flex layout context */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+    padding-bottom: 2.5rem;
+    background-color: #f2f2f2;
+    overflow-y: scroll;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    height: 50rem;
+    max-height: 90%;
+    margin: 0 auto;
+
+
   /* Then we define the flow direction 
      and if we allow the items to wrap 
    * Remember this is the same as:
@@ -383,7 +450,7 @@ title,
   vertical-align: top;
   line-height: 120%;
   text-align: left;
-  margin: 1em;
+  margin: 0.5em;
   box-shadow:0 0 5px grey;
   overflow: hidden;
   display: flex;

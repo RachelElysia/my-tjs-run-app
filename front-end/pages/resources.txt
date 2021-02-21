@@ -21,6 +21,7 @@ Send Text Messages: https://www.twilio.com/console
 CSS & STYLING
 Trader Joe's Font https://www.fontspace.com/trader-joes-font-f34830
 Free Icons http://www.fontawesome.com/icons
+FontAwesome with Yarn https://fontawesome.com/how-to-use/on-the-web/using-with/react
 Free graphics https://www.canva.com
 Create Image Transparency  Adobe Photoshop CC
 Convert to .ico Image https://www.icoconvererter.com

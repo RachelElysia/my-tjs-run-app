@@ -163,12 +163,28 @@ def user_recipes_by_user_id(user_id):
   ]
 
   """
-    
-  userfavoritesdata = crud.get_user_recipes_data(user_id)
 
-  userfavorites =  [i.serialize for i in userfavoritesdata]
+  user_favorites_data = crud.get_user_recipes_data(user_id)
 
-  return jsonify(userfavorites)
+  user_favorites =  [i.serialize for i in user_favorites_data]
+
+  return jsonify(user_favorites)
+
+@app.route('/api/users/<user_id>/recipes/<recipe_id>')
+def user_recipe_bool(user_id, recipe_id):
+  """Show all tags for a recipe.
+  
+  http://localhost:5000/api/users/1/recipes/MWL6CyjVxqoOnYVH55eQ
+  SHOWS JSON:
+  true
+
+  http://localhost:5000/api/users/1/recipes/fake
+  false
+  
+  """
+  user_recipe_boolean = crud.get_favorite_boolean(user_id, recipe_id)
+
+  return jsonify(user_recipe_boolean)
 
 
 @app.route('/api/<recipe_id>/ingredients')
@@ -310,9 +326,7 @@ def log_in():
 
     phone_entered = request.form.get('phonein')
     password_entered = request.form.get('passwordin')
-    print("WHAT IS GOING ON??")
     print(phone_entered)
-    print("WHAT IS GOING ON??")
 
     user = crud.get_user_by_phone(phone_entered)
     print(user)

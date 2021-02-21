@@ -1,39 +1,24 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import {NavBar, TJNavBar, Footer} from '../components/headersfooter'
+import {SignInUp} from './login'
+import React, { useState, useEffect } from 'react';
 import Fade from 'react-reveal/fade';
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faThList } from '@fortawesome/free-solid-svg-icons'
+import { faBook } from '@fortawesome/free-solid-svg-icons'
 
-const listicon = <FontAwesomeIcon icon={faThList} />
+const listicon = <FontAwesomeIcon icon={faBook} />
 
 // needed for client side data fetching, see next.js docs
 import useSWR from 'swr'
-
-// MUST USE ABSOLUTE PATH FOR THIS TO WORK
-// EVOLVED MY CODE 2/17/21 11:00 PM
-// export async function getStaticProps(context) {
-//   const res = await fetch('http://localhost:5000/api/recipes')
-//   const recipeData24 = await res.json()
-
-//   if (!recipeData24) {
-//     return {
-//       notFound: true,
-//     }
-//   }
-
-//   return {
-//     props: {recipeData24,}, // will be passed to the page component as props
-//   }
-// }
-
 
 
 //fetch('/recipes_data') -> Promise<response>
 //  This is going to fetch the data and it's going to wait until it's fetched.
 function RecipeCard(props) {
+
   // Split data on the word instead of on the letter
  
     //Figure out how to split directions to digestible chunks
@@ -46,10 +31,6 @@ function RecipeCard(props) {
 
   // directionsSplit = directionsSplit.split(". ", ".");
 
-
-  //need fetcher, need to pass a url to a promise and turn the response to json
-  // save it as a variable and use SWR which takes in two parameters, the url and the function
-  // to do behind the scenes work
 
   // Fetching tag items and rendering with capitalized letters
   let tagItems;
@@ -65,18 +46,12 @@ function RecipeCard(props) {
     // NEEDED EXTRA {} AROUND IT TO SAY "yo, I'm a javascript template string!"
     tagItems = data.map((tag) => <a href={`/tags/${tag.tag_id}`}>  {tag.name.toUpperCase()}  </a>);
   };
-  
   tagFetch();
 
-  // https://nextjs.org/docs/routing/introduction FIGURE OUT DYNAMIC LINKS!!!!! 
-
-  // https://dev.to/ryanccn/data-fetching-with-next-js-38b6
-  // https://nextjs.org/docs/basic-features/data-fetching
-  // https://swr.vercel.app/
 
   let ingredientItems;
 
-  function fetch2() {
+  function ingredientsFetch() {
   const fetcher2 = url => fetch(url).then(r => r.json())
 
   const { data, error } = useSWR(`/api/${props.recipe_id}/ingredients`, fetcher2)
@@ -89,8 +64,7 @@ function RecipeCard(props) {
     </li>
   ));
   };
-
-  fetch2()
+  ingredientsFetch();
   
   const backgroundStyle = {
     backgroundImage: `url(${props.img})`,
@@ -100,10 +74,7 @@ function RecipeCard(props) {
   };
 
   return (<Fade right>
-    <div className={styles['flex-container']}>
-      <div><h1>{listicon} My Recipes</h1>
-      <p> Viewing your favorite recipes!</p>
-      </div>
+    <div className={styles['flex-container-myrecipes']}>
       <div className={styles['my-recipe-flex']}
       style={backgroundStyle}>
 
@@ -136,6 +107,16 @@ function RecipeCard(props) {
 
 function MyRecipesContainer(props) {
 
+  // const [user, setUser] = useState(null);
+
+  // useEffect(() => {
+  // const loggedInUser = localStorage.getItem('user');
+  // if (loggedInUser) {
+  //   setUser(loggedInUser);
+  // }
+  // }, []);
+
+
   const recipeCards = [];
 
   for (const recipe of props.recipeData24) {
@@ -151,23 +132,15 @@ function MyRecipesContainer(props) {
     );
   }
 
-  let signedIn = true;
-
-  if (signedIn === true) {
   return (
-    <div className={styles['flex-container']}>
+    <div className={styles['container']}>
+      <h1>{listicon} My Recipes</h1>
+      <p> Viewing your favorite recipes!</p>
       {recipeCards}
     </div>
   );
 
-  } else {
-  return (
-    <div>
-      <h1>Log in or create an account!</h1>
-        <p>Just render log in page when you get a chance.</p>
-    </div>
-    );
-  }
+  
 };
 
 // self calling function... turn a function into an object and then call it with ()
@@ -176,15 +149,36 @@ export default function Home(props) {
 
   const fetcher3 = url => fetch(url).then(r => r.json())
 
-  let user_id = 2;
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+  const loggedInUser = localStorage.getItem('user');
+  if (loggedInUser) {
+    setUser(JSON.parse(loggedInUser));
+  }
+  }, []);
 
   // useSWR takes 2 parameters: the URL, and how to fetch it (.then promise)
   // beneath the hood useSWR has 1 object with 2 keys returned, data and error
   // we call this destructuring :)
-  const { data, error } = useSWR(`/api/users/${user_id}/recipes`, fetcher3)
+  // console.log(user.response)
+  // console.log(user.response.user_id)
+
+  const { data, error } = useSWR(`/api/users/${user ? user.user_id : 2}/recipes`, fetcher3)
 
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
+  if (user === null) {
+    return (
+      <div id="page-container">
+      <NavBar />
+      <TJNavBar /><Fade bottom>
+      <SignInUp />
+      </Fade>
+      <Footer />
+    </div>
+      );
+    }
 
   return (
     <div id="page-container">

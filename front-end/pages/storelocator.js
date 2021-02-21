@@ -3,15 +3,15 @@ import styles from '../styles/Home.module.css'
 import {NavBar, Footer, TJNavBar} from '../components/headersfooter'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearchLocation } from '@fortawesome/free-solid-svg-icons'
-const searchlocationicon = <FontAwesomeIcon icon={faSearchLocation} />
+import { faMapMarkedAlt, faSearchLocation } from '@fortawesome/free-solid-svg-icons'
+const searchlocationicon = <FontAwesomeIcon icon={faMapMarkedAlt} />
 
 
 function StoreLocator(props) {
 
 
   return (
-    <div className={styles['flex-container']}>
+    <div className={styles['flex-container-store']}>
       <h1>{searchlocationicon} Find a Trader Joe's Near You</h1>
       <iframe id="inlineFrameExample"
         title="Trader Joe's Near You"

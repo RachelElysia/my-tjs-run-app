@@ -98,7 +98,7 @@ def delete_user_recipe(user_id, recipe_id):
 
     UserRecipe.query.filter(UserRecipe.user_id == user_id, UserRecipe.recipe_id == recipe_id).delete()
 
-
+#MY BOOL
 
 # TESTS: FUNCTIONS TO POPULATE DATA (RECIPES, USERS, TAGS)
 

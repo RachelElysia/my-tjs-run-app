@@ -5,6 +5,7 @@ import Fade from 'react-reveal/fade'
 import {useRouter} from 'next/router'
 import React, { useState } from "react"
 
+
 function SignUp() {
 
   const router = useRouter()
@@ -27,11 +28,13 @@ function SignUp() {
         alert('Please try a different phone number.');
         return;
       }
-      alert('You created an account! Build your favorite recipes to easily view your grocery list!');
+      alert('You created an account {data[0].user.fname}! Build your favorite recipes to easily view your grocery list!');
       response.json().then(data => {
-        localStorage.setItem('user', data.user);
+        console.log(JSON.stringify(data[0].user))
+        console.log(data[0].user)
+        localStorage.setItem('user', JSON.stringify(data[0].user));
         localStorage.setItem('loggedIn', true);
-        setFormData({loggedIn: true, user: data.user});
+        setFormData({loggedIn: true, user: data[0].user});
         router.push("/recipes")
         }
     ) });
@@ -107,11 +110,11 @@ function SignIn() {
         alert('Login Failed. Phone number and/or password is incorrect.');
         return;
       }
-      alert('Check out your favorite recipes!');
       response.json().then(data => {
-        localStorage.setItem('user', data.user);
+        localStorage.setItem('user', JSON.stringify(data[0].user));
         localStorage.setItem('loggedIn', true);
-        setFormData({loggedIn: true, user: data.user});
+        setFormData({loggedIn: true, user: data[0].user});
+        alert(`Check out your favorite recipes ${data[0].user.fname}!`);
         router.push("/recipes")
         }
     ) });
@@ -162,3 +165,5 @@ export default function Home(props) {
     </div>
   )
 }
+
+export {SignIn}

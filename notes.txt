@@ -124,3 +124,20 @@ export default function Home(props) {
   //   props: {recipeData24}
   // };
   // // I self called this so I won't have to call it right afterward. :)
+
+// MUST USE ABSOLUTE PATH FOR THIS TO WORK
+// EVOLVED MY CODE 2/17/21 11:00 PM
+// export async function getStaticProps(context) {
+//   const res = await fetch('http://localhost:5000/api/recipes')
+//   const recipeData24 = await res.json()
+
+//   if (!recipeData24) {
+//     return {
+//       notFound: true,
+//     }
+//   }
+
+//   return {
+//     props: {recipeData24,}, // will be passed to the page component as props
+//   }
+// }

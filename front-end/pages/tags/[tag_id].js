@@ -11,6 +11,10 @@ import useSWR from 'swr'
 // needed to use dynamic front-end routes
 import { useRouter } from 'next/router'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTag } from '@fortawesome/free-solid-svg-icons'
+const tagicon = <FontAwesomeIcon icon={faTag} />
+
 
 function RecipeCardContainer(props) {
 
@@ -50,14 +54,17 @@ function RecipeCardContainer(props) {
 
   // refactor me your tag name rendering as a flex - yourself 1am 2/17
   return (
-    <Fade bottom>
-    <div className={styles['flex-container']}>
-      <div className={styles['tag-heading']}>
-        <h1>{tagNameResult.data}</h1>
+    <div className={styles['container']}>
+    <div className={styles['tag-heading']}>
+        <h1>{tagicon} { tagNameResult.data }</h1>
+        <p>Viewing recipes tagged with {tagNameResult.data}. </p>
       </div>
+    <Fade bottom>
+    <div className={styles['flex-container-myrecipes']}>
       {recipeCards}
     </div>
     </Fade>
+    </div>
     
   );
 };

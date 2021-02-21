@@ -15,14 +15,9 @@ const remove = <FontAwesomeIcon icon={faHeartBroken} />
 //fetch('/recipes_data') -> Promise<response>
 //  This is going to fetch the data and it's going to wait until it's fetched.
 function RecipeCard(props) {
-    // Split data on the word instead of on the letter
-     //Figure out how to split directions to digestible chunks
   
     let directions = props.directions;
-
-
     let directionsSplit = directions.split("\n");
-
     const directionsForRecipe = directionsSplit.map((direction) => <li key={props.title}>{direction}</li>);
 
   //need fetcher, need to pass a url to a promise and turn the response to json
@@ -83,28 +78,52 @@ function RecipeCard(props) {
 //        - crud.delete_user_recipe(user_id, recipe_id) (DONE)
 //    How to I call them on a button or from the front end?
 //      - Do I need to route through server.py with dynamic routing?
+//      - FETCH REQUEST TO THE BACKEND, 
+
+
 // 3. A button that toggles on selected (WORKING ON)
 // 4. The button shows the default icon based on boolean if a user/recipe relationship exists
 //      - Crud function on the backend: crud.get_favorite_boolean(user_id, recipe_id) (DONE)
-//      - useState defaults to boolean of query if the favorite already exists
+
+        - CHECK THE BACK END BOOLEAN FIRST 
+        - AWAIT Response
+        - RENDER THE CORRECT STATE ON THE FRONT end
+        - SET STATE BASED ON THE RESPONSE
+        - TOGGLE THE STATE WILL ALSO RUN A DYNAMIC ROUTE THAT 
+
+//      - useState defaults to boolean of query if the favorite already exists (DONE)
 //          - favorite, setFavorite
 // 5. The button adds or deletes from the database on click
 //      - The button setFavorite on the front end toggle
 //      - The button adds or deletes from database, using dynamic routing?
+// onCLICK
 
+FETCH REQUEST FOR THE STATE SAVE IT AS A CONST
 
+  // fetch request to save HARDCODE USER 2, make it so it changes BY USER
+  const fetchBoolFunction = url => fetch(url).then(r => r.json())
 
+  const favoriteBool = useSWR(`/api/2/recipes/${props.recipe_id}/`, fetchBoolFunction)
+
+  if (favoriteBool.error) return <div>failed to load</div>
+  if (!favoriteBool.data) return <div>loading...</div>
+  
   // this toggles my button
-  const [favorite, setFavorite] = useState(true);
+  const [favorite, setFavorite] = useState(favoriteBool.data);
   //WRITE TO BE BOOLEAN OF QUERY INTO USER RECIPE DATABASE
-
 
   const toggleFavorite = ({target}) => {
       const clickedRecipe = target.value;
 
       // this sets the state for my selected recipes (adds/ removes)
       setFavorite((prev) => {
-          return !prev;
+        if (prev == true) {
+
+        }
+        if (prev == false) {
+          
+        }
+        return !prev;
       });
   }
 
