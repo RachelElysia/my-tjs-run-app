@@ -141,9 +141,6 @@
 
 }
 
-#tj-table-div {
-}
-
 #tjbar-table {
   margin-right: auto;
   padding-top: 40px;
@@ -176,23 +173,50 @@
 }
 
 /* RECIPE ON TJ'S RECIPES PAGES */
-.recipe-title {
-  font-weight: 800;
-  color:#D21242;
+#tile-recipe-flex {
+  border-radius: 20px;
+  /* border: 2px solid black; */
+  background-color: #FFF;
+  width: 15em;
+  height: 21em;
+  /* padding: 1em; */
+  vertical-align: top;
+  overflow: hidden;
+  display: inline-block;
+  line-height: 120%;
+  text-align: center;
+  margin: 0.5em;
+  box-shadow:0 0 5px grey;
 }
 
-.recipe-tags {
+#tile-recipe-title a {
+  margin-top: -15px;
+  padding-top: -15px;
+  padding-bottom: 0px;
+}
+
+#tile-recipe-tags, #tile-recipe-directions {
   font-size: 0.8rem;
+  margin-bottom: 0px;
+  margin-top: 3px;
 }
 
-.info {
+#tile-recipe-info {
   margin: auto;
-  padding: 0.1em;
+  padding: 0.2em;
+  padding-top: 0em;
+  margin-top: 0px;
 }
 
-.recipe-img {
+#tile-recipe-img {
     max-width: 17em;
     max-height: 9em;
+    position: relative;
+    left: -3px;
+    top: 0px;
+}
+#tile-recipe-img:hover {
+  opacity: 0.5;
 }
 
 /* This is used on My Recipes and my grocery list */
@@ -221,13 +245,11 @@
   flex-direction: column;
   padding-bottom: 2.5rem;
   background-color: #f2f2f2;
-  top: 9rem;    /* NavBar TJNavBar height */
-  padding-top: 9em;
   overflow-y: scroll;
   justify-content: center;
   align-items: center;
   justify-items: center;
-  height: 70rem;
+  height: 50rem;
   max-height: 90%;
   margin: 0 auto;
   
@@ -247,29 +269,15 @@
   overflow-y: scroll;
 }
 
-/* MORE SPECIFIED CONTAINER HOLDING RECIPES */
-.recipe-flex {
-  border-radius: 10%;
-  /* border: 2px solid black; */
-  background-color: #FFF;
-  width: 15em;
-  height: 21em;
-  /* padding: 1em; */
-  vertical-align: top;
-  overflow: hidden;
-  display: inline-block;
-  line-height: 120%;
-  text-align: center;
-  margin: 0.5em;
-  box-shadow:0 0 5px grey;
-}
+/* DETAILED RECIPE CARD */
 
-.recipe-title {
+.card-recipe-title {
   padding: 8px;
   line-height: 1.5;}
 
 /* MAIN PAGE TILES */
-.tiles-flex {
+
+.main-tiles-flex {
   /* border: 2px solid black; */
   background-color: #FFF;
   width: 14em;
@@ -282,20 +290,33 @@
   box-shadow:0 0 5px grey;
 }
 
-.tile-img {
+.main-tile-img {
   /* display: block; */
   max-width: 100%;
   position: relative;
   top: 0px;
-  right: 0px;
+  left: -2px;
 }
-.tile-img:hover, .recipe-img:hover {
+.main-tile-img:hover, .main-recipe-img:hover {
   opacity: 0.3;
   filter: alpha(opacity=30);
 }
 
-
-
+.main-tile-img:hover .main-image-caption{
+  opacity:1;
+}
+.main-img-caption {
+  width:100%;
+  height:100%;
+  background:rgba(0, 0, 0, 0.7);
+  position:absolute; 
+  opacity:0; 
+  transition:all 300ms ease-in-out;
+ -webkit-transition:all 300ms ease-in-out;
+ -moz-transition:all 300ms ease-in-out;
+ -o-transition:all 300ms ease-in-out;
+ -ms-transition:all 300ms ease-in-out;
+}
 /* END MAIN PAGE TILES */
 
 /* 
@@ -559,3 +580,32 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
 
 
 /* END LOG IN PAGE */
+
+/* VENMO MODAL */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position:fixed;
+  background: white;
+  width: 80%;
+  height: auto;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}

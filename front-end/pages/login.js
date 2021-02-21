@@ -1,29 +1,41 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import {NavBar, TJNavBar, Footer} from '../components/headersfooter'
-import Fade from 'react-reveal/fade';
-
-function handleSubmit(event) {
-  event.preventDefault();
-  const data = new FormData(event.target);
-  
-  fetch('/api/users', {
-    method: 'POST',
-    body: data,
-  });
-}
+import Fade from 'react-reveal/fade'
+import {useRouter} from 'next/router'
+import React, { useState } from "react"
 
 function SignUp() {
 
-  // const [name, setName] = useState();
-  // const [phone, setPhone] = useState();
+  const router = useRouter()
 
-  // useEffect (() => {
-  //   console.log(name);
-  //   console.log(phone);
-  // });
+  const [formData, setFormData] = useState({
+    user: {},
+    loggedIn: false
+  });
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.target);
 
+    fetch('/api/users', {
+      method: 'POST',
+      body: data,
+    })      
+    .then(response => {
+      if (response.status_code !== 200) {
+        alert('Please try a different phone number.');
+        return;
+      }
+      alert('You created an account! Build your favorite recipes to easily view your grocery list!');
+      response.json().then(data => {
+        localStorage.setItem('user', data.user);
+        localStorage.setItem('loggedIn', true);
+        setFormData({loggedIn: true, user: data.user});
+        router.push("/recipes")
+        }
+    ) });
+  }
 
   return (
     <div id={styles['create-account']}>
@@ -64,16 +76,46 @@ function SignUp() {
   );
 }
 
-function handleSubmitSignIn(event) {
-  event.preventDefault();
-  const data = new FormData(event.target);
+// function handleSubmitSignIn(event) {
+//   event.preventDefault();
+//   const data = new FormData(event.target);
   
-  fetch('/api/userlogin', {
-    method: 'POST',
-    body: data,
-  });
-}
+//   fetch('/api/userlogin', {
+//     method: 'POST',
+//     body: data,
+//   });
+// }
+
 function SignIn() {
+  const router = useRouter()
+
+  const [formData, setFormData] = useState({
+    user: {},
+    loggedIn: false
+  });
+
+  const handleSubmitSignIn = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.target);
+
+    fetch('/api/userlogin', {
+      method: 'POST',
+      body: data,
+    })      
+    .then(response => {
+      if (response.status !== 200) {
+        alert('Login Failed. Phone number and/or password is incorrect.');
+        return;
+      }
+      alert('Check out your favorite recipes!');
+      response.json().then(data => {
+        localStorage.setItem('user', data.user);
+        localStorage.setItem('loggedIn', true);
+        setFormData({loggedIn: true, user: data.user});
+        router.push("/recipes")
+        }
+    ) });
+  }
 
   return (
     <div id={styles['log-in']}>
@@ -83,11 +125,11 @@ function SignIn() {
 
         <p>
           <label htmlFor="phonein">Phone Number:</label> <br />
-          <input type="tel" name="phone" id="phonein" placeholder="4158631292" />
+          <input type="tel" name="phonein" id="phonein" placeholder="4158631292" />
         </p>
         <p>
           <label htmlFor="passwordin">Password:</label> <br />
-          <input type="password" name="password" id="passwordin" placeholder="Your password" />
+          <input type="password" name="passwordin" id="passwordin" placeholder="Your password" />
         </p>
         <p>
           <input type="submit" />
@@ -95,7 +137,7 @@ function SignIn() {
       </form>
     </div>
   );
-  }
+}
 
 
 function SignInUp() {

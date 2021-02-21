@@ -40,21 +40,16 @@ function RecipeCard(props) {
     tagFetch();
   
     return (
-        <div className={styles['recipe-flex']}>
-            <a href={`/recipes/${props.recipe_id}`}>
-                <img src={props.img} className={styles['recipe-img']} />
-            </a>
-                <div className={styles['info']}>
-                <a href={`/recipes/${props.recipe_id}`}>
-                {props.title}
-                </a>
-                <br />
-              <span className={styles['text_small']}>
-                {recipeDirections}...<br />
-                {tagItems}
-                </span>
-          </div>
-        </div> 
+      <div id={styles['tile-recipe-flex']}>
+        <a href={`/recipes/${props.recipe_id}`}>
+          <img src={props.img} id={styles['tile-recipe-img']} alt={props.title}/>
+        </a>
+        <div id={styles['tile-recipe-info']}>
+          <p id={styles['tile-recipe-title']}><a href={`/recipes/${props.recipe_id}`}> {props.title} </a></p>
+          <p id={styles['tile-recipe-directions']}> {recipeDirections}... </p>
+          <p id={styles['tile-recipe-tags']}> {tagItems} </p>
+        </div>
+      </div> 
     );
   }
 

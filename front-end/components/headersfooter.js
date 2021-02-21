@@ -1,6 +1,9 @@
 "use strict";
 import styles from '../styles/Home.module.css';
 import React, { useState } from 'react';
+import MyModal from './venmomodal.js';
+
+
 
 function NavBar() {
 
@@ -120,6 +123,9 @@ onMouseLeave={() => setIsShown(false)}>
 
 function Footer() {
 
+  // const Modal = ({ handleClose, show, children }) => {
+  // const showHideClassName = show ? "modal display-block" : "modal display-none";
+  
   let myIngredients = ['TJ\'s Avocado Oil', 'TJ\'s Garlic Spread',
     'TJ\'s Pumpkin Cranberry Crisps', 'TJ\'s Fig Butter', 'TJ\'s Bourbon Vanilla Extract',
     'Neopolitan Joe Joe\'s', 'TJ\'s Crumbled Feta', 'TJ\'s Lemon Elderflower Soda',
@@ -131,11 +137,18 @@ function Footer() {
       <ul>
         <li>A Project by <a href="http://www.rachelelysia.com" target="_blank">Rachel Elysia Perkins</a></li>
         <li><a href="/resources">Resources</a></li>
-        <li><a href="https://venmo.com/Rachel-Perkins" target="_blank">Buy me {randomIngredient}</a></li>
+        <li>  
+              {/* <Modal show={this.state.show} handleClose={this.hideModal}> */}
+          Buy me {randomIngredient}
+        {/* </Modal> */}
+          </li>
+        
+
       </ul>
     </footer>
   );
-} 
+}
+
 
 
 export {NavBar, TJNavBar, Footer};

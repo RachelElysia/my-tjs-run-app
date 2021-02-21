@@ -1,3 +1,5 @@
+
+
 REACT & REACT RELATED
 React Framework: Next.js https://nextjs.org/
 React useState: Toggle Favorite Recipes Selected https://www.codecademy.com/courses/react-101/lessons/the-state-hook/exercises/arrays-in-state
@@ -7,10 +9,14 @@ Next.js useRouter: Dynamic Routing https://nextjs.org/docs/routing/dynamic-route
 React onHover: Dropdown menu https://upmostly.com/tutorials/react-onhover-event-handling-with-examples
 Next.config.js: Rewrite between 2 servers during Development https://nextjs.org/docs/api-reference/next.config.js/rewrites
 React lists and keys https://reactjs.org/docs/lists-and-keys.html#keys
+React Modal: Venmo PopOut https://github.com/reactjs/react-modal
 
 MAPS API
 Google Maps API: https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#0
 Inline Frame: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
+
+SMS API
+Send Text Messages: https://www.twilio.com/console
 
 CSS & STYLING
 Trader Joe's Font https://www.fontspace.com/trader-joes-font-f34830
@@ -24,6 +30,8 @@ CSS Buttons https://www.w3schools.com/css/css3_buttons.asp
 Centering CSS
   // https://www.freecodecamp.org/news/how-to-center-anything-with-css-align-a-div-text-and-more/
   // https://www.w3.org/Style/Examples/007/center.en.html
+CSS Semantics
+  // https://css-tricks.com/semantic-class-names/
 
 PYTHON & BACKEND
 Render random recipes https://www.w3schools.com/python/ref_random_choices.asp

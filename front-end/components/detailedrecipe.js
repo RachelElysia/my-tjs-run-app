@@ -70,11 +70,9 @@ function RecipeCard(props) {
 
 
   return (<Fade right>
-    <div className={styles['my-recipe-flex']}
-    style={backgroundStyle}>
-
+    <div className={styles['my-recipe-flex']} style={backgroundStyle}>
       <div id={styles['column-left']}>
-        <p className={styles['recipe-title']}><span>{props.title}</span></p>
+        <p className={styles['card-recipe-title']}><span>{props.title}</span></p>
         {/* <p className={styles['text_small']}><span>Prep & Cook Time: {props.prepTime} {props.cookTime}</span></p> */}
         <p className={styles['text_small']}><span>Serves: {props.serves}</span></p>
         <p className={styles['text_small']}><span>{tagItems}</span></p>

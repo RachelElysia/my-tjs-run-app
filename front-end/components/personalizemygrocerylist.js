@@ -41,7 +41,13 @@ function PersonalizedShoppingList(props) {
                     </button>
                 ))}
                 <p>WRITE THE CODE FOR PUTTING THIS INTO A LIST WHEN YOUR LESS FRUSTRATED Viewing your grocery list for: {selected.join(", ")}</p>
-
+                <table><tbody>
+                {selected.map((item, index) => (
+          <tr><td>
+            {item}
+          </td></tr>
+        ))}     
+               </tbody></table>
 
 
             </div>

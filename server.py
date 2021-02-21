@@ -141,6 +141,26 @@ def user_recipes_by_user_id(user_id):
   http://localhost:5000/api/1/recipes
   SHOWS JSON:
 
+  [
+    {
+      "cookingTime": "", 
+      "directions": "Add chopped strawberries to a large measuring glass. Muddle or mash into a pulp with the back of a spoon. (For a spicy kick, muddle fresh cilantro and two slices of jalape\u00f1o with the strawberries.)\u00a0\nAdd ginger beer, tequila and lime juice and stir to combine.\nFill two copper mugs with ice. Divide tequila mixture among mugs and top up with sparkling water. Garnish each mug with a fresh strawberry and serve.Add chopped strawberries to a large measuring glass. Muddle or mash into a pulp with the back of a spoon. (For a spicy kick, muddle fresh cilantro and two slices of jalape\u00f1o with the strawberries.)Add ginger beer, tequila and lime juice and stir to combine.Fill two copper mugs with ice. Divide tequila mixture among mugs and top up with sparkling water. Garnish each mug with a fresh strawberry and serve.", 
+      "img": "https://www.traderjoes.com/TJ_CMS_Content/Images/Recipe/494MainImage.jpg", 
+      "prepTime": "5 Minute", 
+      "recipe_id": "MWL6CyjVxqoOnYVH55eQ", 
+      "serves": "2", 
+      "title": "Strawberry Mule"
+    }, 
+    {
+      "cookingTime": "25 - 30 Minute", 
+      "directions": "Prepare Pulled Jackfruit: Drain jackfruit and pat dry. Partially shred jackfruit chunks into smaller pieces. In a saut\u00e9 pan, heat olive oil over medium heat. Add jackfruit and saut\u00e9 for five minutes. Add BBQ sauce and water to pan and stir to evenly coat jackfruit. Cover pan and simmer on medium-low heat, 20-25 minutes, stirring occasionally and pulling jackfruit apart as it becomes tender.\nPrepare Tangy Cole Slaw: While jackfruit cooks, in a large bowl, toss cabbage blend with mayonnaise and apple cider vinegar to coat. Season with salt and pepper to taste and set aside.\nPrepare Sandwiches: Place a scoop of pulled jackfruit on the bottom of a bun. Top with diced onions, coleslaw, and bun top. Eat and repeat until satisfied!Prepare Pulled Jackfruit: Drain jackfruit and pat dry. Partially shred jackfruit chunks into smaller pieces. In a saut\u00e9 pan, heat olive oil over medium heat. Add jackfruit and saut\u00e9 for five minutes. Add BBQ sauce and water to pan and stir to evenly coat jackfruit. Cover pan and simmer on medium-low heat, 20-25 minutes, stirring occasionally and pulling jackfruit apart as it becomes tender.Prepare Tangy Cole Slaw: While jackfruit cooks, in a large bowl, toss cabbage blend with mayonnaise and apple cider vinegar to coat. Season with salt and pepper to taste and set aside.Prepare Sandwiches: Place a scoop of pulled jackfruit on the bottom of a bun. Top with diced onions, coleslaw, and bun top. Eat and repeat until satisfied!", 
+      "img": "https://www.traderjoes.com/TJ_CMS_Content/Images/Recipe/pulled-jackfruit.jpg", 
+      "prepTime": "5 Minute", 
+      "recipe_id": "3YiI1WbzAzaj7J4GFbkF", 
+      "serves": "6 - 8", 
+      "title": "Pulled Jackfruit Sandwich"
+    }
+  ]
 
   """
     
@@ -254,16 +274,49 @@ def register_user():
       return jsonify(response, status_code)
 
 
+@app.route('/api/users/<user_id>/info')
+def test_user(user_id):
+
+  """ THIS IS MY RESPONSE WHEN THE USER SUCCESSFULLY CREATES AN ACCOUNT!
+  http://localhost:5000/api/users/1/info
+
+  [
+  {
+    "image": "https://http.cat/409.jpg", 
+    "user": {
+      "fname": "Rachel", 
+      "lname": "Perkins", 
+      "password_hash": "pbkdf2:sha256:150000$PKNx3yep$09b3ab5b7888f125974c6b73c4b34d40738deb45dd0d572d082f4cf15cb1a340", 
+      "phone": 4084256597, 
+      "user_id": 1
+    }
+  }, 
+  200
+]
+  """
+  userAccountMade = crud.get_user_by_phone(4084256597)
+  status_code = 200
+  response = {
+    "image": "https://http.cat/409.jpg",
+    "user": userAccountMade.serialize,
+  }
+
+  return jsonify(response, status_code)
 
 ########### THIS IS REPLACED WITH REACT ONSUBMIT #############
 @app.route('/api/userlogin', methods=['POST'])
 def log_in():
     """Log In user."""
 
-    phone_entered = request.form.get('phone')
-    password_entered = request.form.get('password')
+    phone = request.form.get('phonein')
+    password = request.form.get('passwordin')
+    print("WHAT IS GOING ON??")
+    print(phone)
+    print("WHAT IS GOING ON??")
 
     user = crud.get_user_by_phone(phone_entered)
+    print(user)
+
 
     if user and check_password_hash(user.password_hash, password_entered):
       userAccountLoggedIn = crud.get_user_by_phone(phone_entered)
@@ -273,7 +326,7 @@ def log_in():
         "user": userAccountLoggedIn.serialize,
       }
       status_code = 200
-      print("YOU MADE A LOG IN!")
+      print("YOU MADE IT LOG IN!")
       print(jsonify(response, status_code))
       return jsonify(response, status_code)
 

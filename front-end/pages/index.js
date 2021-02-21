@@ -10,9 +10,12 @@ import useSWR from 'swr'
 function RecipeTile(props) {
 
   return (
-    <div className={styles['tiles-flex']}>
+    <div className={styles['main-tiles-flex']}>
       <a href={`/recipes/${props.recipe_id}`}>
-        <img src={props.img} className={styles['tile-img']} />
+        <img src={props.img} className={styles['main-tile-img']} alt={props.title}/>
+        <div className="main-img-caption">
+      <h3>{props.title}</h3>
+    </div>
       </a>
   </div>
   );
