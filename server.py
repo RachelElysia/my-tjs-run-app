@@ -170,21 +170,23 @@ def user_recipes_by_user_id(user_id):
 
   return jsonify(user_favorites)
 
-@app.route('/api/users/<user_id>/recipes/<recipe_id>')
-def user_recipe_bool(user_id, recipe_id):
-  """Show all tags for a recipe.
+@app.route('/api/users/<user_id>/recipes/<recipe_id>/remove', methods=['POST'])
+def remove_user_recipe_favorite(user_id, recipe_id):
+  """Removes a user recipe favorite in database.
   
-  http://localhost:5000/api/users/1/recipes/MWL6CyjVxqoOnYVH55eQ
-  SHOWS JSON:
-  true
+  http://localhost:5000/api/users/1/recipes/MWL6CyjVxqoOnYVH55eQ/remove
 
-  http://localhost:5000/api/users/1/recipes/fake
-  false
-  
   """
-  user_recipe_boolean = crud.get_favorite_boolean(user_id, recipe_id)
+  crud.delete_user_recipe(user_id, recipe_id, methods=['POST'])
 
-  return jsonify(user_recipe_boolean)
+@app.route('/api/users/<user_id>/recipes/<recipe_id>/add')
+def create_user_recipe_favorite(user_id, recipe_id):
+  """Creates a user recipe favorite in database.
+  
+  http://localhost:5000/api/users/1/recipes/MWL6CyjVxqoOnYVH55eQ/add
+
+  """
+  crud.create_user_recipe(user_id, recipe_id)
 
 
 @app.route('/api/<recipe_id>/ingredients')
@@ -255,6 +257,41 @@ def recipes_data_hungry():
 
 ########### THIS IS REPLACED WITH REACT ONSUBMIT #############
 @app.route('/api/users', methods=['POST'])
+def register_user():
+    """Create a new user."""
+
+    fname = request.form.get('fname')
+    lname = request.form.get('lname')
+    phone = request.form.get('phone')
+    password_hash = generate_password_hash(request.form.get('password'))
+    
+    user = crud.get_user_by_phone(phone)
+
+    if user:
+      response = {
+        "errorMessage": "This phone number is already associated to an account. Try logging in.",
+        "image": "https://http.cat/409",
+      }
+      status_code = 409
+      print("THIS NUMBER EXISTS ALREADY!")
+      print(jsonify(response, status_code))
+      return jsonify(response, status_code)
+
+    else:
+      userCreated = crud.create_user(fname, lname, phone, password_hash)
+    
+      userAccountMade = crud.get_user_by_phone(phone)
+
+      response = {
+        "image": "https://http.cat/409.jpg",
+        "user": userAccountMade.serialize,
+      }
+      status_code = 200
+      print("YOU MADE A LOG IN!")
+      print(jsonify(response, status_code))
+      return jsonify(response, status_code)
+
+app.route('/api/users/<user_id>/<recipe_id>', methods=['POST'])
 def register_user():
     """Create a new user."""
 

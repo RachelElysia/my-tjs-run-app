@@ -1,7 +1,7 @@
 
 .text_small {
   font-size: 0.8rem;
-  padding: 0.3em;
+  padding-bottom: 0.6em;
 }
 
 
@@ -47,7 +47,7 @@
   background-color: #D21242;
   border: none;
   color: #fff;
-  padding: 10px 15px;
+  padding: 8px 12px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -59,7 +59,7 @@
   background-color: #bd0d39;
   border: none;
   color: #fff;
-  padding: 10px 15px;
+  padding: 8px 12px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -339,8 +339,16 @@
 /* DETAILED RECIPE CARD */
 
 .card-recipe-title {
-  padding: 8px;
-  line-height: 1.5;}
+  line-height: 1.5;
+  border-radius: 10px;
+}
+
+.card-recipe-title a {
+  line-height: 1.5;
+  border-radius: 10px;
+  padding: 10px;
+}
+
 
 /* MAIN PAGE TILES */
 
@@ -460,7 +468,8 @@ title,
 
 .my-recipe-flex span {
   background-color: #fff;
-  padding: 0.2em;
+  padding: 4px 10px;
+  border-radius: 10px;
 }
 
 .my-ingredient-flex {
@@ -490,7 +499,7 @@ title,
 
 #column-left {
   height: 100%;
-  width: 13em;
+  width: 20em;
   max-width: 95%;
   margin: 3em;
   text-align: left;
@@ -584,6 +593,7 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
   position:relative;
   max-height: 13em;
   background-color: #FFF;
+  border-radius: 10px;
 }
 
 
@@ -675,4 +685,16 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
 
 .display-none {
   display: none;
+}
+
+
+/* FAVORITE BUTTON DOESNT WORK STYLING*/
+.favorite-button {
+  color:#D21242;
+  background-color: #fff;
+}
+
+.favorite-button:hover {
+  font-size: 1.5rem;
+  padding: 0.21rem 0.5rem;
 }

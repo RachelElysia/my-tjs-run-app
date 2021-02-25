@@ -26,7 +26,7 @@ button {
   background-color: #f2f2f2;
   border: none;
   color: #D21242;
-  padding: 10px 15px;
+  padding: 8px 12px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -39,7 +39,7 @@ button:hover {
   background-color: #eaeaea;
   border: none;
   color: #D21242;
-  padding: 10px 15px;
+  padding: 8px 12px;
   text-align: center;
   text-decoration: none;
   display: inline-block;

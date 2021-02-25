@@ -11,21 +11,6 @@ const bookicon = <FontAwesomeIcon icon={faBook} />
 const searchlocationicon = <FontAwesomeIcon icon={faMapMarkedAlt} />
 const checkicon = <FontAwesomeIcon icon={faCheckSquare} />
 
-// let hasStorage = (function() {
-// 	try {
-// 		localStorage.setItem(mod, mod);
-// 		localStorage.removeItem(mod);
-// 		return true;
-// 	} catch (exception) {
-// 		return false;
-// 	}
-// }());
-
-// if (hasStorage) {
-//   user = localStorage.getItem('user')
-// };
-
-
 function NavBar() {
   
   const [user, setUser] = useState(null);
@@ -45,7 +30,8 @@ function NavBar() {
     localStorage.clear();
   };
 
-  const logInOutButton = (user === null) ? 'Log In' : `Log Out ${user.fname}`;
+  const welcome = (user === null) ? '' : `Welcome, ${user.fname}!`;
+  const logInOutButton = (user === null) ? 'Log In' : 'Log Out';
   const handleLogInOrOut = (user === null) ? handleLogIn : handleLogOut;
 
   const logInOrOut = (
@@ -71,7 +57,7 @@ function NavBar() {
         <button className={styles['right']} type="button" onClick={(e) => { e.preventDefault(); window.location.href='/storelocator'; }}>
         { searchlocationicon }
         </button>
-
+        { welcome }
         { logInOrOut }
       </div>
   </nav>

@@ -1,36 +1,18 @@
 "use strict";
 import styles from '../styles/Home.module.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Fade from 'react-reveal/fade'
-
 import useSWR from 'swr'
+import {FavoriteButton} from './favoritebutton'
 
-// import ReactDOM from 'react-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons'
-
-const addFavorite = <FontAwesomeIcon icon={faHeart} />
-const remove = <FontAwesomeIcon icon={faHeartBroken} />
-
-//fetch('/recipes_data') -> Promise<response>
-//  This is going to fetch the data and it's going to wait until it's fetched.
 function RecipeCard(props) {
   
     let directions = props.directions;
     let directionsSplit = directions.split("\n");
-    const directionsForRecipe = directionsSplit.map((direction) => <li key={props.title}>{direction}</li>);
+    const directionsForRecipe = directionsSplit.map((direction, index) => <li key={index}>{direction}</li>);
 
-  //need fetcher, need to pass a url to a promise and turn the response to json
-  // save it as a variable and use SWR which takes in two parameters, the url and the function
-  // to do behind the scenes work
-  // https://nextjs.org/docs/routing/introduction FIGURE OUT DYNAMIC LINKS!!!!! 
-
-  // https://dev.to/ryanccn/data-fetching-with-next-js-38b6
-  // https://nextjs.org/docs/basic-features/data-fetching
-  // https://swr.vercel.app/
-    // Fetching tag items and rendering with capitalized letters
     let tagItems;
-  
+    
     (function selfCall() {
     const fetchTagsFunction = url => fetch(url).then(r => r.json())
   
@@ -53,90 +35,26 @@ function RecipeCard(props) {
     if (ingredientsData.error) return <div>failed to load</div>
     if (!ingredientsData.data) return <div>loading...</div>
   
-    ingredientItems = ingredientsData.data.map((ingredients) => (<li key={ingredients.recipe_id}>
+    ingredientItems = ingredientsData.data.map((ingredients, index) => (<li key={index}>
         {ingredients.detailed_ingredient}
       </li>
     ));
     })();
 
-      //background image
-  // https://stackoverflow.com/questions/48288176/set-background-image-to-full-screen-in-reactjs/50769188
-  // https://www.w3schools.com/cssref/css3_pr_background-size.asp
+  //background image
   const backgroundStyle = {
     backgroundImage: `url(${props.img})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: '550px'
-  
   };
-
-// THINGS I NEED TO MAKE FAVORITE AND UNFAVORITE TOGGLE BUTTON:
-// 1. Favorite and unfavorite Icons : faHeart and faHeartBroken (DONE)
-        // Import icons to detailedrecipe.js (DONE)
-// 2. A way to reach crud to add or delete from the database
-//      - My add/delete crud functions on the backend (DONE)
-//        - crud.create_user_recipe(user_id, recipe_id) (DONE)
-//        - crud.delete_user_recipe(user_id, recipe_id) (DONE)
-//    How to I call them on a button or from the front end?
-//      - Do I need to route through server.py with dynamic routing?
-//      - FETCH REQUEST TO THE BACKEND, 
-
-
-// 3. A button that toggles on selected (WORKING ON)
-// 4. The button shows the default icon based on boolean if a user/recipe relationship exists
-//      - Crud function on the backend: crud.get_favorite_boolean(user_id, recipe_id) (DONE)
-
-        - CHECK THE BACK END BOOLEAN FIRST 
-        - AWAIT Response
-        - RENDER THE CORRECT STATE ON THE FRONT end
-        - SET STATE BASED ON THE RESPONSE
-        - TOGGLE THE STATE WILL ALSO RUN A DYNAMIC ROUTE THAT 
-
-//      - useState defaults to boolean of query if the favorite already exists (DONE)
-//          - favorite, setFavorite
-// 5. The button adds or deletes from the database on click
-//      - The button setFavorite on the front end toggle
-//      - The button adds or deletes from database, using dynamic routing?
-// onCLICK
-
-FETCH REQUEST FOR THE STATE SAVE IT AS A CONST
-
-  // fetch request to save HARDCODE USER 2, make it so it changes BY USER
-  const fetchBoolFunction = url => fetch(url).then(r => r.json())
-
-  const favoriteBool = useSWR(`/api/2/recipes/${props.recipe_id}/`, fetchBoolFunction)
-
-  if (favoriteBool.error) return <div>failed to load</div>
-  if (!favoriteBool.data) return <div>loading...</div>
-  
-  // this toggles my button
-  const [favorite, setFavorite] = useState(favoriteBool.data);
-  //WRITE TO BE BOOLEAN OF QUERY INTO USER RECIPE DATABASE
-
-  const toggleFavorite = ({target}) => {
-      const clickedRecipe = target.value;
-
-      // this sets the state for my selected recipes (adds/ removes)
-      setFavorite((prev) => {
-        if (prev == true) {
-
-        }
-        if (prev == false) {
-          
-        }
-        return !prev;
-      });
-  }
-
 
   return (<Fade right>
     <div className={styles['my-recipe-flex']} style={backgroundStyle}>
       <div id={styles['column-left']}>
-        <p className={styles['card-recipe-title']}><span>{props.title}</span></p>
-
-        <button value={props.recipe_id} onClick={toggleFavorite} key={props.recipe_id}>
-                    {favorite ? removeFavorite : addFavorite} 
-                    {option}
-                    </button>
+        <FavoriteButton props={props}/>
+        <h5 className={styles['card-recipe-title']}>
+          <span>{ props.title }</span>
+        </h5>
 
         {/* <p className={styles['text_small']}><span>Prep & Cook Time: {props.prepTime} {props.cookTime}</span></p> */}
         <p className={styles['text_small']}><span>Serves: {props.serves}</span></p>

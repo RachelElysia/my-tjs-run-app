@@ -166,4 +166,4 @@ export default function Home(props) {
   )
 }
 
-export {SignIn}
+export {SignInUp}

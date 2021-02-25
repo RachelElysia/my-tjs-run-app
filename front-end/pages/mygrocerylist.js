@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import {NavBar, TJNavBar, Footer} from '../components/headersfooter'
+import {SignInUp} from './login'
 import {PersonalizedShoppingList} from '../components/personalizemygrocerylist'
+import React, { useState, useEffect } from 'react';
 import Fade from 'react-reveal/fade';
 
 import useSWR from 'swr'
@@ -58,15 +60,37 @@ export default function Home(props) {
 
   const fetcher3 = url => fetch(url).then(r => r.json())
 
-  let user_id = 2
+
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+  const loggedInUser = localStorage.getItem('user');
+  if (loggedInUser) {
+    setUser(JSON.parse(loggedInUser));
+  }
+  }, []);
+
   // useSWR takes 2 parameters: the URL, and how to fetch it (.then promise)
   // beneath the hood useSWR has 1 object with 2 keys returned, data and error
   // we call this destructuring :)
-  const { data, error } = useSWR(`/api/users/${user_id}/recipes`, fetcher3)
+  const { data, error } = useSWR(`/api/users/${user ? user.user_id : 2}/recipes`, fetcher3)
 
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
-
+  if (error) return <div>failed to load</div>
+  if (!data) return <div>loading...</div>
+  if (user === null) {
+    return (
+      <div id="page-container">
+      <NavBar />
+      <TJNavBar /><Fade bottom>
+      <SignInUp />
+      </Fade>
+      <Footer />
+    </div>
+      );
+    }
+    
   return (
     <div id="page-container">
       <NavBar />

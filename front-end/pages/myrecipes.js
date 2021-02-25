@@ -27,7 +27,7 @@ function RecipeCard(props) {
 
     let directionsSplit = directions.split("\n");
 
-    const directionsForRecipe = directionsSplit.map((direction) => <li>{direction}</li>);
+    const directionsForRecipe = directionsSplit.map((direction, index) => <li key={index}>{direction}</li>);
 
   // directionsSplit = directionsSplit.split(". ", ".");
 
@@ -59,7 +59,7 @@ function RecipeCard(props) {
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
 
-  ingredientItems = data.map((ingredients) => (<li key={ingredients.recipe_id}>
+  ingredientItems = data.map((ingredients, index) => (<li key={index}>
       {ingredients.detailed_ingredient}
     </li>
   ));
@@ -79,7 +79,7 @@ function RecipeCard(props) {
       style={backgroundStyle}>
 
         <div id={styles['column-left']}>
-          <p className={styles['recipe-title']}><a href={`/recipes/${props.recipe_id}`}>{props.title}</a><br />
+          <p className={styles['card-recipe-title']}><a href={`/recipes/${props.recipe_id}`}>{props.title}</a><br />
           </p>
           <p className={styles['text_small']}><span>Tags: {tagItems}</span></p>
         </div>

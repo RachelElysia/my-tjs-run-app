@@ -11,10 +11,6 @@ import { useRouter } from 'next/router'
 
 function MyRecipesContainer(props) {
 
-  let signedIn = true;
-
-  if (signedIn === true) {
-
   return (
     <Fade>
     <div className={styles['flex-container']}>
@@ -31,16 +27,7 @@ function MyRecipesContainer(props) {
     </div>
     </Fade>
   );
-
-  } else {
-  
-  return (
-    <div>
-      <h1>Log in or create an account!</h1>
-    </div>
-    );
-  }
-};
+}
 
 // See [tag_id].js for notes
 export default function Home(props) {
