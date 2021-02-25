@@ -13,9 +13,11 @@ function RecipeTile(props) {
     <div className={styles['main-tiles-flex']}>
       <a href={`/recipes/${props.recipe_id}`}>
         <img src={props.img} className={styles['main-tile-img']} alt={props.title}/>
-        <div className="main-img-caption">
-      <h3>{props.title}</h3>
-    </div>
+        <div class={styles['overlay']}>
+          <div className={styles['main-img-caption']}>
+            {props.title}
+          </div>
+        </div>
       </a>
   </div>
   );

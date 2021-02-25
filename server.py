@@ -181,7 +181,9 @@ def remove_user_recipe_favorite(user_id, recipe_id):
   http://localhost:5000/api/users/1/recipes/MWL6CyjVxqoOnYVH55eQ/remove
 
   """
-  crud.delete_user_recipe(user_id, recipe_id)
+  deleted = crud.delete_user_recipe(user_id, recipe_id)
+
+  return jsonify("deleted")
 
 @app.route('/api/users/<user_id>/recipes/<recipe_id>/add',  methods=['POST'])
 def create_user_recipe_favorite(user_id, recipe_id):
@@ -192,17 +194,7 @@ def create_user_recipe_favorite(user_id, recipe_id):
   """
   crud.create_user_recipe(user_id, recipe_id)
 
-# @app.route('/search/' methods=['GET', 'POST'])
-# def search():
-#   if request.method == 'POST':
-#     form = request.form
-#     search_value = form['search_string']
-#     search = "%{}%".format(search_value)
-#     results = Recipe.query.filter(Recipe.title.like(search)).all()
-
-#     serialized_search = [i.serialize for i in results]
-
-#     return jsonify(serialized_search)
+  return jsonify("favorited")
 
 
 @app.route('/api/<recipe_id>/ingredients')

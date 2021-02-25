@@ -96,9 +96,13 @@ def create_user_recipe(user_id, recipe_id):
 
 def delete_user_recipe(user_id, recipe_id):
 
-    UserRecipe.query.filter(UserRecipe.user_id == user_id, UserRecipe.recipe_id == recipe_id).delete()
+    unwanted_recipe = UserRecipe.query.filter(UserRecipe.user_id == user_id, UserRecipe.recipe_id == recipe_id).one()
+    print(unwanted_recipe)
+    db.session.delete(unwanted_recipe)
+    db.session.commit() 
 
-#MY BOOL
+    return None
+
 
 # TESTS: FUNCTIONS TO POPULATE DATA (RECIPES, USERS, TAGS)
 
@@ -129,18 +133,19 @@ def test_every_table():
 def search_recipes(search_phrase):
     """Searches the Recipes based on the input"""
 
-    title_results = Recipe.query.filter(Recipe.title.like('%search_phrase%')).limit(5)
-    tag_results = Tag.query.filter(Tag.name.like('%search_phrase%')).limit(3)
-    ingredients_results = Ingredient.query.filter(Ingredient.detailed_ingredient.like('%search_phrase%')).limit(40)
+    search_variable = "%{}%".format(search_phrase)
+    title_results = Recipe.query.filter(Recipe.title.like(search_variable)).limit(5)
+    tag_results = Tag.query.filter(Tag.name.like(search_variable)).limit(3)
+    ingredients_results = Ingredient.query.filter(Ingredient.detailed_ingredient.like(search_variable)).limit(40)
 
-    for row in title_results:
-        print(row.title)
-    for row in tag_results:
-        print(row.name)
-    for row in ingredients_results:
-        print(row.detailed_ingredient)
+    matching_recipe_ids = set()
 
-    return title_results
+    print("Title Results", title_results)
+    print("Tag Results", tag_results)
+    print("Ingredients Results", ingredients_results)
+
+    print(matching_recipe_ids)
+    return matching_recipe_ids
 
 def get_recipes(limit=24):
     """Return all recipes. Default 24."""

@@ -4,6 +4,7 @@ import {NavBar, TJNavBar, Footer} from '../components/headersfooter'
 import {SignInUp} from './login'
 import React, { useState, useEffect } from 'react';
 import Fade from 'react-reveal/fade';
+import {FavoriteButton} from '../components/favoritebutton'
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -79,6 +80,7 @@ function RecipeCard(props) {
       style={backgroundStyle}>
 
         <div id={styles['column-left']}>
+          <FavoriteButton recipeId={props.recipe_id}/>
           <p className={styles['card-recipe-title']}><a href={`/recipes/${props.recipe_id}`}>{props.title}</a><br />
           </p>
           <p className={styles['text_small']}><span>Tags: {tagItems}</span></p>

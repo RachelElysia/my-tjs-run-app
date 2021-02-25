@@ -10,6 +10,8 @@ React onHover: Dropdown menu https://upmostly.com/tutorials/react-onhover-event-
 Next.config.js: Rewrite between 2 servers during Development https://nextjs.org/docs/api-reference/next.config.js/rewrites
 React lists and keys https://reactjs.org/docs/lists-and-keys.html#keys
 React Modal: Venmo PopOut https://github.com/reactjs/react-modal
+Delete with Fetch: https://jasonwatmore.com/post/2020/11/11/react-fetch-http-delete-request-examples
+
 
 MAPS API
 Google Maps API: https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#0

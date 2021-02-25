@@ -36,17 +36,6 @@ function FavoriteButton(props) {
     return <FindInitialState userId={user.user_id} recipeId={props.recipeId}/>
 }
 
-
-/* PLAN
-FavoriteButton Component
-Checks if theres a user, and if not, it renders the link to log in
-Else Returns component favorite button
-
-FavoriteButtonButtonComponent
-NEEDS TO RENDER THAT FIRST STATE
-
-*/
-
 function FindInitialState(props) {
 
     let favBool;
@@ -71,18 +60,38 @@ function SetStateAndToggle(props) {
 
 
     // this toggles my button
-    const toggleFavorite = (props) => {
+    const toggleFavorite = (recipeId) => {
         // const clickedRecipe = target.value; //don't need target as argument either??
 
         // this sets the state for my selected recipes (adds/ removes)
         setFavorite((favorite) => {
           if (favorite == true) {
-            console.log("This was a favorited recipe, but now it isnt!")
+            console.log("I clicked unfavorite")
             console.log(props)
+            fetch(`/api/users/${props.userId}/recipes/${recipeId}/remove`, { method: 'POST' })
+            .then(console.log("This was a favorited recipe, but now it isnt!"));
+
           }
           if (favorite == false) {
-            console.log("This was not a favorited recipe. Now it is!")
+            console.log("I clicked favorite")
+            fetch(`/api/users/${props.userId}/recipes/${recipeId}/add`, { method: 'POST' })
+            .then(console.log("This was not a favorited recipe. Now it is!"));
           }
+
+        // OLD CODE THAT DIDN'T TALK TO BACKEND
+        // this sets the state for my selected recipes (adds/ removes)
+        // setFavorite((favorite) => {
+        //   if (favorite == true) {
+        //     console.log("This was a favorited recipe, but now it isnt!")
+        //     console.log(props)
+                
+
+        //   }
+        //   if (favorite == false) {
+        //     console.log("This was not a favorited recipe. Now it is!")
+          
+        //   }
+
           return !favorite;
         });
     }
