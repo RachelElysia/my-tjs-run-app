@@ -53,6 +53,8 @@ https://programmingwithmosh.com/react/localstorage-react/
 
 SQLALCHEMY & QUERIES
 Checking if data exists https://docs.sqlalchemy.org/en/13/orm/query.html?highlight=exists#sqlalchemy.orm.query.Query.exists
+SQLAlchemy back-end search https://www.youtube.com/watch?v=HXKDyZ_W6rI
+
 
  PRACTICE / TEST CODE
  https://Repl.it

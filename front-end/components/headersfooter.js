@@ -5,11 +5,12 @@ import React, { useState, useEffect } from 'react';
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingBasket, faBook, faMapMarkedAlt, faCheckSquare } from '@fortawesome/free-solid-svg-icons'
+import { faShoppingBasket, faBook, faMapMarkedAlt, faSms, faSearch } from '@fortawesome/free-solid-svg-icons'
 const basketicon = <FontAwesomeIcon icon={faShoppingBasket} />
 const bookicon = <FontAwesomeIcon icon={faBook} />
 const searchlocationicon = <FontAwesomeIcon icon={faMapMarkedAlt} />
-const checkicon = <FontAwesomeIcon icon={faCheckSquare} />
+const smsicon = <FontAwesomeIcon icon={faSms} />
+const searchicon = <FontAwesomeIcon icon={faSearch} />
 
 function NavBar() {
   
@@ -40,6 +41,20 @@ function NavBar() {
     </button>
   )
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.target);
+
+    fetch('/search', {
+      method: 'POST',
+      body: data,
+    })      
+    .then(response => {
+      response.json().then(data => {
+        router.push("/search")
+        }
+    ) });
+  }
   return (
     <nav>
       <div className={styles['nav-left']}>
@@ -48,12 +63,15 @@ function NavBar() {
           {bookicon} My Recipes
         </button>
         <button className={styles['left']} id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); window.location.href='/mygrocerylist'; }}>
-          {basketicon} My Grocery List
+          { basketicon } { smsicon } My Grocery List
         </button>
-
       </div><div className={styles['nav-right']}>
-
-      <input type="text" placeholder="Search.." className="search-bar"/>
+      <form onSubmit={handleSubmit} className={styles['search-form']}>
+      <input type="text" placeholder="Search" name="search_string" />
+      <button className={styles['search-button']} type="submit">
+          {searchicon}
+        </button>
+      </form>
         <button className={styles['right']} type="button" onClick={(e) => { e.preventDefault(); window.location.href='/storelocator'; }}>
         { searchlocationicon }
         </button>
@@ -88,9 +106,9 @@ onMouseLeave={() => setIsShown(false)}>
    </center></td></tr>
       </thead>
       <tbody>
-        <tr><td className={styles['checkicon']}>{ checkicon }</td><td>Choose your favorite recipes</td></tr>
-        <tr><td className={styles['checkicon']}>{ checkicon }</td><td>Generate your grocery list</td></tr>
-        <tr><td className={styles['checkicon']}>{ checkicon }</td><td>Receive your list as a text message!</td></tr>
+        <tr><td className={styles['checkicon']}>{ bookicon }</td><td>Choose your favorite recipes</td></tr>
+        <tr><td className={styles['checkicon']}>{ basketicon }</td><td>Generate your grocery list</td></tr>
+        <tr><td className={styles['checkicon']}>{ smsicon }</td><td>Receive your list as a text message!</td></tr>
       </tbody>
     </table>
   </div>

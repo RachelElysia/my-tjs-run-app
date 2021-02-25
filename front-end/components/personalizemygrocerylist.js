@@ -47,7 +47,7 @@ function PersonalizedShoppingList(props) {
                     {selected.includes(option) ? remove : add} { option }
                     </button>
                 ))}
-                <p>Viewing your grocery list for: 
+                <p> 
                     {/* {selected.join(", ")} */}
                     </p>
                 <table><tbody>

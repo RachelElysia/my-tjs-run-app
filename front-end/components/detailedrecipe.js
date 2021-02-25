@@ -51,7 +51,7 @@ function RecipeCard(props) {
   return (<Fade right>
     <div className={styles['my-recipe-flex']} style={backgroundStyle}>
       <div id={styles['column-left']}>
-        <FavoriteButton props={props}/>
+        <FavoriteButton recipeId={props.recipe_id}/>
         <h5 className={styles['card-recipe-title']}>
           <span>{ props.title }</span>
         </h5>

@@ -85,6 +85,23 @@
   padding: 1.5em;
 }
 
+.search-form {
+  display: inline;
+}
+
+.nav-right input {
+  border-radius: 10px 0 0 10px;
+  border-color:#D21242;
+}
+
+.nav-right .search-button {
+  border-radius: 0 10px 10px 0px;
+  margin-left: 0px;
+}
+
+.nav-right .search-button:hover {
+  border-radius: 0 10px 10px 0px;
+}
 /* END NAV BAR */
 
 
@@ -144,7 +161,10 @@
 }
 
 .checkicon {
-  color:#D21242; 
+  color:#D21242;
+  font-size: 1.125rem;
+  text-align: center;
+  vertical-align: top;
 }
 
 #tjbar-table {

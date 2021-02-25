@@ -7,9 +7,7 @@ import crud
 from jinja2 import StrictUndefined
 from werkzeug.security import generate_password_hash, check_password_hash
 
-
 app = Flask(__name__)
-
 
 ## added by Lucia
 app.secret_key = '123abcEFG'
@@ -73,9 +71,9 @@ def recipes_by_tag_id(tag_id):
   
   http://localhost:5000/api/tags/104
   SHOWS JSON:
-[
+  [
   10 big objects
-]
+  ]
   
   """
     
@@ -97,9 +95,9 @@ def tag_name_by_tag_id(tag_id):
   
   http://localhost:5000/api/tags/104/name
   SHOWS JSON:
-[
+  [
   cocktails
-]
+  ]
   
   """
     
@@ -115,16 +113,16 @@ def recipes_tag_names_by_id(recipe_id):
   http://localhost:5000/api/08Ifren64xtMVpoG03Qx/tags
   SHOWS JSON:
 
-[
-  {
-    "name": "Meatless", 
-    "tag_id": 10
-  }, 
-  {
-    "name": "Salsa", 
-    "tag_id": 47
-  }
-]
+  [
+    {
+      "name": "Meatless", 
+      "tag_id": 10
+    }, 
+    {
+      "name": "Salsa", 
+      "tag_id": 47
+    }
+  ]
   """
     
   recipe_tags_data = crud.get_tags_info_by_recipe_id(recipe_id)
@@ -170,16 +168,22 @@ def user_recipes_by_user_id(user_id):
 
   return jsonify(user_favorites)
 
+@app.route('/api/users/<user_id>/recipes/<recipe_id>')
+def user_recipe_bool(user_id, recipe_id):
+  boolean_result = crud.get_favorite_boolean(user_id, recipe_id)
+  return jsonify(boolean_result)
+
+
 @app.route('/api/users/<user_id>/recipes/<recipe_id>/remove', methods=['POST'])
 def remove_user_recipe_favorite(user_id, recipe_id):
-  """Removes a user recipe favorite in database.
+  """Removes a user recipe favorite in.
   
   http://localhost:5000/api/users/1/recipes/MWL6CyjVxqoOnYVH55eQ/remove
 
   """
-  crud.delete_user_recipe(user_id, recipe_id, methods=['POST'])
+  crud.delete_user_recipe(user_id, recipe_id)
 
-@app.route('/api/users/<user_id>/recipes/<recipe_id>/add')
+@app.route('/api/users/<user_id>/recipes/<recipe_id>/add',  methods=['POST'])
 def create_user_recipe_favorite(user_id, recipe_id):
   """Creates a user recipe favorite in database.
   
@@ -187,6 +191,18 @@ def create_user_recipe_favorite(user_id, recipe_id):
 
   """
   crud.create_user_recipe(user_id, recipe_id)
+
+# @app.route('/search/' methods=['GET', 'POST'])
+# def search():
+#   if request.method == 'POST':
+#     form = request.form
+#     search_value = form['search_string']
+#     search = "%{}%".format(search_value)
+#     results = Recipe.query.filter(Recipe.title.like(search)).all()
+
+#     serialized_search = [i.serialize for i in results]
+
+#     return jsonify(serialized_search)
 
 
 @app.route('/api/<recipe_id>/ingredients')
@@ -291,40 +307,40 @@ def register_user():
       print(jsonify(response, status_code))
       return jsonify(response, status_code)
 
-app.route('/api/users/<user_id>/<recipe_id>', methods=['POST'])
-def register_user():
-    """Create a new user."""
+# app.route('/api/users/<user_id>/<recipe_id>', methods=['POST'])
+# def register_user():
+#     """Create a new user."""
 
-    fname = request.form.get('fname')
-    lname = request.form.get('lname')
-    phone = request.form.get('phone')
-    password_hash = generate_password_hash(request.form.get('password'))
+#     fname = request.form.get('fname')
+#     lname = request.form.get('lname')
+#     phone = request.form.get('phone')
+#     password_hash = generate_password_hash(request.form.get('password'))
     
-    user = crud.get_user_by_phone(phone)
+#     user = crud.get_user_by_phone(phone)
 
-    if user:
-      response = {
-        "errorMessage": "This phone number is already associated to an account. Try logging in.",
-        "image": "https://http.cat/409",
-      }
-      status_code = 409
-      print("THIS NUMBER EXISTS ALREADY!")
-      print(jsonify(response, status_code))
-      return jsonify(response, status_code)
+#     if user:
+#       response = {
+    #     "errorMessage": "This phone number is already associated to an account. Try logging in.",
+    #     "image": "https://http.cat/409",
+    #   }
+    #   status_code = 409
+    #   print("THIS NUMBER EXISTS ALREADY!")
+    #   print(jsonify(response, status_code))
+    #   return jsonify(response, status_code)
 
-    else:
-      userCreated = crud.create_user(fname, lname, phone, password_hash)
+    # else:
+    #   userCreated = crud.create_user(fname, lname, phone, password_hash)
     
-      userAccountMade = crud.get_user_by_phone(phone)
+    #   userAccountMade = crud.get_user_by_phone(phone)
 
-      response = {
-        "image": "https://http.cat/409.jpg",
-        "user": userAccountMade.serialize,
-      }
-      status_code = 200
-      print("YOU MADE A LOG IN!")
-      print(jsonify(response, status_code))
-      return jsonify(response, status_code)
+    #   response = {
+    #     "image": "https://http.cat/409.jpg",
+    #     "user": userAccountMade.serialize,
+    #   }
+    #   status_code = 200
+    #   print("YOU MADE A LOG IN!")
+    #   print(jsonify(response, status_code))
+    #   return jsonify(response, status_code)
 
 
 @app.route('/api/users/<user_id>/info')

@@ -1,10 +1,10 @@
 """Models for movie ratings app."""
 
 from flask_sqlalchemy import SQLAlchemy
-import flask.ext.whooshalchemy
 
+# import flask_whooshalchemy
 # set the location for the whoosh index
-app.config['WHOOSH_BASE'] = 'path/to/whoosh/base'
+# app.config['WHOOSH_BASE'] = 'path/to/whoosh/base'
 
 db = SQLAlchemy()
 
@@ -57,7 +57,7 @@ class Recipe(db.Model):
     """Recipes for our Users to add."""
 
     __tablename__ = "recipes"
-    __searchable__ = ['title', 'ingredients', 'tags']
+    # __searchable__ = ['title', 'ingredients', 'tags']
 
     img = db.Column(db.String(107))
     # tags_full = db.Column(db.Text, nullable=False)

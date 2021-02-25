@@ -119,11 +119,33 @@ def test_every_table():
 
 # Use this function to create 24 recipes JSON
 
+# def search_recipes(search_phrase):
+#     """Searches the Recipes based on the input"""
+
+#     results = Recipe.query.whoosh_search(search_phrase, limit=30)
+
+#     return results
+
+def search_recipes(search_phrase):
+    """Searches the Recipes based on the input"""
+
+    title_results = Recipe.query.filter(Recipe.title.like('%search_phrase%')).limit(5)
+    tag_results = Tag.query.filter(Tag.name.like('%search_phrase%')).limit(3)
+    ingredients_results = Ingredient.query.filter(Ingredient.detailed_ingredient.like('%search_phrase%')).limit(40)
+
+    for row in title_results:
+        print(row.title)
+    for row in tag_results:
+        print(row.name)
+    for row in ingredients_results:
+        print(row.detailed_ingredient)
+
+    return title_results
+
 def get_recipes(limit=24):
     """Return all recipes. Default 24."""
 
     return Recipe.query.limit(limit).all()
-
 
 def get_random_recipes(limit=24):
     """Return all recipes. Default 24."""
@@ -211,16 +233,9 @@ def get_user_recipes_data(user_id):
 def get_favorite_boolean(user_id, recipe_id):
     """Given a user_id input, return all the recipes that they have favorited.
     
-    >>> get_user_recipes_data(1)
-    [
-                <Userrecipe user_recipe_id=1
-                user_id=1, 
-                recipe_id=MWL6CyjVxqoOnYVH55eQ>
-                , 
-                <Userrecipe user_recipe_id=2
-                user_id=1, 
-                recipe_id=3YiI1WbzAzaj7J4GFbkF>
-    ]
+    >>> get_favorite_boolean(1, 'MWL6CyjVxqoOnYVH55eQ')
+    True
+    
     """
     
     query = UserRecipe.query.filter(UserRecipe.user_id == user_id, UserRecipe.recipe_id == recipe_id).first()
