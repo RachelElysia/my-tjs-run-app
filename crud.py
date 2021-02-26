@@ -101,6 +101,10 @@ def delete_user_recipe(user_id, recipe_id):
     db.session.delete(unwanted_recipe)
     db.session.commit() 
 
+    # Fix bug somehow
+    # UserRecipe.query.filter(UserRecipe.user_id == user_id, UserRecipe.recipe_id == recipe_id).delete()
+
+
     return None
 
 
