@@ -11,8 +11,9 @@ Next.config.js: Rewrite between 2 servers during Development https://nextjs.org/
 React lists and keys https://reactjs.org/docs/lists-and-keys.html#keys
 React Modal: Venmo PopOut https://github.com/reactjs/react-modal
 Delete with Fetch: https://jasonwatmore.com/post/2020/11/11/react-fetch-http-delete-request-examples
-
-
+React Local Storage: https://programmingwithmosh.com/react/localstorage-react/
+React Local Storage: https://www.freecodecamp.org/news/how-to-persist-a-logged-in-user-in-react/
+React useEffect: https://reactjs.org/docs/hooks-effect.html
 MAPS API
 Google Maps API: https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#0
 Inline Frame: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
@@ -36,6 +37,7 @@ Centering CSS
   // https://www.w3.org/Style/Examples/007/center.en.html
 CSS Semantics
   // https://css-tricks.com/semantic-class-names/
+Display Search Button Inline with Form: https://stackoverflow.com/questions/9117209/no-line-break-between-button-and-form
 
 PYTHON & BACKEND
 Render random recipes https://www.w3schools.com/python/ref_random_choices.asp
@@ -49,9 +51,10 @@ ARRAY METHODS
  // slice https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
 
 
-REACT LOCAL STORAGE HANDLE SUBMIT
-https://programmingwithmosh.com/react/localstorage-react/
-
+WHOOSH THAT NEVER WORKED
+https://www.youtube.com/watch?v=bAPcmGNsulc
+https://pypi.org/project/Flask-WhooshAlchemy/0.4a/#files
+https://pythonhosted.org/Flask-WhooshAlchemy/
 
 SQLALCHEMY & QUERIES
 Checking if data exists https://docs.sqlalchemy.org/en/13/orm/query.html?highlight=exists#sqlalchemy.orm.query.Query.exists

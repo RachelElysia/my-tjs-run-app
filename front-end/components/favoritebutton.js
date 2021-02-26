@@ -2,10 +2,8 @@
 import styles from '../styles/Home.module.css';
 import React, { useState, useEffect } from 'react';
 import useSWR from 'swr'
-// import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons'
-
 
 // Separate all fetches because render hooks has an issue with rendering
 // hooks a different amount of times in the same component
@@ -58,41 +56,21 @@ function SetStateAndToggle(props) {
 
     const [favorite, setFavorite] = useState(props.favBool);
 
-
-    // this toggles my button
     const toggleFavorite = (recipeId) => {
-        // const clickedRecipe = target.value; //don't need target as argument either??
 
-        // this sets the state for my selected recipes (adds/ removes)
         setFavorite((favorite) => {
-          if (favorite == true) {
-            console.log("I clicked unfavorite")
-            console.log(props)
-            fetch(`/api/users/${props.userId}/recipes/${recipeId}/remove`, { method: 'POST' })
-            .then(console.log("This was a favorited recipe, but now it isnt!"));
-
-          }
-          if (favorite == false) {
-            console.log("I clicked favorite")
-            fetch(`/api/users/${props.userId}/recipes/${recipeId}/add`, { method: 'POST' })
-            .then(console.log("This was not a favorited recipe. Now it is!"));
-          }
-
-        // OLD CODE THAT DIDN'T TALK TO BACKEND
-        // this sets the state for my selected recipes (adds/ removes)
-        // setFavorite((favorite) => {
-        //   if (favorite == true) {
-        //     console.log("This was a favorited recipe, but now it isnt!")
-        //     console.log(props)
-                
-
-        //   }
-        //   if (favorite == false) {
-        //     console.log("This was not a favorited recipe. Now it is!")
-          
-        //   }
-
-          return !favorite;
+            if (favorite == true) {
+                console.log("I clicked unfavorite")
+                console.log(props)
+                fetch(`/api/users/${props.userId}/recipes/${recipeId}/remove`, { method: 'POST' })
+                .then(console.log("This was a favorited recipe, but now it isnt!"));
+            }
+            if (favorite == false) {
+                console.log("I clicked favorite")
+                fetch(`/api/users/${props.userId}/recipes/${recipeId}/add`, { method: 'POST' })
+                .then(console.log("This was not a favorited recipe. Now it is!"));
+            }
+            return !favorite;
         });
     }
 
@@ -105,6 +83,5 @@ function SetStateAndToggle(props) {
         </button>
     );
 }
-
 
 export {FavoriteButton};

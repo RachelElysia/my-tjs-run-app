@@ -133,19 +133,35 @@ def test_every_table():
 def search_recipes(search_phrase):
     """Searches the Recipes based on the input"""
 
+    # PRINT STATEMENTS BETWEEN
+    # Queries first, then get it to match with recipe ids, then get the recipe ids in a list
+    # Then query the recipe ids for the recipe infos
+    # Bring to my server post request
+    # Make sure my component renders that post request
+    # Build a component that will be redirected to that holds the results
+
+    # Do this first then get text message going
+    # Then get venmo modal going
+    # Last week thing: Security before deployment
+    # OAuth - Google, not easy or straight forward
+
     search_variable = "%{}%".format(search_phrase)
+    print(search_variable)
     title_results = Recipe.query.filter(Recipe.title.like(search_variable)).limit(5)
+    print("Title Results", title_results)
     tag_results = Tag.query.filter(Tag.name.like(search_variable)).limit(3)
+    print("Tag Results", tag_results)
     ingredients_results = Ingredient.query.filter(Ingredient.detailed_ingredient.like(search_variable)).limit(40)
+    print("Ingredients Results", ingredients_results)
+
 
     matching_recipe_ids = set()
 
-    print("Title Results", title_results)
-    print("Tag Results", tag_results)
-    print("Ingredients Results", ingredients_results)
+
 
     print(matching_recipe_ids)
     return matching_recipe_ids
+
 
 def get_recipes(limit=24):
     """Return all recipes. Default 24."""

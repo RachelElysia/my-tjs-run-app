@@ -141,3 +141,17 @@ export default function Home(props) {
 //     props: {recipeData24,}, // will be passed to the page component as props
 //   }
 // }
+
+        // OLD CODE THAT DIDN'T TALK TO BACKEND
+        // this sets the state for my selected recipes (adds/ removes)
+        // setFavorite((favorite) => {
+        //   if (favorite == true) {
+        //     console.log("This was a favorited recipe, but now it isnt!")
+        //     console.log(props)
+                
+
+        //   }
+        //   if (favorite == false) {
+        //     console.log("This was not a favorited recipe. Now it is!")
+          
+        //   }
