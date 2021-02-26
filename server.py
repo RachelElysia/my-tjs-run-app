@@ -131,6 +131,29 @@ def recipes_tag_names_by_id(recipe_id):
 
   return jsonify(serialized_tag_info)
 
+@app.route('/api/search/<search_phrase>')
+def recipes_by_search_phrase(search_phrase):
+  """Show all recipes related to the search_phrase.
+  
+  """
+
+  detailed_recipes_by_search = []
+
+  search = str(search_phrase)
+  print("This is my search phrase:", search)
+
+  # This crud function returns a list so I don't need to serialize!
+  recipe_ids = crud.search_recipes(search)
+
+  print("These are all the matching recipe IDs including Title,\
+    Tags, and Ingredients:", recipe_ids)
+  
+  for id in recipe_ids:
+    detailed_recipes_by_search.append(crud.get_recipe_by_id(id))
+
+  serialized_recipe_data_by_search = [i.serialize for i in detailed_recipes_by_search]
+
+  return jsonify(serialized_recipe_data_by_search)
 
 @app.route('/api/users/<user_id>/recipes')
 def user_recipes_by_user_id(user_id):

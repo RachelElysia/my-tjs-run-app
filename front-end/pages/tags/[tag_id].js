@@ -31,13 +31,6 @@ function RecipeCardContainer(props) {
     );
   }
 
-  // THIS ERRORS OUT IF YOU PUT MORE THAN ONE USE SWR IN THE SAME COMPONENT
-  // WITH TWO OF THEM, IT SOMEHOW COMPLAINS THERES MORE THAN ONE HOOK SO 
-  // THE PREVIOUS RENDER RENDERED MORE HOOKS, IT MIGHT EARLY EXIT AND NOT LOAD CORRECTLY
-  
-  // COME BACK THIS WEEKEND AND SIT DOWN WITH STEVEN TO MAKE IT SO THE USE SWR WON'T LOAD
-  // UNTIL ALL USE SWR's LOAD. THIS CAN BE A WEEKEND PROJECT
-
   // need next.js built in dynamic router
   // https://nextjs.org/docs/routing/dynamic-routes
   const router = useRouter()

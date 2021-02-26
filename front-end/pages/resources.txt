@@ -51,7 +51,7 @@ ARRAY METHODS
  // slice https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
 
 
-WHOOSH THAT NEVER WORKED
+WHOOSH THAT NEVER WORKED!!!!! COME BACK TO THIS FOR BETTER SEARCH?
 https://www.youtube.com/watch?v=bAPcmGNsulc
 https://pypi.org/project/Flask-WhooshAlchemy/0.4a/#files
 https://pythonhosted.org/Flask-WhooshAlchemy/

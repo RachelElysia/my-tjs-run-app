@@ -122,11 +122,6 @@ def test_every_table():
     print(test_recipe)
     print(test_tag)
 
-
-# QUERY FUNCTIONS:
-
-# Use this function to create 24 recipes JSON
-
 # def search_recipes(search_phrase):
 #     """Searches the Recipes based on the input"""
 
@@ -137,9 +132,6 @@ def test_every_table():
 def search_recipes(search_phrase):
     """Searches the Recipes based on the input"""
 
-    # PRINT STATEMENTS BETWEEN
-    # Queries first, then get it to match with recipe ids, then get the recipe ids in a list
-    # Then query the recipe ids for the recipe infos
     # Bring to my server post request
     # Make sure my component renders that post request
     # Build a component that will be redirected to that holds the results
@@ -149,22 +141,36 @@ def search_recipes(search_phrase):
     # Last week thing: Security before deployment
     # OAuth - Google, not easy or straight forward
 
-    search_variable = "%{}%".format(search_phrase)
-    print(search_variable)
-    title_results = Recipe.query.filter(Recipe.title.like(search_variable)).limit(5)
-    print("Title Results", title_results)
-    tag_results = Tag.query.filter(Tag.name.like(search_variable)).limit(3)
-    print("Tag Results", tag_results)
-    ingredients_results = Ingredient.query.filter(Ingredient.detailed_ingredient.like(search_variable)).limit(40)
-    print("Ingredients Results", ingredients_results)
+    # search_variable = '%{}%'.format(search_phrase)
+    # print("This is my search variable:", search_variable)
 
+    #https://stackoverflow.com/questions/3325467/sqlalchemy-equivalent-to-sql-like-statement
 
-    matching_recipe_ids = set()
+    related_recipes_id = set()
+    search = "%{}%".format(search_phrase).lower()
 
+    tag_results = Tag.query.filter(Tag.name.ilike(search)).all()
+    # print("Tag Results", tag_results)
+    for tag in tag_results:
+        tag_recipes = get_recipe_ids_by_tag_id(tag.tag_id)
+        for recipe in tag_recipes:
+            related_recipes_id.add(recipe)
+    # print("These are all the related recipe ids:", related_recipes_id)
 
+    ingredients_results = Ingredient.query.filter(Ingredient.detailed_ingredient.ilike(search)).all()
+    # print("Ingredients Results", ingredients_results)
+    for ingredient in ingredients_results:
+        related_recipes_id.add(ingredient.recipe_id) 
+    # print("These are all the searches including ingredients as well!", related_recipes_id)
 
-    print(matching_recipe_ids)
-    return matching_recipe_ids
+    title_results = Recipe.query.filter(Recipe.title.ilike(search)).all()
+    # print("Recipe Title Results", title_results)
+    for recipe in title_results:
+        related_recipes_id.add(recipe.recipe_id) 
+
+    print("These are all the searches including Title results as well!", related_recipes_id)
+
+    return related_recipes_id
 
 
 def get_recipes(limit=24):

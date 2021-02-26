@@ -1,6 +1,7 @@
 "use strict";
 import styles from '../styles/Home.module.css';
 import React, { useState, useEffect } from 'react';
+import {useRouter} from 'next/router'
 // import MyModal from './venmomodal.js';
 
 
@@ -41,20 +42,23 @@ function NavBar() {
     </button>
   )
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.target);
+  // const router = useRouter()
+  
+  // const handleSearch = (event) => {
+  //   event.preventDefault();
 
-    fetch('/search', {
-      method: 'POST',
-      body: data,
-    })      
-    .then(response => {
-      response.json().then(data => {
-        router.push("/search")
-        }
-    ) });
+  //    //make search phrase defined
+  //   router.push(`/search/{${search_phrase}}`);
+  // }
+
+  const router = useRouter()
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    router.push(href)
   }
+
+
   return (
     <nav>
       <div className={styles['nav-left']}>
@@ -66,8 +70,11 @@ function NavBar() {
           { basketicon } { smsicon } My Grocery List
         </button>
       </div><div className={styles['nav-right']}>
-      <form onSubmit={handleSubmit} className={styles['search-form']}>
-      <input type="text" placeholder="Search" name="search_string" />
+      <form onSubmit={handleSearch} className={styles['search-form']}>
+      <input type="text"
+        placeholder="Search"
+        name="search_string"
+        required/>
       <button className={styles['search-button']} type="submit">
           {searchicon}
         </button>
