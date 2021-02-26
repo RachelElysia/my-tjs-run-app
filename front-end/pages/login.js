@@ -60,7 +60,7 @@ function SignUp() {
       <td>
       <label htmlFor="phone">10-digit Phone Number:</label> <br />
       <input type="tel" name="phone" id="phone"
-      placeholder="4158631292" pattern="[0-9]{10}" required/>
+      placeholder="4158631292" pattern="[0-9]{10}" maxLength="10" required/>
     </td>
     <td>
     <label htmlFor="fname">Password:</label><br />
@@ -104,8 +104,10 @@ function SignIn() {
     fetch('/api/userlogin', {
       method: 'POST',
       body: data,
-    })      
+    })    
+
     .then(response => {
+      console.log(response)
       if (response.status !== 200) {
         alert('Login Failed. Phone number and/or password is incorrect.');
         return;
@@ -128,7 +130,7 @@ function SignIn() {
 
         <p>
           <label htmlFor="phonein">Phone Number:</label> <br />
-          <input type="tel" name="phonein" id="phonein" placeholder="4158631292" />
+          <input type="tel" name="phonein" id="phonein" placeholder="4158631292" maxLength="10" />
         </p>
         <p>
           <label htmlFor="passwordin">Password:</label> <br />

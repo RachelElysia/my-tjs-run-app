@@ -481,8 +481,8 @@ title,
   background-color: #fff;
   min-height:16em;
   max-height:52em; 
-  min-width: 25em;
-  max-width: 50em;
+  min-width: 15em;
+  max-width: 45em;
   /* padding: 1em; */
   vertical-align: top;
   line-height: 120%;
@@ -530,7 +530,7 @@ title,
   height: 100%;
   width: 20em;
   max-width: 95%;
-  margin: 3em;
+  margin: 1em;
   text-align: left;
 }
 
@@ -539,13 +539,13 @@ title,
   min-width: 20em;
   max-width: 30em;
   height: 95%;
-  margin: 1%;
+  margin: 1em;
 }
 
 #column-right {
   flex: 1 0 auto;
-  max-width: 90%;
-  margin: auto;
+  max-width: 95%;
+  margin: 1em;
 }
 
 .table-wide {

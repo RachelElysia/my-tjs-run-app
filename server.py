@@ -384,30 +384,30 @@ def log_in():
         "image": "https://http.cat/409.jpg",
         "user": userAccountLoggedIn.serialize,
       }
-      status_code = 200
+      status = 200
       print("YOU MADE IT LOG IN!")
-      print(jsonify(response, status_code))
-      return jsonify(response, status_code)
+      print(jsonify(response, status))
+      return jsonify(response, status)
 
     if not user:
       response = {
         "errorMessage": "This phone number is not associated to an account. Create your account.",
         "image": "https://http.cat/422",
       }
-      status_code = 422
+      status = 422
       print("YOU TYPED IN A RANDOM PHONE NUMBER")
-      print(jsonify(response, status_code))
-      return jsonify(response, status_code)
+      print(jsonify(response, status))
+      return jsonify(response, status)
 
     if user and not check_password_hash(user.password_hash, password_entered):
       response = {
         "errorMessage": "Password is incorrect. Please try again.",
         "image": "https://http.cat/401",
       }
-      status_code = 401
+      status = 401
       print("YOU TYPED IN A WRONG PASSWORD")
-      print(jsonify(response, status_code))
-      return jsonify(response, status_code)
+      print(jsonify(response, status))
+      return jsonify(response, status)
 
 if __name__ == '__main__':
     ####### added by Lucia 2/11
