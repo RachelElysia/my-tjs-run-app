@@ -18,6 +18,11 @@ MAPS API
 Google Maps API: https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#0
 Inline Frame: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
 
+FRONT END
+Form Data: https://developer.mozilla.org/en-US/docs/Web/API/Event/target
+Form Data: https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData
+EncodeURI: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
+
 SMS API
 Send Text Messages: https://www.twilio.com/console
 

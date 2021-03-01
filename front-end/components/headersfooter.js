@@ -3,6 +3,7 @@ import styles from '../styles/Home.module.css';
 import React, { useState, useEffect } from 'react';
 import {useRouter} from 'next/router'
 // import MyModal from './venmomodal.js';
+import Link from 'next/link'
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -24,10 +25,10 @@ function NavBar() {
   }
 }, []);
 
-  const handleLogIn = ((e) => { e.preventDefault(); window.location.href='/login'; } ); 
+  const handleLogIn = ((e) => { e.preventDefault(); router.push('/login'); } ); 
 
   const handleLogOut = (e) => {
-    e.preventDefault(); window.location.href='/';
+    e.preventDefault(); router.push('/');
     setUser(null);
     localStorage.clear();
   };
@@ -42,44 +43,44 @@ function NavBar() {
     </button>
   )
 
-  // const router = useRouter()
-  
-  // const handleSearch = (event) => {
-  //   event.preventDefault();
-
-  //    //make search phrase defined
-  //   router.push(`/search/{${search_phrase}}`);
-  // }
-
   const router = useRouter()
+  
+  const handleSearch = (e) => {
+    e.preventDefault();
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    router.push(href)
+    // hey form is the html event and target is the field that references the 
+    // html element that triggered the event
+    const form = e.target;
+    const formData = new FormData(form);
+
+    const searchString = formData.get('search_string');
+    const encodedString = encodeURIComponent(searchString);
+    router.push(`/search/${encodedString}`);
   }
 
 
   return (
     <nav>
       <div className={styles['nav-left']}>
-        <a href="/"><img src="http://localhost:5000/static/img/logo.png" alt="My TJ's Run Logo" height="60px" /></a>
-        <button className={styles['left']} id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); window.location.href='/myrecipes'; }}>
+        <Link href="/"><img src="http://localhost:5000/static/img/logo.png" alt="My TJ's Run Logo" height="60px" /></Link>
+        <button className={styles['left']} id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); router.push('/myrecipes'); }}>
           {bookicon} My Recipes
         </button>
-        <button className={styles['left']} id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); window.location.href='/mygrocerylist'; }}>
+        <button className={styles['left']} id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); router.push('/mygrocerylist'); }}>
           { basketicon } { smsicon } My Grocery List
         </button>
-      </div><div className={styles['nav-right']}>
-      <form onSubmit={handleSearch} className={styles['search-form']}>
-      <input type="text"
-        placeholder="Search"
-        name="search_string"
-        required/>
-      <button className={styles['search-button']} type="submit">
-          {searchicon}
-        </button>
-      </form>
-        <button className={styles['right']} type="button" onClick={(e) => { e.preventDefault(); window.location.href='/storelocator'; }}>
+      </div>
+      <div className={styles['nav-right']}>
+        <form onSubmit={handleSearch} className={styles['search-form']}>
+          <input type="text"
+            placeholder="Search"
+            name="search_string"
+            required />
+          <button className={styles['search-button']} type="submit">
+            {searchicon}
+          </button>
+        </form>
+        <button className={styles['right']} type="button" onClick={(e) => { e.preventDefault(); router.push('/storelocator'); }}>
         { searchlocationicon }
         </button>
         { welcome }
@@ -91,15 +92,15 @@ function NavBar() {
 
 function TJNavBar() {
   const [isShown, setIsShown] = useState(false);
+  const router = useRouter()
 
   return (
 <div onMouseEnter={() => setIsShown(true)}
 onMouseLeave={() => setIsShown(false)}>
 <div id={styles['tjbar']}>
-<a href="/recipes">Trader Joe's Recipes</a>
+<Link href="/recipes">Trader Joe's Recipes</Link>
 </div>
 {isShown && (
-
 
 
 <div id={styles['tjbar-dropdown']}>
@@ -107,7 +108,7 @@ onMouseLeave={() => setIsShown(false)}>
     <table id={styles['tjbar-table']}>
       <thead>
         <tr><td></td><td><center>
-       <button id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); window.location.href='/login'; }}>
+       <button id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); router.push('/login'); }}>
           Get Started
         </button>
    </center></td></tr>
@@ -128,24 +129,24 @@ onMouseLeave={() => setIsShown(false)}>
       </tr>
     </thead>
     <tbody><tr>
-      <td><a href="/tags/33">Baking</a></td>
-      <td width="150px"><a href="/tags/102">St. Patrick's Day</a></td>
+      <td><Link href="/tags/33">Baking</Link></td>
+      <td width="150px"><Link href="/tags/102">St. Patrick's Day</Link></td>
     </tr>
     <tr>
-      <td><a href="/tags/16">Party</a></td>
-      <td><a href="/tags/154">Easter</a></td>
+      <td><Link href="/tags/16">Party</Link></td>
+      <td><Link href="/tags/154">Easter</Link></td>
     </tr>
     <tr>
-      <td><a href="/tags/8">Salads</a></td>
-      <td><a href="/tags/43">Spring</a></td>
+      <td><Link href="/tags/8">Salads</Link></td>
+      <td><Link href="/tags/43">Spring</Link></td>
     </tr>
     <tr>
-      <td><a href="/tags/5">Snacks</a></td>
-      <td><a href="/tags/147">Breakfast</a></td>
+      <td><Link href="/tags/5">Snacks</Link></td>
+      <td><Link href="/tags/147">Breakfast</Link></td>
     </tr>
     <tr>
-      <td><a href="/tags/104">Cocktails</a></td>
-      <td><a href="/tags/10">Meatless</a></td>
+      <td><Link href="/tags/104">Cocktails</Link></td>
+      <td><Link href="/tags/10">Meatless</Link></td>
     </tr>
     </tbody>
   </table>
@@ -170,8 +171,8 @@ function Footer() {
   return (
     <footer>
       <ul>
-        <li>A Project by <a href="http://www.rachelelysia.com" target="_blank">Rachel Elysia Perkins</a></li>
-        <li><a href="/resources">Resources</a></li>
+        <li>A Project by <Link href="http://www.rachelelysia.com" target="_blank">Rachel Elysia Perkins</Link></li>
+        <li><Link href="/resources">Resources</Link></li>
         <li>  
               {/* <Modal show={this.state.show} handleClose={this.hideModal}> */}
           Buy me {randomIngredient}

@@ -39,14 +39,21 @@ export default function Home(props) {
 
   const recipeIdResult = useSWR(`/api/recipes/${recipe_id}`, fetchFunction)
 
-  if (recipeIdResult.error) return <div>failed to load</div>
-  if (!recipeIdResult.data) return <div>loading...</div>
+  // if (recipeIdResult.error) return <div>failed to load</div>
+  // if (!recipeIdResult.data) return <div>loading...</div>
 
+  let overrideElement = null;
+  if (recipeIdResult.error) {
+    overrideElement = <div>failed to load</div>;
+  }
+  else if (!recipeIdResult.data) {
+    overrideElement = <div>loading...</div>
+  }
   return (
     <div id="page-container">
       <NavBar />
       <TJNavBar />
-      <MyRecipesContainer mySingleRecipeData={recipeIdResult.data} />
+      {overrideElement ? overrideElement : <MyRecipesContainer mySingleRecipeData={recipeIdResult.data} />}
       <Footer />
     </div>
   )

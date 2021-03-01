@@ -105,15 +105,22 @@ export default function Home(props) {
   // useSWR takes 2 parameters: the URL, and how to fetch it (.then promise)
   // beneath the hood useSWR has 1 object with 2 keys returned, data and error
   // we call this destructuring :)
-  if (searchRecipesResult.error) return <div>failed to load</div>
-  if (!searchRecipesResult.data) return <div>loading...</div>
+  // if (searchRecipesResult.error) return <div>failed to load</div>
+  // if (!searchRecipesResult.data) return <div>loading...</div>
 
+  let overrideElement = null;
+  if (searchRecipesResult.error) {
+    overrideElement = <div>failed to load</div>;
+  }
+  else if (!searchRecipesResult.data) {
+    overrideElement = <div>loading...</div>
+  }
 
   return (
     <div id="page-container">
       <NavBar />
       <TJNavBar />
-      <RecipeCardContainer recipeData24={searchRecipesResult.data}/>
+      {overrideElement ? overrideElement : <RecipeCardContainer recipeData24={searchRecipesResult.data}/>}
       <Footer />
     </div>
   )

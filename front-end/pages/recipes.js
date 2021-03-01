@@ -41,14 +41,21 @@ export default function Home() {
   // beneath the hood useSWR has 1 object with 2 keys returned, data and error
   const recipes = useSWR('/api/recipes/random', fetchRecipesFunction)
 
-  if (recipes.error) return <div>failed to load</div>
-  if (!recipes.data) return <div>loading...</div>
+  // if (recipes.error) return <div>failed to load</div>
+  // if (!recipes.data) return <div>loading...</div>
 
+  let overrideElement = null;
+  if (recipes.error) {
+    overrideElement = <div>failed to load</div>;
+  }
+  else if (!recipes.data) {
+    overrideElement = <div>loading...</div>
+  }
   return (
     <div id="page-container">
       <NavBar />
       <TJNavBar />
-      <RecipeCardContainer recipeData24={recipes.data} />
+      {overrideElement ? overrideElement : <RecipeCardContainer recipeData24={recipes.data} />}
       <Footer />
     </div>
   )

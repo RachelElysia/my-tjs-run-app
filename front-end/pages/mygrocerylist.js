@@ -75,10 +75,18 @@ export default function Home(props) {
   // we call this destructuring :)
   const { data, error } = useSWR(`/api/users/${user ? user.user_id : 2}/recipes`, fetcher3)
 
-  if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
-  if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
+  // if (error) return <div>failed to load</div>
+  // if (!data) return <div>loading...</div>
+  
+  let overrideElement = null;
+  if (error) {
+    overrideElement = <div>failed to load</div>;
+  }
+  else if (!data) {
+    overrideElement = <div>loading...</div>
+  }
+
+
   if (user === null) {
     return (
       <div id="page-container">
@@ -95,7 +103,7 @@ export default function Home(props) {
     <div id="page-container">
       <NavBar />
       <TJNavBar />
-      <MyGroceriesContainer userRecipesData={data} />
+      {overrideElement ? overrideElement : <MyGroceriesContainer userRecipesData={data} />}
       <Footer />
     </div>
   )

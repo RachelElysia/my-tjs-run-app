@@ -170,6 +170,15 @@ export default function Home(props) {
 
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
+  
+  let overrideElement = null;
+  if (error) {
+    overrideElement = <div>failed to load</div>;
+  }
+  else if (!data) {
+    overrideElement = <div>loading...</div>
+  }
+  
   if (user === null) {
     return (
       <div id="page-container">
@@ -186,7 +195,7 @@ export default function Home(props) {
     <div id="page-container">
       <NavBar />
       <TJNavBar />
-      <MyRecipesContainer recipeData24={data} />
+      {overrideElement ? overrideElement : <MyRecipesContainer recipeData24={data} />}
       <Footer />
     </div>
   )
