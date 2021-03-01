@@ -14,14 +14,16 @@ Delete with Fetch: https://jasonwatmore.com/post/2020/11/11/react-fetch-http-del
 React Local Storage: https://programmingwithmosh.com/react/localstorage-react/
 React Local Storage: https://www.freecodecamp.org/news/how-to-persist-a-logged-in-user-in-react/
 React useEffect: https://reactjs.org/docs/hooks-effect.html
+React Links: https://nextjs.org/docs/api-reference/next/link
 MAPS API
 Google Maps API: https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#0
 Inline Frame: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
-
+Next/Router: https://nextjs.org/docs/api-reference/next/router
 FRONT END
 Form Data: https://developer.mozilla.org/en-US/docs/Web/API/Event/target
-Form Data: https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData
+Form Data: https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData/get
 EncodeURI: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
+
 
 SMS API
 Send Text Messages: https://www.twilio.com/console
@@ -156,3 +158,14 @@ e.g. like adding to a counter and using that value to change something on the pa
 //     if (favoriteBool.error) return <div>failed to load</div>
 //     if (!favoriteBool.data) return <div>loading...</div>
     
+
+    REPEAT Recipes
+    FALAFEL SURPRISE
+
+
+
+    react hooks cheat sheet
+
+    https://blog.logrocket.com/react-hooks-cheat-sheet-unlock-solutions-to-common-problems-af4caf699e70/
+Ternary
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator

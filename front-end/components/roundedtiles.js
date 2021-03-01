@@ -1,6 +1,7 @@
 "use strict";
 import styles from '../styles/Home.module.css';
 import React, { useState } from 'react';
+import Link from 'next/link'
 
 import useSWR from 'swr'
 
@@ -34,16 +35,16 @@ function RecipeCard(props) {
       if (!data) return <div>loading...</div>
     
       // NEEDED EXTRA {} AROUND IT TO SAY "yo, I'm a javascript template string!"
-      tagItems = data.map((tag) => <a href={`/tags/${tag.tag_id}`}>  {tag.name.toUpperCase()}  </a>);
+      tagItems = data.map((tag) => <a id={`${tag.tag_id}`} href={`/tags/${tag.tag_id}`}>  {tag.name.toUpperCase()}  </a>);
     };
     
     tagFetch();
   
     return (
       <div id={styles['tile-recipe-flex']}>
-        <a href={`/recipes/${props.recipe_id}`}>
+        <Link href={`/recipes/${props.recipe_id}`}>
           <img src={props.img} id={styles['tile-recipe-img']} alt={props.title}/>
-        </a>
+        </Link>
         <div id={styles['tile-recipe-info']}>
           <p id={styles['tile-recipe-title']}><a href={`/recipes/${props.recipe_id}`}> {props.title} </a></p>
           <p id={styles['tile-recipe-directions']}> {recipeDirections}... </p>

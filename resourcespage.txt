@@ -1,0 +1,47 @@
+React|React Framework: Next JS| Overall Front-end Development|https://nextjs.org/
+React|useState Hook|Toggle Favorite Recipe|https://www.codecademy.com/courses/react-101/lessons/the-state-hook/exercises/arrays-in-state
+React|useSWR Fetcher|Client-side Fetching|https://swr.vercel.app/
+React|Next.js data Fetcher|Client-side Fetching|https://nextjs.org/docs/basic-features/data-fetching
+React|React Reveal Library|Animations Library for Fade|https://www.react-reveal.com/examples/common/fade/
+React|useRouter with Next.js|Dynamic Routing|https://nextjs.org/docs/routing/dynamic-routes
+React|useRouter with Next.js|Dynamic Routing|https://nextjs.org/docs/api-reference/next/router
+React|onHover|Dropdown Menu|https://upmostly.com/tutorials/react-onhover-event-handling-with-examples
+Development|Next.config.js|Rewrite between 2 servers during development|https://nextjs.org/docs/api-reference/next.config.js/rewrites
+React|List and Keys|Unique keys in any Lists|https://reactjs.org/docs/lists-and-keys.html#keys
+React|'Pop Out" Modal|Venmo "Pop Out"|https://github.com/reactjs/react-modal
+React|LocalStorage|Store User Logged In|https://programmingwithmosh.com/react/localstorage-react/
+React|LocalStorage|Store User Logged In|https://www.freecodecamp.org/news/how-to-persist-a-logged-in-user-in-react/
+React|Next.js Links|Client-side rendering links|https://nextjs.org/docs/api-reference/next/link
+React|Hooks Cheatsheet|Review hooks|https://blog.logrocket.com/react-hooks-cheat-sheet-unlock-solutions-to-common-problems-af4caf699e70/
+General Front-End|Google Maps API|Find TJ's Near You|https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#0
+General Front-End|Inline Frame|Maps HTML into iFrame|https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
+General Front-End|Form Data|Search and Create/Log In User|https://developer.mozilla.org/en-US/docs/Web/API/Event/target
+General Front-End|Form Data|Search and Create/Log In User|https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData/get
+General Front-End|EncodeURI|Search feature|https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
+General Front-End|SMS API|Send Users Text Message of Groceries|https://www.twilio.com/console
+CSS & Styling|Trader Joe's Font|Logo|https://www.fontspace.com/trader-joes-font-f34830
+CSS & Styling|FontAwesome Icons|Icons Library|http://www.fontawesome.com/icons
+CSS & Styling|FontAwesome with Yarn|Compatible with Next.js|https://fontawesome.com/how-to-use/on-the-web/using-with/react
+CSS & Styling|Canva|Free Graphics|https://www.canva.com
+CSS & Styling|Adobe Photoshop CC|Create Image Transparency|https://www.adobe.com/products/photoshop/
+CSS & Styling|favicon.ico Maker|Convert to .ico Image|https://www.icoconvererter.com
+CSS & Styling|Background Image in React|Positioning|https://stackoverflow.com/questions/48288176/set-background-image-to-full-screen-in-reactjs/50769188
+CSS & Styling|Background Image CSS|Positioning|https://www.w3schools.com/cssref/css3_pr_background-size.asp
+CSS & Styling|Buttons Styling|Submit, Get Started, Nav Bar|https://www.w3schools.com/css/css3_buttons.asp
+CSS & Styling|The pain of Centering|So many Divs and Content|https://www.freecodecamp.org/news/how-to-center-anything-with-css-align-a-div-text-and-more/
+CSS & Styling|The pain of Centering|So many Divs and Content| https://www.w3.org/Style/Examples/007/center.en.html
+CSS & Styling|CSS Semantics|Naming className and id|https://css-tricks.com/semantic-class-names/
+CSS & Styling|Display Button Inline with Form|Search Feature|https://stackoverflow.com/questions/9117209/no-line-break-between-button-and-form
+Python Back-End|Render Method|Render Random Recipes|https://www.w3schools.com/python/ref_random_choices.asp
+Python Back-End|Flask Password Hashing|Werkzeug Password Hashing| https://www.youtube.com/watch?v=jJ4awOToB6k
+JavaScript Front-End|Array Method .map|https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+JavaScript Front-End|Array Method .includes|https://www.w3schools.com/jsref/jsref_includes_array.asp
+JavaScript Front-End|Array Method .forEach|https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+JavaScript Front-End|Array Method .slice|https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+JavaScript Front-End|Ternary|Log In/Out, Favorite/Unfavorite, Loading.../Error|https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+Python Back-End|SQLAlchemy Queries|Check if data exists|https://docs.sqlalchemy.org/en/13/orm/query.html?highlight=exists#sqlalchemy.orm.query.Query.exists
+Python Back-End|SQLAlchemy Search|Search Feature|https://www.youtube.com/watch?v=HXKDyZ_W6rI
+General Practice/Test Code|Repl.it|Clean Space to Test Code|https://Repl.it
+
+
+
