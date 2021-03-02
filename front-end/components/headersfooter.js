@@ -75,7 +75,7 @@ function NavBar() {
           <input type="text"
             placeholder="Search"
             name="search_string"
-            autocomplete="off"
+            autoComplete="off"
             required />
           <button className={styles['search-button']} type="submit">
             {searchicon}

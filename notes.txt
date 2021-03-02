@@ -155,3 +155,20 @@ export default function Home(props) {
         //     console.log("This was not a favorited recipe. Now it is!")
           
         //   }
+
+
+    # Bring to my server post request
+    # Make sure my component renders that post request
+    # Build a component that will be redirected to that holds the results
+
+    # Do this first then get text message going
+    # Then get venmo modal going
+    # Last week thing: Security before deployment
+    # OAuth - Google, not easy or straight forward
+
+    # search_variable = '%{}%'.format(search_phrase)
+    # print("This is my search variable:", search_variable)
+
+    #https://stackoverflow.com/questions/3325467/sqlalchemy-equivalent-to-sql-like-statement
+
+    

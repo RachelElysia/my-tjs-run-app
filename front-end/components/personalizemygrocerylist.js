@@ -1,15 +1,17 @@
 "use strict";
 import styles from '../styles/Home.module.css';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useSWR from 'swr'
+import {useRouter} from 'next/router'
 
 // import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusSquare, faMinusSquare } from '@fortawesome/free-solid-svg-icons'
+import { faPlusSquare, faMinusSquare, faSms } from '@fortawesome/free-solid-svg-icons'
 
 
 const add = <FontAwesomeIcon icon={faPlusSquare} />
 const remove = <FontAwesomeIcon icon={faMinusSquare} />
+const smsicon = <FontAwesomeIcon icon={faSms} />
 
 
 function PersonalizedShoppingList(props) {
@@ -39,6 +41,49 @@ function PersonalizedShoppingList(props) {
         });
     }
 
+    // THIS IS ALL TO TEXT THE GROCERIES
+    const router = useRouter()
+
+    const [formData, setFormData] = useState({
+      user: {},
+      loggedIn: false
+    });
+
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const loggedInUser = localStorage.getItem('user');
+        if (loggedInUser) {
+        setUser(JSON.parse(loggedInUser));
+        }
+    }, []);
+  
+  
+    const handleText = (event) => {
+      event.preventDefault();
+      const data = new FormData(event.target);
+
+      const result = confirm(`${user.fname}, Do you want to text this grocery list to ${user.phone}?`);
+        if (result) {
+            fetch('/api/sms', {
+                method: 'POST',
+                body: data,
+              })    
+          
+              .then(response => {
+                console.log(response)
+                if (response.status !== 200) {
+                  alert('Something failed.');
+                  return;
+                }
+                response.json().then(data => {
+                  alert('NAME, You received a text at the number PHONE.');
+                  }
+              ) });
+        }
+    }
+
+
     return (
         <>
             <div>
@@ -58,7 +103,12 @@ function PersonalizedShoppingList(props) {
         ))}     
                </tbody></table>
 
-
+        <form onSubmit={handleText}>
+            <button type="submit">
+            { smsicon } Text Me My Grocery List
+            </button>
+            {/* <input type="submit" className={styles['submit-button']}/> */}
+        </form>
             </div>
             <div className={styles['container-flex']}>
                 <div className={styles['my-ingredient-flex']}>
@@ -148,6 +198,8 @@ function GroceryCard(props) {
     };
     
     tagFetch();
+
+
 
     // My main div
     return (

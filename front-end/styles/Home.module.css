@@ -581,7 +581,7 @@ title,
 
 /* USED ON MY GROCERY AND SINGLE RECIPE */
 #ingredients-table td{
-  padding-right: 3em;
+  padding-right: 0.5em;
 }
 
 #ingredients-table th {
@@ -727,4 +727,33 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
 .favorite-button:hover {
   font-size: 1.5rem;
   padding: 0.216rem 0.5rem;
+}
+
+/* MY RECIPES NAV BAR*/
+#nav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 200px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #494d5f; /* Dark Grey */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+#nav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 14px;
+  color: #A0D2EB;
+  background-color: #494d5f;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+#nav a:hover {
+  color: #E5EAF5;
+  background-color: #494d5f;
 }

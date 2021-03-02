@@ -134,10 +134,23 @@ function MyRecipesContainer(props) {
     );
   }
 
+  const leftNav = () => (
+    <nav id="navbar"><center>
+    <header><h1>Color Codes</h1></header>
+    <Link href="#About" class="nav-link"><a>About</a></Link>
+    <Link href="#Color_Codes" class="nav-link"><a>Color Codes</a></Link>
+    <Link href="#Decimal_Codes" class="nav-link"><a>Decimal Codes</a></Link>
+    </center>
+    </nav>)
+  
+  
+
   return (
     <div className={styles['container']}>
       <h1>{listicon} My Recipes</h1>
       <p> Viewing your favorite recipes!</p>
+
+      {leftNav}
       {recipeCards}
     </div>
   );

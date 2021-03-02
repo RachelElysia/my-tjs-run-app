@@ -6,14 +6,37 @@ from model import connect_to_db
 import crud
 from jinja2 import StrictUndefined
 from werkzeug.security import generate_password_hash, check_password_hash
+import os
 
 app = Flask(__name__)
 
 ## added by Lucia
-app.secret_key = '123abcEFG'
+app.secret_key = app_secret_key
 
 app.jinja_env.undefined = StrictUndefined
 ###
+
+import os
+from twilio.rest import Client
+
+@app.route('/api/sms', methods=['POST'])
+def send_sms():
+    """Send SMS."""
+
+    # Your Account SID from twilio.com/console
+    account_sid = account_sid_key
+    # Your Auth Token from twilio.com/console
+    auth_token  = auth_token_key
+
+    client = Client(account_sid, auth_token)
+
+    message = client.messages.create(
+        to=my_number, 
+        from_="+15402884977",
+        body="Hello from Python!")
+
+    print(message.sid)
+
 
 ########### THIS IS REPLACED WITH REACT ONSUBMIT #############
 @app.route('/')

@@ -14,7 +14,7 @@ React|LocalStorage|Store User Logged In|https://programmingwithmosh.com/react/lo
 React|LocalStorage|Store User Logged In|https://www.freecodecamp.org/news/how-to-persist-a-logged-in-user-in-react/
 React|Next.js Links|Client-side rendering links|https://nextjs.org/docs/api-reference/next/link
 React|Hooks Cheatsheet|Review hooks|https://blog.logrocket.com/react-hooks-cheat-sheet-unlock-solutions-to-common-problems-af4caf699e70/
-General Front-End|Google Maps API|Find TJ's Near You|https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#0
+General Front-End|Google Maps API Lab|Find TJ's Near You|https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#0
 General Front-End|Inline Frame|Maps HTML into iFrame|https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
 General Front-End|Form Data|Search and Create/Log In User|https://developer.mozilla.org/en-US/docs/Web/API/Event/target
 General Front-End|Form Data|Search and Create/Log In User|https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData/get
@@ -43,3 +43,4 @@ JavaScript Front-End|Ternary|Log In/Out, Favorite/Unfavorite, Loading.../Error|h
 Python Back-End|SQLAlchemy Queries|Check if data exists|https://docs.sqlalchemy.org/en/13/orm/query.html?highlight=exists#sqlalchemy.orm.query.Query.exists
 Python Back-End|SQLAlchemy Search|Search Feature|https://www.youtube.com/watch?v=HXKDyZ_W6rI
 General Practice/Test Code|Repl.it|Clean Space to Test Code|https://Repl.it
+Git|Ignoring Files|Brush Up On This Always|https://help.github.com/articles/ignoring-files/
