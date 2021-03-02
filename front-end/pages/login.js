@@ -69,7 +69,7 @@ function SignUp() {
     </tr>
     <tr>
       <td>
-      <input type="submit" />
+      <input type="submit" className={styles['submit-button']}/>
       </td>
     </tr>
     </tbody>
@@ -79,15 +79,6 @@ function SignUp() {
   );
 }
 
-// function handleSubmitSignIn(event) {
-//   event.preventDefault();
-//   const data = new FormData(event.target);
-  
-//   fetch('/api/userlogin', {
-//     method: 'POST',
-//     body: data,
-//   });
-// }
 
 function SignIn() {
   const router = useRouter()
@@ -137,7 +128,7 @@ function SignIn() {
           <input type="password" name="passwordin" id="passwordin" placeholder="Your password" />
         </p>
         <p>
-          <input type="submit" />
+          <input type="submit" className={styles['submit-button']}/>
         </p>
       </form>
     </div>
@@ -155,7 +146,6 @@ function SignInUp() {
   );
 };
 
-// self calling function... turn a function into an object and then call it with ()
 
 export default function Home(props) {
   return (

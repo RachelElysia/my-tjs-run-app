@@ -43,7 +43,7 @@
 
 } 
 
-.nav-right button {
+.nav-right button, .submit-button {
   background-color: #D21242;
   border: none;
   color: #fff;
@@ -55,7 +55,7 @@
   border-radius: 10px;
 }
 
-.nav-right button:hover {
+.nav-right button:hover, .submit-button:hover {
   background-color: #bd0d39;
   border: none;
   color: #fff;

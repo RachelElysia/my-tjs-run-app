@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import useSWR from 'swr'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons'
+import Link from 'next/link'
 
 // Separate all fetches because render hooks has an issue with rendering
 // hooks a different amount of times in the same component
@@ -28,7 +29,7 @@ function FavoriteButton(props) {
     if (user === null) {
         return (
             <p className={styles['text_small']}><span>
-                <a href="/login">Log in to favorite this recipe!</a>
+                <Link href="/login"><a>Log in to favorite this recipe!</a></Link>
             </span></p>);
     }
     return <FindInitialState userId={user.user_id} recipeId={props.recipeId}/>

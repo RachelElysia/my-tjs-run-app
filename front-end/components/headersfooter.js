@@ -1,10 +1,10 @@
 "use strict";
 import styles from '../styles/Home.module.css';
+import Modal from './venmomodal'
 import React, { useState, useEffect } from 'react';
 import {useRouter} from 'next/router'
 // import MyModal from './venmomodal.js';
 import Link from 'next/link'
-
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingBasket, faBook, faMapMarkedAlt, faSms, faSearch } from '@fortawesome/free-solid-svg-icons'
@@ -62,7 +62,7 @@ function NavBar() {
   return (
     <nav>
       <div className={styles['nav-left']}>
-        <Link href="/"><img src="http://localhost:5000/static/img/logo.png" alt="My TJ's Run Logo" height="60px" /></Link>
+        <Link href="/"><a><img src="http://localhost:5000/static/img/logo.png" alt="My TJ's Run Logo" height="60px" /></a></Link>
         <button className={styles['left']} id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); router.push('/myrecipes'); }}>
           {bookicon} My Recipes
         </button>
@@ -99,7 +99,7 @@ function TJNavBar() {
 <div onMouseEnter={() => setIsShown(true)}
 onMouseLeave={() => setIsShown(false)}>
 <div id={styles['tjbar']}>
-<Link href="/recipes">Trader Joe's Recipes</Link>
+<Link href="/recipes"><a>Trader Joe's Recipes</a></Link>
 </div>
 {isShown && (
 
@@ -130,24 +130,24 @@ onMouseLeave={() => setIsShown(false)}>
       </tr>
     </thead>
     <tbody><tr>
-      <td><Link href="/tags/33">Baking</Link></td>
-      <td width="150px"><Link href="/tags/102">St. Patrick's Day</Link></td>
+      <td><Link href="/tags/33"><a>Baking</a></Link></td>
+      <td width="150px"><Link href="/tags/102"><a>St. Patrick's Day</a></Link></td>
     </tr>
     <tr>
-      <td><Link href="/tags/16">Party</Link></td>
-      <td><Link href="/tags/154">Easter</Link></td>
+      <td><Link href="/tags/16"><a>Party</a></Link></td>
+      <td><Link href="/tags/154"><a>Easter</a></Link></td>
     </tr>
     <tr>
-      <td><Link href="/tags/8">Salads</Link></td>
-      <td><Link href="/tags/43">Spring</Link></td>
+      <td><Link href="/tags/8"><a>Salads</a></Link></td>
+      <td><Link href="/tags/43"><a>Spring</a></Link></td>
     </tr>
     <tr>
-      <td><Link href="/tags/5">Snacks</Link></td>
-      <td><Link href="/tags/147">Breakfast</Link></td>
+      <td><Link href="/tags/5"><a>Snacks</a></Link></td>
+      <td><Link href="/tags/147"><a>Breakfast</a></Link></td>
     </tr>
     <tr>
-      <td><Link href="/tags/104">Cocktails</Link></td>
-      <td><Link href="/tags/10">Meatless</Link></td>
+      <td><Link href="/tags/104"><a>Cocktails</a></Link></td>
+      <td><Link href="/tags/10"><a>Meatless</a></Link></td>
     </tr>
     </tbody>
   </table>
@@ -172,15 +172,9 @@ function Footer() {
   return (
     <footer>
       <ul>
-        <li>A Project by <Link href="http://www.rachelelysia.com" target="_blank">Rachel Elysia Perkins</Link></li>
-        <li><Link href="/resources">Resources</Link></li>
-        <li>  
-              {/* <Modal show={this.state.show} handleClose={this.hideModal}> */}
-          Buy me {randomIngredient}
-        {/* </Modal> */}
-          </li>
-        
-
+        <li>A Project by <Link href="http://www.rachelelysia.com" target="_blank"><a>Rachel Elysia Perkins</a></Link></li>
+        <li><Link href="/resources"><a>Resources</a></Link></li>
+        <li><Link href="/modal"><a>Buy me {randomIngredient}</a></Link></li>
       </ul>
     </footer>
   );

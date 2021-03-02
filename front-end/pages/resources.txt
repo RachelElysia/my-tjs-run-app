@@ -1,40 +1,40 @@
 
 
 REACT & REACT RELATED
-React Framework: Next.js https://nextjs.org/
-React useState: Toggle Favorite Recipes Selected https://www.codecademy.com/courses/react-101/lessons/the-state-hook/exercises/arrays-in-state
-React useSWR Fetcher: Client Side Fetching https://swr.vercel.app/
-React Reveal: Transitions library https://www.react-reveal.com/examples/common/fade/
-Next.js useRouter: Dynamic Routing https://nextjs.org/docs/routing/dynamic-routes
-React onHover: Dropdown menu https://upmostly.com/tutorials/react-onhover-event-handling-with-examples
-Next.config.js: Rewrite between 2 servers during Development https://nextjs.org/docs/api-reference/next.config.js/rewrites
-React lists and keys https://reactjs.org/docs/lists-and-keys.html#keys
-React Modal: Venmo PopOut https://github.com/reactjs/react-modal
-Delete with Fetch: https://jasonwatmore.com/post/2020/11/11/react-fetch-http-delete-request-examples
-React Local Storage: https://programmingwithmosh.com/react/localstorage-react/
-React Local Storage: https://www.freecodecamp.org/news/how-to-persist-a-logged-in-user-in-react/
-React useEffect: https://reactjs.org/docs/hooks-effect.html
-React Links: https://nextjs.org/docs/api-reference/next/link
-MAPS API
-Google Maps API: https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#0
-Inline Frame: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
-Next/Router: https://nextjs.org/docs/api-reference/next/router
+- React Framework: Next.js https://nextjs.org/
+-React useState: Toggle Favorite Recipes Selected https://www.codecademy.com/courses/react-101/lessons/the-state-hook/exercises/arrays-in-state
+-React useSWR Fetcher: Client Side Fetching https://swr.vercel.app/
+-React Reveal: Transitions library https://www.react-reveal.com/examples/common/fade/
+-Next.js useRouter: Dynamic Routing https://nextjs.org/docs/routing/dynamic-routes
+-React onHover: Dropdown menu https://upmostly.com/tutorials/react-onhover-event-handling-with-examples
+-Next.config.js: Rewrite between 2 servers during Development https://nextjs.org/docs/api-reference/next.config.js/rewrites
+-React lists and keys https://reactjs.org/docs/lists-and-keys.html#keys
+-React Modal: Venmo PopOut https://github.com/reactjs/react-modal
+DID NOT USEDelete with Fetch: https://jasonwatmore.com/post/2020/11/11/react-fetch-http-delete-request-examples
+-React Local Storage: https://programmingwithmosh.com/react/localstorage-react/
+-React Local Storage: https://www.freecodecamp.org/news/how-to-persist-a-logged-in-user-in-react/
+-React useEffect: https://reactjs.org/docs/hooks-effect.html
+-React Links: https://nextjs.org/docs/api-reference/next/link
+-MAPS API
+-Google Maps API: https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#0
+-Inline Frame: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
+-Next/Router: https://nextjs.org/docs/api-reference/next/router
 FRONT END
-Form Data: https://developer.mozilla.org/en-US/docs/Web/API/Event/target
-Form Data: https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData/get
-EncodeURI: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
+-Form Data: https://developer.mozilla.org/en-US/docs/Web/API/Event/target
+-Form Data: https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData/get
+-EncodeURI: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
 
 
 SMS API
 Send Text Messages: https://www.twilio.com/console
 
 CSS & STYLING
-Trader Joe's Font https://www.fontspace.com/trader-joes-font-f34830
-Free Icons http://www.fontawesome.com/icons
-FontAwesome with Yarn https://fontawesome.com/how-to-use/on-the-web/using-with/react
-Free graphics https://www.canva.com
-Create Image Transparency  Adobe Photoshop CC
-Convert to .ico Image https://www.icoconvererter.com
+-Trader Joe's Font https://www.fontspace.com/trader-joes-font-f34830
+-Free Icons http://www.fontawesome.com/icons
+-FontAwesome with Yarn https://fontawesome.com/how-to-use/on-the-web/using-with/react
+-Free graphics https://www.canva.com
+-Create Image Transparency  Adobe Photoshop CC
+-Convert to .ico Image https://www.icoconvererter.com
 Position Background image in Position of Div 
   // https://stackoverflow.com/questions/48288176/set-background-image-to-full-screen-in-reactjs/50769188
   // https://www.w3schools.com/cssref/css3_pr_background-size.asp

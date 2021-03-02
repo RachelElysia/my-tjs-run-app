@@ -35,18 +35,18 @@ function RecipeCard(props) {
       if (!data) return <div>loading...</div>
     
       // NEEDED EXTRA {} AROUND IT TO SAY "yo, I'm a javascript template string!"
-      tagItems = data.map((tag) => <a id={`${tag.tag_id}`} href={`/tags/${tag.tag_id}`}>  {tag.name.toUpperCase()}  </a>);
+      tagItems = data.map((tag) => <Link id={`${tag.tag_id}`} href={`/tags/${tag.tag_id}`}><a>{tag.name.toUpperCase()}</a></Link>);
     };
     
     tagFetch();
   
     return (
       <div id={styles['tile-recipe-flex']}>
-        <Link href={`/recipes/${props.recipe_id}`}>
+        <Link href={`/recipes/${props.recipe_id}`}><a>
           <img src={props.img} id={styles['tile-recipe-img']} alt={props.title}/>
-        </Link>
+        </a></Link>
         <div id={styles['tile-recipe-info']}>
-          <p id={styles['tile-recipe-title']}><a href={`/recipes/${props.recipe_id}`}> {props.title} </a></p>
+          <p id={styles['tile-recipe-title']}><Link href={`/recipes/${props.recipe_id}`}><a>{props.title}</a></Link></p>
           <p id={styles['tile-recipe-directions']}> {recipeDirections}... </p>
           <p id={styles['tile-recipe-tags']}> {tagItems} </p>
         </div>

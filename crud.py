@@ -1,4 +1,9 @@
-"""CRUD operations."""
+"""CRUD operations.
+
+recipe 1 id: 08Ifren64xtMVpoG03Qx
+recipe 2 id: 08OniGKxjkMtCTb7tX7d
+
+"""
 
 from model import db, User, Recipe, Tag, Ingredient, RecipeTag, UserRecipe, connect_to_db
 from random import sample
@@ -61,8 +66,7 @@ def create_ingredient(recipe_id, detailed_ingredient, abridged_ingredient):
     
     return ingredient_added
 
-# CREATE RELATIONSHIP TABLES
-
+# CREATE RELATIONSHIP TABLE
 def create_recipe_tag_relationship(recipe_id, tag_id):
     """Create and return a recipe/tag association."""
 
@@ -71,22 +75,9 @@ def create_recipe_tag_relationship(recipe_id, tag_id):
     db.session.add(recipe_tag)
     db.session.commit()
 
-# A middle table is unneeded because they share FKs and it's a one to many relationship
-# Why 1 to many? It was too hard to get the single ingredient without instructions to make many to many
-# def create_recipe_ingredient_relationship(recipe_id, ingredient_id):
-#     """Create and return a recipe/ingredient association."""
-
-#     recipe_ingredient = RecipeIngredient(recipe_id=recipe_id, ingredient_id=ingredient_id)
-
-#     db.session.add(recipe_ingredient)
-#     db.session.commit()
-
 # THIS WILL BE WORKED ON LATER WHEN USERS CAN UPDATE
 def create_user_recipe(user_id, recipe_id):
-    """Create and return a new recipe for individual user.
-    
-    I'm user 1, I have 2 things on here.
-    """
+    """Create and return a new recipe for individual user."""
 
     user_recipe = UserRecipe(user_id=user_id, recipe_id=recipe_id)
     db.session.add(user_recipe)
@@ -104,12 +95,10 @@ def delete_user_recipe(user_id, recipe_id):
     # Fix bug somehow
     # UserRecipe.query.filter(UserRecipe.user_id == user_id, UserRecipe.recipe_id == recipe_id).delete()
 
-
     return None
 
 
-# TESTS: FUNCTIONS TO POPULATE DATA (RECIPES, USERS, TAGS)
-
+# TEST FUNCTION TO POPULATE DATA (RECIPES, USERS, TAGS)
 def test_every_table():    
     test_user = create_user('Bixby', 'Perkins', 'test1@test1.com', 'test')
     test_recipe = create_recipe('/img.jpg', '4', 'Bixby Biscuits',
@@ -117,34 +106,13 @@ def test_every_table():
                                 '2 hours', '1 hour', 'bixbyid')
     test_tag = create_tag('Not So Yummy', 999)
 
-
     print(test_user)
     print(test_recipe)
     print(test_tag)
 
-# def search_recipes(search_phrase):
-#     """Searches the Recipes based on the input"""
-
-#     results = Recipe.query.whoosh_search(search_phrase, limit=30)
-
-#     return results
 
 def search_recipes(search_phrase):
-    """Searches the Recipes based on the input"""
-
-    # Bring to my server post request
-    # Make sure my component renders that post request
-    # Build a component that will be redirected to that holds the results
-
-    # Do this first then get text message going
-    # Then get venmo modal going
-    # Last week thing: Security before deployment
-    # OAuth - Google, not easy or straight forward
-
-    # search_variable = '%{}%'.format(search_phrase)
-    # print("This is my search variable:", search_variable)
-
-    #https://stackoverflow.com/questions/3325467/sqlalchemy-equivalent-to-sql-like-statement
+    """Searches recipes based on the input phrase and returns recipe ids as set."""
 
     related_recipes_id = set()
     search = "%{}%".format(search_phrase).lower()
@@ -188,9 +156,6 @@ def get_recipe_by_id(recipe_id):
 
     return Recipe.query.filter_by(recipe_id=recipe_id).one()
 
-# recipe 1 id: 08Ifren64xtMVpoG03Qx
-# recipe 2 id: 08OniGKxjkMtCTb7tX7d
-
 def get_tags():
     """Return all tags."""
 
@@ -217,14 +182,14 @@ def get_tags_info_by_recipe_id(recipe_id):
     >>> get_tags_info_by_recipe_id('08Ifren64xtMVpoG03Qx')
 
     [
-                <RecipeTag recipetag_id=1,
-                recipe_id=1  
-                tag_id=10>
-                , 
-                <RecipeTag recipetag_id=2,
-                recipe_id=2  
-                tag_id=47>
-                ]
+        <RecipeTag recipetag_id=1,
+        recipe_id=1  
+        tag_id=10>
+        , 
+        <RecipeTag recipetag_id=2,
+        recipe_id=2  
+        tag_id=47>
+    ]
     """
     recipe_tag_id_only = RecipeTag.query.filter(RecipeTag.recipe_id == recipe_id).all()
 
@@ -242,13 +207,13 @@ def get_user_recipes_data(user_id):
     
     >>> get_user_recipes_data(1)
     [
-                <Userrecipe user_recipe_id=1
-                user_id=1, 
-                recipe_id=MWL6CyjVxqoOnYVH55eQ>
-                , 
-                <Userrecipe user_recipe_id=2
-                user_id=1, 
-                recipe_id=3YiI1WbzAzaj7J4GFbkF>
+        <Userrecipe user_recipe_id=1
+        user_id=1, 
+        recipe_id=MWL6CyjVxqoOnYVH55eQ>
+        , 
+        <Userrecipe user_recipe_id=2
+        user_id=1, 
+        recipe_id=3YiI1WbzAzaj7J4GFbkF>
     ]
     """
 
@@ -266,7 +231,6 @@ def get_favorite_boolean(user_id, recipe_id):
     
     >>> get_favorite_boolean(1, 'MWL6CyjVxqoOnYVH55eQ')
     True
-    
     """
     
     query = UserRecipe.query.filter(UserRecipe.user_id == user_id, UserRecipe.recipe_id == recipe_id).first()
@@ -280,14 +244,14 @@ def get_tag_names_by_recipe_id(recipe_id):
     >>> get_tag_names_by_recipe_id('08Ifren64xtMVpoG03Qx')
 
     [
-                <RecipeTag recipetag_id=1,
-                recipe_id=1  
-                tag_id=10>
-                , 
-                <RecipeTag recipetag_id=2,
-                recipe_id=2  
-                tag_id=47>
-                ]
+        <RecipeTag recipetag_id=1,
+        recipe_id=1  
+        tag_id=10>
+        , 
+        <RecipeTag recipetag_id=2,
+        recipe_id=2  
+        tag_id=47>
+    ]
     """
 
     #THIS IS WEIRD TO DO TWO QUERIES NO?
@@ -308,14 +272,14 @@ def get_recipe_ids_by_tag_id(tag_id):
     >>> get_recipe_id_by_tag_id(104)
 
     [
-                <RecipeTag recipetag_id=1,
-                recipe_id=1  
-                tag_id=10>
-                , 
-                <RecipeTag recipetag_id=2,
-                recipe_id=2  
-                tag_id=47>
-                ]
+        <RecipeTag recipetag_id=1,
+        recipe_id=1  
+        tag_id=10>
+        , 
+        <RecipeTag recipetag_id=2,
+        recipe_id=2  
+        tag_id=47>
+    ]
     """
 
     #THIS IS WEIRD TO DO TWO QUERIES NO?
@@ -329,16 +293,6 @@ def get_recipe_ids_by_tag_id(tag_id):
         recipe_ids_list.append(recipe_id_append.recipe_id)
 
     return recipe_ids_list
-
-
-# This went the wrong way, save this just in case
-# def get_tag_names_by_recipe_id(recipe_id):
-#     """Return tag names attached to recipe_id"""
-    
-#     joined = db.session.query(Recipe).options(db.joinedload('tags')).all();
-
-
-#     return joined
 
 def get_ingredients_by_recipe_id(recipe_id):
     """Return multiple tags.
@@ -370,6 +324,36 @@ def get_ingredients_by_recipe_id(recipe_id):
 
     return db.session.query(Ingredient).filter_by(recipe_id=recipe_id).all()
 
+def resources_page():
+    resources_file = open("resourcespage.txt")
+
+    resources_dict = {}
+
+    for index, line in enumerate(resources_file):
+
+    # Test that each line has 4 fields
+    #   count = 0
+    #   for character in line:
+    #       if character == '|':
+    #           count += 1
+    #   if count !== 3:
+            # print("check line:", index + 1, "has", count + 1, "fields instead of 4.")     
+
+        line_data=line.rstrip().split("|")
+        entry = index
+        category = line_data[0]
+        topic = line_data[1]
+        details = line_data[2]
+        resource_url = line_data[3]
+        current_dict = {}
+        current_dict['category'] = category
+        current_dict['topic'] = topic
+        current_dict['details'] = details
+        current_dict['resource_url'] = resource_url
+        resources_dict[entry] = current_dict
+
+    print(resources_dict)
+    return (resources_dict)
 
 def get_ingredients():
     """Return all ingredients."""
