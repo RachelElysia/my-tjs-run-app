@@ -327,9 +327,9 @@ def get_ingredients_by_recipe_id(recipe_id):
 def resources_page():
     resources_file = open("resourcespage.txt")
 
-    resources_dict = {}
+    resources_list = []
 
-    for index, line in enumerate(resources_file):
+    for line in resources_file:
 
     # Test that each line has 4 fields
     #   count = 0
@@ -340,20 +340,19 @@ def resources_page():
             # print("check line:", index + 1, "has", count + 1, "fields instead of 4.")     
 
         line_data=line.rstrip().split("|")
-        entry = index
-        category = line_data[0]
-        topic = line_data[1]
-        details = line_data[2]
+        topic = line_data[0]
+        details = line_data[1]
+        uses = line_data[2]
         resource_url = line_data[3]
         current_dict = {}
-        current_dict['category'] = category
         current_dict['topic'] = topic
         current_dict['details'] = details
+        current_dict['uses'] = uses
         current_dict['resource_url'] = resource_url
-        resources_dict[entry] = current_dict
+        resources_list.append(current_dict)
 
-    print(resources_dict)
-    return (resources_dict)
+    print(resources_list)
+    return (resources_list)
 
 def get_ingredients():
     """Return all ingredients."""

@@ -1,3 +1,5 @@
+Recipes API|Trader Joe's API|Where I thankfully found recipes data with minor errors|https://traderjoeapi.jackgisel.com/
+SMS API|Twilio API|How I built my text message service|https://www.twilio.com
 React|React Framework: Next JS| Overall Front-end Development|https://nextjs.org/
 React|useState Hook|Toggle Favorite Recipe|https://www.codecademy.com/courses/react-101/lessons/the-state-hook/exercises/arrays-in-state
 React|useSWR Fetcher|Client-side Fetching|https://swr.vercel.app/
@@ -8,8 +10,9 @@ React|useRouter with Next.js|Dynamic Routing|https://nextjs.org/docs/api-referen
 React|onHover|Dropdown Menu|https://upmostly.com/tutorials/react-onhover-event-handling-with-examples
 Development|Next.config.js|Rewrite between 2 servers during development|https://nextjs.org/docs/api-reference/next.config.js/rewrites
 React|List and Keys|Unique keys in any Lists|https://reactjs.org/docs/lists-and-keys.html#keys
-React|'Pop Out" Modal|Venmo "Pop Out"|https://github.com/reactjs/react-modal
-React|'Pop Out" Modal|Venmo "Pop Out"|https://dev.to/toomuchdesign/contextual-routing-and-modal-routes-in-next-js-18fn
+React|"Pop Out" Modal|Venmo "Pop Out"|https://github.com/reactjs/react-modal
+React|"Pop Out" Modal|Venmo "Pop Out"|https://dev.to/toomuchdesign/contextual-routing-and-modal-routes-in-next-js-18fn
+React|"Pop Out" Modal|Venmo "Pop Out"|https://www.youtube.com/watch?v=d3aI1Dt0Z50
 React|LocalStorage|Store User Logged In|https://programmingwithmosh.com/react/localstorage-react/
 React|LocalStorage|Store User Logged In|https://www.freecodecamp.org/news/how-to-persist-a-logged-in-user-in-react/
 React|Next.js Links|Client-side rendering links|https://nextjs.org/docs/api-reference/next/link
@@ -20,6 +23,7 @@ General Front-End|Form Data|Search and Create/Log In User|https://developer.mozi
 General Front-End|Form Data|Search and Create/Log In User|https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData/get
 General Front-End|EncodeURI|Search feature|https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
 General Front-End|SMS API|Send Users Text Message of Groceries|https://www.twilio.com/console
+CSS & Styling|Font Sizing|Using Ratios for Font Sizes|https://type-scale.com/
 CSS & Styling|Trader Joe's Font|Logo|https://www.fontspace.com/trader-joes-font-f34830
 CSS & Styling|FontAwesome Icons|Icons Library|http://www.fontawesome.com/icons
 CSS & Styling|FontAwesome with Yarn|Compatible with Next.js|https://fontawesome.com/how-to-use/on-the-web/using-with/react
@@ -35,9 +39,10 @@ CSS & Styling|CSS Semantics|Naming className and id|https://css-tricks.com/seman
 CSS & Styling|Display Button Inline with Form|Search Feature|https://stackoverflow.com/questions/9117209/no-line-break-between-button-and-form
 Python Back-End|Render Method|Render Random Recipes|https://www.w3schools.com/python/ref_random_choices.asp
 Python Back-End|Flask Password Hashing|Werkzeug Password Hashing| https://www.youtube.com/watch?v=jJ4awOToB6k
-JavaScript Front-End|Array Method .map|Tiles|https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
-JavaScript Front-End|Array Method .includes|IDK||https://www.w3schools.com/jsref/jsref_includes_array.asp
-JavaScript Front-End|Array Method .forEach|Tiles|https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+Python Back-End|SQLAlchemy|Python Toolkit to Work with my Data|https://www.sqlalchemy.org/
+JavaScript Front-End|Array Method .map|Flow in Tags, Ingredients, Directions, Resources|https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+JavaScript Front-End|Array Method .includes|Toggle Recipes Selected Showing||https://www.w3schools.com/jsref/jsref_includes_array.asp
+JavaScript Front-End|Array Method .forEach|Didn't end up using this method|https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 JavaScript Front-End|Array Method .slice|Capitalization, Shorten Text on Tiles|https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
 JavaScript Front-End|Ternary|Log In/Out, Favorite/Unfavorite, Loading.../Error|https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
 Python Back-End|SQLAlchemy Queries|Check if data exists|https://docs.sqlalchemy.org/en/13/orm/query.html?highlight=exists#sqlalchemy.orm.query.Query.exists

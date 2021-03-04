@@ -3,12 +3,12 @@ import styles from '../styles/Home.module.css';
 import React, { useState, useEffect } from "react";
 import useSWR from 'swr'
 import {useRouter} from 'next/router'
+import Fade from 'react-reveal/fade';
 
-// import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusSquare, faMinusSquare, faSms } from '@fortawesome/free-solid-svg-icons'
+import { faPlusSquare, faMinusSquare, faSms, faShoppingBasket } from '@fortawesome/free-solid-svg-icons'
 
-
+const basketicon = <FontAwesomeIcon icon={faShoppingBasket} />
 const add = <FontAwesomeIcon icon={faPlusSquare} />
 const remove = <FontAwesomeIcon icon={faMinusSquare} />
 const smsicon = <FontAwesomeIcon icon={faSms} />
@@ -17,8 +17,6 @@ const smsicon = <FontAwesomeIcon icon={faSms} />
 function PersonalizedShoppingList(props) {
 
     let options = [];
-
-    let usersRecipesSelected = [];
 
     for (const recipe of props.userRecipesData) {
         options.push(recipe.title);
@@ -61,37 +59,70 @@ function PersonalizedShoppingList(props) {
 
     const handleText = (event) => {
         event.preventDefault();
-        const data = new FormData(event.target);
+        // const data = new FormData(event.target);
+        const data = ({
+            user_phone: '+1' + `${user.phone}`,
+            user_name: `${user.fname}`,
+            user_recipes: `${selected}`
+        });
 
+
+        
         const result = confirm(`${user.fname}, Do you want to text this grocery list to ${user.phone}?`);
         if (result) {
-            fetch('/api/sms', {
-                method: 'POST',
-                body: data,
-            })    
+            // fetch('/api/sms', {
+            //     method: 'POST',
+            //     body: data,
+            // })    
 
-            .then(response => {
-                console.log(response)
-                if (response.status !== 200) {
-                    alert('Something failed.');
-                    return;
-                }
-                response.json().then(data => {
-                    alert('NAME, You received a text at the number PHONE.');
-                })
-            });
+            // .then(response => {
+            //     console.log(response)
+            //     if (response.status !== 200) {
+            //         alert('Something failed.');
+            //         return;
+            //     }
+            //     response.json().then(data => {
+            //         alert('NAME, You received a text at the number PHONE.');
+            //     })
+            // });
+            fetch('/api/sms', {
+            method: 'POST',
+            body: JSON.stringify({
+                user_phone: '+1' + `${user.phone}`,
+                user_fname: `${user.fname}`,
+                user_recipes: `${selected}`
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8'
+            }
+        }).then(function (response) {
+            if (response.ok) {
+                return response.json();
+            }
+            return Promise.reject(response);
+        }).then(function (data) {
+            console.log(data);
+        }).catch(function (error) {
+            console.warn('Something went wrong.', error);
+        });
         }
     }
 
 
     return (
         <>
-            <div>
-                {options.map(option => (
-                    <button value={option} onClick={toggleRecipeSelected} key={option}>
+            <div id={styles['navbar']}>
+                <center>
+                    <h3>{basketicon} My Grocery List</h3>
+                    <p className={styles['text_small']}> Choose from your favorite recipes to generate your personalized grocery list!</p>
+                    {options.map(option => (
+                    <button value={option} onClick={toggleRecipeSelected} key={option} className={styles['add-remove-grocery-button']}>
                         {selected.includes(option) ? remove : add} { option }
                     </button>
                 ))}
+                </center>
+            </div>
+            <div className={styles['flex-container-myrecipespage']}>
                 <table><tbody>
                     {selected.map((item, index) => (
                         <tr><td>
@@ -104,10 +135,7 @@ function PersonalizedShoppingList(props) {
                     <button type="submit">
                     { smsicon } Text Me My Grocery List
                     </button>
-                    {/* <input type="submit" className={styles['submit-button']}/> */}
                 </form>
-            </div>
-            <div className={styles['container-flex']}>
                 <div className={styles['my-ingredient-flex']}>
                     <PersonalizedGroceryCards userRecipesSelected={props.userRecipesData.filter(recipe => selected.includes(recipe.title))} />
                 </div>
@@ -180,8 +208,6 @@ function GroceryCard(props) {
     };
     
     tagFetch();
-
-
 
     // My main div
     return (

@@ -4,25 +4,12 @@ import {PersonalizedShoppingList} from '../components/personalizemygrocerylist'
 
 import React, { useState, useEffect } from 'react';
 import useSWR from 'swr'
-
 import styles from '../styles/Home.module.css'
 import Fade from 'react-reveal/fade';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons'
-const basketicon = <FontAwesomeIcon icon={faShoppingBasket} />
-
 
 function MyGroceriesContainer(props) {
 
   return (
-    <>
-    <div id={styles['navbar']}>
-      <center>
-        <h3>{basketicon} My Grocery List</h3>
-        <p className={styles['text_small']}> Choose from your favorite recipes to generate your personalized grocery list!</p>
-      </center>
-    </div>
-    <Fade right>
       <div className={styles['my-container']}>
         <div>
           <center>
@@ -30,8 +17,6 @@ function MyGroceriesContainer(props) {
           </center>
         </div>
       </div>
-    </Fade>
-    </>
   );
 
 };

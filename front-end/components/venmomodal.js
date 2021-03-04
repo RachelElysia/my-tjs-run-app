@@ -6,7 +6,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import styles from '../styles/Home.module.css'
 
 
-// const close = <FontAwesomeIcon icon={faTimes} />
+const close = <FontAwesomeIcon icon={faTimes} />
 
 
 const Modal = ({showModal, setShowModal}) => {
@@ -49,8 +49,9 @@ const Modal = ({showModal, setShowModal}) => {
               </div>
               <button className={styles['close-modal-button']}
                 aria-label='Close modal'
-                onClick={() => setShowModal(prev => !prev)}
-              />
+                onClick={() => setShowModal(prev => !prev)}>
+                {close}
+              </button>
             </div>
         </div>
       ) : null}

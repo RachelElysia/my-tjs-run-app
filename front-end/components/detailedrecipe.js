@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Fade from 'react-reveal/fade'
 import useSWR from 'swr'
 import {FavoriteButton} from './favoritebutton'
+import Link from 'next/link'
 
 function RecipeCard(props) {
   
@@ -22,7 +23,7 @@ function RecipeCard(props) {
     if (!tagsData.data) return <div>loading...</div>
   
     // NEEDED EXTRA {} AROUND IT TO SAY "yo, I'm a javascript template string!"
-    tagItems = tagsData.data.map((tag) => <a href={`/tags/${tag.tag_id}`}>  {tag.name.toUpperCase()}  </a>);
+    tagItems = tagsData.data.map((tag) => <Link href={`/tags/${tag.tag_id}`}><a>  {tag.name.toUpperCase()}  </a></Link>);
     })();
   
     let ingredientItems;

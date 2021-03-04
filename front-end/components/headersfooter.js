@@ -90,8 +90,13 @@ function NavBar() {
               {searchicon}
             </button>
           </form>
-          <button className={styles['right']} type="button" onClick={(e) => { e.preventDefault(); router.push('/storelocator'); }}>
-          { searchlocationicon }
+          <button
+            className={styles['right']}
+            type="button"
+            title="Find a Trader Joe's"
+            onClick={(e) => { e.preventDefault(); router.push('/storelocator');
+          }}>
+            { searchlocationicon }
           </button>
           { welcome }
           { logInOrOut }
@@ -102,6 +107,16 @@ function NavBar() {
 }
 
 function TJNavBar() {
+
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+  const loggedInUser = localStorage.getItem('user');
+  if (loggedInUser) {
+    setUser(JSON.parse(loggedInUser));
+  }
+}, []);
+
   const [isShown, setIsShown] = useState(false);
   const router = useRouter()
 
@@ -119,7 +134,7 @@ onMouseLeave={() => setIsShown(false)}>
     <table id={styles['tjbar-table']}>
       <thead>
         <tr><td></td><td><center>
-       <button id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); router.push('/login'); }}>
+       <button id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); router.push(`${user === null ? '/login' : 'recipes'}`); }}>
           Get Started
         </button>
    </center></td></tr>
@@ -182,9 +197,8 @@ function Footer() {
     'TJ\'s Pumpkin Cranberry Crisps', 'TJ\'s Fig Butter', 'TJ\'s Bourbon Vanilla Extract',
     'Neopolitan Joe Joe\'s', 'TJ\'s Crumbled Feta', 'TJ\'s Lemon Elderflower Soda',
     'TJ\'s Panko Breadcrumbs', 'TJ\'s Freeze Dried Strawberries', 'TJ\'s Island Salsa',
-    'TJ\'s Garlic Naan']
+    'TJ\'s Garlic Naan', 'TJ\'s Wheat Pizza Dough', 'TJ\'s Organic French Rolls', 'TJ\'s Soy Chorizo']
   let randomIngredient = myIngredients[Math.floor(Math.random() * myIngredients.length)]
-  
   
   return (
     <>
@@ -192,7 +206,7 @@ function Footer() {
     <footer>
       <ul>
         <li>A Project by <button onClick={(e) => { e.preventDefault(); router.push('http://www.rachelelysia.com');}}>Rachel Elysia Perkins</button></li>
-        <li><button onClick={(e) => { e.preventDefault(); router.push('/login'); }}>Resources</button></li>
+        <li><button onClick={(e) => { e.preventDefault(); router.push('/resources'); }}>Resources</button></li>
         <li><button onClick={openModal}>Buy me {randomIngredient}</button></li>
       </ul>
     </footer>

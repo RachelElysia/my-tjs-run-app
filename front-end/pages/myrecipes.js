@@ -75,7 +75,7 @@ function RecipeCard(props) {
   };
 
   return (<Fade right>
-    <div className={styles['flex-container-myrecipes']} id={`${props.recipe_id}`}>
+    <div className={styles['flex-container-myrecipespage']} id={`${props.recipe_id}`}>
       <div className={styles['my-recipe-flex']}
       style={backgroundStyle}>
 

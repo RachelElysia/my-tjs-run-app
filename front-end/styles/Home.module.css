@@ -271,6 +271,34 @@
   text-align: center;
 }
 
+.flex-container-myrecipespage {
+  /* We first create a flex layout context */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+  background-color: #f2f2f2;
+  overflow-y: scroll;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  margin: 0 auto;
+    /* Then we define the flow direction 
+     and if we allow the items to wrap 
+   * Remember this is the same as:
+   * flex-direction: row;
+   * flex-wrap: wrap;
+   */
+   flex-flow: row wrap;
+   margin-top: 9rem;
+  
+   /* Then we define how is distributed the remaining space */
+   list-style: none;
+   padding-bottom: 5.5rem;    /* Footer height */
+   overflow-y: scroll;
+
+}
 
 .flex-container-myrecipes {
   /* We first create a flex layout context */
@@ -279,7 +307,6 @@
   align-items: center;
   justify-items: center;
   flex-direction: column;
-  padding-top: 8rem;
   background-color: #f2f2f2;
   overflow-y: scroll;
   justify-content: center;
@@ -516,7 +543,7 @@ title,
   /* border: 2px solid black; */
   width: 100%;
   background-color: #fff;
-  max-width: 60em;
+  max-width: 54em;
   /* padding: 1em; */
   vertical-align: top;
   line-height: 120%;
@@ -559,7 +586,7 @@ title,
 }
 
 .table-wide {
-  width: 24em;
+  width: 20em;
 
 }
 
@@ -732,6 +759,7 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
   color:#D21242;
   background-color: #fff;
   margin: 0px;
+  cursor: pointer;
 }
 
 .favorite-button:hover {
@@ -742,7 +770,7 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
 /* MY RECIPES NAV BAR*/
 #navbar {
   position: fixed;
-  top: 7.2em;    /* NavBar TJNavBar height */
+  top: 6.2em;    /* NavBar TJNavBar height */
   bottom: 0rem;
   width: 250px; /* Set the width of the sidebar */
   z-index: 1; /* Stay on top */
@@ -824,4 +852,43 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
   height: 32px;
   padding: 0;
   z-index: 10;
+}
+
+.resources-box {
+  border-radius: 10px;
+  /* border: 2px solid black; */
+  width: 100%;
+  background-color: #fff;
+  min-width: 15em;
+  max-width: 55em;
+  /* padding: 1em; */
+  vertical-align: top;
+  line-height: 120%;
+  text-align: left;
+  margin: auto;
+  box-shadow:0 0 3px grey inset;
+  overflow: hidden;
+  display: block;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.resources-box td:nth-child(4) {
+  max-width: 230px;
+  padding-right: 5px;
+}
+
+.add-remove-grocery-button {
+  width: 100%;
+  border-radius: 0px;
+  text-align: left;
+  font-size: 0.889rem;
+  margin: 0px;
+}
+
+.add-remove-grocery-button:hover {
+  background-color: #f2f2f2;
+  text-align: left;
+  font-size: 0.889rem;
 }

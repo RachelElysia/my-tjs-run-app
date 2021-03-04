@@ -19,7 +19,7 @@ app.jinja_env.undefined = StrictUndefined
 
 
 @app.route('/api/sms', methods=['POST'])
-def send_sms():
+def send_sms(data):
     """Send SMS."""
 
     # Your Account SID from twilio.com/console
@@ -27,14 +27,30 @@ def send_sms():
     # Your Auth Token from twilio.com/console
     auth_token  = auth_token_key
 
-    client = Client(account_sid, auth_token)
+    print(data)
+    # client = Client(account_sid, auth_token)
+    print("**************\n\n\n*********\n\n\n\n")
+    # print(data.user_fname)
+    # print(data.user_phone)
+    # print(data.user_recipes)
 
-    message = client.messages.create(
-        to=my_number, 
-        from_="+15402884977",
-        body="Hello from Python!")
+    # message = client.messages.create(
+    #     to=data.user_phone, 
+    #     from_="+15402884977",
+    #     body=f"Hello {data.user_name} from My TJ's Run! {data.user_recipes}")
 
-    print(message.sid)
+    # print(message.sid)
+
+    response = {
+      "ok": "cool.",
+      "errorMessage": "No idea.",
+      "image": "https://http.cat/401",
+    }
+
+    status = 401
+    print("YOU TYPED IN A WRONG PASSWORD")
+    print(jsonify(response, status))
+    return jsonify(response, status)
 
 
 ########### THIS IS REPLACED WITH REACT ONSUBMIT #############
@@ -344,42 +360,6 @@ def register_user():
       print(jsonify(response, status_code))
       return jsonify(response, status_code)
 
-# app.route('/api/users/<user_id>/<recipe_id>', methods=['POST'])
-# def register_user():
-#     """Create a new user."""
-
-#     fname = request.form.get('fname')
-#     lname = request.form.get('lname')
-#     phone = request.form.get('phone')
-#     password_hash = generate_password_hash(request.form.get('password'))
-    
-#     user = crud.get_user_by_phone(phone)
-
-#     if user:
-#       response = {
-    #     "errorMessage": "This phone number is already associated to an account. Try logging in.",
-    #     "image": "https://http.cat/409",
-    #   }
-    #   status_code = 409
-    #   print("THIS NUMBER EXISTS ALREADY!")
-    #   print(jsonify(response, status_code))
-    #   return jsonify(response, status_code)
-
-    # else:
-    #   userCreated = crud.create_user(fname, lname, phone, password_hash)
-    
-    #   userAccountMade = crud.get_user_by_phone(phone)
-
-    #   response = {
-    #     "image": "https://http.cat/409.jpg",
-    #     "user": userAccountMade.serialize,
-    #   }
-    #   status_code = 200
-    #   print("YOU MADE A LOG IN!")
-    #   print(jsonify(response, status_code))
-    #   return jsonify(response, status_code)
-
-
 @app.route('/api/users/<user_id>/info')
 def test_user(user_id):
 
@@ -409,7 +389,13 @@ def test_user(user_id):
 
   return jsonify(response, status_code)
 
-########### THIS IS REPLACED WITH REACT ONSUBMIT #############
+@app.route('/api/resources')
+def get_resources():
+  """JSON of all my resources for my resources page."""
+  resources_data= crud.resources_page()
+
+  return jsonify(resources_data)
+
 @app.route('/api/userlogin', methods=['POST'])
 def log_in():
     """Log In user."""
