@@ -1,83 +1,62 @@
 "use strict";
 
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import styles from '../styles/Home.module.css'
 
-const Modal = () => {
-  const [isShown, setIsShown] = useState(false);
 
-  const showModal = () => {
-    setIsShown(true);
-  };
+// const close = <FontAwesomeIcon icon={faTimes} />
 
-  const closeModal = () => {
-    setIsShown(false);
-  };
 
-  const dynammicModalClass = () => (isShown ? { display: 'block' } : '');
+const Modal = ({showModal, setShowModal}) => {
 
-  useEffect(() => {
-    if (!sessionStorage.popupModal) {
-      const timer = setTimeout(() => {
-        setIsShown(true);
-        sessionStorage.popupModal = 1;
-      }, 2000);
+  const modalRef = useRef();
 
-      return () => clearTimeout(timer);
+  const closeModal = e => {
+    if (modalRef.current === e.target) {
+      setShowModal(false);
     }
-  }, []);
+  };
 
-  // return isShown ? <h3>Modal content</h3> : null;
-  return isShown ? (
-    <div className="modal" style={dynammicModalClass()} id="channelModal">
-      <div className="modal-dialog modal-dialog-centered" role="document">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title text-light">Free Measure. Free Quote.</h5>
+  const keyPress = useCallback(
+    e => {
+      if (e.key === 'Escape' && showModal) {
+        setShowModal(false);
+        console.log('I pressed');
+      }
+    },
+    [setShowModal, showModal]
+  );
 
-            <button
-              onClick={closeModal}
-              style={{ color: '#fff' }}
-              type="button"
-              className="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
+  useEffect(
+    () => {
+      document.addEventListener('keydown', keyPress);
+      return () => document.removeEventListener('keydown', keyPress);
+    },
+    [keyPress]
+  );
 
-          <div className="modal-body">
-            <div className="row">
-              <div className="col-6">
-                <img src="image.jpg" alt="react-hooks" />
+  return (
+    <>
+      {showModal ? (
+        <div className={styles['modal-background']} onClick={closeModal} ref={modalRef}>
+            <div className={styles['modal-wrapper']} showModal={showModal}>
+              <div className={styles['modal-content']}>
+                <h1>I love TJ's!</h1>
+                <p>@Rachel-Perkins</p>
+                <img src={'http://localhost:5000/static/img/venmoqr.jpg'} className={styles['modal-img']} alt='My Venmo Info' />
               </div>
-
-              <div className="col-6">
-                <p className="lead text-light">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae cumque, assumenda cupiditate
-                  incidunt reiciendis earum
-                </p>
-              </div>
+              <button className={styles['close-modal-button']}
+                aria-label='Close modal'
+                onClick={() => setShowModal(prev => !prev)}
+              />
             </div>
-          </div>
-
-          <div className="modal-footer">
-            <button className="btn-lg btn btn-primary">
-              <span style={{ color: '#fff' }}>
-                <i className="fa fa-phone mr-1 " />
-                <a href="tel:01234567" style={{ color: '#fff' }}>
-                  0123 4567{' '}
-                </a>
-              </span>
-            </button>
-            <button onClick={closeModal} type="button" className="btn btn-lg">
-              No Thanks
-            </button>
-          </div>
         </div>
-      </div>
-    </div>
-  ) : null;
+      ) : null}
+    </>
+  );
 };
+
 
 export default Modal;

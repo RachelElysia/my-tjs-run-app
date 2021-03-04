@@ -11,16 +11,16 @@ import useSWR from 'swr'
 function RecipeTile(props) {
 
   return (
-    <Link href={`/recipes/${props.recipe_id}`}><a>
       <div className={styles['main-tiles-flex']}>
+        <Link href={`/recipes/${props.recipe_id}`}><a>
         <img src={props.img} className={styles['main-tile-img']} alt={props.title}/>
         <div className={styles['overlay']}>
           <div className={styles['main-img-caption']}>
             {props.title}
           </div>
         </div>
+        </a></Link>
       </div>
-    </a></Link>
   );
 }
 

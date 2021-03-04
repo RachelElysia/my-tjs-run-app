@@ -1,10 +1,13 @@
 "use strict";
-import styles from '../styles/Home.module.css';
+
 import React, { useState, useEffect } from 'react';
 import useSWR from 'swr'
+import Link from 'next/link'
+import Tada from 'react-reveal/Tada'
+
+import styles from '../styles/Home.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons'
-import Link from 'next/link'
 
 // Separate all fetches because render hooks has an issue with rendering
 // hooks a different amount of times in the same component
@@ -30,7 +33,8 @@ function FavoriteButton(props) {
         return (
             <p className={styles['text_small']}><span>
                 <Link href="/login"><a>Log in to favorite this recipe!</a></Link>
-            </span></p>);
+            </span></p>
+        );
     }
     return <FindInitialState userId={user.user_id} recipeId={props.recipeId}/>
 }
@@ -76,12 +80,14 @@ function SetStateAndToggle(props) {
     }
 
     return (
-        <button
-            className={styles['favorite-button']}
-            onClick={() => toggleFavorite(props.recipeId)}
-            key={props.recipeId}>
-        { favorite === true ? currentlyAFavorite : notCurrentlyAFavorite} 
-        </button>
+        <Tada spy={favorite}>
+            <button
+                className={styles['favorite-button']}
+                onClick={() => toggleFavorite(props.recipeId)}
+                key={props.recipeId}>
+            { favorite === true ? currentlyAFavorite : notCurrentlyAFavorite} 
+            </button>
+        </Tada>
     );
 }
 

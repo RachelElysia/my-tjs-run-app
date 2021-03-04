@@ -7,17 +7,16 @@ import crud
 from jinja2 import StrictUndefined
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
+from twilio.rest import Client
 
 app = Flask(__name__)
 
 ## added by Lucia
-app.secret_key = app_secret_key
+app.secret_key = "12321abcba"
 
 app.jinja_env.undefined = StrictUndefined
 ###
 
-import os
-from twilio.rest import Client
 
 @app.route('/api/sms', methods=['POST'])
 def send_sms():

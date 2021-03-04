@@ -1,11 +1,11 @@
 "use strict";
-import styles from '../styles/Home.module.css';
+import Head from 'next/head'
 import Modal from './venmomodal'
 import React, { useState, useEffect } from 'react';
 import {useRouter} from 'next/router'
-// import MyModal from './venmomodal.js';
 import Link from 'next/link'
 
+import styles from '../styles/Home.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingBasket, faBook, faMapMarkedAlt, faSms, faSearch } from '@fortawesome/free-solid-svg-icons'
 const basketicon = <FontAwesomeIcon icon={faShoppingBasket} />
@@ -13,6 +13,8 @@ const bookicon = <FontAwesomeIcon icon={faBook} />
 const searchlocationicon = <FontAwesomeIcon icon={faMapMarkedAlt} />
 const smsicon = <FontAwesomeIcon icon={faSms} />
 const searchicon = <FontAwesomeIcon icon={faSearch} />
+
+
 
 function NavBar() {
   
@@ -60,34 +62,42 @@ function NavBar() {
 
 
   return (
-    <nav>
-      <div className={styles['nav-left']}>
-        <Link href="/"><a><img src="http://localhost:5000/static/img/logo.png" alt="My TJ's Run Logo" height="60px" /></a></Link>
-        <button className={styles['left']} id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); router.push('/myrecipes'); }}>
-          {bookicon} My Recipes
-        </button>
-        <button className={styles['left']} id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); router.push('/mygrocerylist'); }}>
-          { basketicon } { smsicon } My Grocery List
-        </button>
+    <>
+      <div>
+      <Head>
+        <title>My TJ Run</title>
+        <meta property="og:title" content="My page title" key="title" />
+      </Head>
       </div>
-      <div className={styles['nav-right']}>
-        <form onSubmit={handleSearch} className={styles['search-form']}>
-          <input type="text"
-            placeholder="Search"
-            name="search_string"
-            autoComplete="off"
-            required />
-          <button className={styles['search-button']} type="submit">
-            {searchicon}
+      <nav>
+        <div className={styles['nav-left']}>
+          <Link href="/"><a><img src="http://localhost:5000/static/img/logo.png" alt="My TJ's Run Logo" height="40px" /></a></Link>
+          <button className={styles['left']} id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); router.push('/myrecipes'); }}>
+            {bookicon} My Recipes
           </button>
-        </form>
-        <button className={styles['right']} type="button" onClick={(e) => { e.preventDefault(); router.push('/storelocator'); }}>
-        { searchlocationicon }
-        </button>
-        { welcome }
-        { logInOrOut }
-      </div>
-  </nav>
+          <button className={styles['left']} id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); router.push('/mygrocerylist'); }}>
+            { basketicon } { smsicon } My Grocery List
+          </button>
+        </div>
+        <div className={styles['nav-right']}>
+          <form onSubmit={handleSearch} className={styles['search-form']}>
+            <input type="text"
+              placeholder="Search"
+              name="search_string"
+              autoComplete="off"
+              required />
+            <button className={styles['search-button']} type="submit">
+              {searchicon}
+            </button>
+          </form>
+          <button className={styles['right']} type="button" onClick={(e) => { e.preventDefault(); router.push('/storelocator'); }}>
+          { searchlocationicon }
+          </button>
+          { welcome }
+          { logInOrOut }
+        </div>
+    </nav>
+  </>
   );
 }
 
@@ -160,23 +170,33 @@ onMouseLeave={() => setIsShown(false)}>
 
 function Footer() {
 
-  // const Modal = ({ handleClose, show, children }) => {
-  // const showHideClassName = show ? "modal display-block" : "modal display-none";
-  
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(prev => !prev)
+  }
+
+  const router = useRouter()
+
   let myIngredients = ['TJ\'s Avocado Oil', 'TJ\'s Garlic Spread',
     'TJ\'s Pumpkin Cranberry Crisps', 'TJ\'s Fig Butter', 'TJ\'s Bourbon Vanilla Extract',
     'Neopolitan Joe Joe\'s', 'TJ\'s Crumbled Feta', 'TJ\'s Lemon Elderflower Soda',
     'TJ\'s Panko Breadcrumbs', 'TJ\'s Freeze Dried Strawberries', 'TJ\'s Island Salsa',
     'TJ\'s Garlic Naan']
   let randomIngredient = myIngredients[Math.floor(Math.random() * myIngredients.length)]
+  
+  
   return (
+    <>
+    <Modal showModal={showModal} setShowModal={setShowModal}></Modal>
     <footer>
       <ul>
-        <li>A Project by <Link href="http://www.rachelelysia.com" target="_blank"><a>Rachel Elysia Perkins</a></Link></li>
-        <li><Link href="/resources"><a>Resources</a></Link></li>
-        <li><Link href="/modal"><a>Buy me {randomIngredient}</a></Link></li>
+        <li>A Project by <button onClick={(e) => { e.preventDefault(); router.push('http://www.rachelelysia.com');}}>Rachel Elysia Perkins</button></li>
+        <li><button onClick={(e) => { e.preventDefault(); router.push('/login'); }}>Resources</button></li>
+        <li><button onClick={openModal}>Buy me {randomIngredient}</button></li>
       </ul>
     </footer>
+    </>
   );
 }
 

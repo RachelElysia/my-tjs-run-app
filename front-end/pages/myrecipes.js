@@ -5,7 +5,7 @@ import {SignInUp} from './login'
 import React, { useState, useEffect } from 'react';
 import Fade from 'react-reveal/fade';
 import {FavoriteButton} from '../components/favoritebutton'
-
+import Link from 'next/link'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBook } from '@fortawesome/free-solid-svg-icons'
@@ -75,7 +75,7 @@ function RecipeCard(props) {
   };
 
   return (<Fade right>
-    <div className={styles['flex-container-myrecipes']}>
+    <div className={styles['flex-container-myrecipes']} id={`${props.recipe_id}`}>
       <div className={styles['my-recipe-flex']}
       style={backgroundStyle}>
 
@@ -89,7 +89,7 @@ function RecipeCard(props) {
         <div id={styles['column-middle']}>
           <p><span>Ingredients:</span></p>
           <div className={styles['scrollable']}>
-            <ul className="styles['text_small']">{ingredientItems}</ul>
+            <ul className={styles['text_small']}>{ingredientItems}</ul>
           </div>
         </div>
 
@@ -121,6 +121,8 @@ function MyRecipesContainer(props) {
 
   const recipeCards = [];
 
+  const leftLinks = [];
+
   for (const recipe of props.recipeData24) {
     recipeCards.push(
       <RecipeCard
@@ -132,27 +134,27 @@ function MyRecipesContainer(props) {
       tags={recipe.tags}
       />
     );
+    leftLinks.push(
+      <Link href={`#${recipe.recipe_id}`} class="nav-link"><a>{recipe.title}</a></Link>
+    )
   }
 
-  const leftNav = () => (
-    <nav id="navbar"><center>
-    <header><h1>Color Codes</h1></header>
-    <Link href="#About" class="nav-link"><a>About</a></Link>
-    <Link href="#Color_Codes" class="nav-link"><a>Color Codes</a></Link>
-    <Link href="#Decimal_Codes" class="nav-link"><a>Decimal Codes</a></Link>
-    </center>
-    </nav>)
-  
-  
+
 
   return (
-    <div className={styles['container']}>
-      <h1>{listicon} My Recipes</h1>
-      <p> Viewing your favorite recipes!</p>
+    <>
+    <div id={styles['navbar']}><center>
+    <h3>{listicon} My Recipes</h3>
+    <p className={styles['text_small']}> Viewing your favorite recipes!</p>
+    {leftLinks}
+    </center>
+    </div>
+    <div className={styles['my-container']}>
 
-      {leftNav}
       {recipeCards}
     </div>
+    </>
+
   );
 
   

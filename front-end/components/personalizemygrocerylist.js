@@ -45,8 +45,8 @@ function PersonalizedShoppingList(props) {
     const router = useRouter()
 
     const [formData, setFormData] = useState({
-      user: {},
-      loggedIn: false
+        user: {},
+        loggedIn: false
     });
 
     const [user, setUser] = useState(null);
@@ -57,29 +57,29 @@ function PersonalizedShoppingList(props) {
         setUser(JSON.parse(loggedInUser));
         }
     }, []);
-  
-  
-    const handleText = (event) => {
-      event.preventDefault();
-      const data = new FormData(event.target);
 
-      const result = confirm(`${user.fname}, Do you want to text this grocery list to ${user.phone}?`);
+
+    const handleText = (event) => {
+        event.preventDefault();
+        const data = new FormData(event.target);
+
+        const result = confirm(`${user.fname}, Do you want to text this grocery list to ${user.phone}?`);
         if (result) {
             fetch('/api/sms', {
                 method: 'POST',
                 body: data,
-              })    
-          
-              .then(response => {
+            })    
+
+            .then(response => {
                 console.log(response)
                 if (response.status !== 200) {
-                  alert('Something failed.');
-                  return;
+                    alert('Something failed.');
+                    return;
                 }
                 response.json().then(data => {
-                  alert('NAME, You received a text at the number PHONE.');
-                  }
-              ) });
+                    alert('NAME, You received a text at the number PHONE.');
+                })
+            });
         }
     }
 
@@ -89,30 +89,26 @@ function PersonalizedShoppingList(props) {
             <div>
                 {options.map(option => (
                     <button value={option} onClick={toggleRecipeSelected} key={option}>
-                    {selected.includes(option) ? remove : add} { option }
+                        {selected.includes(option) ? remove : add} { option }
                     </button>
                 ))}
-                <p> 
-                    {/* {selected.join(", ")} */}
-                    </p>
                 <table><tbody>
-                {selected.map((item, index) => (
-          <tr><td>
-            {item}
-          </td></tr>
-        ))}     
-               </tbody></table>
+                    {selected.map((item, index) => (
+                        <tr><td>
+                            {item}
+                        </td></tr>
+                    ))}     
+                </tbody></table>
 
-        <form onSubmit={handleText}>
-            <button type="submit">
-            { smsicon } Text Me My Grocery List
-            </button>
-            {/* <input type="submit" className={styles['submit-button']}/> */}
-        </form>
+                <form onSubmit={handleText}>
+                    <button type="submit">
+                    { smsicon } Text Me My Grocery List
+                    </button>
+                    {/* <input type="submit" className={styles['submit-button']}/> */}
+                </form>
             </div>
             <div className={styles['container-flex']}>
                 <div className={styles['my-ingredient-flex']}>
-                    {/* {groceryCards} */}
                     <PersonalizedGroceryCards userRecipesSelected={props.userRecipesData.filter(recipe => selected.includes(recipe.title))} />
                 </div>
             </div>
@@ -120,35 +116,21 @@ function PersonalizedShoppingList(props) {
     );
 };
 
-// I WANT TO SHOW ONLY RECIPEDATA OF SELECTED Recipes
-
-// I HAVE ALL RECIPES 
-
-// I WANT TO USE A . FILTER TO ONLY SHOW THE RECIPES THAT MATCH SELECTED
-
-// {selected} is a list that includes recipe titles
-
-// LOOK AT ALL RECIPE data
-// {props.userRecipesData}
-
-// FILTER ONLY RECIPE.TITLES THAT ARE INCLUDED IN SELECTED
-
-// props.userRecipesData.filter( recipe => selected.includes(recipe.title))
 
 function PersonalizedGroceryCards(props) {
     const groceryCards = [];
 
     for (const recipe of props.userRecipesSelected) {
-      groceryCards.push(
-        <GroceryCard
-        recipe_id={recipe.recipe_id}
-        title={recipe.title}
-        directions={recipe.directions}
-        ingredients={recipe.ingredients}
-        img={recipe.img}
-        tags={recipe.tags}
-        />
-      );
+        groceryCards.push(
+            <GroceryCard
+            recipe_id={recipe.recipe_id}
+            title={recipe.title}
+            directions={recipe.directions}
+            ingredients={recipe.ingredients}
+            img={recipe.img}
+            tags={recipe.tags}
+            />
+        );
     }
 
     return (
@@ -164,19 +146,19 @@ function GroceryCard(props) {
     let ingredientsTable;
   
     function ingredients() {
-    const fetcher2 = url => fetch(url).then(r => r.json())
-  
-    const { data, error } = useSWR(`/api/${props.recipe_id}/ingredients`, fetcher2)
-  
-    if (error) return <div>failed to load</div>
-    if (!data) return <div>loading...</div>
-  
-    ingredientsTable = data.map((ingredients) =>
-    <tbody>
-    <td className={styles['table-wide']}>{ingredients.abridged_ingredient}</td>
-    <td className={styles['text_small']}>{ingredients.detailed_ingredient}</td>
-    </tbody> 
-    );
+        const fetcher2 = url => fetch(url).then(r => r.json())
+    
+        const { data, error } = useSWR(`/api/${props.recipe_id}/ingredients`, fetcher2)
+    
+        if (error) return <div>failed to load</div>
+        if (!data) return <div>loading...</div>
+    
+        ingredientsTable = data.map((ingredients) =>
+            <tbody>
+                <td className={styles['table-wide']}>{ingredients.abridged_ingredient}</td>
+                <td className={styles['text_small']}>{ingredients.detailed_ingredient}</td>
+            </tbody> 
+        );
     };
   
     ingredients();

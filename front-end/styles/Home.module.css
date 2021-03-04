@@ -29,7 +29,7 @@
   background: #f2f2f2;
   text-align: center;
   text-decoration: none;
-  font-family: 'Poppins', opensans;
+  font-family: 'PT Sans', opensans;
   font-weight: 500;
   padding: 0.4em;
 }
@@ -37,7 +37,7 @@
 .nav-left a:hover {
   background: #D21242;
   color: #fff;
-  font-family: 'Poppins', opensans;
+  font-family: 'PT Sans', opensans;
   font-weight: 600;
   padding: 0.4em;
 
@@ -47,7 +47,7 @@
   background-color: #D21242;
   border: none;
   color: #fff;
-  padding: 8px 12px;
+  padding: 5px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -59,7 +59,6 @@
   background-color: #bd0d39;
   border: none;
   color: #fff;
-  padding: 8px 12px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -111,8 +110,8 @@
 #tjbar {
   position: fixed;
   top: 4.7rem;    /* NavBar TJNavBar height */
-  /* border-top: 1px solid #D21242;
-  border-bottom: 1px solid #D21242; */
+  border-top: 1px solid darkgrey;
+  border-bottom: 1px solid darkgrey;
   height: 2.5rem;
   width: 100%;
   padding: 0.3em;
@@ -120,7 +119,6 @@
   text-align: center;
   z-index: 999;
   overflow: hidden;
-  box-shadow:0 0 3px grey;
 }
 
 #tjbar a {
@@ -129,7 +127,7 @@
   padding: 8px 0px;
   width: 40%;
   text-decoration: none;
-  font-family: 'Poppins', opensans;
+  font-family: 'PT Sans', opensans;
   font-weight: 600;
   text-align: center;
   justify-content: center;
@@ -138,7 +136,7 @@
 }
 #tjbar a:hover {
   color:#bd0d39;
-  font-family: 'Poppins', opensans;
+  font-family: 'PT Sans', opensans;
   font-weight: 600;
   justify-content: center;
   align-items: center;
@@ -155,7 +153,7 @@
   display: flex;
   padding: 10px;
   justify-content: center;
-  border: 2px solid #eaeaea;
+  border: 1px solid darkgrey;
   border-top: 2px solid #D21242;
 
 }
@@ -179,14 +177,14 @@
   color: #fff;
   text-align: center;
   text-decoration: none;
-  font-family: 'Poppins', opensans;
+  font-family: 'PT Sans', opensans;
   padding: 0.2em;
 }
 
 #tjbar-table a:hover {
   color: #D21242;
   background-color: #fff;
-  font-family: 'Poppins', opensans;
+  font-family: 'PT Sans', opensans;
   padding: 0.2em;
 } 
 
@@ -212,7 +210,7 @@
   line-height: 120%;
   text-align: center;
   margin: 0.5em;
-  box-shadow:0 0 5px grey;
+  box-shadow:0 0 3px grey;
 }
 
 #tile-recipe-title a {
@@ -246,11 +244,24 @@
 }
 
 /* This is used on My Recipes and my grocery list */
+.my-container {
+  /* display: inline-block; */
+  top: 10rem;    /* NavBar TJNavBar height */
+  margin-bottom: 2.5rem;    /* Footer height */
+  margin-left: 250px;
+  overflow-y: scroll;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
 .container {
   /* display: inline-block; */
   top: 9rem;    /* NavBar TJNavBar height */
-  padding-top: 9em;
-  padding-bottom: 5.5rem;    /* Footer height */
+  margin-top: 9em;
+  margin-bottom: 2.5rem;    /* Footer height */
   overflow-y: scroll;
   justify-content: center;
   align-items: center;
@@ -268,7 +279,7 @@
   align-items: center;
   justify-items: center;
   flex-direction: column;
-  padding-bottom: 2.5rem;
+  padding-top: 8rem;
   background-color: #f2f2f2;
   overflow-y: scroll;
   justify-content: center;
@@ -381,7 +392,6 @@
   overflow: hidden;
   justify-content: center;
   box-shadow:0 0 5px grey;
-  
 }
 
 .main-tile-img {
@@ -488,7 +498,7 @@ title,
   line-height: 120%;
   text-align: left;
   margin: 0em;
-  box-shadow:0 0 5px grey;
+  box-shadow:0 0 3px grey inset;
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
@@ -730,30 +740,88 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
 }
 
 /* MY RECIPES NAV BAR*/
-#nav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 200px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+#navbar {
+  position: fixed;
+  top: 7.2em;    /* NavBar TJNavBar height */
+  bottom: 0rem;
+  width: 250px; /* Set the width of the sidebar */
   z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
   left: 0;
-  background-color: #494d5f; /* Dark Grey */
+  padding-top: 0rem;
+  border-width: 1px darkgrey;
+  background-color: #fff; /* Dark Grey */
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 20px;
+  overflow: hidden;
+  z-index: 9; 
+
 }
 
 /* The navigation menu links */
-#nav a {
-  padding: 6px 8px 6px 16px;
+#navbar a {
+  padding: 4px 6px 4px 14px;
   text-decoration: none;
-  font-size: 14px;
-  color: #A0D2EB;
-  background-color: #494d5f;
+  font-size: 0.8rem;
+  color: #d21242;
+  background-color: #fff;
   display: block;
 }
 
 /* When you mouse over the navigation links, change their color */
-#nav a:hover {
-  color: #E5EAF5;
-  background-color: #494d5f;
+#navbar a:hover {
+  background-color: #f2f2f2;
+}
+
+
+/* MODAL STYLES */
+
+.modal-background {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top:0;
+  left:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.modal-wrapper {
+  width: 250px;
+  height: 400px;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  color: #000;
+  display: block;
+  position: absolute;
+  bottom: 50px;
+  left: auto;
+  z-index: 999999;
+  border-radius: 10px;
+}
+
+.modal-img {
+  width: 90%;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal-content {
+  padding-top: 30px;
+  justify-content: center;
+  text-align: center;
+  color: #141414;
+}
+
+.close-modal-button {
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  z-index: 10;
 }
