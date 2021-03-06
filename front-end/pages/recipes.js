@@ -9,23 +9,19 @@ import useSWR from 'swr'
 
 function RecipeCardContainer(props) {
 
-  const recipeCards = [];
-
-  for (const recipe of props.recipeData24) {
-    recipeCards.push(
-      <RecipeCard
-      title={recipe.title}
-      directions={recipe.directions}
-      img={recipe.img}
-      recipe_id={recipe.recipe_id}
-      />
-    );
-  }
+  const recipeCards = props.recipeData24.map(recipe => (
+    <RecipeCard
+    title={recipe.title}
+    directions={recipe.directions}
+    img={recipe.img}
+    recipe_id={recipe.recipe_id}
+    />
+  ));
 
   return (
     // <Fade bottom>
     <div className={styles['container']}><center>
-      <div className={styles['container-flex']}>
+      <div className={styles['flex-container']}>
         {recipeCards}
       </div></center>
     </div>

@@ -186,3 +186,17 @@ Replaced this with map method on array 3/7 [tag_id].js
   //     />
   //   );
   // }
+
+Replaced this with map method on array 3/7 index.js
+    const recipeCards = [];
+
+  for (const recipe of props.recipeData48) {
+    recipeCards.push(
+      <RecipeTile
+      title={recipe.title}
+      directions={recipe.directions}
+      recipe_id={recipe.recipe_id}
+      img={recipe.img}
+      />
+    );
+  }

@@ -35,18 +35,14 @@ function RecipeTile(props) {
 //notice the syntax is we input recipe info
 function IndexContainerYay(props) {
 
-  const recipeCards = [];
-
-  for (const recipe of props.recipeData48) {
-    recipeCards.push(
-      <RecipeTile
-      title={recipe.title}
-      directions={recipe.directions}
-      recipe_id={recipe.recipe_id}
-      img={recipe.img}
-      />
-    );
-  }
+  const recipeCards = props.recipeData48.map(recipe => (
+    <RecipeTile
+    title={recipe.title}
+    directions={recipe.directions}
+    img={recipe.img}
+    recipe_id={recipe.recipe_id}
+    />
+  ));
 
   const [user, setUser] = useState(null);
 
