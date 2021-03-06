@@ -28,7 +28,7 @@ function RecipeCard(props) {
 
     let directionsSplit = directions.split("\n");
 
-    const directionsForRecipe = directionsSplit.map((direction, index) => <li key={index}>{direction}</li>);
+    const directionsForRecipe = directionsSplit.map((direction, index) => <li key={direction}>{direction}</li>);
 
   // directionsSplit = directionsSplit.split(". ", ".");
 

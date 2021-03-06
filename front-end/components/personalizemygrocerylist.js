@@ -164,10 +164,10 @@ function GroceryCard(props) {
         if (!data) return <div>loading...</div>
     
         ingredientsTable = data.map((ingredients) =>
-            <tbody>
+            <tr>
                 <td className={styles['table-wide']}>{ingredients.abridged_ingredient}</td>
                 <td className={styles['text_small']}>{ingredients.detailed_ingredient}</td>
-            </tbody> 
+            </tr> 
         );
     };
   
@@ -208,7 +208,9 @@ function GroceryCard(props) {
                     <th>Details</th>
                 </tr>
                 </thead>
+                <tbody>
                 {ingredientsTable}
+                </tbody>
             </table>
             </div>
         </>

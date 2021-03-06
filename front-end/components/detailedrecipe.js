@@ -10,7 +10,7 @@ function RecipeCard(props) {
   
     let directions = props.directions;
     let directionsSplit = directions.split("\n");
-    const directionsForRecipe = directionsSplit.map((direction, index) => <li key={index}>{direction}</li>);
+    const directionsForRecipe = directionsSplit.map((direction, index) => <li key={direction}>{direction}</li>);
 
     let tagItems;
     
