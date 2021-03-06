@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link'
 
 const Pagination = ({ recipesPerPage, totalRecipes, paginate }) => {
   const pageNumbers = [];
@@ -8,18 +9,19 @@ const Pagination = ({ recipesPerPage, totalRecipes, paginate }) => {
   }
 
   return (
-    <nav>
+    <section>
       <ul className='pagination'>
         {pageNumbers.map(number => (
           <li key={number} className='page-item'>
-            <Link onClick={() => paginate(number)} href='!#' className='page-link'><a>
+            <button onClick={() => paginate(number)} className='page-link'>
               {number}
-            </a></Link>
+            </button>
           </li>
         ))}
       </ul>
-    </nav>
+    </section>
   );
 };
 
+// since this is the default export, you don't need brackets for the import
 export default Pagination;

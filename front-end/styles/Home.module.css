@@ -914,3 +914,9 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
   padding: 3rem;
 }
 
+.page-link.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.page-link:hover:not(.active) {background-color: #ddd;}

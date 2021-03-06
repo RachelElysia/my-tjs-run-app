@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import styles from '../../styles/Home.module.css'
+import React, { useState } from 'react';
 import {NavBar, TJNavBar, Footer} from '../../components/headersfooter'
 import {RecipeCard} from '../../components/roundedtiles'
+import Pagination from '../../components/pagination'
 import Fade from 'react-reveal/fade'
 
 // needed for client side data fetching, see next.js docs
@@ -16,9 +18,8 @@ import { faTag } from '@fortawesome/free-solid-svg-icons'
 const tagicon = <FontAwesomeIcon icon={faTag} />
 
 
-function RecipeCardContainer(props) {
-
-  const recipeCards = props.recipeData24.map(recipe => (
+function RecipeCards(props) {
+  return props.recipeData24.map(recipe => (
     <RecipeCard
     title={recipe.title}
     directions={recipe.directions}
@@ -26,6 +27,14 @@ function RecipeCardContainer(props) {
     recipe_id={recipe.recipe_id}
     />
   ));
+}
+
+function RecipeCardContainer(props) {
+
+  //State hooks for Pagination Put near top because tagNameResult renders different hooks
+  const [recipes, setRecipes] = useState([]);
+  const [currentPage, setCurrentPage] = useState([1]);
+  const recipesPerPage = 12;
 
   // need next.js built in dynamic router
   // https://nextjs.org/docs/routing/dynamic-routes
@@ -41,18 +50,29 @@ function RecipeCardContainer(props) {
   if (!tagNameResult.data) return <div>loading...</div>
 
 
+  const indexOfLastRecipe = currentPage * recipesPerPage;
+  const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
+  const currentRecipes = props.recipeData24.slice(indexOfFirstRecipe, indexOfLastRecipe);
+
+  const paginate = (number) => setCurrentPage(number);
+
   // refactor me your tag name rendering as a flex - yourself 1am 2/17
   return (
     <div className={styles['container']}>
-    <div className={styles['tag-heading']}>
-        <h1>{tagicon} { tagNameResult.data }</h1>
-        <p>Viewing recipes tagged with {tagNameResult.data}. </p>
+      <div className={styles['tag-heading']}>
+          <h1>{tagicon} { tagNameResult.data }</h1>
+          <p>Viewing recipes tagged with {tagNameResult.data}. </p>
+        <Pagination
+          recipesPerPage={recipesPerPage}
+          totalRecipes={props.recipeData24.length}
+          paginate={paginate}
+        />
       </div>
-    <Fade bottom>
-    <div className={styles['flex-container-myrecipes']}>
-      {recipeCards}
-    </div>
-    </Fade>
+        <Fade bottom>
+          <div className={styles['flex-container-myrecipes']}>
+            <RecipeCards recipeData24={currentRecipes} />
+          </div>
+        </Fade>
     </div>
     
   );

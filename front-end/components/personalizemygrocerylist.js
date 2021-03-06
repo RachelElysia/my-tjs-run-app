@@ -16,11 +16,7 @@ const smsicon = <FontAwesomeIcon icon={faSms} />
 
 function PersonalizedShoppingList(props) {
 
-    let options = [];
-
-    for (const recipe of props.userRecipesData) {
-        options.push(recipe.title);
-    }
+    const options = props.userRecipesData.map(recipe => recipe.title)
 
     const [selected, setSelected] = useState([]);
 

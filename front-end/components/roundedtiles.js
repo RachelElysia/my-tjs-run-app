@@ -9,17 +9,20 @@ import useSWR from 'swr'
 function RecipeCard(props) {
     // Split data on the word instead of on the letter
     let directions = props.directions;
-    let recipeDirections = directions.split(" ");
-    
-    let count = 0;
-    let splitIndex = 0;
-    for (let i=0; i< recipeDirections.length; i++) {
-      count += recipeDirections[i].length;
-        if (count>135) {
-          splitIndex = i;
-          recipeDirections = recipeDirections.slice(0, splitIndex).join(" ");
-          break;
-        };
+    let recipeDirections = directions;
+
+    if (directions.length > 135) {
+      recipeDirections = directions.split(" ");
+      let count = 0;
+      let splitIndex = 0;
+      for (let i=0; i< recipeDirections.length; i++) {
+        count += recipeDirections[i].length;
+          if (count>135) {
+            splitIndex = i;
+            recipeDirections = recipeDirections.slice(0, splitIndex).join(" ");
+            break;
+          };
+      }
     }
 
 
@@ -53,6 +56,7 @@ function RecipeCard(props) {
       </div> 
     );
   }
+
 
 // Used on [tag_id].js and recipes.js
 export {RecipeCard};

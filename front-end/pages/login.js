@@ -24,10 +24,10 @@ function SignUp() {
       body: data,
     })      
     .then(response => {
-      if (response.status_code !== 200) {
-        alert('Please try a different phone number.');
-        return;
-      }
+      // if (response.status_code !== 200) {
+      //   alert('Please try a different phone number.');
+      //   return;
+      // }
       alert('You created an account {data[0].user.fname}! Build your favorite recipes to easily view your grocery list!');
       response.json().then(data => {
         console.log(JSON.stringify(data[0].user))

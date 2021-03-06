@@ -200,3 +200,11 @@ Replaced this with map method on array 3/7 index.js
       />
     );
   }
+
+Replaced this with map metho 3/7 personalizedgrocerylist.js
+
+    // let options = [];
+
+    // for (const recipe of props.userRecipesData) {
+    //     options.push(recipe.title);
+    // }

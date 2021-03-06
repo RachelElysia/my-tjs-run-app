@@ -903,7 +903,7 @@
             "4 slices TJ's Multigrain Bread",
             "1 container TJ's Goat's Milk Cheese Marinated With Herbs, softened to room temperature",
             "4 TJ's Cling Peach Halves, thinly sliced",
-            "TJ's Fresh Basil, chopped, for garnish"
+            "TJ's Fresh Basil, chopped for garnish"
         ],
         "id": "1ZKdAyFNhHAhIZWSMrU6"
     },
@@ -1189,7 +1189,7 @@
             "1/4 teaspoon TJ's Sea Salt, to taste",
             "1/4 teaspoon TJ's ground Black Pepper, to taste"
         ],
-        "directions": "Rinse Tomatoes and Basil. Layer Tomato, Basil and Mozzarella on a toothpick. Season with Salt & Pepper. Serve with Balsamic Vinaigrette for dipping.",
+        "directions": "Rinse tomatoes and basil. Layer tomato, basil and mozzarella on a toothpick. Season with salt and pepper. Serve with balsamic vinaigrette for dipping.",
         "tagIds": [
             78,
             103,
@@ -1323,7 +1323,7 @@
             "1 tablespoon TJ's Olive Oil",
             "3 tablespoons Water",
             "1 package TJ's Honey Wheat Hamburger Buns",
-            "1 TJ's Yellow Onion, diced, for garnish",
+            "1 TJ's Yellow Onion, diced for garnish",
             "1 bag TJ's Organic Shredded Green & Red Cabbage with Orange Carrots",
             "1/4 cup TJ's Mayonnaise (or TJ's Greek Yogurt)",
             "1/4 cup TJ's Apple Cider Vinegar",
@@ -2708,7 +2708,7 @@
             "1 package TJ's Mexican Style Roasted Corn with Cotija Cheese",
             "1 package TJ's Creamy Chicken Poblano Ravioli",
             "Your favorite TJ's Olive Oil",
-            "Fresh cilantro (optional), chopped for garnish"
+            "TJ's Fresh Cilantro (optional), chopped for garnish"
         ],
         "tagIds": [
             91,
@@ -3492,7 +3492,7 @@
             "4 TJ's Avocados, sliced",
             "1 container, Homestyle Especial Salsa - medium",
             "TJ's Organic Sour Cream or 1 batch Cilantro Crema (get the recipe)",
-            "TJ's Limes, sliced, for garnish"
+            "TJ's Limes, sliced for garnish"
         ],
         "tagIds": [
             10,
@@ -3512,7 +3512,7 @@
             "1 bottle (16 oz) TJ's Heavy Cream",
             "1 package TJ's Shredded Swiss Cheese & Gruyère Cheese Blend",
             "1 container TJ's Roasted Garlic & Herb Butter Spread",
-            "TJ's Parsley, chopped, for garnish"
+            "TJ's Parsley, chopped for garnish"
         ],
         "tags": [
             {
@@ -4126,7 +4126,7 @@
             "1 Cans TJ's Organic Vegetarian Chili",
             "1 Cup TJ's Sharp Shredded Cheddar Cheese, for garnish",
             "TJ's Sour Cream, for garnish",
-            "TJ's Chives, diced, for garnish"
+            "TJ's Chives, diced for garnish"
         ],
         "prepTime": "5 Minute",
         "tags": [
@@ -4664,7 +4664,7 @@
             "1/2 package TJ's Shredded Carrots",
             "2 TJ's Red Bell Peppers, cored and very thinly sliced",
             "1 cup TJ's Spicy Peanut Vinaigrette, plus more to taste",
-            "Handful Fresh cilantro (optional), chopped for garnish,
+            "Handful of TJ's Fresh cilantro (optional), chopped for garnish",
             "Handful of TJ's Half Salted Peanuts (optional), crushed for garnish"
         ],
         "directions": "Prepare pasta according to package directions. Meanwhile, prepare a large bowl of ice water. Transfer cooked, drained pasta to ice water to cool. Drain pasta thoroughly and add to a very large mixing bowl.\nAdd cabbage, carrots, bell peppers and vinaigrette to pasta. Gently toss to combine. Adjust dressing to taste and add cilantro, if desired. Cover and chill 30 minutes. Garnish with crushed peanuts prior to serving.Prepare pasta according to package directions. Meanwhile, prepare a large bowl of ice water. Transfer cooked, drained pasta to ice water to cool. Drain pasta thoroughly and add to a very large mixing bowl.Add cabbage, carrots, bell peppers and vinaigrette to pasta. Gently toss to combine. Adjust dressing to taste and add cilantro, if desired. Cover and chill 30 minutes. Garnish with crushed peanuts prior to serving.",
@@ -7558,7 +7558,9 @@
         "ingredients": [
             "1 cup TJ's Spiced Apple Cider (seasonal) or Cold-Pressed Fuji Apple Cider (Seasonal)",
             "1/2 cup TJ's Gluten Free Rolled Oats",
-            "TJ's Organic Brown Sugar, Freeze Dried Fuji Apple Slices, and Dried Cranberries, for garnish"
+            "TJ's Organic Brown Sugar",
+            "TJ's Freeze Dried Fuji Apple Slices",
+            "TJ's Dried Cranberries, for garnish"
         ],
         "directions": "In a medium saucepan, bring cider to a boil. Reduce heat and add rolled oats. Cook for 10-20 minutes, stirring occasionally, until desired consistency. Remove from heat, cover and let stand two minutes before serving. Top with brown sugar, freeze dried apple slices, and dried cranberries, and enjoy!In a medium saucepan, bring cider to a boil. Reduce heat and add rolled oats. Cook for 10-20 minutes, stirring occasionally, until desired consistency. Remove from heat, cover and let stand two minutes before serving. Top with brown sugar, freeze dried apple slices, and dried cranberries, and enjoy!",
         "prepTime": "",
@@ -8116,7 +8118,7 @@
             "½ teaspoon TJ's Sea Salt",
             "1 tablespoons TJ's Unsalted Butter",
             "4 Irish Bangers & Gravy",
-            "TJ's Fire Roasted Red Peppers, thinly sliced, for garnish",
+            "TJ's Fire Roasted Red Peppers, thinly sliced for garnish",
             "TJ's Cruciferous Crunch, for garnish"
         ],
         "cookingTime": "10 Minute",
@@ -8316,7 +8318,7 @@
             "½ cup TJ's Organic Peas, heated according to package directions and drained",
             "TJ's Mango Chutney",
             "TJ's Plain Yogurt",
-            "Fresh Cilantro, chopped"
+            "TJ's Fresh Cilantro, chopped"
         ],
         "img": "https://www.traderjoes.com/TJ_CMS_Content/Images/Recipe/tikka-masala-burritos-recipe.jpg",
         "tagIds": [
@@ -8751,7 +8753,7 @@
             43
         ],
         "ingredients": [
-            "1 package Uncured Apple Smoked Bacon, cooked crispy, drained and chopped into small pieces",
+            "1 package TJ's Uncured Apple Smoked Bacon, cooked crispy, drained and chopped into small pieces",
             "2 cups TJ's Shredded Mozzarella Cheese, divided",
             "1/2 can TJ's Cannellini White Kidney Beans, rinsed, drained and pureed until smooth",
             "1/2 tub (1 cup) TJ's Whole Milk Ricotta",
@@ -9012,14 +9014,14 @@
     {
         "img": "https://www.traderjoes.com/TJ_CMS_Content/Images/Recipe/434MainImage.jpg",
         "ingredients": [
-            "1 Acorn Squash, peeled, de-seeded and cubed",
+            "1 TJ's Acorn Squash, peeled, de-seeded and cubed",
             "2 teaspoons TJ's Extra Virgin Olive Oil",
             "2 teaspoons TJ's Taco Seasoning",
             "1 package TJ's Corn Tortillas",
             "1 bag TJ's Shredded Cabbage",
             "1 jar TJ's Chipotle Black Bean Dip",
             "1 jar TJ's Island Salsa",
-            "Lime wedges & Fresh Cilantro, chopped, for garnish"
+            "TJ's Lime wedges & Fresh Cilantro, chopped for garnish"
         ],
         "prepTime": "10 Minute",
         "cookingTime": "20 - 30 Minute",
@@ -10478,7 +10480,7 @@
             "1 package TJ's Quinoa Cowboy Veggie Burgers",
             "4 TJ's Whole Wheat Hamburger Buns",
             "1 tub TJ's Avocado Tzatziki Dip",
-            "½ TJ”s Red Onion, very thinly sliced",
+            "½ TJ's Red Onion, very thinly sliced",
             "TJ's Fresh Cilantro, chopped"
         ],
         "prepTime": "5 Minute",
@@ -10958,7 +10960,7 @@
             "2 cups water",
             "1 cup TJ's Organic Red Quinoa, rinsed and drained",
             "1 bag TJ's Organic Tuscan Kale, stems removed",
-            "TJ's Grated Parmesan Cheese or Fresh Lemon, sliced, for garnish"
+            "TJ's Grated Parmesan Cheese or Fresh Lemon, sliced for garnish"
         ],
         "tags": [
             {
@@ -11264,7 +11266,7 @@
             "1/2 package TJ's Shredded Carrots",
             "2 TJ's Red Bell Peppers, cored and very thinly sliced",
             "1 cup TJ's Spicy Peanut Vinaigrette, plus more to taste",
-            "Handful Fresh cilantro (optional), chopped for garnish",
+            "Handful of TJ's Fresh cilantro (optional), chopped for garnish",
             "Handful of TJ's Half Salted Peanuts (optional), crushed for garnish"
         ],
         "prepTime": "40 Minute",
@@ -11687,7 +11689,7 @@
             "½ cup TJ's Organic Peas, heated according to package directions and drained",
             "TJ's Mango Chutney",
             "TJ's Plain Yogurt",
-            "Fresh Cilantro, chopped"
+            "TJ's Fresh Cilantro, chopped"
         ],
         "title": "Tikka Masala Burritos",
         "directions": "Remove tikka masala tray from carton and puncture film 2 to 3 times. Microwave on high for 3 minutes. Carefully peel back film enough to gently stir sauce. Heat an additional 1 to 1½ minutes to an internal temperature of 165°F. Carefully remove film; set aside.\nWarm tortillas in a dry skillet or directly over flame. Remove from heat and lay tortillas on a clean work surface. Divide rice and tikka masala between tortillas. Top each with peas, a few dollops of yogurt and chutney, and cilantro.\nTo roll, pull half of the tortilla closest to you up to meet the top half, then pull the tortilla and fillings back toward you. Fold in the left and right sides of the tortilla, then roll tightly until closed. Enjoy!Remove tikka masala tray from carton and puncture film 2 to 3 times. Microwave on high for 3 minutes. Carefully peel back film enough to gently stir sauce. Heat an additional 1 to 1½ minutes to an internal temperature of 165°F. Carefully remove film; set aside.Warm tortillas in a dry skillet or directly over flame. Remove from heat and lay tortillas on a clean work surface. Divide rice and tikka masala between tortillas. Top each with peas, a few dollops of yogurt and chutney, and cilantro.To roll, pull half of the tortilla closest to you up to meet the top half, then pull the tortilla and fillings back toward you. Fold in the left and right sides of the tortilla, then roll tightly until closed. Enjoy!",
@@ -12855,17 +12857,17 @@
         "title": "Tropical Shrimp Salad",
         "cookingTime": "5 - 10 Minute",
         "ingredients": [
-            "1 pound TJ's frozen shrimp 70-110 medium peeled",
-            "1 Tbsp fresh lime juice",
-            "1 Tbsp fresh lemon juice",
+            "1 pound TJ's Frozen Shrimp 70-110 medium peeled",
+            "1 Tbsp TJ's Lime, freshly juiced",
+            "1 Tbsp TJ's Lemon, freshly juice",
             "1 Tbsp Extra Virgin Olive Oil",
-            "½ medium red onion, finely minced",
-            "1 teaspoon 21 Seasoning Salute",
-            "2 Tbsp. fresh cilantro, minced",
-            "1 cup frozen peaches, thawed",
-            "1 medium ripe avocado",
-            "2 medium red bell peppers",
-            "Salt and pepper to taste"
+            "½ medium TJ's red onion, finely minced",
+            "1 tsp TJ's 21 Seasoning Salute",
+            "2 tbsp TJ's Fresh Cilantro, minced",
+            "1 cup TJ's Frozen Peaches, thawed",
+            "1 medium ripe TJ's Avocado",
+            "2 medium TJ's Red Bell Peppers",
+            "Salt and Pepper to taste"
         ],
         "prepTime": "20 Minute",
         "serves": "2 - 4",
@@ -13322,7 +13324,7 @@
             "TJ's Pico de Gallo",
             "TJ's Avocado's Number Guacamole",
             "TJ's Jalapeño Sauce",
-            "TJ's Fresh Cilantro, sliced Jalapeno, and sliced Lime (optional), for garnish"
+            "TJ's Fresh Cilantro Jalapeno and Lime (optional), sliced for garnish"
         ],
         "serves": "4",
         "cookingTime": "10 Minute",
@@ -14710,7 +14712,7 @@
         "ingredients": [
             "1 package TJ's Boneless Chicken Breasts, cut into 2” cubes",
             "1/2 cup TJ's Organic Sriracha & Roasted Garlic BBQ Sauce",
-            "2 tablespoons chopped TJ's Fresh Cilantro (optional), for garnish",
+            "2 tablespoons of TJ's Fresh Cilantro (optional), chopped for garnish",
             "You will also need Bamboo Skewers, soaked in water for at least 20 minutes"
         ],
         "prepTime": "",
@@ -17445,41 +17447,6 @@
         "id": "vJrI7kZvr3P8aDOAOiPw"
     },
     {
-        "title": "Egg Nog Milkshake",
-        "ingredients": [
-            "2 cups TJ's Premium Vanilla Ice Cream",
-            "3/4 cup TJ's Egg Nog or Almond Nog (seasonal)",
-            "1 tsp TJ's Nutmeg",
-            "1 tsp TJ's Ground Cinnamon",
-            "1 jar TJ's Cinnamon Sticks (optional), for garnish"
-        ],
-        "img": "https://www.traderjoes.com/TJ_CMS_Content/Images/Recipe/263MainImage.jpg",
-        "prepTime": "5 Minute",
-        "tagIds": [
-            120,
-            75,
-            32
-        ],
-        "directions": "In a blender, pulse together ice cream, egg nog, nutmeg, and ground cinnamon until smooth and uniform. Pour into a glass and top with a sprinkle of cinnamon. Garnish with a cinnamon stick or two. Enjoy!In a blender, pulse together ice cream, egg nog, nutmeg, and ground cinnamon until smooth and uniform. Pour into a glass and top with a sprinkle of cinnamon. Garnish with a cinnamon stick or two. Enjoy!",
-        "cookingTime": "",
-        "serves": "2",
-        "tags": [
-            {
-                "name": "Ice Cream",
-                "tagId": 120
-            },
-            {
-                "tagId": 75,
-                "name": "Seasonal"
-            },
-            {
-                "name": "Winter",
-                "tagId": 32
-            }
-        ],
-        "id": "vRWffbG8eJe0il3G7TQc"
-    },
-    {
         "img": "https://www.traderjoes.com/TJ_CMS_Content/Images/Recipe/seasoned-cauliflower.jpg",
         "directions": "Preheat oven to 400°F. Lightly spray a sheet pan with canola oil spray, set aside.\nIn a small bowl, mix together olive oil and seasoning. Set aside.\nRinse cauliflower and remove leaves. Trim bottom of the cauliflower stem, but make sure to keep the core intact. Cut into thick (1” or so) slices.\nArrange cauliflower slices on sheet pan. Brush half of the oil mixture on cauliflower. Carefully turn cauliflower slices over and brush on the remaining mixture.\nPlace on middle rack in oven and bake for 15 minutes or until cauliflower is easily pierced with a fork.\nRemove from oven and let cool slightly. Serve warm and enjoy!Preheat oven to 400°F. Lightly spray a sheet pan with canola oil spray, set aside.In a small bowl, mix together olive oil and seasoning. Set aside.Rinse cauliflower and remove leaves. Trim bottom of the cauliflower stem, but make sure to keep the core intact. Cut into thick (1” or so) slices.Arrange cauliflower slices on sheet pan. Brush half of the oil mixture on cauliflower. Carefully turn cauliflower slices over and brush on the remaining mixture.Place on middle rack in oven and bake for 15 minutes or until cauliflower is easily pierced with a fork.Remove from oven and let cool slightly. Serve warm and enjoy!",
         "serves": "2",
@@ -17710,7 +17677,7 @@
             "1 can TJ's Organic Black beans, drained",
             "Juice of 2 TJ's Limes",
             "½ tablespoon TJ's Spanish Extra Virgin Olive Oil",
-            "Fresh cilantro, chopped, for garnish"
+            "TJ's Fresh Cilantro, chopped for garnish"
         ],
         "tags": [
             {
@@ -18450,7 +18417,7 @@
             "4 slices TJ's Multigrain Bread",
             "1 container TJ's Goat's Milk Cheese Marinated With Herbs, softened to room temperature",
             "4 TJ's Cling Peach Halves, thinly sliced",
-            "TJ's Fresh Basil, chopped, for garnish"
+            "TJ's Fresh Basil, chopped for garnish"
         ],
         "id": "y6jX1Qby8M73Ge7gszAI"
     },
@@ -18461,11 +18428,11 @@
             "1 Can TJ's Organic Black Beans, drained",
             "½ Can TJ's Hatch Chopped Green Chiles",
             "1 ½ Teaspoon TJ's Taco Seasoning",
-            "1 ½ Cups TJ's Enchilada Sauce divided",
-            "2 Cups TJ's Shredded Fancy Mexican Style Cheese Blend divided",
+            "1 ½ Cups TJ's Enchilada Sauce, divided",
+            "2 Cups TJ's Shredded Fancy Mexican Style Cheese Blend, divided",
             "6 TJ's Corn Tortillas",
-            "3 TJ's Green Onions diced, for garnish",
-            "1 ripe TJ's Avocado, diced, for garnish",
+            "3 TJ's Green Onions diced for garnish",
+            "1 ripe TJ's Avocado, diced for garnish",
             "TJ's Sea Salt to taste"
         ],
         "serves": "4 - 6",

@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import styles from '../../styles/Home.module.css'
+import React, { useState } from 'react';
 import {NavBar, TJNavBar, Footer} from '../../components/headersfooter'
 import {RecipeCard} from '../../components/roundedtiles'
+import Pagination from '../../components/pagination'
 import Fade from 'react-reveal/fade'
 
 // needed for client side data fetching, see next.js docs
@@ -16,20 +18,23 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 const searchicon = <FontAwesomeIcon icon={faSearch} />
 
 
+function RecipeCards(props) {
+  return props.recipeData24.map(recipe => (
+    <RecipeCard
+    title={recipe.title}
+    directions={recipe.directions}
+    img={recipe.img}
+    recipe_id={recipe.recipe_id}
+    />
+  ));
+}
+
 function RecipeCardContainer(props) {
 
-  const recipeCards = [];
-
-  for (const recipe of props.recipeData24) {
-    recipeCards.push(
-      <RecipeCard
-      title={recipe.title}
-      directions={recipe.directions}
-      img={recipe.img}
-      recipe_id={recipe.recipe_id}
-      />
-    );
-  }
+    //State hooks for Pagination Put near top because tagNameResult renders different hooks
+    const [recipes, setRecipes] = useState([]);
+    const [currentPage, setCurrentPage] = useState([1]);
+    const recipesPerPage = 12;
 
   // need next.js built in dynamic router
   // https://nextjs.org/docs/routing/dynamic-routes
@@ -60,6 +65,12 @@ function RecipeCardContainer(props) {
     }
   }
 
+  const indexOfLastRecipe = currentPage * recipesPerPage;
+  const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
+  const currentRecipes = props.recipeData24.slice(indexOfFirstRecipe, indexOfLastRecipe);
+
+  const paginate = (number) => setCurrentPage(number);
+
   if (searchNameResult.data < 1) {
     return (
       <div className={styles['container']}>
@@ -78,10 +89,15 @@ function RecipeCardContainer(props) {
     <div className={styles['tag-heading']}>
       <h1>{searchicon} { toTitleCase(search_phrase) }</h1>
       <p>Viewing recipes searched with "{ search_phrase }" </p>
+      <Pagination
+          recipesPerPage={recipesPerPage}
+          totalRecipes={props.recipeData24.length}
+          paginate={paginate}
+      />
     </div>
     <Fade bottom>
       <div className={styles['flex-container-myrecipes']}>
-        {recipeCards}
+        <RecipeCards recipeData24={currentRecipes} />
       </div>
     </Fade>
     </div>

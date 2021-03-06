@@ -2,7 +2,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import {NavBar, TJNavBar, Footer} from '../components/headersfooter'
 import {RecipeCard} from '../components/roundedtiles'
-// import Fade from '../react-reveal/fade';
+import Fade from 'react-reveal/fade';
 
 // needed for client side data fetching, see next.js docs
 import useSWR from 'swr'
@@ -19,13 +19,17 @@ function RecipeCardContainer(props) {
   ));
 
   return (
-    // <Fade bottom>
-    <div className={styles['container']}><center>
-      <div className={styles['flex-container']}>
-        {recipeCards}
-      </div></center>
+    <div className={styles['container']}>
+    <div className={styles['tag-heading']}>
+        <h1>Trader Joe's Recipes</h1>
+        <p>Viewing recipes for Trader Joe's. </p>
+      </div>
+    <Fade bottom>
+    <div className={styles['flex-container-myrecipes']}>
+      {recipeCards}
     </div>
-    // </Fade>
+    </Fade>
+    </div>
   );
 };
 
@@ -36,9 +40,6 @@ export default function Home() {
   // useSWR takes 2 parameters: the URL, and how to fetch it (.then promise)
   // beneath the hood useSWR has 1 object with 2 keys returned, data and error
   const recipes = useSWR('/api/recipes/random', fetchRecipesFunction)
-
-  // if (recipes.error) return <div>failed to load</div>
-  // if (!recipes.data) return <div>loading...</div>
 
   let overrideElement = null;
   if (recipes.error) {
