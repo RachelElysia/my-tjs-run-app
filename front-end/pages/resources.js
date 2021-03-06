@@ -4,6 +4,12 @@ import {NavBar, TJNavBar, Footer} from '../components/headersfooter'
 import Fade from 'react-reveal/fade';
 import useSWR from 'swr'
 import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faQuoteLeft, faQuoteRight, faLink} from '@fortawesome/free-solid-svg-icons'
+
+const leftquote = <FontAwesomeIcon icon={faQuoteLeft} />
+const rightquote = <FontAwesomeIcon icon={faQuoteRight} />
+const linkicon = <FontAwesomeIcon icon={faLink} />
 
 function ResourcesContainer(props) {
 
@@ -33,6 +39,24 @@ function ResourcesContainer(props) {
     <Fade bottom><center>
     <div className={styles['container']}>
       <div className={styles['resources-box']}>
+        <h1>{linkicon} Resources</h1>
+        <section class="component">
+
+        <blockquote class="callout quote">{leftquote}
+          <quote>
+            If you have knowledge, let others light their candle in it. {rightquote}
+          </quote>
+          <cite>
+            - Margaret Fuller
+          </cite>
+        </blockquote>
+
+          <p>
+            In addition to my extensive studies at
+            <Link href="http://www.hackbrightacademy.com" alt="Hackbright Academy" target="_blank"><a>Hackbright Academy</a></Link>,
+            I built this app with countless hours finding the online resources I listed below.
+          </p>
+        </section>
         <table>
           <thead>
             <tr>

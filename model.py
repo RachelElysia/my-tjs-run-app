@@ -176,7 +176,6 @@ class RecipeTag(db.Model):
                 }
 
 
-
     def __repr__(self):
         return f'''
                 <RecipeTag recipetag_id={self.recipetag_id},
@@ -235,11 +234,9 @@ def connect_to_db(flask_app, db_uri='postgresql:///recipes', echo=True):
     print('Connected to the db!')
 
 
-
-# Tests to see if database is populated.
+# These Test Prints don't work anymore
 # print(model.db.session.query('recipe').filter_by(title='Sausage & Kale Stuffing'))
 # print(Recipe.query.filter(Recipe.name == 'Sausage & Kale Stuffing').all())
-
 
 
 
@@ -259,10 +256,10 @@ if __name__ == '__main__':
 
     # connect_to_db(app)
 
-    db.create_all()
+    # db.create_all()
 
 
-    # test = Recipe(img='cool', tags_full='hi',
+    # test_recipe = Recipe(img='cool', tags_full='hi',
     #     ingredients_full='hi', serves='hia',
     #     title='hello', directions='yo',
     #     cookingTime='2hours', prepTime='yup', recipe_id='23r')

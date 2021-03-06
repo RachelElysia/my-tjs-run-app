@@ -16,52 +16,58 @@ app.secret_key = "12321abcba"
 app.jinja_env.undefined = StrictUndefined
 ### end ###
 
+# Text Recipe Data Validation
+def recipe_validation(recipes):
+  """This cleans my gross data returned from button toggles."""
+
+  recipes_list = recipes.lstrip(',').split(',')
+  while('' in recipes_list): 
+    recipes_list.remove('') 
+    
+  return recipes_list
+
+# Creating Text Message
+def text_message(fname, recipes_list):
+  """This builds the text message."""
+
+  text_message = (f"{fname}'s Groceries List from My TJ's Run!\n ")
+
+  for recipe in recipes_list:
+    text_message += f":::{recipe}:::\n"
+    ingredients = crud.get_abridged_ingredients_by_title(recipe)
+    for ingredient in ingredients:
+      if ingredient != None:
+        text_message += f"{ingredient}\n"
+  
+  return text_message
+
 @app.route('/api/sms', methods=['POST'])
 def send_sms():
     """Send SMS."""
 
-    # Your Account SID from twilio.com/console
-    account_sid = os.environ.get('ACCOUNT_SID_KEY')
-    # Your Auth Token from twilio.com/console
-    auth_token  = os.environ.get('AUTH_TOKEN_KEY')
-
+    # Data from Request
     data = request.json
-    print(
-      "**************\n\n\n*********\n\n\n\n",
-      data['user_fname'],
-      data['user_phone'],
-      data['user_recipes']
-    )
-
     phone = data['user_phone']
     fname = data['user_fname']
     recipes = data['user_recipes']
-    recipes_list = recipes.lstrip(',').split(',')
 
-    while('' in recipes_list): 
-      recipes_list.remove('') 
 
-    print("\n\n******\n\n", recipes_list, "\n\n******\n\n")
-    text_message = (f"{fname}'s Groceries List from My TJ's Run!\n ")
+    # Your Account SID and Auth Token from twilio.com/console
+    account_sid = os.environ.get('ACCOUNT_SID_KEY')
+    auth_token  = os.environ.get('AUTH_TOKEN_KEY')
 
-    for recipe in recipes_list:
-      text_message += f":::{recipe}:::\n"
-      ingredients = crud.get_abridged_ingredients_by_title(recipe)
-      for ingredient in ingredients:
-        if ingredient != None:
-          text_message += f"{ingredient}\n"
-
-    print("\n\n******\n\n", text_message, "\n\n******\n\n")
-
+    # Send Text Message
     client = Client(account_sid, auth_token)
     message = client.messages.create(
         to=phone, 
         from_="+15402884977",
-        body=f"{text_message}"
+        body=f"{text_message(fname, recipe_validation(recipes))}"
     )
 
     print(message.sid)
 
+
+    # Response
     response = {
       "ok": "Great text message!",
       "errorMessage": "None!",
@@ -109,7 +115,7 @@ def recipes_by_tag_id(tag_id):
   10 big objects
   ]
   """
-    
+
   # This crud function returns a list so I don't need to serialize!
   recipe_ids = crud.get_recipe_ids_by_tag_id(tag_id)
 
@@ -235,7 +241,7 @@ def remove_user_recipe_favorite(user_id, recipe_id):
 
   deleted = crud.delete_user_recipe(user_id, recipe_id)
 
-  return jsonify("deleted")
+  return jsonify("Deleted relationship between:", user_id, recipe_id)
 
 @app.route('/api/users/<user_id>/recipes/<recipe_id>/add',  methods=['POST'])
 def create_user_recipe_favorite(user_id, recipe_id):

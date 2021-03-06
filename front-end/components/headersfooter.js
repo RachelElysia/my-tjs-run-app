@@ -7,12 +7,13 @@ import Link from 'next/link'
 
 import styles from '../styles/Home.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingBasket, faBook, faMapMarkedAlt, faSms, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faShoppingBasket, faBook, faMapMarkedAlt, faSms, faSearch, faBars } from '@fortawesome/free-solid-svg-icons'
 const basketicon = <FontAwesomeIcon icon={faShoppingBasket} />
 const bookicon = <FontAwesomeIcon icon={faBook} />
 const searchlocationicon = <FontAwesomeIcon icon={faMapMarkedAlt} />
 const smsicon = <FontAwesomeIcon icon={faSms} />
 const searchicon = <FontAwesomeIcon icon={faSearch} />
+const navicon = <FontAwesomeIcon icon={faBars} />
 
 
 
@@ -60,6 +61,15 @@ function NavBar() {
     router.push(`/search/${encodedString}`);
   }
 
+  // responsive nav bar
+  function myFunction() {
+    var x = document.getElementById("top-nav");
+    if (x.className === "nav-right") {
+      x.className += " responsive";
+    } else {
+      x.className = "nav-right";
+    }
+  }
 
   return (
     <>
@@ -69,7 +79,7 @@ function NavBar() {
         <meta property="og:title" content="My page title" key="title" />
       </Head>
       </div>
-      <nav>
+      <nav id="top-nav">
         <div className={styles['nav-left']}>
           <Link href="/"><a><img src="http://localhost:5000/static/img/logo.png" alt="My TJ's Run Logo" height="40px" /></a></Link>
           <button className={styles['left']} id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); router.push('/myrecipes'); }}>
@@ -100,6 +110,7 @@ function NavBar() {
           </button>
           { welcome }
           { logInOrOut }
+          
         </div>
     </nav>
   </>

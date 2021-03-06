@@ -77,7 +77,9 @@
 .nav-right {
   float: right;
   padding: 1.5em;
+  overflow: hidden;
 }
+
 
 .nav-left {
   float: left;
@@ -865,7 +867,6 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
   min-width: 15em;
   max-width: 55em;
   /* padding: 1em; */
-  vertical-align: top;
   line-height: 120%;
   text-align: left;
   margin: auto;
@@ -875,6 +876,8 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 2rem;
+  text-align: center;
+  padding: 2rem;
 }
 
 .resources-box td:nth-child(4) {
@@ -903,3 +906,11 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
   margin-right: auto;
   margin-left: auto;
 }
+
+
+.component{
+  width: 250px;
+  margin:0 auto;
+  padding: 3rem;
+}
+
