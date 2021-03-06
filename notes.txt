@@ -172,3 +172,17 @@ export default function Home(props) {
     #https://stackoverflow.com/questions/3325467/sqlalchemy-equivalent-to-sql-like-statement
 
     
+
+Replaced this with map method on array 3/7 [tag_id].js
+  // const recipeCards = [];
+
+  // for (const recipe of props.recipeData24) {
+  //   recipeCards.push(
+  //     <RecipeCard
+  //     title={recipe.title}
+  //     directions={recipe.directions}
+  //     img={recipe.img}
+  //     recipe_id={recipe.recipe_id}
+  //     />
+  //   );
+  // }
