@@ -11,75 +11,71 @@ from twilio.rest import Client
 
 app = Flask(__name__)
 
-## added by Lucia
+## added by Lucia debugging jinja ###
 app.secret_key = "12321abcba"
-
 app.jinja_env.undefined = StrictUndefined
-###
-
+### end ###
 
 @app.route('/api/sms', methods=['POST'])
-def send_sms(data):
+def send_sms():
     """Send SMS."""
 
     # Your Account SID from twilio.com/console
-    account_sid = account_sid_key
+    account_sid = os.environ.get('ACCOUNT_SID_KEY')
     # Your Auth Token from twilio.com/console
-    auth_token  = auth_token_key
+    auth_token  = os.environ.get('AUTH_TOKEN_KEY')
 
-    print(data)
-    # client = Client(account_sid, auth_token)
-    print("**************\n\n\n*********\n\n\n\n")
-    # print(data.user_fname)
-    # print(data.user_phone)
-    # print(data.user_recipes)
+    data = request.json
+    print(
+      "**************\n\n\n*********\n\n\n\n",
+      data['user_fname'],
+      data['user_phone'],
+      data['user_recipes']
+    )
 
-    # message = client.messages.create(
-    #     to=data.user_phone, 
-    #     from_="+15402884977",
-    #     body=f"Hello {data.user_name} from My TJ's Run! {data.user_recipes}")
+    phone = data['user_phone']
+    fname = data['user_fname']
+    recipes = data['user_recipes']
+    recipes_list = recipes.lstrip(',').split(',')
 
-    # print(message.sid)
+    while('' in recipes_list): 
+      recipes_list.remove('') 
+
+    print("\n\n******\n\n", recipes_list, "\n\n******\n\n")
+    text_message = (f"{fname}'s Groceries List from My TJ's Run!\n ")
+
+    for recipe in recipes_list:
+      text_message += f":::{recipe}:::\n"
+      ingredients = crud.get_abridged_ingredients_by_title(recipe)
+      for ingredient in ingredients:
+        if ingredient != None:
+          text_message += f"{ingredient}\n"
+
+    print("\n\n******\n\n", text_message, "\n\n******\n\n")
+
+    client = Client(account_sid, auth_token)
+    message = client.messages.create(
+        to=phone, 
+        from_="+15402884977",
+        body=f"{text_message}"
+    )
+
+    print(message.sid)
 
     response = {
-      "ok": "cool.",
-      "errorMessage": "No idea.",
-      "image": "https://http.cat/401",
+      "ok": "Great text message!",
+      "errorMessage": "None!",
     }
 
-    status = 401
-    print("YOU TYPED IN A WRONG PASSWORD")
-    print(jsonify(response, status))
-    return jsonify(response, status)
+    return jsonify(response)
 
 
 ########### THIS IS REPLACED WITH REACT ONSUBMIT #############
 @app.route('/')
 def show_homepage():
-    """Show the application's homepage."""
+    """Show the application's Flask/Jinja homepage on localhost:5000."""
 
     return render_template('homepage.html')
-
-
-########### THIS IS REPLACED WITH REACT ONSUBMIT #############
-# @app.route('/recipes')
-# def show_recipes():
-#     """Show all recipes."""
-
-#     return render_template('recipes.html')
-
-# @app.route('/recipes/<recipe_by_id>')
-# def show_one_recipe(recipe_by_id):
-#     """Show one recipe."""
-
-#     return render_template('recipe.html', recipe_id=recipe_by_id)
-
-# @app.route('/recipes_data')
-# def recipes_data():
-#     """Show all recipes."""
-
-#     return jsonify(few_datapoints)
-
 
 @app.route('/api/recipes')
 def recipes_data():
@@ -112,7 +108,6 @@ def recipes_by_tag_id(tag_id):
   [
   10 big objects
   ]
-  
   """
     
   # This crud function returns a list so I don't need to serialize!
@@ -171,9 +166,7 @@ def recipes_tag_names_by_id(recipe_id):
 
 @app.route('/api/search/<search_phrase>')
 def recipes_by_search_phrase(search_phrase):
-  """Show all recipes related to the search_phrase.
-  
-  """
+  """Show all recipes related to the search_phrase."""
 
   detailed_recipes_by_search = []
 
@@ -220,11 +213,9 @@ def user_recipes_by_user_id(user_id):
       "title": "Pulled Jackfruit Sandwich"
     }
   ]
-
   """
 
   user_favorites_data = crud.get_user_recipes_data(user_id)
-
   user_favorites =  [i.serialize for i in user_favorites_data]
 
   return jsonify(user_favorites)
@@ -238,10 +229,10 @@ def user_recipe_bool(user_id, recipe_id):
 @app.route('/api/users/<user_id>/recipes/<recipe_id>/remove', methods=['POST'])
 def remove_user_recipe_favorite(user_id, recipe_id):
   """Removes a user recipe favorite in.
-  
-  http://localhost:5000/api/users/1/recipes/MWL6CyjVxqoOnYVH55eQ/remove
 
+  Example: http://localhost:5000/api/users/1/recipes/MWL6CyjVxqoOnYVH55eQ/remove
   """
+
   deleted = crud.delete_user_recipe(user_id, recipe_id)
 
   return jsonify("deleted")
@@ -249,10 +240,10 @@ def remove_user_recipe_favorite(user_id, recipe_id):
 @app.route('/api/users/<user_id>/recipes/<recipe_id>/add',  methods=['POST'])
 def create_user_recipe_favorite(user_id, recipe_id):
   """Creates a user recipe favorite in database.
-  
-  http://localhost:5000/api/users/1/recipes/MWL6CyjVxqoOnYVH55eQ/add
 
+  Example: http://localhost:5000/api/users/1/recipes/MWL6CyjVxqoOnYVH55eQ/add
   """
+
   crud.create_user_recipe(user_id, recipe_id)
 
   return jsonify("favorited")
@@ -294,32 +285,27 @@ def recipes_ingredients_by_id(recipe_id):
     ]  
   """
 
-  # The default is 24, you can change this parameter
   recipe_data = crud.get_ingredients_by_recipe_id(recipe_id)
-
   serialized_recipe_ingredients =  [i.serialize for i in recipe_data]
 
   return jsonify(serialized_recipe_ingredients)
 
 @app.route('/api/recipes/<recipe_id>')
 def recipe_by_id_data(recipe_id):
-  """Show one recipes."""
+  """Show information of one recipe."""
 
   recipe_by_id = crud.get_recipe_by_id(recipe_id)
-
-# BRACKETS OR NO BRACKETS, THIS IS A SINGLE RECIPE
   serialized_recipe_data = recipe_by_id.serialize
 
   return jsonify(serialized_recipe_data)
 
-
 @app.route('/api/recipes_hungry')
 def recipes_data_hungry():
-  """Show all recipes."""
+  """Show default of 24 recipes.
 
-  # The default is 24, you can change this parameter
-  recipe_data = crud.get_random_recipes(48)
+  You can change get_random_recipes parameter to another value."""
 
+  recipe_data = crud.get_random_recipes()
   serialized_recipe_data = [i.serialize for i in recipe_data]
 
   return jsonify(serialized_recipe_data)
@@ -348,7 +334,7 @@ def register_user():
 
     else:
       userCreated = crud.create_user(fname, lname, phone, password_hash)
-    
+
       userAccountMade = crud.get_user_by_phone(phone)
 
       response = {
@@ -356,8 +342,8 @@ def register_user():
         "user": userAccountMade.serialize,
       }
       status_code = 200
-      print("YOU MADE A LOG IN!")
-      print(jsonify(response, status_code))
+      print("YOU MADE A LOG IN!", jsonify(response, status_code))
+
       return jsonify(response, status_code)
 
 @app.route('/api/users/<user_id>/info')
@@ -441,12 +427,12 @@ def log_in():
       return jsonify(response, status)
 
 if __name__ == '__main__':
-    ####### added by Lucia 2/11
+    ### added by Lucia 2/11 debugging jinja ###
     connect_to_db(app)
     app.debug = True
     app.jinja_env.auto_relaod = app.debug
 
     DebugToolbarExtension(app)
-    ####################################
+    ### end ###
 
     app.run(host='0.0.0.0', debug=True)

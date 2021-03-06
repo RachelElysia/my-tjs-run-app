@@ -2,10 +2,6 @@
 
 from flask_sqlalchemy import SQLAlchemy
 
-# import flask_whooshalchemy
-# set the location for the whoosh index
-# app.config['WHOOSH_BASE'] = 'path/to/whoosh/base'
-
 db = SQLAlchemy()
 
 class User(db.Model):
@@ -24,15 +20,11 @@ class User(db.Model):
     password_hash = db.Column(db.String(100),
                       nullable=False) 
     
-
     # # Password hashing functions below User Model
-
     # def set_password(self, password):
     #     self.password_hash = generate_password_hash(password)
-
     # def check_password(self, password):
     #     return check_password_hash(self.password_hash, password)
-
 
     @property
     def serialize(self):
@@ -258,7 +250,8 @@ if __name__ == '__main__':
     # too annoying; this will tell SQLAlchemy not to print out every
     # query it executes.
 
-# uncomment the next three when if wanting to reseed database! - had to do this 2/16 to fix abridged_ingredients
+# uncomment the next three when if wanting to reseed database!
+# had to do this 2/16 to fix abridged_ingredients
     import os
 
     # os.system('dropdb recipes')

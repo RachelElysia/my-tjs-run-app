@@ -4,7 +4,7 @@ import React, { useRef, useEffect, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import styles from '../styles/Home.module.css'
-
+import Fade from 'react-reveal/fade';
 
 const close = <FontAwesomeIcon icon={faTimes} />
 
@@ -41,6 +41,7 @@ const Modal = ({showModal, setShowModal}) => {
     <>
       {showModal ? (
         <div className={styles['modal-background']} onClick={closeModal} ref={modalRef}>
+          <Fade bottom>
             <div className={styles['modal-wrapper']} showModal={showModal}>
               <div className={styles['modal-content']}>
                 <h1>I love TJ's!</h1>
@@ -53,6 +54,7 @@ const Modal = ({showModal, setShowModal}) => {
                 {close}
               </button>
             </div>
+          </Fade>
         </div>
       ) : null}
     </>

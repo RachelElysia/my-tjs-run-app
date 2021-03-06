@@ -59,7 +59,7 @@ function PersonalizedShoppingList(props) {
 
     const handleText = (event) => {
         event.preventDefault();
-        // const data = new FormData(event.target);
+
         const data = ({
             user_phone: '+1' + `${user.phone}`,
             user_name: `${user.fname}`,
@@ -70,21 +70,7 @@ function PersonalizedShoppingList(props) {
         
         const result = confirm(`${user.fname}, Do you want to text this grocery list to ${user.phone}?`);
         if (result) {
-            // fetch('/api/sms', {
-            //     method: 'POST',
-            //     body: data,
-            // })    
 
-            // .then(response => {
-            //     console.log(response)
-            //     if (response.status !== 200) {
-            //         alert('Something failed.');
-            //         return;
-            //     }
-            //     response.json().then(data => {
-            //         alert('NAME, You received a text at the number PHONE.');
-            //     })
-            // });
             fetch('/api/sms', {
             method: 'POST',
             body: JSON.stringify({

@@ -297,6 +297,7 @@
    list-style: none;
    padding-bottom: 5.5rem;    /* Footer height */
    overflow-y: scroll;
+   max-width: 200rem;
 
 }
 
@@ -325,6 +326,7 @@
    list-style: none;
    padding-bottom: 5.5rem;    /* Footer height */
    overflow-y: scroll;
+   max-width: 100rem;
 
 }
 
@@ -357,6 +359,7 @@
    padding-top: 9em;
    padding-bottom: 5.5rem;    /* Footer height */
    overflow-y: scroll;
+   max-width: 200rem;
 
 }
 
@@ -770,7 +773,7 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
 /* MY RECIPES NAV BAR*/
 #navbar {
   position: fixed;
-  top: 6.2em;    /* NavBar TJNavBar height */
+  top: 5.2em;    /* NavBar TJNavBar height */
   bottom: 0rem;
   width: 250px; /* Set the width of the sidebar */
   z-index: 1; /* Stay on top */
@@ -891,4 +894,12 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
   background-color: #f2f2f2;
   text-align: left;
   font-size: 0.889rem;
+}
+
+.instructions-container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }

@@ -86,14 +86,12 @@ def create_user_recipe(user_id, recipe_id):
     return user_recipe
 
 def delete_user_recipe(user_id, recipe_id):
-
+    """Given user_id and recipe_id, deletes relationship from database."""
+    
     unwanted_recipe = UserRecipe.query.filter(UserRecipe.user_id == user_id, UserRecipe.recipe_id == recipe_id).one()
     print(unwanted_recipe)
     db.session.delete(unwanted_recipe)
     db.session.commit() 
-
-    # Fix bug somehow
-    # UserRecipe.query.filter(UserRecipe.user_id == user_id, UserRecipe.recipe_id == recipe_id).delete()
 
     return None
 
@@ -142,12 +140,12 @@ def search_recipes(search_phrase):
 
 
 def get_recipes(limit=24):
-    """Return all recipes. Default 24."""
+    """Return not random recipes. Default 24."""
 
     return Recipe.query.limit(limit).all()
 
 def get_random_recipes(limit=24):
-    """Return all recipes. Default 24."""
+    """Return random recipes. Default 24."""
 
     return sample(Recipe.query.all(), limit)
 
@@ -295,7 +293,7 @@ def get_recipe_ids_by_tag_id(tag_id):
     return recipe_ids_list
 
 def get_ingredients_by_recipe_id(recipe_id):
-    """Return multiple tags.
+    """Return ingredients for given recipe_id.
     
     >>> get_ingredients_by_recipe_id('08Ifren64xtMVpoG03Qx')
 
@@ -324,20 +322,38 @@ def get_ingredients_by_recipe_id(recipe_id):
 
     return db.session.query(Ingredient).filter_by(recipe_id=recipe_id).all()
 
+def get_abridged_ingredients_by_title(title):
+    """Return multiple tags.
+    
+    """
+    ingredients_list = []
+
+    ingredients = db.session.query(Ingredient).join(Recipe).filter(Recipe.title == title).all()
+
+    for ingredient in ingredients:
+        ingredients_list.append(ingredient.abridged_ingredient)
+
+    return ingredients_list
+
+
 def resources_page():
+    """
+    Populates my resources.js page through a resourcespage.txt.
+    
+    # Test that each line has 4 fields
+      count = 0
+      for character in line:
+            if character == '|':
+                count += 1
+      if count !== 3:
+            print("check line:", index + 1, "has", count + 1, "fields instead of 4.")     
+    """
+    
     resources_file = open("resourcespage.txt")
 
     resources_list = []
 
     for line in resources_file:
-
-    # Test that each line has 4 fields
-    #   count = 0
-    #   for character in line:
-    #       if character == '|':
-    #           count += 1
-    #   if count !== 3:
-            # print("check line:", index + 1, "has", count + 1, "fields instead of 4.")     
 
         line_data=line.rstrip().split("|")
         topic = line_data[0]

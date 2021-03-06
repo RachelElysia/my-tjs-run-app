@@ -211,8 +211,8 @@
         "ingredients": [
             "1 package TJ's Organic Low Sodium Tomato & Roasted Red Pepper Soup",
             "2 packages TJ's Channa Masala",
-            "TJ's Greek Yogurt or Sour Cream and chopped parsley, for garnish (optional)",
-            "TJ's Malabari Paratha, cooked according to package directions, for dipping (optional)"
+            "TJ's Greek Yogurt or Sour Cream and chopped parsley (optional), for garnish",
+            "TJ's Malabari Paratha (optional), cooked according to package directions, for dipping"
         ],
         "prepTime": "",
         "tags": [
@@ -256,7 +256,7 @@
     {
         "ingredients": [
             "1 can TJ's Yellowfin Tuna in Olive Oil, drained",
-            "2 tsp TJ's Mayo",
+            "2 tsp TJ's Mayonnaise",
             "1 Tbsp diced TJ's Red Onion",
             "1 Tbsp diced TJ's Celery",
             "1 Tbsp diced TJ's Red Bell Pepper",
@@ -387,7 +387,7 @@
             "½ bag TJ's Organic Tuscan Kale",
             "1 package TJ's Organic Cooked & Peeled Chestnuts, halved",
             "TJ's Shaved Parmesan, Romano & Asiago Cheese",
-            "TJ's Cranberry Sauce & Turkey Gravy, for serving (optional)"
+            "TJ's Cranberry Sauce & Turkey Gravy (optional), for serving"
         ],
         "cookingTime": "35 - 45 Minute",
         "id": "0qWkOJlMkTLCC7EBEO0r"
@@ -478,7 +478,7 @@
             "½ bag TJ's Organic Tuscan Kale",
             "1 package TJ's Organic Cooked & Peeled Chestnuts, halved",
             "TJ's Shaved Parmesan, Romano & Asiago Cheese",
-            "TJ's Cranberry Sauce & Turkey Gravy, for serving (optional)"
+            "TJ's Cranberry Sauce & Turkey Gravy (optional), for serving"
         ],
         "tagIds": [
             28,
@@ -687,11 +687,11 @@
         "prepTime": "7 Minute",
         "title": "Smoky Sriracha Baked Beans",
         "ingredients": [
-            "1/2 package TJ's Uncured Bacon Ends & Pieces, chopped (optional)",
+            "1/2 package TJ's Uncured Bacon Ends & Pieces (optional), chopped",
             "1 cup TJ's Diced Onions",
             "4 cans TJ's Organic Baked Beans",
             "1/2 cup TJ's Organic Sriracha & Roasted Garlic BBQ Sauce",
-            "Freshly chopped Cilantro, Chives or Parsley, for garnish (optional)"
+            "TJ's Cilantro or Chives or Parsley (optional), chopped for garnish"
         ],
         "tagIds": [
             59,
@@ -728,7 +728,7 @@
             "8 ounces TJ's Sparkling Cranberry Juice",
             "4 ounces TJ's Brewed Ginger Beer",
             "12 ounces TJ's Sparkling Apple Cider",
-            "TJ's Orange slices, for garnish (optional)"
+            "TJ's Orange slices (optional), for garnish"
         ],
         "title": "Fall Sparkler",
         "serves": "4",
@@ -920,7 +920,7 @@
             "TJ's Gluten Free Crispbreads",
             "TJ's Whipped Cream Cheese",
             "TJ's Everything But The Bagel Sesame Seasoning Blend",
-            "TJ's Fresh Dill, for garnish (optional)"
+            "TJ's Fresh Dill (optional), for garnish"
         ],
         "tags": [
             {
@@ -1114,7 +1114,7 @@
             "¾ teaspoon TJ's Pumpkin Pie Spice",
             "1 jar (12 oz) TJ's Apple Cider Jam (seasonal)",
             "6 oz your favorite TJ's Maple Syrup",
-            "TJ's Cultured Salted Butter, for serving (optional)"
+            "TJ's Cultured Salted Butter (optional), for serving"
         ],
         "prepTime": "15 Minute",
         "tags": [
@@ -1186,8 +1186,8 @@
             "1 package TJ's Organic Basil, cut into strips",
             "1 package TJ's Ciliegine Mozzarella",
             "1 bottle TJ's Balsamic Vinaigrette",
-            "1/4 teaspoon TJ's Sea Salt, or to taste",
-            "1/4 teaspoon TJ's ground Black Pepper, or to taste"
+            "1/4 teaspoon TJ's Sea Salt, to taste",
+            "1/4 teaspoon TJ's ground Black Pepper, to taste"
         ],
         "directions": "Rinse Tomatoes and Basil. Layer Tomato, Basil and Mozzarella on a toothpick. Season with Salt & Pepper. Serve with Balsamic Vinaigrette for dipping.",
         "tagIds": [
@@ -1239,14 +1239,21 @@
             "10-12 Wooden Skewers"
         ],
         "directions": "Remove polenta from casing and slice lengthwise down the center, then slice each half into half-moon shapes about 1/2\" thick. Remove\r\nsausage from packaging and slice each link on the diagonal at same thickness. Remove thawed shrimp from packaging and season with Trader Joe's South African seasoning blend on each side.\nHeat a large skillet over medium-high heat, and spray liberally with canola oil. Saute polenta slices until golden brown, turning as necessary, and remove polenta from pan. Re-spray if necessary, and add sausage slices. When sausage is just starting to brown, add shrimp to the pan, and cook until opaque. Remove sausage and shrimp from pan.\nThread polenta slices, cooked shrimp, and sausage slices onto skewers, alternating between each ingredient. Serve with sriracha sauce for dipping.\nRecipe Credit: Trader Joe's Stick It! 2013 HiiP Recipe Contest Featuring Food On A Stick 3rd Place Winner - Laura Wehrmeyer.Remove polenta from casing and slice lengthwise down the center, then slice each half into half-moon shapes about 1/2\" thick. Remove\r\nsausage from packaging and slice each link on the diagonal at same thickness. Remove thawed shrimp from packaging and season with Trader Joe's South African seasoning blend on each side.Heat a large skillet over medium-high heat, and spray liberally with canola oil. Saute polenta slices until golden brown, turning as necessary, and remove polenta from pan. Re-spray if necessary, and add sausage slices. When sausage is just starting to brown, add shrimp to the pan, and cook until opaque. Remove sausage and shrimp from pan.Thread polenta slices, cooked shrimp, and sausage slices onto skewers, alternating between each ingredient. Serve with sriracha sauce for dipping.Recipe Credit: Trader Joe's Stick It! 2013 HiiP Recipe Contest Featuring Food On A Stick 3rd Place Winner - Laura Wehrmeyer.",
-        "tags": [],
         "cookingTime": "",
         "prepTime": "",
         "img": "https://www.traderjoes.com/TJ_CMS_Content/Images/Recipe/233MainImage.jpg",
-        "tagIds": [],
         "serves": "4 - 5",
         "title": "Shrimp & Grits On A Stick",
-        "id": "3CdbyfOnXdKmw7BnMiw2"
+        "id": "3CdbyfOnXdKmw7BnMiw2",
+        "tagIds": [
+            82
+        ],
+        "tags": [
+            {
+                "tagId": 82,
+                "name": "Shrimp"
+            }
+        ]
     },
     {
         "cookingTime": "2 Hour",
@@ -1290,9 +1297,9 @@
             "1 tsp TJ's Vanilla Extract",
             "2 pounds TJ's Fresh Strawberries, diced",
             "1 jar TJ's Strawberry Preserves",
-            "6 strawberries, sliced",
             "6 Fresh TJ's Strawberries, whole & beautiful with green tops",
-            "2 slices TJ's Orange, twisted"
+            "6 strawberries sliced",
+            "2 slices of TJ's Oranges, twisted"
         ],
         "prepTime": "15 Minute",
         "img": "https://www.traderjoes.com/TJ_CMS_Content/Images/Recipe/422MainImage.jpg",
@@ -1320,7 +1327,7 @@
             "1 bag TJ's Organic Shredded Green & Red Cabbage with Orange Carrots",
             "1/4 cup TJ's Mayonnaise (or TJ's Greek Yogurt)",
             "1/4 cup TJ's Apple Cider Vinegar",
-            "TJ's Salt & Pepper, to taste"
+            "Salt & Pepper (to taste)"
         ],
         "title": "Pulled Jackfruit Sandwich",
         "tags": [
@@ -1681,7 +1688,7 @@
             "6 TJ's Organic Jumbo Eggs",
             "1 bag TJ's Mushroom Medley",
             "2 cans TJ's Organic Baked Beans",
-            "1 batch Easy As Crispy Corned Beef Hash (optional)"
+            "1 batch TJ's Easy As Crispy Corned Beef Hash (optional)"
         ],
         "tagIds": [
             132,
@@ -1725,7 +1732,7 @@
         "ingredients": [
             "1 bottle Boatswain Chocolate Stout OR Campanology's Bûche de Noël Stout",
             "TJ's French Vanilla Ice Cream",
-            "Whipped Cream & chocolate chunks, for garnish (optional)"
+            "Whipped Cream & chocolate chunks (optional), for garnish"
         ],
         "directions": "Place two scoops of ice cream into a tall glass. Slowly pour stout into glass, covering scoops. Top with whipped cream and chocolate chunks. Repeat with remaining glasses and enjoy immediately.Place two scoops of ice cream into a tall glass. Slowly pour stout into glass, covering scoops. Top with whipped cream and chocolate chunks. Repeat with remaining glasses and enjoy immediately.",
         "id": "4E1Ytgw7TOtJJeRVH6Xl"
@@ -1751,7 +1758,7 @@
             "3/4 cup water",
             "1 bottle TJ's Sunflower Oil",
             "9 teaspoons TJ's Crumbled Feta, divided",
-            "Your favorite TJ's Hummus, Salad Greens, and Flatbread (Flatbread, Naan, Malabari Paratha, etc.) for serving (optional)"
+            "Your favorite TJ's Hummus, Salad Greens, and Flatbread (Flatbread, Naan, Malabari Paratha, etc.), for serving (optional)"
         ],
         "id": "4HvoWfHGVGhTpy9Jcv7P"
     },
@@ -2119,7 +2126,7 @@
             "1 TJ's Chantilly Cream Vanilla Bean Mini Sheet Cake, or 18 ounces of YOUR favorite TJ's Bakery cake",
             "1 can TJ's Whipped Cream",
             "1 6 oz. package TJ's Blueberries",
-            "1 package TJ's Organic Mint (optional garnish)",
+            "1 package TJ's Organic Mint (optional), for garnish",
             "2-quart stainless steel bowl",
             "plastic wrap"
         ],
@@ -2145,7 +2152,7 @@
             "3 cups TJ's French Sparkling Limeade, chilled",
             "2 cups TJ's 100% Cherry Juice, chilled",
             "3 cups TJ's Blanc de Blancs Sparkling wine (or TJ's Plain Sparkling Spring Water), chilled",
-            "Sliced lemons and limes, for garnish (optional)"
+            "Sliced lemons and limes (optional), for garnish"
         ],
         "tagIds": [
             15,
@@ -2299,7 +2306,7 @@
             "1 jar TJ's Salsa Verde",
             "1 bag TJ's Diced Onions",
             "TJ's Organic Sour Cream or 1 batch Cilantro Crema (get the recipe)",
-            "Finely chopped Cilantro and Lime slices, for garnish"
+            "TJ's Cilantro and Lime, finely chopped and sliced for garnish"
         ],
         "tags": [
             {
@@ -2350,7 +2357,7 @@
         "prepTime": "10 Minute",
         "ingredients": [
             "1 small TJ's Shallot, minced",
-            "2 Tablespoons Lemon Juice",
+            "2 Tablespoons TJ's Lemon Juice",
             "1 Tablespoon TJ's Rice Vinegar",
             "3 teaspoons TJ's Dijon Mustard with White Wine",
             "1 teaspoon TJ's Clover Honey",
@@ -2425,10 +2432,10 @@
         ],
         "directions": "Preheat oven to 350°F. Unwrap camembert and place in the center of a small cast iron skillet or ceramic baking dish. Place on center rack of oven and bake 5-15 minutes (check every 5 minutes or so and remove from oven when cheese is oozing to your desired preference).\nTop cheese with cranberry relish*. Let cool slightly and garnish with walnuts and rosemary. Serve with water crackers for dipping.\n*You can add the cranberry relish prior to baking, if desired; the color and tanginess of the relish will be somewhat subdued if you go this route.Preheat oven to 350°F. Unwrap camembert and place in the center of a small cast iron skillet or ceramic baking dish. Place on center rack of oven and bake 5-15 minutes (check every 5 minutes or so and remove from oven when cheese is oozing to your desired preference).Top cheese with cranberry relish*. Let cool slightly and garnish with walnuts and rosemary. Serve with water crackers for dipping.*You can add the cranberry relish prior to baking, if desired; the color and tanginess of the relish will be somewhat subdued if you go this route.",
         "ingredients": [
-            "1 wheel Le Rustique Camembert (seasonal)",
+            "1 wheel, Le Rustique Camembert (seasonal)",
             "1/3 cup TJ's Cranberry Orange Relish (seasonal)",
             "TJ's Water Crackers, for serving",
-            "TJ's Walnuts and Fresh Rosemary, for garnish (optional)"
+            "TJ's Walnuts and Fresh Rosemary (optional), for garnish"
         ],
         "tagIds": [
             18,
@@ -2607,8 +2614,8 @@
             "1 package TJ's Cuban Style Citrus Garlic Bowl",
             "1 package TJ's Corn & Wheat Tortillas",
             "TJ's Island Salsa",
-            "TJ's Cilantro (for optional garnish)",
-            "1 TJ's Jalapeño, sliced (for optional garnish)"
+            "TJ's Cilantro (optional), for garnish",
+            "1 TJ's Jalapeño (optional), sliced for garnish"
         ],
         "tags": [
             {
@@ -2701,7 +2708,7 @@
             "1 package TJ's Mexican Style Roasted Corn with Cotija Cheese",
             "1 package TJ's Creamy Chicken Poblano Ravioli",
             "Your favorite TJ's Olive Oil",
-            "Fresh cilantro, chopped, for garnish (optional)"
+            "Fresh cilantro (optional), chopped for garnish"
         ],
         "tagIds": [
             91,
@@ -2735,7 +2742,7 @@
     },
     {
         "ingredients": [
-            "1 part TJ's Bourbon (we used TJ's High Rye Bourbon)",
+            "1 part TJ's Bourbon (preferably High Rye Bourbon)",
             "2 parts TJ's Winter Wassail",
             "1 TJ's Navel Orange, thinly sliced",
             "Handful TJ's Frozen Raspberries, plus more for serving",
@@ -2784,7 +2791,7 @@
         "ingredients": [
             "1 stick (1/2 cup) TJ's Unsalted Butter, melted",
             "2 large TJ's Eggs",
-            "1 cup RSVP Brut Sparkling Wine or your favorite Champagne, room tempature",
+            "1 cup, RSVP Brut Sparkling Wine or your favorite Champagne, room temperature",
             "1 package TJ's Vanilla Cake & Baking Mix",
             "1 stick (1/2 cup) TJ's Unsalted Butter, softened",
             "1 ¾ cup TJ's Organic Powdered Sugar, sifted",
@@ -3231,7 +3238,7 @@
             "½ cup TJ's Canola Oil",
             "¾ cup TJ's Whole Milk",
             "1 cup halved TJ's Organic Fresh Cranberries (seasonal)",
-            "Zest from 1 Orange"
+            "Zest from 1 TJ's Orange"
         ],
         "prepTime": "10 Minute",
         "img": "https://www.traderjoes.com/TJ_CMS_Content/Images/Recipe/cranberry-orange-cornbread.jpg",
@@ -3288,8 +3295,8 @@
             "1 teaspoon TJ's Organic Yellow Mustard",
             "1/3 cup TJ's Brown Sugar",
             "1/2 cup TJ's Organic Brown Sugar BBQ Sauce & Marinade",
-            "TJ's Salt & Pepper, to taste",
-            "Fresh Cilantro, chopped, for garnish (optional)"
+            "Salt & Pepper (to taste)",
+            "TJ's Fresh Cilantro (optional), chopped for garnish"
         ],
         "prepTime": "",
         "cookingTime": "",
@@ -3391,9 +3398,9 @@
             "1 cup blackberries",
             "1 cup TJ's Frozen Peach Slices, defrosted",
             "2 teaspoons honey",
-            "1 teaspoon fresh mint, chopped",
+            "1 teaspoon TJ's Fresh Mint, chopped",
             "2 tablespoons TJ's Creamy Salted Cashew Butter",
-            "Additional mint for garnish, if desired"
+            "Mint (optional for garnish)"
         ],
         "tags": [
             {
@@ -3483,7 +3490,7 @@
             "1 package TJ's Corn Tortillas",
             "1 package TJ's Soy Chorizo",
             "4 TJ's Avocados, sliced",
-            "1 container Homestyle Especial Salsa - medium",
+            "1 container, Homestyle Especial Salsa - medium",
             "TJ's Organic Sour Cream or 1 batch Cilantro Crema (get the recipe)",
             "TJ's Limes, sliced, for garnish"
         ],
@@ -3602,8 +3609,8 @@
             "2 cans TJ's Organic Coconut Cream",
             "2 cans TJ's Organic Canned Pumpkin",
             "1 bottle TJ's Spicy Peanut Vinaigrette",
-            "TJ's Basil for garnish (optional)",
-            "TJ's Thai Lime and Chili Cashews, crushed, for garnish (optional)"
+            "TJ's Basil (optional), for garnish",
+            "TJ's Thai Lime and Chili Cashews (optional), crushed for garnish"
         ],
         "tags": [
             {
@@ -3687,7 +3694,7 @@
             "1/2 jar TJ's Pitted Greek Kalamata Olives",
             "1/2 can TJ's Pitted Green Olives",
             "1 container TJ's Ciliegene Whole Milk Fresh Mozzarella",
-            "1 package Columbus Reduced Sodium Italian Dry Salame"
+            "1 package, Columbus Reduced Sodium Italian Dry Salame"
         ],
         "tags": [
             {
@@ -3732,7 +3739,7 @@
         "directions": "Preheat oven to 350°F. Grease a 9x13 casserole dish with canola oil spray, set aside.\nIn a very large bowl, stir sour cream and condensed soup until combined. Add hash browns and stir to coat evenly with soup mixture. Gently fold in cheese and 3⁄4 of the green onions. Spread mixture evenly in prepared casserole dish and cover with crushed potato chips.\nBake casserole on center rack of oven until center is heated through and cheese is bubbling, 45-55 minutes. Remove from oven and let cool slightly. Top with remaining green onions before serving.Preheat oven to 350°F. Grease a 9x13 casserole dish with canola oil spray, set aside.In a very large bowl, stir sour cream and condensed soup until combined. Add hash browns and stir to coat evenly with soup mixture. Gently fold in cheese and 3⁄4 of the green onions. Spread mixture evenly in prepared casserole dish and cover with crushed potato chips.Bake casserole on center rack of oven until center is heated through and cheese is bubbling, 45-55 minutes. Remove from oven and let cool slightly. Top with remaining green onions before serving.",
         "serves": "8 - 12",
         "ingredients": [
-            "TJ's Canola Oil SPray",
+            "TJ's Canola Oil Spray",
             "11⁄2 bags TJ's Shredded Hash Browns, thawed",
             "1 tub (16 ounces) TJ's Sour Cream",
             "1 package TJ's Condensed Portabella Mushroom Soup",
@@ -3945,7 +3952,7 @@
             "2 slices TJ's Cinnamon Raisin Bread",
             "TJ's Canola Oil Spray",
             "½ cup TJ's Camembert, rind removed",
-            "4 slices (thin) TJ's Apple",
+            "4 slices (thin) of a TJ's Apple",
             "2 slices TJ's Prosciutto"
         ],
         "tagIds": [
@@ -3992,7 +3999,7 @@
             "1 TJ's Banana, sliced and divided",
             "1/3 cup TJ's Toasted Coconut Granola",
             "2 TJ's Fancy Medjool Dates, chopped",
-            "1 scoop of your favorite protein powder (optional)"
+            "1 scoop of your favorite TJ's Protein Powder (optional)"
         ],
         "title": "Açaí Smoothie Bowl",
         "prepTime": "10 Minute",
@@ -4183,9 +4190,9 @@
         "title": "Creamy Chicken Gnocchi Soup",
         "ingredients": [
             "2 tubs TJ's Kettle Cooked Chicken Soup",
-            "1 package Gnocchi (shelf-stable)",
+            "1 package TJ's Gnocchi (shelf-stable)",
             "1 package TJ's Whipping Cream (shelf-stable)",
-            "TJ's Fresh Thyme, for garnish (optional)"
+            "TJ's Fresh Thyme (optional), for garnish"
         ],
         "id": "DrBmfW7IYQCQ3lEnuEkk"
     },
@@ -4312,7 +4319,7 @@
             "2 teaspoons TJ's Pumpkin Pie Spice",
             "1 teaspoon TJ's Pure Bourbon Vanilla Extract",
             "1 pinch TJ's Sea Salt",
-            "Whipped cream, for garnish (optional)"
+            "Whipped cream (optional), for garnish"
         ],
         "directions": "Preheat oven to 350°F. Wash and dry pumpkin, slice in half and remove stem. Use a spoon to scrape out string and seeds and discard (or toast seeds for a snack). Place pumpkin halves cut-side down on a foil-lined baking sheet. Bake 1 1/2 hours, until tender. Remove sheet from oven and remove foil; set aside to cool.\nGently unroll thawed crust into a 9\" pie pan. Fold crust edge so it doesn't hang over the edge of the pan, and use a fork to crimp edge, if desired. Set aside.\nScoop pumpkin flesh into a large mixing bowl and mash with a fork until smooth. Add butter, cream, sugar, vanilla, pumpkin pie spice, and salt and mix until combined. Taste and adjust seasonings and sugar if needed. Fold in eggs. Pour filling into crust.\nPlace pie on center rack of oven and bake 1 hour. Cool 1 hour before slicing. Serve with whipped cream, if desired.Preheat oven to 350°F. Wash and dry pumpkin, slice in half and remove stem. Use a spoon to scrape out string and seeds and discard (or toast seeds for a snack). Place pumpkin halves cut-side down on a foil-lined baking sheet. Bake 1 1/2 hours, until tender. Remove sheet from oven and remove foil; set aside to cool.Gently unroll thawed crust into a 9\" pie pan. Fold crust edge so it doesn't hang over the edge of the pan, and use a fork to crimp edge, if desired. Set aside.Scoop pumpkin flesh into a large mixing bowl and mash with a fork until smooth. Add butter, cream, sugar, vanilla, pumpkin pie spice, and salt and mix until combined. Taste and adjust seasonings and sugar if needed. Fold in eggs. Pour filling into crust.Place pie on center rack of oven and bake 1 hour. Cool 1 hour before slicing. Serve with whipped cream, if desired.",
         "cookingTime": "1 Hour",
@@ -4337,9 +4344,9 @@
             "1/2 tsp TJ's Ground Cinnamon",
             "1 tsp TJ's Unbleached All Purpose Flour, plus more for rolling dough",
             "Pinch TJ's Sea Salt",
-            "3 Tbsp Fleur de Sel Caramel Sauce, or more, to taste",
+            "3 Tbsp TJ's Fleur de Sel Caramel Sauce, or more, to taste",
             "1 large TJ's Egg, beaten with 1 tsp Water",
-            "1/4 cup TJ's Turbinado Sugar (optional for sanding tops)",
+            "1/4 cup TJ's Turbinado Sugar (optional), for sanding top",
             "*You will also need a wide-mouthed jar or circular cookie cutter (3.5 in diameter = about 7 hand pies)"
         ],
         "tags": [
@@ -4418,7 +4425,7 @@
             "1 container (8 oz) TJ's Sour Cream",
             "1 block TJ's Cheddar Cheese with Caramelized Onions, shredded",
             "TJ's Chives, sliced (garnish)",
-            "4 TJ's Sourdough Bread Boules (optional serving bowl)"
+            "4 TJ's Sourdough Bread Boules (optional), for serving bowl"
         ],
         "prepTime": "10 Minute",
         "serves": "8 - 10",
@@ -4657,8 +4664,8 @@
             "1/2 package TJ's Shredded Carrots",
             "2 TJ's Red Bell Peppers, cored and very thinly sliced",
             "1 cup TJ's Spicy Peanut Vinaigrette, plus more to taste",
-            "Handful Fresh cilantro, rinsed and chopped (optional)",
-            "Handful of TJ's Half Salted Peanuts, crushed (optional)"
+            "Handful Fresh cilantro (optional), chopped for garnish,
+            "Handful of TJ's Half Salted Peanuts (optional), crushed for garnish"
         ],
         "directions": "Prepare pasta according to package directions. Meanwhile, prepare a large bowl of ice water. Transfer cooked, drained pasta to ice water to cool. Drain pasta thoroughly and add to a very large mixing bowl.\nAdd cabbage, carrots, bell peppers and vinaigrette to pasta. Gently toss to combine. Adjust dressing to taste and add cilantro, if desired. Cover and chill 30 minutes. Garnish with crushed peanuts prior to serving.Prepare pasta according to package directions. Meanwhile, prepare a large bowl of ice water. Transfer cooked, drained pasta to ice water to cool. Drain pasta thoroughly and add to a very large mixing bowl.Add cabbage, carrots, bell peppers and vinaigrette to pasta. Gently toss to combine. Adjust dressing to taste and add cilantro, if desired. Cover and chill 30 minutes. Garnish with crushed peanuts prior to serving.",
         "img": "https://www.traderjoes.com/TJ_CMS_Content/Images/Recipe/spicy-cold-noodle-salad.jpg",
@@ -4698,7 +4705,7 @@
             "2 packages TJ's Organic Tomato & Roasted Red Pepper Soup",
             "1 package TJ's Frozen Peruvian Style Chimichurri Rice",
             "1 cup TJ's Frozen Roasted Corn",
-            "Cotija Cheese (optional, for garnish)"
+            "Cotija Cheese (optional), for garnish"
         ],
         "directions": "In a large pot combine soup, rice, and corn.\nStirring periodically, heat on low for about 10 min or until heated through.\nServe warm, topped with cheese if desired. Enjoy!In a large pot combine soup, rice, and corn.Stirring periodically, heat on low for about 10 min or until heated through.Serve warm, topped with cheese if desired. Enjoy!",
         "tagIds": [
@@ -5080,7 +5087,7 @@
             "½ cup TJ's Tomatoes, chopped",
             "¼ cup TJ's Feta Cheese",
             "1/3 cup TJ's Kalamata Olives, sliced",
-            "TJ's Black Pepper, to taste"
+            "Black Pepper (to taste)"
         ],
         "tagIds": [
             15,
@@ -5214,7 +5221,7 @@
             "1 teaspoon TJ's Pure Bourbon Vanilla Extract",
             "1 pinch TJ's Sea Salt",
             "2 TJ's Large Eggs plus one egg yolk, lightly beaten",
-            "TJ's Organic Powdered Sugar, for garnish (optional)"
+            "TJ's Organic Powdered Sugar (optional), for garnish"
         ],
         "cookingTime": "1 Hour",
         "img": "https://www.traderjoes.com/TJ_CMS_Content/Images/Recipe/easy-as-pumpkin-pie.jpg",
@@ -5501,7 +5508,7 @@
         "ingredients": [
             "1 bottle Secco Peach Bellini",
             "1 cup TJ's Frozen Freestone Peach Slices",
-            "TJ's Organic Mint for garnish (optional)"
+            "TJ's Organic Mint (optional), for garnish"
         ],
         "tagIds": [
             107,
@@ -5582,7 +5589,7 @@
             "1 cup TJ's Dried Cranberries",
             "TJ's Canola Oil Spray",
             "6 TJ's Fully Cooked Turkey Meatballs, microwaved according to package directions and halved",
-            "TJ's Turkey Gravy, for serving (optional)"
+            "TJ's Turkey Gravy (optional), for serving"
         ],
         "title": "Stuffing Muffins",
         "serves": "12",
@@ -5632,7 +5639,7 @@
             "1 cup TJ's Whole Milk Ricotta Cheese",
             "1/2 cup TJ's Grated Parmesan, divided",
             "2 cups TJ's Shredded Mozzarella Cheese, divided",
-            "TJ's Fresh Basil, shredded, for garnish (optional)"
+            "TJ's Fresh Basil, shredded (optional), for garnish"
         ],
         "tags": [
             {
@@ -5759,7 +5766,7 @@
             "TJ's Pico de Gallo",
             "TJ's Avocado's Number Guacamole",
             "TJ's Jalapeño Sauce",
-            "TJ's Fresh Cilantro, sliced Jalapeno, and sliced Lime, for garnish (optional)"
+            "TJ's Fresh Cilantro/ sliced Jalapeno/ sliced Lime (optional), for garnish"
         ],
         "title": "Carnitas Bowl",
         "img": "https://www.traderjoes.com/TJ_CMS_Content/Images/Recipe/carnitas-bowl.jpg",
@@ -5963,7 +5970,7 @@
             "3/4 cup canned TJ's Organic Coconut Milk",
             "1/3 cup TJ's Sunflower Oil",
             "1 Banana, smashed",
-            "TJ's Creamy Peanut Butter, melted (optional, for garnish)"
+            "TJ's Creamy Peanut Butter (optional), melted for garnish"
         ],
         "tags": [
             {
@@ -6995,8 +7002,8 @@
         "directions": "Combine lemonade and Plznr in a tall glass and garnish with a lemon slice. Serve immediately.Combine lemonade and Plznr in a tall glass and garnish with a lemon slice. Serve immediately.",
         "ingredients": [
             "4 ounces TJ's Organic Lemonade, chilled",
-            "8 ounces Josephsbrau Plznr, chilled",
-            "Lemon slices, for garnish (optional)"
+            "8 ounce, Josephsbrau Plznr, chilled",
+            "TJ's Lemon (optional), sliced for garnish"
         ],
         "serves": "1",
         "img": "https://www.traderjoes.com/TJ_CMS_Content/Images/Recipe/442MainImage.jpg",
@@ -7372,7 +7379,7 @@
             "1 tablespoon TJ's California Estate Olive Oil",
             "2 teaspoons TJ's Onion Salt",
             "1 ½ lb TJ's Organic Boneless Skinless Chicken Breasts",
-            "Lemon slices, for garnish (optional)"
+            "TJ's Lemon (optional), sliced for garnish"
         ],
         "prepTime": "1 Hour",
         "id": "Nf1Iddfxsomp6CiIBfkH"
@@ -7465,9 +7472,9 @@
             "1 container TJ's Israeli Feta",
             "2 tablespoons TJ's California Extra-Virgin Olive Oil",
             "1 tablespoon TJ's Multi-Floral & Clover Honey",
-            "TJ's Organic On The Vine Tomatoes, sliced (optional)",
+            "TJ's Organic On The Vine Tomatoes (optional), sliced",
             "TJ's Middle Eastern Style Flatbread (optional)",
-            "TJ's Thyme for garnish (optional)"
+            "TJ's Thyme (optional), for garnish"
         ],
         "tags": [
             {
@@ -7603,7 +7610,7 @@
             "3/4 cup TJ's Egg Nog or Almond Nog (seasonal)",
             "1 tsp TJ's Nutmeg",
             "1 tsp TJ's Ground Cinnamon",
-            "1 jar TJ's Cinnamon Sticks (optional garnish)"
+            "1 jar TJ's Cinnamon Sticks (optional), for garnish"
         ],
         "tags": [
             {
@@ -7631,12 +7638,12 @@
         "directions": "Toss frozen berries, almond milk, protein powder, almond butter, chia seeds and 1 banana in a blender. Pulse a few times until liquefied. Split mixture into separate serving bowls. Top each bowl with granola, sliced bananas, and sweetener.Toss frozen berries, almond milk, protein powder, almond butter, chia seeds and 1 banana in a blender. Pulse a few times until liquefied. Split mixture into separate serving bowls. Top each bowl with granola, sliced bananas, and sweetener.",
         "ingredients": [
             "1 cup TJ's Frozen Fancy Berry Medley",
-            "1 cup TJ's Almond Beverage - choose your favorite variety!",
+            "1 cup TJ's Almond Beverage, choose your favorite variety",
             "2 tablespoons TJ's Organic Vanilla Flavored Hemp Protein Powder OR Vanilla Flavored Whey Protein Powder",
             "3 tablespoons TJ's Creamy Unsalted Almond Butter",
-            "1 tablespoon Chia Seeds",
-            "2 TJ's Bananas (1 Sliced For Garnish)",
-            "1 cup TJ's Granola (we used TJ's Gluten Free Granola - Loaded Fruit & Nut Variety)",
+            "1 tablespoon TJ's Chia Seeds",
+            "2 TJ's Bananas, 1 sliced for garnish",
+            "1 cup TJ's Granola (Suggested: Gluten Free Granola - Loaded Fruit & Nut Variety)",
             "1 tablespoon Organic Raw Blue Agave Sweetener"
         ],
         "serves": "2 - 3",
@@ -7887,7 +7894,7 @@
         "ingredients": [
             "1 package TJ's Spinach & Chive Linguine",
             "1 tub TJ's Smoked Salmon Dip with Capers",
-            "Lemon slices, for garnish (optional)"
+            "TJ's Lemon (optional), sliced for garnish"
         ],
         "prepTime": "",
         "title": "Creamy Smoked Salmon Linguine & Capers",
@@ -8009,7 +8016,7 @@
             "1 cup (about 12) TJ's Organic Cut and Peeled Carrots",
             "3 stalks TJ's Organic Celery Hearts",
             "1/3 cup TJ's Chunky Blue Cheese Dressing & Dip",
-            "A handful of TJ's Parsley (optional garnish)"
+            "A handful of TJ's Parsley (optional), for garnish"
         ],
         "directions": "Place wings in a circle (leave space in the center) on a microwave safe plate. Microwave uncovered on high: FROZEN wings 7 to 9 minutes – THAWED wings 4 to 5 minutes or until heated through. Plate will be hot, remove carefully.\nWhile wings are heating, rinse celery stalks, trim both ends and cut into thirds.\nOnce wings have cooled for a minute, arrange them on a platter, over a bed of parsley. Serve with a bowl of blue cheese dressing, celery sticks and carrots.Place wings in a circle (leave space in the center) on a microwave safe plate. Microwave uncovered on high: FROZEN wings 7 to 9 minutes – THAWED wings 4 to 5 minutes or until heated through. Plate will be hot, remove carefully.While wings are heating, rinse celery stalks, trim both ends and cut into thirds.Once wings have cooled for a minute, arrange them on a platter, over a bed of parsley. Serve with a bowl of blue cheese dressing, celery sticks and carrots.",
         "img": "https://www.traderjoes.com/TJ_CMS_Content/Images/Recipe/338MainImage.jpg",
@@ -8898,7 +8905,7 @@
             "3 cups TJ's Milk",
             "1 tablespoon TJ's Maple Syrup",
             "4 Fresh Sage leaves, chopped (plus more for garnish)",
-            "TJ's Salt & Pepper, to taste"
+            "Salt & Pepper (to taste)"
         ],
         "directions": "Cook biscuits according to package directions. In a large skillet over medium-high heat, add ghee and melt to coat pan. Add ground turkey to pan, breaking it into pieces with a spoon as it cooks, about 8-10 minutes. When the turkey reaches 165ºF and is no longer pink, reduce heat to medium. Sprinkle half of the flour over the turkey and stir to combine. Add remaining flour and stir to combine. Add one cup of milk to the pan and stir. Continue to add milk as the gravy thickens, one cup at a time.\nAdd syrup and chopped sage to gravy and stir to combine. Cook gravy 5 minutes more, stirring occasionally. Season with salt and pepper to taste. To serve, place biscuits in a shallow bowl and top with gravy and chopped sage. Serve immediately.Cook biscuits according to package directions. In a large skillet over medium-high heat, add ghee and melt to coat pan. Add ground turkey to pan, breaking it into pieces with a spoon as it cooks, about 8-10 minutes. When the turkey reaches 165ºF and is no longer pink, reduce heat to medium. Sprinkle half of the flour over the turkey and stir to combine. Add remaining flour and stir to combine. Add one cup of milk to the pan and stir. Continue to add milk as the gravy thickens, one cup at a time.Add syrup and chopped sage to gravy and stir to combine. Cook gravy 5 minutes more, stirring occasionally. Season with salt and pepper to taste. To serve, place biscuits in a shallow bowl and top with gravy and chopped sage. Serve immediately.",
         "serves": "4 - 6",
@@ -8968,7 +8975,7 @@
             "1 package TJ's Vanilla Cake & Baking Mix",
             "3 TJ's Envy Apples, peeled and sliced (if unavailable, Granny Smith or Cripps Pink apples will work just fine)",
             "1 teaspoon TJ's Cinnamon",
-            "Whipped Cream or TJ's Vanilla Ice Cream, for serving (optional)"
+            "Whipped Cream or TJ's Vanilla Ice Cream (optional), for serving"
         ],
         "img": "https://www.traderjoes.com/TJ_CMS_Content/Images/Recipe/464MainImage.jpg",
         "title": "Vanilla Chai Cake with Spiced Apples",
@@ -9054,7 +9061,7 @@
             "2 teaspoons TJ's Rum of the Gods",
             "2-3 tablespoons TJ's Egg Nog (seasonal)",
             "Pinch TJ's Sea Salt",
-            "Handful TJ's Roasted & Salted Pecan Halves, for garnish (optional)"
+            "Handful TJ's Roasted & Salted Pecan Halves (optional), for garnish"
         ],
         "prepTime": "10 Minute",
         "directions": "Prepare the cake: Preheat oven to 350°F. Grease an 8-inch pan with canola oil spray and set aside.\nIn a large mixing bowl, combine egg nog, eggs, and melted butter. Add cake mix and nutmeg, and stir until batter is smooth. Spread cake batter into greased pan. Bake on center rack of oven for 35-40 minutes, or until a toothpick inserted in the center comes out clean. Remove from oven and allow to cool 10 minutes. Invert cake onto a cooling rack and remove pan; allow to cool completely before frosting (you can hasten the cooling process by placing the cake in the freezer for 10-15 minutes).\nPrepare the frosting: In the bowl of a stand mixer fitted with a paddle attachment (or using a hand mixer in a large bowl), beat powdered sugar, butter, rum, and 2 tablespoons of egg nog on low speed until combined (add more egg nog if necessary to achieve desired texture). Add sea salt and beat on medium speed until smooth.\nAssemble cake: Transfer cooled cake to a serving platter. Frost generously and top with pecans, if desired. Slice and enjoy!Prepare the cake: Preheat oven to 350°F. Grease an 8-inch pan with canola oil spray and set aside.In a large mixing bowl, combine egg nog, eggs, and melted butter. Add cake mix and nutmeg, and stir until batter is smooth. Spread cake batter into greased pan. Bake on center rack of oven for 35-40 minutes, or until a toothpick inserted in the center comes out clean. Remove from oven and allow to cool 10 minutes. Invert cake onto a cooling rack and remove pan; allow to cool completely before frosting (you can hasten the cooling process by placing the cake in the freezer for 10-15 minutes).Prepare the frosting: In the bowl of a stand mixer fitted with a paddle attachment (or using a hand mixer in a large bowl), beat powdered sugar, butter, rum, and 2 tablespoons of egg nog on low speed until combined (add more egg nog if necessary to achieve desired texture). Add sea salt and beat on medium speed until smooth.Assemble cake: Transfer cooled cake to a serving platter. Frost generously and top with pecans, if desired. Slice and enjoy!",
@@ -9794,7 +9801,7 @@
             "4 TJ's Hot Dog Buns",
             "TJ's Sauerkraut with Pickled Persian Cucumbers",
             "TJ's Deli Style Spicy Brown Mustard",
-            "Josephsbrau Oktoberfest Lager, for serving (optional)"
+            "1 glass, Josephsbrau Oktoberfest Lager (optional)"
         ],
         "directions": "Heat a skillet over medium. Add bratwurst and pan-fry 8-10 minutes, until lightly browned and bratwurst reach an internal temperature of 165°F. Remove from heat.\nTo serve, place each sausage in a hot dog bun, top with sauerkraut and drizzle with mustard. Serve with cold bottles of Josephsbrau Oktoberfest Lager on the side.Heat a skillet over medium. Add bratwurst and pan-fry 8-10 minutes, until lightly browned and bratwurst reach an internal temperature of 165°F. Remove from heat.To serve, place each sausage in a hot dog bun, top with sauerkraut and drizzle with mustard. Serve with cold bottles of Josephsbrau Oktoberfest Lager on the side.",
         "serves": "4",
@@ -10119,7 +10126,7 @@
             "1 package TJ's Beef-less Ground Beef",
             "1/2 package TJ's Taco Seasoning",
             "1 package TJ's Taco Shells",
-            "1 bag TJ's Tahini, Pepita & Apricot Slaw Kit"
+            "1 bag TJ's Tahini Pepita & Apricot Slaw Kit"
         ],
         "title": "Tahini, Pepita & Apricot Slawcos",
         "tagIds": [
@@ -10392,7 +10399,7 @@
             "3 TJ's Everything Bagels, sliced in half",
             "1 tub TJ's Egg Salad",
             "1 tub TJ's Pico de Gallo, hot or mild",
-            "TJ's Fresh Chives, chopped, for garnish (optional)"
+            "TJ's Fresh Chives (optional), chopped for garnish"
         ],
         "img": "https://www.traderjoes.com/TJ_CMS_Content/Images/Recipe/egg-salad-bagel.jpg",
         "tagIds": [
@@ -11021,7 +11028,7 @@
             "3/4 cup water",
             "1 bottle TJ's Sunflower Oil",
             "9 teaspoons TJ's Crumbled Feta, divided",
-            "Your favorite TJ's Hummus, Salad Greens, and Flatbread (Flatbread, Naan, Malabari Paratha, etc.) for serving (optional)"
+            "Your favorite TJ's Hummus/ Salad Greens/ Flatbread (Flatbread, Naan, Malabari Paratha, etc.) (optional), for serving"
         ],
         "tags": [
             {
@@ -11257,8 +11264,8 @@
             "1/2 package TJ's Shredded Carrots",
             "2 TJ's Red Bell Peppers, cored and very thinly sliced",
             "1 cup TJ's Spicy Peanut Vinaigrette, plus more to taste",
-            "Handful Fresh cilantro, rinsed and chopped (optional)",
-            "Handful of TJ's Half Salted Peanuts, crushed (optional)"
+            "Handful Fresh cilantro (optional), chopped for garnish",
+            "Handful of TJ's Half Salted Peanuts (optional), crushed for garnish"
         ],
         "prepTime": "40 Minute",
         "serves": "8",
@@ -11511,7 +11518,7 @@
             "1/4 cup TJ's Whole Milk",
             "1 teaspoon TJ's 21 Seasoning Salute",
             "TJ's Trader Potato Tots (roughly half a bag)",
-            "3 slices TJ's Fully Cooked Bacon, diced, for garnish (optional)"
+            "3 slices TJ's Fully Cooked Bacon (optional), diced for garnish"
         ],
         "prepTime": "15 Minute",
         "title": "Cheesy Tot Breakfast Bake",
@@ -11801,7 +11808,7 @@
             "1 TJ's Gluten Free Pie Crust (seasonal)",
             "1 cup TJ's Heavy Whipping Cream",
             "2 tablespoons TJ's Organic Powdered Sugar",
-            "TJ's 72% Dark Chocolate, for garnish (optional)"
+            "TJ's 72% Dark Chocolate (optional), for garnish"
         ],
         "prepTime": "30 Minute",
         "id": "bqrf2BNkS8ZbhIpIqdea"
@@ -12106,7 +12113,7 @@
             "1 TJ's Sweet Italian Sausage link, casing removed and crumbled",
             "1/2 cup chopped TJ's Onion",
             "1 tsp minced TJ's Garlic",
-            "4 individual Sliced TJ's Crimini Mushrooms (best looking for garnish), set aside",
+            "4 individual Sliced Crimini Mushrooms (set aside for garnish)",
             "1 cup Sliced TJ's Crimini Mushrooms, chopped",
             "1 1/2 cups TJ's Wild Rice, cooked according to package directions",
             "2 Tbsp dry TJ's White Wine (optional)",
@@ -12181,7 +12188,7 @@
             "1 bag TJ's Frozen Mashed Potatoes",
             "½ cup TJ's Green Onions, chopped",
             "2 tablespoons TJ's Unsalted Butter",
-            "TJ's Salt and Pepper, to taste"
+            "Salt and Pepper (to taste)"
         ],
         "serves": "3",
         "id": "e0FEAOc4uVFVC7buefPN"
@@ -12286,7 +12293,7 @@
         "ingredients": [
             "1 bottle Boatswain Chocolate Stout OR Campanology's Bûche de Noël Stout",
             "TJ's French Vanilla Ice Cream",
-            "Whipped Cream & chocolate chunks, for garnish (optional)"
+            "Whipped Cream & chocolate chunks (optional), for garnish"
         ],
         "tagIds": [
             49,
@@ -12470,7 +12477,7 @@
             "1 bag TJ's Baby Spinach",
             "1 tablespoon TJ's Soy Sauce",
             "1 tablespoon TJ's Sesame Oil",
-            "TJ's Cilantro, for garnish (optional)",
+            "TJ's Cilantro (optional), for garnish",
             "1/4 teaspoon TJ's Sea Salt, or to taste"
         ],
         "tags": [
@@ -12537,12 +12544,12 @@
         "ingredients": [
             "1 TJ's Butternut Squash, roasted and cubed",
             "1 tablespoon TJ's Organic Tahini",
-            "½ teaspoon Paprika, plus more for garnish",
+            "½ teaspoon TJ's Paprika, plus more for garnish",
             "¼ teaspoon Salt",
             "¼ teaspoon Pepper",
-            "Juice of ½ a Lime",
+            "Juice of ½ a TJ's Lime",
             "¼ cup TJ's Avocado Oil, plus more for garnish",
-            "Your favorite chips or veggies for dipping (we like Organic Blue Corn Tortilla Chips)"
+            "TJ's Organic Blue Corn Tortilla Chips, or your favorite chips or veggies"
         ],
         "serves": "8",
         "directions": "Add all ingredients, except avocado oil, to food processor or blender. Turn on food processor/ blender and slowly drizzle oil into the mixture, about 30-45 seconds.\nOnce the oil has been added, turn off the machine and scrape down sides of bowl. Blend for another 30 seconds to 1 minute. Spoon into serving dish. using spoon to create a well in the center of hummus.\nGarnish with olive oil and paprika. Serve with chips or veggies for dipping, or dig in with a spoon!Add all ingredients, except avocado oil, to food processor or blender. Turn on food processor/ blender and slowly drizzle oil into the mixture, about 30-45 seconds.Once the oil has been added, turn off the machine and scrape down sides of bowl. Blend for another 30 seconds to 1 minute. Spoon into serving dish. using spoon to create a well in the center of hummus.Garnish with olive oil and paprika. Serve with chips or veggies for dipping, or dig in with a spoon!",
@@ -12634,7 +12641,7 @@
             "2 tubs TJ's Kettle Cooked Chicken Soup",
             "1 package Gnocchi (shelf-stable)",
             "1 package TJ's Whipping Cream (shelf-stable)",
-            "TJ's Fresh Thyme, for garnish (optional)"
+            "TJ's Fresh Thyme (optional), for garnish"
         ],
         "directions": "Add all ingredients to a medium saucepan. Heat over medium and bring to a simmer. Simmer 10 minutes, stirring occasionally. Garnish with fresh thyme and serve.Add all ingredients to a medium saucepan. Heat over medium and bring to a simmer. Simmer 10 minutes, stirring occasionally. Garnish with fresh thyme and serve.",
         "cookingTime": "",
@@ -12885,7 +12892,7 @@
             "1 quart TJ's Vegetable Broth",
             "1/4 teaspoon TJ's Sea Salt, or to taste",
             "1/4 teaspoon TJ's Ground Black Pepper, or to taste",
-            "1 stalk TJ's Green Onions (optional garnish)"
+            "1 stalk TJ's Green Onions (optional), for garnish"
         ],
         "directions": "Heat oil in a Dutch oven over medium-high heat. When oil shimmers, add chicken drumsticks and brown on all sides, about 5 minutes. Stir in sausage and heat for a minute and a half longer. Mix in quinoa, 21 Seasoning Salute, olive tapenade and tomato basil marinara. Pour over vegetable stock; stir and bring to a gentle boil. Cover with a lid; adjust heat to medium-low and cook until liquid is absorbed and chicken is done, about 13-15 minutes. Taste and adjust seasoning.\nRecipe Credit: Trader Joe's 2012 Quintessential Quinoa Recipe Contest Winner - Mya Zeronia.Heat oil in a Dutch oven over medium-high heat. When oil shimmers, add chicken drumsticks and brown on all sides, about 5 minutes. Stir in sausage and heat for a minute and a half longer. Mix in quinoa, 21 Seasoning Salute, olive tapenade and tomato basil marinara. Pour over vegetable stock; stir and bring to a gentle boil. Cover with a lid; adjust heat to medium-low and cook until liquid is absorbed and chicken is done, about 13-15 minutes. Taste and adjust seasoning.Recipe Credit: Trader Joe's 2012 Quintessential Quinoa Recipe Contest Winner - Mya Zeronia.",
         "tagIds": [
@@ -12959,7 +12966,7 @@
             "1 can TJ's Organic Diced No Salt Added Tomatoes",
             "1 cup TJ's Mexican Blend Shredded Cheese",
             "TJ's Organic Spanish Extra Virgin Olive Oil Spray, to grease pan",
-            "TJ's Sour Cream and Fresh Cilantro, for garnish (optional)"
+            "TJ's Sour Cream and Fresh Cilantro (optional), for garnish"
         ],
         "serves": "4",
         "prepTime": "15 Minute",
@@ -13315,7 +13322,7 @@
             "TJ's Pico de Gallo",
             "TJ's Avocado's Number Guacamole",
             "TJ's Jalapeño Sauce",
-            "TJ's Fresh Cilantro, sliced Jalapeno, and sliced Lime, for garnish (optional)"
+            "TJ's Fresh Cilantro, sliced Jalapeno, and sliced Lime (optional), for garnish"
         ],
         "serves": "4",
         "cookingTime": "10 Minute",
@@ -13501,7 +13508,7 @@
             "1 large TJ's Egg",
             "1 teaspoon TJ's Pure Bourbon Vanilla Extract",
             "4 cups cubed TJ's French Baguette (about half of a baguette)",
-            "Whipped cream, for serving (optional)"
+            "Whipped cream (optional), for serving"
         ],
         "cookingTime": "50 Minute",
         "prepTime": "20 Minute",
@@ -13595,19 +13602,26 @@
         "serves": "2 - 3",
         "title": "Linguine Limone Alfredo with Shrimp",
         "directions": "In a large pot, bring water to a rolling boil; add salt if desired. Add noodles and stir gently to separate. Bring water back to a boil and cook 8 – 10 minutes or until desired doneness is reached.\nRemove from heat and drain pasta well. Place pasta back in empty pot.\nIn a medium skillet, melt butter. Once melted, add shrimp and garlic; sauté for 2 – 3 minutes, just until shrimp are thoroughly heated.\nAdd sauce and shrimp to noodles and mix until thoroughly coated. Add parsley if desired and salt to taste.\nServe and enjoy!In a large pot, bring water to a rolling boil; add salt if desired. Add noodles and stir gently to separate. Bring water back to a boil and cook 8 – 10 minutes or until desired doneness is reached.Remove from heat and drain pasta well. Place pasta back in empty pot.In a medium skillet, melt butter. Once melted, add shrimp and garlic; sauté for 2 – 3 minutes, just until shrimp are thoroughly heated.Add sauce and shrimp to noodles and mix until thoroughly coated. Add parsley if desired and salt to taste.Serve and enjoy!",
-        "tagIds": [],
         "ingredients": [
             "½ package TJ's Linguine",
             "1 cup TJ's Limone Alfredo Sauce",
             "½ bag TJ's Frozen Cooked Medium Shrimp",
             "2 tablespoon TJ's Unsalted Butter",
             "2 cloves TJ's Garlic, minced",
-            "TJ's Parsley (optional, garnish)",
-            "TJ's Salt, to taste"
+            "TJ's Parsley (optional), for garnish",
+            "Salt (to taste)"
         ],
-        "tags": [],
         "cookingTime": "10 - 15 Minute",
-        "id": "j9FiChZNTFCiwpTtudnS"
+        "id": "j9FiChZNTFCiwpTtudnS",
+        "tagIds": [
+            82
+        ],
+        "tags": [
+            {
+                "tagId": 82,
+                "name": "Shrimp"
+            }
+        ]
     },
     {
         "cookingTime": "10 Minute",
@@ -13856,7 +13870,7 @@
             "4 large TJ's Bananas",
             "8 TJ's Cookie Butter Sandwich Cookies, cut in half",
             "1 cup TJ's Candied Walnuts",
-            "½ cup TJ's Semi-Sweet Chocolate Chips, melted (optional)"
+            "½ cup TJ's Semi-Sweet Chocolate Chips (optional), melted"
         ],
         "prepTime": "10 Minute",
         "img": "https://www.traderjoes.com/TJ_CMS_Content/Images/Recipe/418MainImage.jpg",
@@ -13935,8 +13949,8 @@
         "ingredients": [
             "2 parts TJ's Pumpkin Pie Spiced Ginger Brew (seasonal)",
             "1 part TJ's The Art of the Still Organic Vodka",
-            "TJ's Pumpkin Pie Spice, for garnish (optional)",
-            "TJ's Fresh Ginger, thinly sliced, for garnish (optional)"
+            "TJ's Pumpkin Pie Spice (optional), for garnish",
+            "TJ's Fresh Ginger (optional), thinly sliced for garnish"
         ],
         "prepTime": "5 Minute",
         "img": "https://www.traderjoes.com/TJ_CMS_Content/Images/Recipe/pumpkin-mule.jpg",
@@ -14027,10 +14041,10 @@
         "ingredients": [
             "1 TJ's All-Natural USDA Choice Premium Angus Beef New York Strip Steak",
             "TJ's Olive Oil",
-            "TJ's Sea Salt & Black Pepper Grinders",
+            "TJ's Sea Salt & Black Pepper",
             "1 bag TJ's Organic Green Vegetable Foursome",
             "TJ's Aioli Garlic Mustard Sauce OR Dijon Mustard",
-            "TJ's Parsley, chopped, for garnish (optional)"
+            "TJ's Parsley (optional), chopped for garnish"
         ],
         "title": "Simple Strip Steak & Sautéed Veggies",
         "cookingTime": "14 - 18 Minute",
@@ -14223,7 +14237,7 @@
             "4 Tbsp TJ's Lemon Curd",
             "1 tsp TJ's Unbleached All Purpose Flour, plus more for rolling dough",
             "1 large TJ's Egg, beaten with 1 tsp Water",
-            "1/4 cup TJ's Turbinado Sugar (optional for sanding tops)",
+            "1/4 cup TJ's Turbinado Sugar (optional), for sanding tops",
             "*You will also need a wide-mouthed jar or circular cookie cutter (3.5 in diameter = about 7 hand pies)"
         ],
         "serves": "7",
@@ -14339,7 +14353,7 @@
             "1 package (1 pound) TJ's Farfalle Pasta",
             "1/2 package TJ's Frozen Peas",
             "1/2 cup TJ's Grated Parmesan Cheese",
-            "TJ's Salt & Pepper, to taste"
+            "Salt & Pepper (to taste)"
         ],
         "prepTime": "5 Minute",
         "id": "lMENB0sq8VmAsgBeYQF0"
@@ -14583,7 +14597,7 @@
             "1/3 cup TJ's Sliced Almonds",
             "1 medium TJ's Lemon (Juice Only)",
             "2 tablespoons TJ's Extra Virgin California Olive Oil",
-            "2 medium cloves TJ's Garlic, minced (optional)",
+            "2 medium cloves TJ's Garlic (optional), minced",
             "1/4 teaspoon TJ's Sea Salt, or to taste",
             "1/4 teaspoon TJ's Ground Black Pepper, or to taste"
         ],
@@ -14696,7 +14710,7 @@
         "ingredients": [
             "1 package TJ's Boneless Chicken Breasts, cut into 2” cubes",
             "1/2 cup TJ's Organic Sriracha & Roasted Garlic BBQ Sauce",
-            "2 tablespoons chopped TJ's Fresh Cilantro (optional garnish)",
+            "2 tablespoons chopped TJ's Fresh Cilantro (optional), for garnish",
             "You will also need Bamboo Skewers, soaked in water for at least 20 minutes"
         ],
         "prepTime": "",
@@ -15717,7 +15731,7 @@
             "2 Tbsp TJ's Extra Virgin California Estate Olive Oil",
             "1/4 teaspoon TJ's Sea Salt, or to taste",
             "1/4 teaspoon TJ's Ground Black Pepper, or to taste",
-            "1 batch Smoked Aioli, for dipping (optional)",
+            "1 batch Smoked Aioli (optional), for dipping",
             "Heavy duty tin foil"
         ],
         "serves": "4 - 8",
@@ -16054,7 +16068,7 @@
         "serves": "12",
         "ingredients": [
             "1 cup TJ's Plain Whole Milk Greek Yogurt",
-            "2 heaping teaspoons TJ's Traditional Tunisian Harissa (or more, to taste)",
+            "2 heaping teaspoons TJ's Traditional Tunisian Harissa (or more to taste)",
             "1 cup TJ's Falafel Mix",
             "1 cup TJ's All Purpose Flour",
             "3 tablespoons TJ's Organic Sugar",
@@ -16089,7 +16103,7 @@
             "½ bag TJ's Organic Tuscan Kale",
             "6 cups TJ's Low Sodium Vegetable Broth",
             "2-3 teaspoons TJ's Taco Seasoning",
-            "TJ's Salt & Pepper, to taste"
+            "Salt & Pepper (to taste)"
         ],
         "cookingTime": "45 Minute",
         "directions": "In a large pot, heat oil over medium heat. Add onion and sweet potato and sauté 5 minutes. Add couscous and sauté 5 minutes to toast. Add 2 tablespoons water to pot, cover and cook 3 minutes.\nRemove lid and add vegetable broth and taco seasoning. Reduce heat and simmer until sweet potatoes are fork-tender, 25-30 minutes. Add kale and simmer 5 minutes more until wilted. Season to taste with salt and pepper. Ladle soup into large bowls and serve with crusty bread for dipping.In a large pot, heat oil over medium heat. Add onion and sweet potato and sauté 5 minutes. Add couscous and sauté 5 minutes to toast. Add 2 tablespoons water to pot, cover and cook 3 minutes.Remove lid and add vegetable broth and taco seasoning. Reduce heat and simmer until sweet potatoes are fork-tender, 25-30 minutes. Add kale and simmer 5 minutes more until wilted. Season to taste with salt and pepper. Ladle soup into large bowls and serve with crusty bread for dipping.",
@@ -16131,7 +16145,7 @@
         "ingredients": [
             "1 tub (16 ounces) TJ's Organic Sour Cream",
             "1/2 jar TJ's Everything but the Bagel Sesame Seasoning Blend",
-            "Chopped Fresh Chives, for garnish (optional)"
+            "Chopped Fresh Chives (optional), for garnish"
         ],
         "directions": "Spoon sour cream into a serving bowl. Fold in seasoning and stir until well mixed. Cover and refrigerate for 30 minutes. Garnish with chopped chives, if desired. Serve with potato chips, carrot sticks, pita chips, celery sticks, bell peppers, pretzel slims, cucumbers...Spoon sour cream into a serving bowl. Fold in seasoning and stir until well mixed. Cover and refrigerate for 30 minutes. Garnish with chopped chives, if desired. Serve with potato chips, carrot sticks, pita chips, celery sticks, bell peppers, pretzel slims, cucumbers...",
         "serves": "8 - 10",
@@ -16330,7 +16344,7 @@
             "3 large TJ's Tomatoes, sliced thin",
             "12 TJ's Eggs",
             "1 container TJ's refrigerated Genova Pesto",
-            "12 leaves TJ's Fresh Basil, chopped (optional garnish)",
+            "12 leaves TJ's Fresh Basil, chopped (optional), for garnish",
             "Standard 12-slot muffin tin (or 12 ceramic ramekin or 12 short mason jars placed on a baking tray)"
         ],
         "tagIds": [
@@ -16686,7 +16700,7 @@
         "ingredients": [
             "2 small TJ's Acorn Squash (seasonal), sliced lengthwise and cleaned of seeds and string",
             "TJ's Olive Oil Cooking Spray",
-            "TJ's Sea Salt and TJ's Black Pepper, to taste",
+            "TJ's Sea Salt and Black Pepper, to taste",
             "1 cup TJ's Traditional Ricotta Cheese",
             "1 cup TJ's Frozen Kale, defrosted and squeezed of water",
             "1 clove TJ's Garlic, chopped fine",
@@ -17424,8 +17438,8 @@
             "3/4 cup TJ's Milk",
             "1 box of TJ's Cornbread Baking Mix",
             "1 cup of TJ's Mexican Blend Cheese",
-            "1/2 stick TJ's Unsalted Butter, sliced (optional garnish)",
-            "2 TJ's Jalapenos, deseeded and diced (optional garnish)"
+            "1/2 stick TJ's Unsalted Butter (optional), sliced for garnish",
+            "2 TJ's Jalapenos (optional), deseeded and diced for garnish"
         ],
         "directions": "Preheat oven to 350 degrees. Empty 4 cans of chili on the bottom of a greased 8 x 10 inch baking dish, then set aside. In a large mixing bowl, beat egg, oil and milk. Add cornbread mix and cheese and stir until moistened. Pour the batter into the prepared baking dish over the vegetarian chili. Spread the batter with a spatula in an even layer. Bake for approximately 35 to 40 minutes until the cornbread is golden brown and an inserted toothpick comes out clean. Let cool for 5-10 minutes. Slice into squares and garnish with butter and diced jalapenos. Enjoy!Preheat oven to 350 degrees. Empty 4 cans of chili on the bottom of a greased 8 x 10 inch baking dish, then set aside. In a large mixing bowl, beat egg, oil and milk. Add cornbread mix and cheese and stir until moistened. Pour the batter into the prepared baking dish over the vegetarian chili. Spread the batter with a spatula in an even layer. Bake for approximately 35 to 40 minutes until the cornbread is golden brown and an inserted toothpick comes out clean. Let cool for 5-10 minutes. Slice into squares and garnish with butter and diced jalapenos. Enjoy!",
         "id": "vJrI7kZvr3P8aDOAOiPw"
@@ -17437,7 +17451,7 @@
             "3/4 cup TJ's Egg Nog or Almond Nog (seasonal)",
             "1 tsp TJ's Nutmeg",
             "1 tsp TJ's Ground Cinnamon",
-            "1 jar TJ's Cinnamon Sticks (optional garnish)"
+            "1 jar TJ's Cinnamon Sticks (optional), for garnish"
         ],
         "img": "https://www.traderjoes.com/TJ_CMS_Content/Images/Recipe/263MainImage.jpg",
         "prepTime": "5 Minute",
@@ -17660,7 +17674,7 @@
         "ingredients": [
             "1 package TJ's Joe's Diner Macaroni & Cheese",
             "1 package TJ's Turkey Bolognese",
-            "TJ's Fresh Basil, for garnish (optional)"
+            "TJ's Fresh Basil (optional), for garnish"
         ],
         "directions": "Microwave Bolognese according to package directions; set aside. Microwave macaroni & cheese according to package directions. While macaroni is heating, pour Bolognese into a fine mesh strainer over the sink to drain liquid. In a medium sized bowl, gently fold together Bolognese and macaroni. Garnish with fresh basil, if desired, and serve.Microwave Bolognese according to package directions; set aside. Microwave macaroni & cheese according to package directions. While macaroni is heating, pour Bolognese into a fine mesh strainer over the sink to drain liquid. In a medium sized bowl, gently fold together Bolognese and macaroni. Garnish with fresh basil, if desired, and serve.",
         "cookingTime": "",
@@ -18015,7 +18029,7 @@
             "1/2 cup TJ's Unsweetened Vanilla Almond Beverage",
             "2 tablespoons TJ's Creamy Salted Peanut Butter, plus more for drizzling",
             "Handful TJ's Peanut Butter Protein Granola",
-            "Handful TJ's Fresh Strawberries, hulled & thinly sliced, for garnish (optional)"
+            "Handful TJ's Fresh Strawberries, hulled & thinly sliced (optional), for garnish"
         ],
         "directions": "Add frozen strawberries, protein powder, banana, and almond beverage to a blender pitcher. Blend until smooth, adding more almond beverage if needed (mixture should be thick). Scrape mixture into bowls. Top with granola and sliced strawberries, and drizzle with peanut butter. Grab a spoon and dig in.Add frozen strawberries, protein powder, banana, and almond beverage to a blender pitcher. Blend until smooth, adding more almond beverage if needed (mixture should be thick). Scrape mixture into bowls. Top with granola and sliced strawberries, and drizzle with peanut butter. Grab a spoon and dig in.",
         "serves": "2",
@@ -18095,7 +18109,7 @@
             "2 sticks TJ's Unsalted Butter, melted",
             "1 teaspoon TJ's Pure Bourbon Vanilla Extract",
             "2 cups TJ's Frozen Blueberries (do not thaw)",
-            "TJ's Cultured Butter, for serving (optional, but encouraged)"
+            "TJ's Cultured Butter (optional), for serving"
         ],
         "tags": [],
         "cookingTime": "22 - 25 Minute",
@@ -18147,10 +18161,10 @@
             "1 package TJ's Organic Baked Teriyaki Tofu",
             "1 cup TJ's Organic Brown Sugar BBQ Sauce & Marinade, plus more to finish, if desired",
             "1/2 bag TJ's Soycutash",
-            "2 tablespoons water, or more if needed",
+            "2 tablespoons water (or more if needed)",
             "2 bags TJ's Organic Power to the Greens",
             "1 tablespoon Extra Virgin Olive Oil",
-            "Salt & pepper, to taste"
+            "Salt & pepper (to taste)"
         ],
         "directions": "Remove tofu from package and pat dry with paper towels; place in a shallow dish and cover with barbecue sauce. Set aside for 30 minutes.\nPlace soycutash in a microwave safe dish, add water and cover with damp paper towels; heat on high for 2 minutes or until heated through. Set aside.\nHeat grill to high, add tofu and sear on both sides; lower heat and continue to cook until warmed through; about 5 minutes.\nHeat olive oil in a large skillet; add greens and sauté until wilted, about 3 to 5 minutes; season with salt and pepper. Remove from heat and divide between 2 plates. Divide soycutash and layer atop greens. Slice tofu lengthwise, arrange atop soycutash and drizzle with warmed barbecue sauce, if desired.Remove tofu from package and pat dry with paper towels; place in a shallow dish and cover with barbecue sauce. Set aside for 30 minutes.Place soycutash in a microwave safe dish, add water and cover with damp paper towels; heat on high for 2 minutes or until heated through. Set aside.Heat grill to high, add tofu and sear on both sides; lower heat and continue to cook until warmed through; about 5 minutes.Heat olive oil in a large skillet; add greens and sauté until wilted, about 3 to 5 minutes; season with salt and pepper. Remove from heat and divide between 2 plates. Divide soycutash and layer atop greens. Slice tofu lengthwise, arrange atop soycutash and drizzle with warmed barbecue sauce, if desired.",
         "tags": [
@@ -18499,8 +18513,8 @@
             "3 large TJ's Eggs, whisked",
             "2 package TJ's Organic Boneless & Skinless Chicken Tenders",
             "TJ's Canola Oil Spray",
-            "TJ's Organic Sriracha Ranch Dressing (for dipping)",
-            "The zest of 1 TJ's Lime (optional dipping garnish)"
+            "TJ's Organic Sriracha Ranch Dressing, for dipping",
+            "The zest of 1 TJ's Lime (optional), for dip garnish"
         ],
         "title": "Double Elote Crispy Chicken Tenders",
         "serves": "4 - 6",
@@ -18575,8 +18589,8 @@
             "1/2 teaspoon TJ's Ground Cumin",
             "TJ's Organic Jasmine Rice, heated",
             "TJ's Organic Black Beans, heated",
-            "TJ's Lime wedges, for garnish (optional)",
-            "TJ's Cilantro, chopped for garnish (optional)"
+            "TJ's Lime wedges (optional), for garnish",
+            "TJ's Cilantro (optional), chopped for garnish"
         ],
         "prepTime": "10 Minute",
         "title": "Slow Cooker Chicken Chile Verde",
@@ -18962,7 +18976,7 @@
             "1 wedge TJ's 12-Month Aged Manchego Añejo, cubed",
             "6 TJ's Black Mission Figs, halved",
             "6 slices TJ's Prosciutto, sliced in half lengthwise",
-            "TJ's Whole Grain Dijon Mustard and TJ's Honey, to serve (optional)",
+            "TJ's Whole Grain Dijon Mustard and TJ's Honey (optional), to serve",
             "Toothpicks"
         ],
         "img": "https://www.traderjoes.com/TJ_CMS_Content/Images/Recipe/manchego-fig-prosciutto.jpg",
@@ -19059,8 +19073,8 @@
         "ingredients": [
             "2 bags TJ's Frozen Riced Cauliflower",
             "3 TJ's Large Eggs",
-            "½ tsp TJ's Salt, to taste",
-            "½ tsp TJ's Pepper, to taste",
+            "½ tsp Salt (to taste)",
+            "½ tsp Pepper (to taste)",
             "1 ¼ cup TJ's Lite Shredded Mozzarella",
             "TJ's Canola Oil Spray",
             "4 slices TJ's Pre Sliced Mozzarella",
