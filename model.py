@@ -249,12 +249,13 @@ if __name__ == '__main__':
 
 # uncomment the next three when if wanting to reseed database!
 # had to do this 2/16 to fix abridged_ingredients
+# deep cleaned recipes.json api and reseeded 3/7
     import os
 
-    # os.system('dropdb recipes')
-    # os.system('createdb recipes')
+    os.system('dropdb recipes')
+    os.system('createdb recipes')
 
-    # connect_to_db(app)
+    connect_to_db(app)
 
     # db.create_all()
 

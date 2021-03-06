@@ -28,7 +28,7 @@ function SignUp() {
       //   alert('Please try a different phone number.');
       //   return;
       // }
-      alert('You created an account {data[0].user.fname}! Build your favorite recipes to easily view your grocery list!');
+      alert('You created an account! Build your favorite recipes to easily view your grocery list!');
       response.json().then(data => {
         console.log(JSON.stringify(data[0].user))
         console.log(data[0].user)

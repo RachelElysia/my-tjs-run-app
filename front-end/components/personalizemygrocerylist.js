@@ -165,7 +165,7 @@ function GroceryCard(props) {
     
         ingredientsTable = data.map((ingredients) =>
             <tr>
-                <td className={styles['table-wide']}>{ingredients.abridged_ingredient}</td>
+               <td className={styles['table-wide']}>{ingredients.abridged_ingredient}</td>
                 <td className={styles['text_small']}>{ingredients.detailed_ingredient}</td>
             </tr> 
         );

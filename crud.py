@@ -93,6 +93,12 @@ def delete_user_recipe(user_id, recipe_id):
     db.session.delete(unwanted_recipe)
     db.session.commit() 
 
+    if (UserRecipe.query.filter(UserRecipe.user_id == user_id, UserRecipe.recipe_id == recipe_id).one()):
+        unwanted_recipe = UserRecipe.query.filter(UserRecipe.user_id == user_id, UserRecipe.recipe_id == recipe_id).one()
+        db.session.delete(recipe)
+        db.session.commit()
+
+
     return None
 
 
@@ -348,7 +354,7 @@ def resources_page():
       if count !== 3:
             print("check line:", index + 1, "has", count + 1, "fields instead of 4.")     
     """
-    
+
     resources_file = open("resourcespage.txt")
 
     resources_list = []
