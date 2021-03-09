@@ -216,9 +216,9 @@ function Footer() {
     <Modal showModal={showModal} setShowModal={setShowModal}></Modal>
     <footer>
       <ul>
-        <li>A Project by <button onClick={(e) => { e.preventDefault(); router.push('http://www.rachelelysia.com');}}>Rachel Elysia Perkins</button></li>
-        <li><button onClick={(e) => { e.preventDefault(); router.push('/resources'); }}>Resources</button></li>
-        <li><button onClick={openModal}>Buy me {randomIngredient}</button></li>
+        <li key="me">A Project by <button onClick={(e) => { e.preventDefault(); router.push('http://www.rachelelysia.com');}}>Rachel Elysia Perkins</button></li>
+        <li key="resources"><button onClick={(e) => { e.preventDefault(); router.push('/resources'); }}>Resources</button></li>
+        <li key="venmo"><button onClick={openModal}>Buy me {randomIngredient}</button></li>
       </ul>
     </footer>
     </>

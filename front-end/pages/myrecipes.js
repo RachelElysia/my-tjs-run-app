@@ -75,7 +75,7 @@ function RecipeCard(props) {
   };
 
   return (<Fade right>
-    <div className={styles['flex-container-myrecipespage']} id={`${props.recipe_id}`}>
+    <section className={styles['flex-container-myrecipespage']} id={`${props.recipe_id}`}>
       <div className={styles['my-recipe-flex']}
       style={backgroundStyle}>
 
@@ -101,7 +101,7 @@ function RecipeCard(props) {
         </div>
 
       </div>
-    </div> 
+    </section> 
     </Fade>
   );
 }
@@ -143,12 +143,12 @@ function MyRecipesContainer(props) {
 
   return (
     <>
-    <div id={styles['navbar']}><center>
-    <h3>{listicon} My Recipes</h3>
-    <p className={styles['text_small']}> Viewing your favorite recipes!</p>
-    {leftLinks}
-    </center>
-    </div>
+      <main id={styles['navbar']}><center>
+      <h3>{listicon} My Recipes</h3>
+      <p className={styles['text_small']}> Viewing your favorite recipes!</p>
+      {leftLinks}
+      </center>
+    </main>
     <div className={styles['my-container']}>
 
       {recipeCards}

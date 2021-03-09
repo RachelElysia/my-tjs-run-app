@@ -7,8 +7,8 @@ import modal from '../components/venmomodal.js';
 
 export default function Home(props) {
   return (
-    <div id="page-container">
+    <section id="page-container">
       {modal}
-    </div>
+    </section>
   )
 }

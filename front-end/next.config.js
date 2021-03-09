@@ -1,4 +1,17 @@
-module.exports = {
+const withCSS = require('@zeit/next-css')
+
+// module.exports = withCSS({
+
+//     cssLoaderOptions: {
+//       url: false
+//     },
+
+module.exports = ({
+
+    cssLoaderOptions: {
+      url: false
+    },
+
     webpackDevMiddleware: (config) => {
         // Solve compiling problem via vagrant
         config.watchOptions = {
@@ -16,4 +29,4 @@ module.exports = {
         }
         ]
     }
-};
+});

@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
 #page-container {
   position: relative;
   min-height: 100vh;
@@ -88,11 +92,6 @@ padding:0.1em;
   text-decoration: none;
 } */
 
-* {
-  box-sizing: border-box;
-}
-
-
 ul {
   list-style-type: none;
   margin: 5px;
@@ -165,7 +164,6 @@ footer a:hover {
   color: #D21242;
   font-family: 'PT Sans', opensans;
   padding: 0.6em;
-
 } 
 
 

@@ -8,7 +8,7 @@
 .main {
   min-height: 100vh;
   top: 330px; /* height under tjbar */
-  padding: 0 0.5rem;
+  padding: 0;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -311,6 +311,8 @@
   justify-items: center;
   flex-direction: column;
   background-color: #f2f2f2;
+  /* background-image: url('localhost:5000/static/imag/racheltile.jpg');
+  background-repeat: repeat; */
   overflow-y: scroll;
   justify-content: center;
   align-items: center;
@@ -920,3 +922,11 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
 }
 
 .page-link:hover:not(.active) {background-color: #ddd;}
+
+.instructions {
+  display: inline-block;
+  width: 200px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 15px;
+}

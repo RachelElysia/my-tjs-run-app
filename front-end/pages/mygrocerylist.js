@@ -10,13 +10,13 @@ import Fade from 'react-reveal/fade';
 function MyGroceriesContainer(props) {
 
   return (
-      <div className={styles['my-container']}>
+      <main className={styles['my-container']}>
         <div>
           <center>
             <PersonalizedShoppingList userRecipesData={props.userRecipesData} />
           </center>
         </div>
-      </div>
+      </main>
   );
 
 };

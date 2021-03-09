@@ -59,7 +59,7 @@ function RecipeCardContainer(props) {
   // refactor me your tag name rendering as a flex - yourself 1am 2/17
   return (
     <div className={styles['container']}>
-      <div className={styles['tag-heading']}>
+      <main className={styles['tag-heading']}>
           <h1>{tagicon} { tagNameResult.data }</h1>
           <p>Viewing recipes tagged with {tagNameResult.data}. </p>
         <Pagination
@@ -67,11 +67,11 @@ function RecipeCardContainer(props) {
           totalRecipes={props.recipeData24.length}
           paginate={paginate}
         />
-      </div>
+      </main>
         <Fade bottom>
-          <div className={styles['flex-container-myrecipes']}>
+          <section className={styles['flex-container-myrecipes']}>
             <RecipeCards recipeData24={currentRecipes} />
-          </div>
+          </section>
         </Fade>
     </div>
     

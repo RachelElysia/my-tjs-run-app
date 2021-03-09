@@ -6,11 +6,25 @@ import React, { useState, useEffect } from 'react';
 import {useRouter} from 'next/router'
 import Link from 'next/link'
 
+import dynamic from "next/dynamic";
+const Container = dynamic(() => import("react-bootstrap/Container"), {
+  ssr: false,
+});
+const Row = dynamic(() => import("react-bootstrap/Row"), {
+  ssr: false,
+});
+const Col = dynamic(() => import("react-bootstrap/Col"), {
+  ssr: false,
+});
+
 // needed for client side data fetching, see next.js docs
 import useSWR from 'swr'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingBasket, faBook, faMapMarkedAlt, faSms, faSearch } from '@fortawesome/free-solid-svg-icons'
+const Collapse = dynamic(() => import("react-bootstrap/Collapse"), {
+  ssr: false,
+});
 const basketicon = <FontAwesomeIcon icon={faShoppingBasket} />
 const bookicon = <FontAwesomeIcon icon={faBook} />
 const smsicon = <FontAwesomeIcon icon={faSms} />
@@ -59,48 +73,40 @@ function IndexContainerYay(props) {
   return (
     <>
       <Fade>
-        <div className={styles['flex-container']}>
+        <main className={styles['flex-container']}>
           {recipeCards}
-        </div>
+        </main>
       </Fade>
       <Fade bottom>
 
-        <div className={styles['instructions-container']}>
-
-        <div className={[styles['instructions-row']]}>
-          <div className={[styles['instructions']]}></div>
-          <div className={[styles['instructions']]}>
+        <Container className={styles['instructions-container']}>
+        <Row className={[styles['instructions-row']]}>
+          <Col className={[styles['instructions']]}>
             <h3>{bookicon} Choose Your Favorite Recipes</h3>
             <p>Browse through over 400 recipes. Favorite recipes
               for easy access under My Recipes.
             </p>
-          </div>
-        </div>
-
-          <div className={[styles['instructions-row']]}>
-            <div className={[styles['instructions']]}></div>
-            <div>
+          </Col>
+          <Col className={[styles['instructions']]}>
               <h3>{basketicon} Generate Your Grocery List</h3>
               <p>Choose from your favorite recipes to view a simple grocery list.
                 See your grocery list and detailed ingredient information side-by-side.
               </p>
-            </div>
-          </div>
-          
-          <div className={[styles['instructions-row']]}>
-            <div className={[styles['instructions']]}></div>
-            <div>
+          </Col>
+            <Col className={[styles['instructions']]}>
               <h3>{smsicon} Receive Your List as a Text Message</h3>
               <p>Text your grocery list straight to your phone for easy shopping.</p>
-            </div>
-          </div>
-            <div className={styles['get-started-container']}>
+          </Col>
+          </Row>
+          <Row>
+            <Col className={styles['get-started-container']}>
               <button id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); router.push(`${user === null ? '/login' : 'recipes'}`); }}>
                 Get Started
               </button>
               <h1>Cool Beans</h1>
-            </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
       </Fade>
 
     </>

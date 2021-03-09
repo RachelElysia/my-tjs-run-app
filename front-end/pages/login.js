@@ -41,7 +41,7 @@ function SignUp() {
   }
 
   return (
-    <div id={styles['create-account']}>
+    <section id={styles['create-account']}>
   <h2>Create an Account</h2>
   <h3>Start favoriting recipes and populate your grocery list!</h3>
   <form onSubmit={handleSubmit}>
@@ -49,11 +49,11 @@ function SignUp() {
       <tr>
         <td>
       <label htmlFor="fname">First Name:</label> <br />
-      <input type="text" name="fname" id="fname" placeholder="Joe" required autoFocus/>
+      <input type="text" name="fname" id="fname" placeholder="Joe" required minlength="2" maxlength="40" autoFocus/>
     </td>
     <td>
       <label htmlFor="lname">Last Name:</label> <br />
-      <input type="text" name="lname" id="lname" placeholder="Coulombe" required/>
+      <input type="text" name="lname" id="lname" placeholder="Coulombe" minlength="2" maxlength="40"required/>
     </td>
     </tr>
     <tr>
@@ -64,7 +64,7 @@ function SignUp() {
     </td>
     <td>
     <label htmlFor="fname">Password:</label><br />
-      <input type="password" name="password" id="password" placeholder="Password"/>
+      <input type="password" name="password" id="password" placeholder="Password" required/>
     </td>
     </tr>
     <tr>
@@ -75,7 +75,7 @@ function SignUp() {
     </tbody>
     </table>
   </form>
-  </div>
+  </section>
   );
 }
 
@@ -114,7 +114,7 @@ function SignIn() {
   }
 
   return (
-    <div id={styles['log-in']}>
+    <section id={styles['log-in']}>
       <h2>Log In</h2>
       <h3>See your recipes and grocery list!</h3>
       <form onSubmit={handleSubmitSignIn}>
@@ -131,7 +131,7 @@ function SignIn() {
           <input type="submit" className={styles['submit-button']}/>
         </p>
       </form>
-    </div>
+    </section>
   );
 }
 
