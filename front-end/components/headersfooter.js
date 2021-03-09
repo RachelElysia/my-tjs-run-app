@@ -18,6 +18,9 @@ const NavItem = dynamic(() => import("react-bootstrap/NavItem"), {ssr: false,});
 const Form = dynamic(() => import("react-bootstrap/Form"), {ssr: false,});
 const FormControl = dynamic(() => import("react-bootstrap/FormControl"), {ssr: false,});
 const Button = dynamic(() => import("react-bootstrap/Button"), {ssr: false,});
+const Container = dynamic(() => import("react-bootstrap/Container"), {ssr: false,});
+const Row = dynamic(() => import("react-bootstrap/Row"), {ssr: false,});
+const Col = dynamic(() => import("react-bootstrap/Col"), {ssr: false,});
 
 import styles from '../styles/Home.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -53,9 +56,9 @@ function NavBar() {
   const handleLogInOrOut = (user === null) ? handleLogIn : handleLogOut;
 
   const logInOrOut = (
-    <button className={styles['right']} id={styles['get-started-button']} type="button" onClick={handleLogInOrOut}>
+    <Button className="btn-sm" type="button" onClick={handleLogInOrOut}>
     {logInOutButton}
-    </button>
+    </Button>
   )
 
   const router = useRouter()
@@ -81,7 +84,7 @@ function NavBar() {
         <meta property="og:title" content="My page title" key="title" />
       </Head>
       </div>
-  <Navbar bg="light" variant="light" expand="md" id="top-nav" className="fixed-top">
+  <Navbar bg="white" variant="white" expand="md" id="top-nav" className="fixed-top">
   <NavbarBrand href="/">
       <img
         alt=""
@@ -110,11 +113,11 @@ function NavBar() {
               placeholder="Search"
               name="search_string"
               autoComplete="off"
-              required className="mr-sm-2" />
-      <Button variant="outline-success" type="submit">{searchicon}</Button>
+              required />
+              <Button className="btn-sm" type="submit">{searchicon}</Button>
     </Form>
     <Button
-            className={styles['right']}
+            className="btn-sm" 
             type="button"
             title="Find a Trader Joe's"
             onClick={(e) => { e.preventDefault(); router.push('/storelocator');
@@ -227,11 +230,19 @@ function Footer() {
     <>
     <Modal showModal={showModal} setShowModal={setShowModal}></Modal>
     <footer>
-      <ul>
-        <li key="me">A Project by <button onClick={(e) => { e.preventDefault(); router.push('http://www.rachelelysia.com');}}>Rachel Elysia Perkins</button></li>
-        <li key="resources"><button onClick={(e) => { e.preventDefault(); router.push('/resources'); }}>Resources</button></li>
-        <li key="venmo"><button onClick={openModal}>Buy me {randomIngredient}</button></li>
-      </ul>
+      <Container>
+        <Row className="w-100 justify-content-md-center">
+          <Col className="col-12 col-md-4">
+        A Project by <button onClick={(e) => { e.preventDefault(); router.push('http://www.rachelelysia.com');}}>Rachel Elysia Perkins</button>
+        </Col>
+        <Col className="col-12 col-md-4">
+        <button onClick={(e) => { e.preventDefault(); router.push('/resources'); }}>Resources</button>
+        </Col>
+        <Col className="col-12 col-md-4">
+        <button onClick={openModal}>Buy me {randomIngredient}</button>
+        </Col>
+        </Row>
+        </Container>
     </footer>
     </>
   );

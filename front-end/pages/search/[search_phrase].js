@@ -6,6 +6,13 @@ import {RecipeCard} from '../../components/roundedtiles'
 import Pagination from '../../components/pagination'
 import Fade from 'react-reveal/fade'
 
+
+import dynamic from "next/dynamic";
+const Container = dynamic(() => import("react-bootstrap/Container"), {ssr: false,});
+const Row = dynamic(() => import("react-bootstrap/Row"), {ssr: false,});
+const Col = dynamic(() => import("react-bootstrap/Col"), {ssr: false,});
+
+
 // needed for client side data fetching, see next.js docs
 import useSWR from 'swr'
 
@@ -69,10 +76,13 @@ function RecipeCardContainer(props) {
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
   const currentRecipes = props.recipeData24.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
+  const numOfRecipes = props.recipeData24.length;
+
   const paginate = (number) => setCurrentPage(number);
 
   if (searchNameResult.data < 1) {
     return (
+      
       <div className={styles['wide-container']}>
       <div className={styles['tag-heading']}>
         <h1>{searchicon} { toTitleCase(search_phrase) }</h1>
@@ -85,22 +95,36 @@ function RecipeCardContainer(props) {
   else {
   // refactor me your tag name rendering as a flex - yourself 1am 2/17
   return (
-    <div className={styles['container']}>
-    <div className={styles['tag-heading']}>
-      <h1>{searchicon} { toTitleCase(search_phrase) }</h1>
-      <p>Viewing recipes searched with "{ search_phrase }" </p>
+    <>
+    <main>
+    <Fade>
+      <Container className="pt-5 mt-5 pb-2 translate-middle d-flex justify-content-center">
+        <Row className="translate-middle">
+          <Col className="col-12 translate-middle" align="center">
+        <h1>{searchicon} { toTitleCase(search_phrase) }</h1>
+          </Col>
+        <Col className="col-12 translate-middle" align="center">
+      <p>Viewing {numOfRecipes} recipes searched with "{ search_phrase }" </p>
+        </Col>
+      <Col className="col-12 translate-middle" align="center">
       <Pagination
           recipesPerPage={recipesPerPage}
           totalRecipes={props.recipeData24.length}
           paginate={paginate}
       />
-    </div>
+      </Col>
+        </Row>
+      </Container>
+    </Fade>
+  </main>
+    <div className={styles['rachel-tile']}>
     <Fade bottom>
       <div className={styles['flex-container-myrecipes']}>
         <RecipeCards recipeData24={currentRecipes} />
       </div>
     </Fade>
     </div>
+    </>
   );
   }  
 

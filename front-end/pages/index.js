@@ -16,10 +16,7 @@ const Button = dynamic(() => import("react-bootstrap/Button"), {ssr: false,});
 import useSWR from 'swr'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingBasket, faBook, faMapMarkedAlt, faSms, faSearch } from '@fortawesome/free-solid-svg-icons'
-const Collapse = dynamic(() => import("react-bootstrap/Collapse"), {
-  ssr: false,
-});
+import { faShoppingBasket, faBook, faSms } from '@fortawesome/free-solid-svg-icons'
 const basketicon = <FontAwesomeIcon icon={faShoppingBasket} />
 const bookicon = <FontAwesomeIcon icon={faBook} />
 const smsicon = <FontAwesomeIcon icon={faSms} />
@@ -42,8 +39,7 @@ function RecipeTile(props) {
   );
 }
 
-//this is the container that will rendor
-//notice the syntax is we input recipe info
+//this is the container that will render
 function IndexContainerYay(props) {
 
   const recipeCards = props.recipeData48.map(recipe => (
@@ -71,42 +67,45 @@ function IndexContainerYay(props) {
     <>
     <main>
       <Fade>
-        <Container className="pt-5 mt-5 translate-middle">
+        <Container className="pt-5 mt-5 pb-5 translate-middle">
           <Row>
           {recipeCards}
           </Row>
         </Container>
       </Fade>
     </main>
-    <Fade bottom>
-        <Container className="mt-4 mb-4 pb-4 pt-4">
-        <Row>
-          <Col className="col-12 col-md-4">
+    <div className={styles['rachel-tile']}>
+      <Container className="mt-4 mb-4 pb-4 pt-4">
+        <Fade bottom>
+        <Row className="w-100">
+          <Col className="col-12 col-md-4 p-3 bg-light" align="center">
             <h3>{bookicon} Choose Your Favorite Recipes</h3>
             <p>Browse through over 400 recipes. Favorite recipes
               for easy access under My Recipes.
             </p>
           </Col>
-          <Col className="col-12 col-md-4">
+          <Col className="col-12 col-md-4 p-3 bg-white" align="center">
               <h3>{basketicon} Generate Your Grocery List</h3>
               <p>Choose from your favorite recipes to view a simple grocery list.
                 See your grocery list and detailed ingredient information side-by-side.
               </p>
           </Col>
-            <Col className="col-12 col-md-4">
+            <Col className="col-12 col-md-4 p-3 bg-light" align="center">
               <h3>{smsicon} Receive Your List as a Text Message</h3>
               <p>Text your grocery list straight to your phone for easy shopping.</p>
           </Col>
           </Row>
-          <Row>
-            <Col className="col-12 pb-5 translate-middle">
+          <Row className="w-100 h-25 mb-3 mt-5" align="center">
+            <Col className="col-12 pb-5" align="center">
               <Button id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); router.push(`${user === null ? '/login' : 'recipes'}`); }}>
                 Get Started
               </Button>
             </Col>
           </Row>
+        </Fade>
         </Container>
-      </Fade>
+    </div>
+
 
     </>
   );

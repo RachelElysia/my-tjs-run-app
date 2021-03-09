@@ -86,7 +86,7 @@
   padding: 1.5em;
 }
 
-.search-form {
+/* .search-form {
   display: inline;
 }
 
@@ -102,7 +102,7 @@
 
 .nav-right .search-button:hover {
   border-radius: 0 10px 10px 0px;
-}
+} */
 /* END NAV BAR */
 
 
@@ -111,13 +111,13 @@
 
 #tjbar {
   position: fixed;
-  top: 3.45rem;    /* NavBar TJNavBar height */
+  top: 3.72rem;    /* NavBar TJNavBar height */
   border-top: 1px solid darkgrey;
   border-bottom: 1px solid darkgrey;
   height: 2.5rem;
   width: 100%;
   padding: 0.3em;
-  background: #fff;
+  background: #f2f2f2;
   text-align: center;
   z-index: 999;
   overflow: hidden;
@@ -192,7 +192,8 @@
 
 /* END TJBAR */
 
-#tag-heading {
+/* SEARCH */
+#heading {
   position: absolute;
   left: auto;
   top: 0px;
@@ -303,6 +304,8 @@
 
 }
 
+/* SEARCH PAGE */
+
 .flex-container-myrecipes {
   /* We first create a flex layout context */
   display: flex;
@@ -310,7 +313,7 @@
   align-items: center;
   justify-items: center;
   flex-direction: column;
-  background-color: #f2f2f2;
+  background-color: #fff;
   /* background-image: url('localhost:5000/static/imag/racheltile.jpg');
   background-repeat: repeat; */
   overflow-y: scroll;
@@ -318,6 +321,9 @@
   align-items: center;
   justify-items: center;
   margin: 0 auto;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  padding: 3rem;
     /* Then we define the flow direction 
      and if we allow the items to wrap 
    * Remember this is the same as:
@@ -328,9 +334,9 @@
   
    /* Then we define how is distributed the remaining space */
    list-style: none;
-   padding-bottom: 5.5rem;    /* Footer height */
    overflow-y: scroll;
-   max-width: 100rem;
+   width: 80rem;
+   max-width: 80%;
 
 }
 
@@ -903,15 +909,6 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
   font-size: 0.889rem;
 }
 
-/* .instructions-container {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-} */
-
-
 .component{
   width: 250px;
   margin:0 auto;
@@ -925,3 +922,12 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
 
 .page-link:hover:not(.active) {background-color: #ddd;}
 
+.rachel-tile {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  align-content: center;
+  background-image: url(http://localhost:5000/static/img/racheltile.jpg);
+  background-repeat: repeat;
+  background-size: 10%;
+  background-attachment: fixed;
+}

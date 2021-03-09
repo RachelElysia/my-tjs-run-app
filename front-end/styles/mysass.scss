@@ -1,3 +1,7 @@
+//this is to override bootstrap
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
 //mixins
 @mixin transition-mix ($property: all, $duration: 0.2s, $timing: linear, $delay: 0s) {
     transition-property: $property;

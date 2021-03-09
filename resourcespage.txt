@@ -38,6 +38,8 @@ CSS & Styling|The pain of Centering|So many Divs and Content|https://www.freecod
 CSS & Styling|The pain of Centering|So many Divs and Content| https://www.w3.org/Style/Examples/007/center.en.html
 CSS & Styling|CSS Semantics|Naming className and id|https://css-tricks.com/semantic-class-names/
 CSS & Styling|Display Button Inline with Form|Search Feature|https://stackoverflow.com/questions/9117209/no-line-break-between-button-and-form
+CSS & Styling|React-Bootstrap Mods|Goodbye default everything!|https://www.youtube.com/watch?v=6Ovw43Dkp44
+CSS & Styling|React-Bootstrap NavBar|Responsibe Nav Bar|https://react-bootstrap.netlify.app/components/navbar/
 Python Back-End|Render Method|Render Random Recipes|https://www.w3schools.com/python/ref_random_choices.asp
 Python Back-End|Flask Password Hashing|Werkzeug Password Hashing| https://www.youtube.com/watch?v=jJ4awOToB6k
 Python Back-End|SQLAlchemy|Python Toolkit to Work with my Data|https://www.sqlalchemy.org/
