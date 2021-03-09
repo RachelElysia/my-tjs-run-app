@@ -56,7 +56,7 @@ function NavBar() {
   const handleLogInOrOut = (user === null) ? handleLogIn : handleLogOut;
 
   const logInOrOut = (
-    <Button className="btn-sm" type="button" onClick={handleLogInOrOut}>
+    <Button className="btn" type="button" onClick={handleLogInOrOut}>
     {logInOutButton}
     </Button>
   )
@@ -114,18 +114,22 @@ function NavBar() {
               name="search_string"
               autoComplete="off"
               required />
-              <Button className="btn-sm" type="submit">{searchicon}</Button>
+              <Button className="btn" type="submit">{searchicon}</Button>
     </Form>
     <Button
-            className="btn-sm" 
+            className="btn" 
             type="button"
             title="Find a Trader Joe's"
             onClick={(e) => { e.preventDefault(); router.push('/storelocator');
           }}>
             { searchlocationicon }
           </Button>
+          <div className="span-2 mx-1">
           { welcome }
+          </div>
+          <div className="span-1">
           { logInOrOut }
+          </div>
   </NavbarCollapse>
 </Navbar>
   </>
@@ -231,7 +235,7 @@ function Footer() {
     <Modal showModal={showModal} setShowModal={setShowModal}></Modal>
     <footer>
       <Container>
-        <Row className="w-100 justify-content-md-center">
+        <Row className=" justify-content-md-center">
           <Col className="col-12 col-md-4">
         A Project by <button onClick={(e) => { e.preventDefault(); router.push('http://www.rachelelysia.com');}}>Rachel Elysia Perkins</button>
         </Col>

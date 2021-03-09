@@ -316,6 +316,17 @@ def recipes_data_hungry():
 
   return jsonify(serialized_recipe_data)
 
+@app.route('/api/popular')
+def popular_recipes():
+  """Show default of 12 most popular recipes in descending order.
+
+  You can change get_random_recipes parameter to another value."""
+
+  recipe_data = crud.get_popular_recipes()
+  serialized_recipe_data = [i.serialize for i in recipe_data]
+
+  return jsonify(serialized_recipe_data)
+
 ########### THIS IS REPLACED WITH REACT ONSUBMIT #############
 @app.route('/api/users', methods=['POST'])
 def register_user():

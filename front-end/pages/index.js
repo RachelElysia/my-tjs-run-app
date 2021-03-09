@@ -1,26 +1,30 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import {NavBar, TJNavBar, Footer} from '../components/headersfooter'
-import Fade from 'react-reveal/fade';
+import Head from 'next/head';
+// React-y Things
 import React, { useState, useEffect } from 'react';
-import {useRouter} from 'next/router'
-import Link from 'next/link'
-
+import {useRouter} from 'next/router';
+import Link from 'next/link';
+// External Components
+import {NavBar, TJNavBar, Footer} from '../components/headersfooter';
+import {RecipeCard} from '../components/roundedtiles';
+// Bootstrap 
 import dynamic from "next/dynamic";
 const Container = dynamic(() => import("react-bootstrap/Container"), {ssr: false,});
 const Row = dynamic(() => import("react-bootstrap/Row"), {ssr: false,});
 const Col = dynamic(() => import("react-bootstrap/Col"), {ssr: false,});
 const Button = dynamic(() => import("react-bootstrap/Button"), {ssr: false,});
-
-// needed for client side data fetching, see next.js docs
-import useSWR from 'swr'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingBasket, faBook, faSms } from '@fortawesome/free-solid-svg-icons'
+// Client Side Data Fetching with Next.js
+import useSWR from 'swr';
+// Styling and Icons
+import styles from '../styles/Home.module.css';
+import Fade from 'react-reveal/fade';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingBasket, faBook, faSms } from '@fortawesome/free-solid-svg-icons';
 const basketicon = <FontAwesomeIcon icon={faShoppingBasket} />
 const bookicon = <FontAwesomeIcon icon={faBook} />
 const smsicon = <FontAwesomeIcon icon={faSms} />
 
+
+// For TileHomepage Component
 function RecipeTile(props) {
 
   return (
@@ -39,8 +43,8 @@ function RecipeTile(props) {
   );
 }
 
-//this is the container that will render
-function IndexContainerYay(props) {
+// TileHomepage Component
+function TileHomepage(props) {
 
   const recipeCards = props.recipeData48.map(recipe => (
     <RecipeTile
@@ -74,7 +78,16 @@ function IndexContainerYay(props) {
         </Container>
       </Fade>
     </main>
-    <div className={styles['rachel-tile']}>
+    </>
+  );
+};
+
+// Instructions Component
+function Instructions() {
+
+  return (
+
+    <section className={styles['rachel-tile']}>
       <Container className="mt-4 mb-4 pb-4 pt-4">
         <Fade bottom>
         <Row className="w-100">
@@ -104,14 +117,48 @@ function IndexContainerYay(props) {
           </Row>
         </Fade>
         </Container>
-    </div>
+    </section>
+  )
+}
 
+// For PopularRecipes Component
+function RecipeCards(props) {
+  return props.recipeData24.map(recipe => (
+    <RecipeCard
+    title={recipe.title}
+    directions={recipe.directions}
+    img={recipe.img}
+    recipe_id={recipe.recipe_id}
+    />
+  ));
+}
 
-    </>
+// PopularRecipes Component
+function PopularRecipes() {
+
+  const fetchPopularRecipes = url => fetch(url).then(r => r.json())
+  
+  // result = useSWR object that has keys {data, error} built in
+  const mostPopularResult = useSWR('/api/popular', fetchPopularRecipes)
+
+  if (mostPopularResult.error) return <div>failed to load</div>
+  if (!mostPopularResult.data) return <div>loading...</div>
+
+  return (
+    <section className={styles['wide-container']}>
+          <h1>Most Popular Recipes</h1>
+        <Fade bottom>
+          <section className={styles['flex-container-myrecipes']}>
+            <RecipeCards recipeData24={mostPopularResult.data} />
+          </section>
+        </Fade>
+    </section>
+    
   );
 };
 
-//THIS IS TELLING ME THAT Home IS THE INDEX / ROUTE
+
+// Home WILL RENDER AT INDEX
 export default function Home() {
 
   const fetch24Recipes = url => fetch(url).then(r => r.json());
@@ -131,7 +178,9 @@ export default function Home() {
     <div id="page-container">
       <NavBar />
       <TJNavBar />
-      {overrideElement ? overrideElement : <IndexContainerYay recipeData48={data} />}
+      {overrideElement ? overrideElement : <TileHomepage recipeData48={data} />}
+      <Instructions />
+      <PopularRecipes />
       <Footer />
     </div>
   )

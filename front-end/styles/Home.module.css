@@ -52,7 +52,7 @@
   text-decoration: none;
   display: inline-block;
   font-size: 1rem;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .nav-right button:hover, .submit-button:hover {
@@ -63,7 +63,7 @@
   text-decoration: none;
   display: inline-block;
   font-size: 1rem;
-  border-radius: 10px;
+  border-radius: 5px;
  }
 
 .nav-right button:focus {
@@ -86,23 +86,6 @@
   padding: 1.5em;
 }
 
-/* .search-form {
-  display: inline;
-}
-
-.nav-right input {
-  border-radius: 10px 0 0 10px;
-  border-color:#D21242;
-}
-
-.nav-right .search-button {
-  border-radius: 0 10px 10px 0px;
-  margin-left: 0px;
-}
-
-.nav-right .search-button:hover {
-  border-radius: 0 10px 10px 0px;
-} */
 /* END NAV BAR */
 
 
@@ -111,7 +94,7 @@
 
 #tjbar {
   position: fixed;
-  top: 3.72rem;    /* NavBar TJNavBar height */
+  top: 3.6rem;    /* NavBar TJNavBar height */
   border-top: 1px solid darkgrey;
   border-bottom: 1px solid darkgrey;
   height: 2.5rem;
@@ -201,7 +184,7 @@
 
 /* RECIPE ON TJ'S RECIPES PAGES */
 #tile-recipe-flex {
-  border-radius: 20px;
+  border-radius: 10px;
   /* border: 2px solid black; */
   background-color: #FFF;
   width: 15em;
@@ -241,6 +224,7 @@
     position: relative;
     left: -3px;
     top: 0px;
+    margin-bottom: 1.5rem;
 }
 #tile-recipe-img:hover {
   opacity: 0.5;
@@ -248,7 +232,6 @@
 
 /* This is used on My Recipes and my grocery list */
 .my-container {
-  /* display: inline-block; */
   top: 10rem;    /* NavBar TJNavBar height */
   margin-bottom: 2.5rem;    /* Footer height */
   margin-left: 250px;
@@ -257,7 +240,6 @@
   align-items: center;
   justify-items: center;
   background-color: #f2f2f2;
-  text-align: center;
 }
 
 .wide-container {
@@ -274,15 +256,12 @@
   text-align: center;
 }
 
+/* USED ON MY RECIPES PAGE 3/9 */
 .flex-container-myrecipespage {
   /* We first create a flex layout context */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  justify-items: center;
   flex-direction: column;
   background-color: #f2f2f2;
-  overflow-y: scroll;
   justify-content: center;
   align-items: center;
   justify-items: center;
@@ -301,10 +280,11 @@
    padding-bottom: 5.5rem;    /* Footer height */
    overflow-y: scroll;
    max-width: 200rem;
+   scroll-margin-top: 500px;
 
 }
 
-/* SEARCH PAGE */
+/* SEARCH PAGE, TJS RECIPES */
 
 .flex-container-myrecipes {
   /* We first create a flex layout context */
@@ -411,12 +391,12 @@
 
 .card-recipe-title {
   line-height: 1.7;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .card-recipe-title a {
   line-height: 1.5;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 10px;
 }
 
@@ -475,67 +455,16 @@
 
 /* END MAIN PAGE TILES */
 
-/* 
-title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-title a:hover,
-title a:focus,
-title a:active {
-  text-decoration: underline;
-}
-
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-}
-
-title,
-.description {
-  text-align: center;
-} */
-/* 
-.description {
-  line-height: 1.5;
-  font-size: 1.5rem;
-}
-
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
-  margin-top: 3rem;
-  overflow-y: scroll;
-} */
-
-
-
 /* MY RECIPES FLEX BOX */
 
 .my-recipe-flex {
-  border-radius: 10px;
-  /* border: 2px solid black; */
+  border-radius: 5px;
   width: 100%;
   background-color: #fff;
   min-height:16em;
   max-height:52em; 
   min-width: 15em;
   max-width: 45em;
-  /* padding: 1em; */
   vertical-align: top;
   line-height: 120%;
   text-align: left;
@@ -550,11 +479,11 @@ title,
 .my-recipe-flex span {
   background-color: #fff;
   padding: 4px 10px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .my-ingredient-flex {
-  border-radius: 10px;
+  border-radius: 5px;
   /* border: 2px solid black; */
   width: 100%;
   background-color: #fff;
@@ -665,8 +594,6 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
 
 /*  END USED ON SINGLE RECIPE PAGE */
 
-
-
 /* FOR DIV BOX THAT SCROLLS */
 .scrollable {
   width: 95%;
@@ -674,9 +601,8 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
   position:relative;
   max-height: 13em;
   background-color: #FFF;
-  border-radius: 10px;
+  border-radius: 5px;
 }
-
 
 
 /* Clear floats after the columns */
@@ -713,7 +639,7 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
 
 #log-in, #create-account {
   content: "";
-  border-radius: 15px;
+  border-radius: 5px;
   background-color: #fff;
   box-shadow:0 0 5px grey;
   height: 25em;
@@ -735,7 +661,6 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
 #create-account {
   width: 32em;
 }
-
 
 /* END LOG IN PAGE */
 
@@ -767,7 +692,6 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
 .display-none {
   display: none;
 }
-
 
 /* FAVORITE BUTTON DOESNT WORK STYLING*/
 .favorite-button {
@@ -841,12 +765,12 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
   bottom: 50px;
   left: auto;
   z-index: 999999;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .modal-img {
   width: 90%;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -870,7 +794,7 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
 }
 
 .resources-box {
-  border-radius: 10px;
+  border-radius: 5px;
   /* border: 2px solid black; */
   width: 100%;
   background-color: #fff;

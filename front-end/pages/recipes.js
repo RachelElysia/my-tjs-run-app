@@ -4,6 +4,11 @@ import {NavBar, TJNavBar, Footer} from '../components/headersfooter'
 import {RecipeCard} from '../components/roundedtiles'
 import Fade from 'react-reveal/fade';
 
+import dynamic from "next/dynamic";
+const Container = dynamic(() => import("react-bootstrap/Container"), {ssr: false,});
+const Row = dynamic(() => import("react-bootstrap/Row"), {ssr: false,});
+const Col = dynamic(() => import("react-bootstrap/Col"), {ssr: false,});
+
 // needed for client side data fetching, see next.js docs
 import useSWR from 'swr'
 
@@ -19,17 +24,29 @@ function RecipeCardContainer(props) {
   ));
 
   return (
-    <div className={styles['container']}>
-    <div className={styles['tag-heading']}>
-        <h1>Trader Joe's Recipes</h1>
-        <p>Viewing recipes for Trader Joe's. </p>
-      </div>
-    <Fade bottom>
-    <div className={styles['flex-container-myrecipes']}>
-      {recipeCards}
-    </div>
-    </Fade>
-    </div>
+<>
+<main>
+<Fade>
+  <Container className="pt-5 mt-5 pb-2 translate-middle d-flex justify-content-center">
+    <Row className="translate-middle">
+      <Col className="col-12 translate-middle" align="center">
+    <h1>Trader Joe's Recipes</h1>
+      </Col>
+    <Col className="col-12 translate-middle" align="center">
+  <p>Viewing recipes for Trader Joe's. </p>
+    </Col>
+    </Row>
+  </Container>
+</Fade>
+</main>
+<div className={styles['rachel-tile']}>
+<Fade bottom>
+  <div className={styles['flex-container-myrecipes']}>
+  {recipeCards}
+  </div>
+</Fade>
+</div>
+</>
   );
 };
 

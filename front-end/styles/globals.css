@@ -26,7 +26,6 @@ body {
 
 button {
   background-color: #fff;
-  border: none;
   font-family: 'PT Sans', opensans;
   color: #D21242;
   padding: 5px 10px;
@@ -43,7 +42,7 @@ button {
 
 button:hover {
   background-color: #eaeaea;
-  border: none;
+  border-width: 1px;
   color: #D21242;
   text-align: center;
   text-decoration: none;
@@ -150,29 +149,11 @@ footer {
   z-index: 999;
 } 
 
-footer a {
-  color: #D21242;
-  background-color: #fff;
-  text-align: center;
-  text-decoration: none;
-  font-family: 'PT Sans', opensans;
-  padding: 0.5em;
-}
-
-footer a:hover {
-  background: #eaeaea;
-  color: #D21242;
-  font-family: 'PT Sans', opensans;
-  padding: 0.6em;
-} 
-
-
 /* TABLE STUFF */
 
 td, tr {
-  padding: 5px
+  padding: 5px;
 }
-
 
 input[type=text], input[type=tel], input[type=password] {
   width: 100%;

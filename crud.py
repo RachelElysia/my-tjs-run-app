@@ -7,6 +7,7 @@ recipe 2 id: 08OniGKxjkMtCTb7tX7d
 
 from model import db, User, Recipe, Tag, Ingredient, RecipeTag, UserRecipe, connect_to_db
 from random import sample
+from sqlalchemy import func, desc #need for count - popular recipes
 
 # CREATE USER, TAG, RECIPE, INGREDIENT
 
@@ -241,6 +242,16 @@ def get_favorite_boolean(user_id, recipe_id):
 
     return query is not None
 
+def get_popular_recipes(limit=12):
+    """Returns the most popular recipes in descending order."""
+    most_popular = db.session.query(UserRecipe.recipe_id, func.count(UserRecipe.recipe_id).label('qty')).group_by(UserRecipe.recipe_id).order_by(desc('qty')).limit(limit)
+
+    most_popular_recipes = []
+    for recipe in most_popular:
+        recipe_info = Recipe.query.filter(Recipe.recipe_id == recipe.recipe_id).one()
+        most_popular_recipes.append(recipe_info)
+    
+    return most_popular_recipes
 
 def get_tag_names_by_recipe_id(recipe_id):
     """Return multiple tags.

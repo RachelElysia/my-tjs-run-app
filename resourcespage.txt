@@ -17,6 +17,7 @@ React|LocalStorage|Store User Logged In|https://programmingwithmosh.com/react/lo
 React|LocalStorage|Store User Logged In|https://www.freecodecamp.org/news/how-to-persist-a-logged-in-user-in-react/
 React|Next.js Links|Client-side rendering links|https://nextjs.org/docs/api-reference/next/link
 React|Hooks Cheatsheet|Review hooks|https://blog.logrocket.com/react-hooks-cheat-sheet-unlock-solutions-to-common-problems-af4caf699e70/
+General Front-End|Disable Server Side Rendering for Next JS|Bootstrap trying to render serverside|https://medium.com/frontend-digest/how-to-disable-ssr-for-a-nextjs-page-d6b19aa350e3
 General Front-End|Google Maps API Lab|Find TJ's Near You|https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#0
 General Front-End|Inline Frame|Maps HTML into iFrame|https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
 General Front-End|Form Data|Search and Create/Log In User|https://developer.mozilla.org/en-US/docs/Web/API/Event/target
@@ -54,6 +55,7 @@ Python Back-End|SQLAlchemy Queries|Check if data exists|https://docs.sqlalchemy.
 Python Back-End|SQLAlchemy Search|Search Feature|https://www.youtube.com/watch?v=HXKDyZ_W6rI
 Python Back-End|Accessing Environment Variables|Keeping IDs Hidden|https://www.nylas.com/blog/making-use-of-environment-variables-in-python/#how-to-get
 Python Back-End|Post Request Data Not in Form|Pass Variables from Component not from Form|https://stackoverflow.com/questions/20001229/how-to-get-posted-json-in-flask
+Python-Back-End|Most Frequent Values|Popular Dishes on UserRecipe Table|https://stackoverflow.com/questions/28033656/finding-most-frequent-values-in-column-of-array-in-sql-alchemy
 General Practice/Test Code|Repl.it|Clean Space to Test Code|https://Repl.it
 Git|Ignoring Files|Brush Up On This Always|https://help.github.com/articles/ignoring-files/
 Domain Name|Buying a Domain Name|Searching until I *landed* har, on my favorite domain name|https://www.namecheap.com/

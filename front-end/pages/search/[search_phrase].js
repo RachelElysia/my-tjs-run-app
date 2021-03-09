@@ -1,30 +1,27 @@
-import Head from 'next/head'
-import styles from '../../styles/Home.module.css'
-import React, { useState } from 'react';
-import {NavBar, TJNavBar, Footer} from '../../components/headersfooter'
-import {RecipeCard} from '../../components/roundedtiles'
-import Pagination from '../../components/pagination'
-import Fade from 'react-reveal/fade'
-
-
+import Head from 'next/head';
+// React-y Things
+import React, { useState} from 'react';
+import {useRouter} from 'next/router';
+// External Components
+import {NavBar, TJNavBar, Footer} from '../../components/headersfooter';
+import {RecipeCard} from '../../components/roundedtiles';
+import Pagination from '../../components/pagination';
+// Bootstrap 
 import dynamic from "next/dynamic";
 const Container = dynamic(() => import("react-bootstrap/Container"), {ssr: false,});
 const Row = dynamic(() => import("react-bootstrap/Row"), {ssr: false,});
 const Col = dynamic(() => import("react-bootstrap/Col"), {ssr: false,});
-
-
-// needed for client side data fetching, see next.js docs
-import useSWR from 'swr'
-
-// https://nextjs.org/docs/routing/dynamic-routes
-// needed to use dynamic front-end routes
-import { useRouter } from 'next/router'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+// Client Side Data Fetching with Next.js
+import useSWR from 'swr';
+// Styling and Icons
+import styles from '../../styles/Home.module.css';
+import Fade from 'react-reveal/fade';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 const searchicon = <FontAwesomeIcon icon={faSearch} />
 
 
+// For RecipeCardContainer
 function RecipeCards(props) {
   return props.recipeData24.map(recipe => (
     <RecipeCard
@@ -36,15 +33,14 @@ function RecipeCards(props) {
   ));
 }
 
+// RecipeCard Component
 function RecipeCardContainer(props) {
 
-    //State hooks for Pagination Put near top because tagNameResult renders different hooks
-    const [recipes, setRecipes] = useState([]);
-    const [currentPage, setCurrentPage] = useState([1]);
-    const recipesPerPage = 12;
+  //State hooks for Pagination Put near top because tagNameResult renders different hooks
+  const [recipes, setRecipes] = useState([]);
+  const [currentPage, setCurrentPage] = useState([1]);
+  const recipesPerPage = 12;
 
-  // need next.js built in dynamic router
-  // https://nextjs.org/docs/routing/dynamic-routes
   const router = useRouter()
   const {search_phrase} = router.query
 
@@ -82,13 +78,12 @@ function RecipeCardContainer(props) {
 
   if (searchNameResult.data < 1) {
     return (
-      
-      <div className={styles['wide-container']}>
+      <section className={styles['wide-container']}>
       <div className={styles['tag-heading']}>
         <h1>{searchicon} { toTitleCase(search_phrase) }</h1>
         <p>Sorry, there are no results matching "{search_phrase}"</p>
       </div>
-      </div>
+      </section>
     );
   }
 
@@ -106,6 +101,13 @@ function RecipeCardContainer(props) {
         <Col className="col-12 translate-middle" align="center">
       <p>Viewing {numOfRecipes} recipes searched with "{ search_phrase }" </p>
         </Col>
+        </Row>
+      </Container>
+    </Fade>
+  </main>
+    <section className={styles['rachel-tile']}>
+    <Fade bottom>
+      <div className={styles['flex-container-myrecipes']}>
       <Col className="col-12 translate-middle" align="center">
       <Pagination
           recipesPerPage={recipesPerPage}
@@ -113,17 +115,10 @@ function RecipeCardContainer(props) {
           paginate={paginate}
       />
       </Col>
-        </Row>
-      </Container>
-    </Fade>
-  </main>
-    <div className={styles['rachel-tile']}>
-    <Fade bottom>
-      <div className={styles['flex-container-myrecipes']}>
         <RecipeCards recipeData24={currentRecipes} />
       </div>
     </Fade>
-    </div>
+    </section>
     </>
   );
   }  
@@ -131,7 +126,7 @@ function RecipeCardContainer(props) {
 };
 
 
-export default function Home(props) {
+export default function Home() {
 
   // need next.js built in dynamic router
   const router = useRouter()
