@@ -58,7 +58,7 @@ function RecipeCardContainer(props) {
 
   // refactor me your tag name rendering as a flex - yourself 1am 2/17
   return (
-    <div className={styles['container']}>
+    <div className={styles['wide-container']}>
       <main className={styles['tag-heading']}>
           <h1>{tagicon} { tagNameResult.data }</h1>
           <p>Viewing recipes tagged with {tagNameResult.data}. </p>

@@ -188,3 +188,7 @@ input:focus {
   box-shadow: none;
 }
 
+main {
+  margin-top: 5.5rem;
+  align-content: center;
+}

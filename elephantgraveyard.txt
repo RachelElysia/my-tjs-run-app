@@ -208,3 +208,41 @@ Replaced this with map metho 3/7 personalizedgrocerylist.js
     // for (const recipe of props.userRecipesData) {
     //     options.push(recipe.title);
     // }
+
+Replaced Nav Bar with bootstrap Nav Bar 3/9
+
+      {/* THIS IS WITHOUT BOOTSTRAP!!! - CHANGED 3/9/21
+      <nav id="top-nav">
+        <div className={styles['nav-left']}>
+          <Link href="/"><a><img src="http://localhost:5000/static/img/logo.png" alt="My TJ's Run Logo" height="40px" /></a></Link>
+          <button className={styles['left']} id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); router.push('/myrecipes'); }}>
+            {bookicon} My Recipes
+          </button>
+          <button className={styles['left']} id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); router.push('/mygrocerylist'); }}>
+            { basketicon } { smsicon } My Grocery List
+          </button>
+        </div>
+        <div className={styles['nav-right']}>
+          <form onSubmit={handleSearch} className={styles['search-form']}>
+            <input type="text"
+              placeholder="Search"
+              name="search_string"
+              autoComplete="off"
+              required />
+            <button className={styles['search-button']} type="submit">
+              {searchicon}
+            </button>
+          </form>
+          <button
+            className={styles['right']}
+            type="button"
+            title="Find a Trader Joe's"
+            onClick={(e) => { e.preventDefault(); router.push('/storelocator');
+          }}>
+            { searchlocationicon }
+          </button>
+          { welcome }
+          { logInOrOut }
+          
+        </div>
+    </nav> */}

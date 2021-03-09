@@ -73,7 +73,7 @@ function RecipeCardContainer(props) {
 
   if (searchNameResult.data < 1) {
     return (
-      <div className={styles['container']}>
+      <div className={styles['wide-container']}>
       <div className={styles['tag-heading']}>
         <h1>{searchicon} { toTitleCase(search_phrase) }</h1>
         <p>Sorry, there are no results matching "{search_phrase}"</p>

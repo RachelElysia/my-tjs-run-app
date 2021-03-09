@@ -7,15 +7,10 @@ import {useRouter} from 'next/router'
 import Link from 'next/link'
 
 import dynamic from "next/dynamic";
-const Container = dynamic(() => import("react-bootstrap/Container"), {
-  ssr: false,
-});
-const Row = dynamic(() => import("react-bootstrap/Row"), {
-  ssr: false,
-});
-const Col = dynamic(() => import("react-bootstrap/Col"), {
-  ssr: false,
-});
+const Container = dynamic(() => import("react-bootstrap/Container"), {ssr: false,});
+const Row = dynamic(() => import("react-bootstrap/Row"), {ssr: false,});
+const Col = dynamic(() => import("react-bootstrap/Col"), {ssr: false,});
+const Button = dynamic(() => import("react-bootstrap/Button"), {ssr: false,});
 
 // needed for client side data fetching, see next.js docs
 import useSWR from 'swr'
@@ -32,6 +27,7 @@ const smsicon = <FontAwesomeIcon icon={faSms} />
 function RecipeTile(props) {
 
   return (
+    <Col className="p-0 m-0 col-6 col-md-4 col-lg-3 col-xl-2">
       <div className={styles['main-tiles-flex']}>
         <Link href={`/recipes/${props.recipe_id}`}><a>
         <img src={props.img} className={styles['main-tile-img']} alt={props.title}/>
@@ -42,6 +38,7 @@ function RecipeTile(props) {
         </div>
         </a></Link>
       </div>
+    </Col>
   );
 }
 
@@ -72,38 +69,40 @@ function IndexContainerYay(props) {
 
   return (
     <>
+    <main>
       <Fade>
-        <main className={styles['flex-container']}>
+        <Container className="pt-5 mt-5 translate-middle">
+          <Row>
           {recipeCards}
-        </main>
+          </Row>
+        </Container>
       </Fade>
-      <Fade bottom>
-
-        <Container className={styles['instructions-container']}>
-        <Row className={[styles['instructions-row']]}>
-          <Col className={[styles['instructions']]}>
+    </main>
+    <Fade bottom>
+        <Container className="mt-4 mb-4 pb-4 pt-4">
+        <Row>
+          <Col className="col-12 col-md-4">
             <h3>{bookicon} Choose Your Favorite Recipes</h3>
             <p>Browse through over 400 recipes. Favorite recipes
               for easy access under My Recipes.
             </p>
           </Col>
-          <Col className={[styles['instructions']]}>
+          <Col className="col-12 col-md-4">
               <h3>{basketicon} Generate Your Grocery List</h3>
               <p>Choose from your favorite recipes to view a simple grocery list.
                 See your grocery list and detailed ingredient information side-by-side.
               </p>
           </Col>
-            <Col className={[styles['instructions']]}>
+            <Col className="col-12 col-md-4">
               <h3>{smsicon} Receive Your List as a Text Message</h3>
               <p>Text your grocery list straight to your phone for easy shopping.</p>
           </Col>
           </Row>
           <Row>
-            <Col className={styles['get-started-container']}>
-              <button id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); router.push(`${user === null ? '/login' : 'recipes'}`); }}>
+            <Col className="col-12 pb-5 translate-middle">
+              <Button id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); router.push(`${user === null ? '/login' : 'recipes'}`); }}>
                 Get Started
-              </button>
-              <h1>Cool Beans</h1>
+              </Button>
             </Col>
           </Row>
         </Container>

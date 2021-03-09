@@ -5,6 +5,20 @@ import React, { useState, useEffect } from 'react';
 import {useRouter} from 'next/router'
 import Link from 'next/link'
 
+import dynamic from "next/dynamic";
+const Navbar = dynamic(() => import("react-bootstrap/Navbar"), {ssr: false,});
+const Nav = dynamic(() => import("react-bootstrap/Nav"), {ssr: false,});
+const NavDropdown = dynamic(() => import("react-bootstrap/NavDropdown"), {ssr: false,});
+const NavbarBrand = dynamic(() => import("react-bootstrap/NavbarBrand"), {ssr: false,});
+const NavbarToggle = dynamic(() => import("react-bootstrap/NavbarToggle"), {ssr: false,});
+const NavbarCollapse = dynamic(() => import("react-bootstrap/NavbarCollapse"), {ssr: false,});
+const NavbarContext = dynamic(() => import("react-bootstrap/NavbarContext"), {ssr: false,});
+const NavLink = dynamic(() => import("react-bootstrap/NavLink"), {ssr: false,});
+const NavItem = dynamic(() => import("react-bootstrap/NavItem"), {ssr: false,});
+const Form = dynamic(() => import("react-bootstrap/Form"), {ssr: false,});
+const FormControl = dynamic(() => import("react-bootstrap/FormControl"), {ssr: false,});
+const Button = dynamic(() => import("react-bootstrap/Button"), {ssr: false,});
+
 import styles from '../styles/Home.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingBasket, faBook, faMapMarkedAlt, faSms, faSearch, faBars } from '@fortawesome/free-solid-svg-icons'
@@ -14,8 +28,6 @@ const searchlocationicon = <FontAwesomeIcon icon={faMapMarkedAlt} />
 const smsicon = <FontAwesomeIcon icon={faSms} />
 const searchicon = <FontAwesomeIcon icon={faSearch} />
 const navicon = <FontAwesomeIcon icon={faBars} />
-
-
 
 function NavBar() {
   
@@ -61,16 +73,6 @@ function NavBar() {
     router.push(`/search/${encodedString}`);
   }
 
-  // responsive nav bar
-  function myFunction() {
-    var x = document.getElementById("top-nav");
-    if (x.className === "nav-right") {
-      x.className += " responsive";
-    } else {
-      x.className = "nav-right";
-    }
-  }
-
   return (
     <>
       <div>
@@ -79,40 +81,50 @@ function NavBar() {
         <meta property="og:title" content="My page title" key="title" />
       </Head>
       </div>
-      <nav id="top-nav">
-        <div className={styles['nav-left']}>
-          <Link href="/"><a><img src="http://localhost:5000/static/img/logo.png" alt="My TJ's Run Logo" height="40px" /></a></Link>
-          <button className={styles['left']} id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); router.push('/myrecipes'); }}>
-            {bookicon} My Recipes
-          </button>
-          <button className={styles['left']} id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); router.push('/mygrocerylist'); }}>
-            { basketicon } { smsicon } My Grocery List
-          </button>
-        </div>
-        <div className={styles['nav-right']}>
-          <form onSubmit={handleSearch} className={styles['search-form']}>
-            <input type="text"
+  <Navbar bg="light" variant="light" expand="md" id="top-nav" className="fixed-top">
+  <NavbarBrand href="/">
+      <img
+        alt=""
+        src="http://localhost:5000/static/img/logo.png"
+
+        className="d-inline-block align-top"
+      />{' '}
+      My TJ's Run
+    </NavbarBrand>
+  <NavbarToggle aria-controls="basic-navbar-nav" />
+  <NavbarCollapse id="basic-navbar-nav">
+    <Nav className="mr-auto" >
+    <Link href="/myrecipes">
+              <NavLink as="a" href="/myrecips">
+              { bookicon }  My Recipes
+              </NavLink>
+            </Link>
+    <Link href="/mygrocerylist">
+              <NavLink as="a" href="/mygrocerylist">
+              { basketicon } { smsicon }  My Grocery List
+              </NavLink>
+            </Link>
+    </Nav>
+    <Form onSubmit={handleSearch} className={styles['search-form']} inline>
+      <FormControl type="text"
               placeholder="Search"
               name="search_string"
               autoComplete="off"
-              required />
-            <button className={styles['search-button']} type="submit">
-              {searchicon}
-            </button>
-          </form>
-          <button
+              required className="mr-sm-2" />
+      <Button variant="outline-success" type="submit">{searchicon}</Button>
+    </Form>
+    <Button
             className={styles['right']}
             type="button"
             title="Find a Trader Joe's"
             onClick={(e) => { e.preventDefault(); router.push('/storelocator');
           }}>
             { searchlocationicon }
-          </button>
+          </Button>
           { welcome }
           { logInOrOut }
-          
-        </div>
-    </nav>
+  </NavbarCollapse>
+</Navbar>
   </>
   );
 }

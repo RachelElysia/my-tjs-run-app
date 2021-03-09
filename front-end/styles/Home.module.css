@@ -7,7 +7,7 @@
 
 .main {
   min-height: 100vh;
-  top: 330px; /* height under tjbar */
+  top: 270px; /* height under tjbar */
   padding: 0;
   display: flex;
   justify-content: center;
@@ -111,7 +111,7 @@
 
 #tjbar {
   position: fixed;
-  top: 4.7rem;    /* NavBar TJNavBar height */
+  top: 3.45rem;    /* NavBar TJNavBar height */
   border-top: 1px solid darkgrey;
   border-bottom: 1px solid darkgrey;
   height: 2.5rem;
@@ -147,7 +147,7 @@
 
 #tjbar-dropdown {
   position:fixed;
-  top: 7.05rem;    /* NavBar TJNavBar height */
+  top: 5.8rem;    /* NavBar TJNavBar height */
   width: 42rem;
   left: calc(50% - 288px);
   background: #fff;
@@ -259,7 +259,7 @@
   text-align: center;
 }
 
-.container {
+.wide-container {
   /* display: inline-block; */
   top: 9rem;    /* NavBar TJNavBar height */
   margin-top: 9em;
@@ -419,8 +419,10 @@
 .main-tiles-flex {
   position: relative;
   background-color: #FFF;
-  width: 14em;
-  height: 8em;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 7em;
   display: inline-block;
   vertical-align: top;
   overflow: hidden;
@@ -901,13 +903,13 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
   font-size: 0.889rem;
 }
 
-.instructions-container {
+/* .instructions-container {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-}
+} */
 
 
 .component{
@@ -923,10 +925,3 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
 
 .page-link:hover:not(.active) {background-color: #ddd;}
 
-.instructions {
-  display: inline-block;
-  width: 200px;
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 15px;
-}

@@ -37,7 +37,7 @@ function ResourcesContainer(props) {
 
   return (
     <Fade bottom><center>
-    <div className={styles['container']}>
+    <div className={styles['wide-container']}>
       <div className={styles['resources-box']}>
         <h1>{linkicon} Resources</h1>
         <section class="component">
