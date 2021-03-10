@@ -108,7 +108,7 @@ function RecipeCardContainer(props) {
     <section className={styles['rachel-tile']}>
     <Fade bottom>
       <div className={styles['flex-container-myrecipes']}>
-      <Col className="col-12 translate-middle" align="center">
+      <Col className="col-12 translate-middle" align="right">
       <Pagination
           recipesPerPage={recipesPerPage}
           totalRecipes={props.recipeData24.length}

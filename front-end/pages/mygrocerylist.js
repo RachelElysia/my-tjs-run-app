@@ -1,5 +1,5 @@
 import {NavBar, TJNavBar, Footer} from '../components/headersfooter'
-import {SignInUp} from './login'
+import {SignInUpContainer} from './login'
 import {PersonalizedShoppingList} from '../components/personalizemygrocerylist'
 
 import React, { useState, useEffect } from 'react';
@@ -57,7 +57,7 @@ export default function Home(props) {
       <div id="page-container">
         <NavBar />
         <TJNavBar /><Fade bottom>
-        <SignInUp />
+        <SignInUpContainer />
         </Fade>
         <Footer />
       </div>

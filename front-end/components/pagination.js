@@ -9,7 +9,7 @@ const Pagination = ({ recipesPerPage, totalRecipes, paginate }) => {
   }
 
   return (
-    <section>
+    <section align="right">
       <ul className='pagination'>
         {pageNumbers.map(number => (
           <li key={number} className='page-item'>

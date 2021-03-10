@@ -164,9 +164,9 @@ onMouseLeave={() => setIsShown(false)}>
     <table id={styles['tjbar-table']}>
       <thead>
         <tr><td></td><td><center>
-       <button id={styles['get-started-button']} type="button" onClick={(e) => { e.preventDefault(); router.push(`${user === null ? '/login' : 'recipes'}`); }}>
+       <Button type="button" onClick={(e) => { e.preventDefault(); router.push(`${user === null ? '/login' : 'recipes'}`); }}>
           Get Started
-        </button>
+        </Button>
    </center></td></tr>
       </thead>
       <tbody>
@@ -235,15 +235,15 @@ function Footer() {
     <Modal showModal={showModal} setShowModal={setShowModal}></Modal>
     <footer>
       <Container>
-        <Row className=" justify-content-md-center">
-          <Col className="col-12 col-md-4">
-        A Project by <button onClick={(e) => { e.preventDefault(); router.push('http://www.rachelelysia.com');}}>Rachel Elysia Perkins</button>
+        <Row className="justify-content-left justify-content-md-center">
+          <Col className="col-12 col-md-6 col-lg-4">
+        A Project by <Link href="http://www.rachelelysia.com" target="_blank"><a>Rachel Elysia Perkins</a></Link>
         </Col>
-        <Col className="col-12 col-md-4">
-        <button onClick={(e) => { e.preventDefault(); router.push('/resources'); }}>Resources</button>
+        <Col className="col-12 col-md-5 col-lg-4">
+        <Button onClick={openModal}>Buy me {randomIngredient}</Button>
         </Col>
-        <Col className="col-12 col-md-4">
-        <button onClick={openModal}>Buy me {randomIngredient}</button>
+        <Col className="col-12 col-md-2 col-lg-2">
+        <Link href="/resources"><a>Resources</a></Link>
         </Col>
         </Row>
         </Container>

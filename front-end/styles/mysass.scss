@@ -19,7 +19,7 @@
   }
   
   //basic variables
-  $theme-font-color: #2c2c2c;
+  $theme-font-color: #13293D;
   
   //common styles
   * {
@@ -36,7 +36,12 @@
     color: $theme-font-color;
     
     a {
-      color: inherit;
+      color: #d21242;
+      text-decoration: none;
+      background-color: transparent;
+    }
+    a:hover {
+      color: #394053;
       text-decoration: none;
     }
   }
@@ -44,11 +49,11 @@
   .btn {
     @include transition-mix;
     
-    padding: 10px 20px;
+    padding: 5px 10px;
     display: inline-block;
     margin-right: 10px;
     
-    background-color: #fff;
+    background-color: #d21242;
     border: 1px solid $theme-font-color;
     border-radius: 3px;
     

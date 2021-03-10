@@ -55,18 +55,6 @@ function TileHomepage(props) {
     />
   ));
 
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-  const loggedInUser = localStorage.getItem('user');
-  if (loggedInUser) {
-    setUser(JSON.parse(loggedInUser));
-  }
-}, []);
-
-  const [isShown, setIsShown] = useState(false);
-  const router = useRouter()
-
   return (
     <>
     <main>
@@ -85,6 +73,18 @@ function TileHomepage(props) {
 // Instructions Component
 function Instructions() {
 
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+  const loggedInUser = localStorage.getItem('user');
+  if (loggedInUser) {
+    setUser(JSON.parse(loggedInUser));
+  }
+}, []);
+
+  const [isShown, setIsShown] = useState(false);
+  const router = useRouter()
+  
   return (
 
     <section className={styles['rachel-tile']}>

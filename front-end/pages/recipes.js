@@ -1,17 +1,22 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+// React-y Things
+//
+// External Components
 import {NavBar, TJNavBar, Footer} from '../components/headersfooter'
 import {RecipeCard} from '../components/roundedtiles'
-import Fade from 'react-reveal/fade';
-
+// Client Side Data Fetching with Next.js
+import useSWR from 'swr'
+// Bootstrap
 import dynamic from "next/dynamic";
 const Container = dynamic(() => import("react-bootstrap/Container"), {ssr: false,});
 const Row = dynamic(() => import("react-bootstrap/Row"), {ssr: false,});
 const Col = dynamic(() => import("react-bootstrap/Col"), {ssr: false,});
+// Styling & Icons
+import styles from '../styles/Home.module.css'
+import Fade from 'react-reveal/fade';
 
-// needed for client side data fetching, see next.js docs
-import useSWR from 'swr'
 
+// RecipeCardContainer Component
 function RecipeCardContainer(props) {
 
   const recipeCards = props.recipeData24.map(recipe => (
@@ -39,16 +44,17 @@ function RecipeCardContainer(props) {
   </Container>
 </Fade>
 </main>
-<div className={styles['rachel-tile']}>
+<section className={styles['rachel-tile']}>
 <Fade bottom>
   <div className={styles['flex-container-myrecipes']}>
   {recipeCards}
   </div>
 </Fade>
-</div>
+</section>
 </>
   );
 };
+
 
 export default function Home() {
 

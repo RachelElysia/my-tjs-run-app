@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import {NavBar, TJNavBar, Footer} from '../components/headersfooter'
-import {SignInUp} from './login'
+import {SignInUpContainer} from './login'
 import React, { useState, useEffect } from 'react';
 import Fade from 'react-reveal/fade';
 import {FavoriteButton} from '../components/favoritebutton'
@@ -199,7 +199,7 @@ export default function Home(props) {
       <div id="page-container">
       <NavBar />
       <TJNavBar /><Fade bottom>
-      <SignInUp />
+      <SignInUpContainer />
       </Fade>
       <Footer />
     </div>

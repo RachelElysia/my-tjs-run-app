@@ -1,11 +1,20 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import {NavBar, TJNavBar, Footer} from '../components/headersfooter'
-import Fade from 'react-reveal/fade'
-import {useRouter} from 'next/router'
+// React-y Things
 import React, { useState } from "react"
+import {useRouter} from 'next/router'
+// External Components
+import {NavBar, TJNavBar, Footer} from '../components/headersfooter'
+// Bootstrap 
+import dynamic from "next/dynamic";
+const Container = dynamic(() => import("react-bootstrap/Container"), {ssr: false,});
+const Row = dynamic(() => import("react-bootstrap/Row"), {ssr: false,});
+const Col = dynamic(() => import("react-bootstrap/Col"), {ssr: false,});
+// Styling and Icons
+import styles from '../styles/Home.module.css';
+import Fade from 'react-reveal/fade';
 
 
+// SignUpComponent
 function SignUp() {
 
   const router = useRouter()
@@ -41,9 +50,9 @@ function SignUp() {
   }
 
   return (
-    <section id={styles['create-account']}>
-  <h2>Create an Account</h2>
-  <h3>Start favoriting recipes and populate your grocery list!</h3>
+    <Col className="col-12 col-md-8 p-3 bg-light border-right rounded-left">
+  <h2>Create your Account</h2>
+  <h3>Love Trader Joe's? Start favoriting recipes and populate your TJ's grocery list! <i>Free forever!</i></h3>
   <form onSubmit={handleSubmit}>
     <table><tbody>
       <tr>
@@ -69,17 +78,18 @@ function SignUp() {
     </tr>
     <tr>
       <td>
-      <input type="submit" className={styles['submit-button']}/>
+      <button type="submit" className={styles['submit-button']}>Create</button>
       </td>
     </tr>
     </tbody>
     </table>
   </form>
-  </section>
+  </Col>
+
   );
 }
 
-
+// SignInComponent
 function SignIn() {
   const router = useRouter()
 
@@ -114,7 +124,7 @@ function SignIn() {
   }
 
   return (
-    <section id={styles['log-in']}>
+    <Col className="col-12 col-md-4 p-3 bg-light rounded-right">
       <h2>Log In</h2>
       <h3>See your recipes and grocery list!</h3>
       <form onSubmit={handleSubmitSignIn}>
@@ -131,18 +141,24 @@ function SignIn() {
           <input type="submit" className={styles['submit-button']}/>
         </p>
       </form>
-    </section>
+</Col>
   );
 }
 
-
-function SignInUp() {
+// Container Holding SignIn Component and SignUp Component
+function SignInUpContainer() {
 
   return (
-    <div id={styles['container-inup']}>
+
+    <section className={styles['rachel-tile']}>
+    <Container className="my-4 py-4 h-75 w-75">
+    <Row className="w-100 h-75 pt-5 rounded">
       <SignUp />
       <SignIn />
-    </div>
+      </Row>
+      </Container>
+    </section>
+
   );
 };
 
@@ -152,10 +168,10 @@ export default function Home(props) {
     <div id="page-container">
       <NavBar />
       <TJNavBar /><Fade bottom>
-      <SignInUp /></Fade>
+      <SignInUpContainer /></Fade>
       <Footer />
     </div>
   )
 }
 
-export {SignInUp}
+export {SignInUpContainer}
