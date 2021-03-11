@@ -1,16 +1,31 @@
 """Server for TJ shopping by recipe app."""
-
+# Flask app
 from flask import Flask, render_template, request, flash, session, redirect, jsonify, make_response
 from flask_debugtoolbar import DebugToolbarExtension #added by Lucia
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+
+# Database
 from model import connect_to_db
 import crud
-from jinja2 import StrictUndefined
-from werkzeug.security import generate_password_hash, check_password_hash
+
+# Keys, APIs
 import os
 from twilio.rest import Client
 
-# Adeed static_url_path 3/10
+# Other
+from jinja2 import StrictUndefined
+from werkzeug.security import generate_password_hash, check_password_hash
+
+
+# Added static_url_path 3/10 for next.js static site
 app = Flask(__name__, static_url_path='')
+
+# Limit my text message route
+limiter = Limiter(
+    app,
+    key_func=get_remote_address,
+    default_limits=["6 per week", "3 per hour"]
 
 ## added by Lucia debugging jinja ###
 app.secret_key = "12321abcba"
@@ -43,6 +58,7 @@ def text_message(fname, recipes_list):
   return text_message
 
 @app.route('/api/sms', methods=['POST'])
+@limiter.limit("1/minute", override_defaults=False)
 def send_sms():
     """Send SMS."""
 
@@ -76,13 +92,19 @@ def send_sms():
 
     return jsonify(response)
 
+@app.errorhandler(429)
+def ratelimit_handler(e):
+    return make_response(
+            jsonify(error="ratelimit exceeded %s" % e.description)
+            , 429
+    )
 
-########### THIS IS REPLACED WITH REACT ONSUBMIT #############
 @app.route('/')
 def show_homepage():
-    """Show the application's Flask/Jinja homepage on localhost:5000."""
+    """Show the application's Flask/Jinja homepage on localhost:5000.
 
-    # Changed this 3/9 to get next js index
+    - Changed this 3/9 to return next.js static index"""
+
     return app.send_static_file('index.html')
 
 @app.route('/api/recipes')
