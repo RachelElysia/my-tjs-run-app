@@ -46,6 +46,7 @@ Python Back-End|Flask Password Hashing|Werkzeug Password Hashing| https://www.yo
 Python Back-End|SQLAlchemy|Python Toolkit to Work with my Data|https://www.sqlalchemy.org/
 Python Back-End|SQLAlchemy|Join Filters for searching non-keys of two tables through FK|https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_orm_working_with_joins.htm
 Python Back-End|Remove Empty Strings from List|Texting Groceries|https://www.geeksforgeeks.org/python-remove-empty-strings-from-list-of-strings/
+Python Back-End|Serve Static Files in Flask|Serve my Next JS App as Static Site|https://stackoverflow.com/questions/20646822/how-to-serve-static-files-in-flask
 JavaScript Front-End|Array Method .map|Flow in Tags, Ingredients, Directions, Resources, Recipe Tiles|https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 JavaScript Front-End|Array Method .includes|Toggle Recipes Selected Showing||https://www.w3schools.com/jsref/jsref_includes_array.asp
 JavaScript Front-End|Array Method .forEach|Didn't end up using this method|https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
@@ -60,3 +61,4 @@ General Practice/Test Code|Repl.it|Clean Space to Test Code|https://Repl.it
 Git|Ignoring Files|Brush Up On This Always|https://help.github.com/articles/ignoring-files/
 Domain Name|Buying a Domain Name|Searching until I *landed* har, on my favorite domain name|https://www.namecheap.com/
 React|Styled Components|Discovered but too much to Refactor/Explore on my App|https://developer.okta.com/blog/2020/03/16/react-styled-components
+Deployment|Digital Ocean vs Heroku|Researching Hosting|https://blog.back4app.com/digitalocean-vs-heroku/

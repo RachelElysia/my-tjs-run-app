@@ -9,7 +9,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import os
 from twilio.rest import Client
 
-app = Flask(__name__)
+# Adeed static_url_path 3/10
+app = Flask(__name__, static_url_path='')
 
 ## added by Lucia debugging jinja ###
 app.secret_key = "12321abcba"
@@ -77,11 +78,12 @@ def send_sms():
 
 
 ########### THIS IS REPLACED WITH REACT ONSUBMIT #############
-# @app.route('/')
-# def show_homepage():
-#     """Show the application's Flask/Jinja homepage on localhost:5000."""
+@app.route('/')
+def show_homepage():
+    """Show the application's Flask/Jinja homepage on localhost:5000."""
 
-#     return render_template('homepage.html')
+    # Changed this 3/9 to get next js index
+    return app.send_static_file('index.html')
 
 @app.route('/api/recipes')
 def recipes_data():
