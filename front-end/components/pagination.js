@@ -1,5 +1,5 @@
-import React from 'react';
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
 
 const Pagination = ({ recipesPerPage, totalRecipes, paginate }) => {
   const pageNumbers = [];
@@ -10,10 +10,10 @@ const Pagination = ({ recipesPerPage, totalRecipes, paginate }) => {
 
   return (
     <section align="right">
-      <ul className='pagination'>
-        {pageNumbers.map(number => (
-          <li key={number} className='page-item'>
-            <button onClick={() => paginate(number)} className='page-link'>
+      <ul className="pagination">
+        {pageNumbers.map((number) => (
+          <li key={number} className="page-item">
+            <button onClick={() => paginate(number)} className="page-link">
               {number}
             </button>
           </li>

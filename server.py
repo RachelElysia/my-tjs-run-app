@@ -77,11 +77,11 @@ def send_sms():
 
 
 ########### THIS IS REPLACED WITH REACT ONSUBMIT #############
-@app.route('/')
-def show_homepage():
-    """Show the application's Flask/Jinja homepage on localhost:5000."""
+# @app.route('/')
+# def show_homepage():
+#     """Show the application's Flask/Jinja homepage on localhost:5000."""
 
-    return render_template('homepage.html')
+#     return render_template('homepage.html')
 
 @app.route('/api/recipes')
 def recipes_data():

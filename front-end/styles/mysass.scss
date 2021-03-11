@@ -1,6 +1,30 @@
 //this is to override bootstrap
+$primary: #d21242 !default;
 
+.navbar-toggler-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  content: "";
+  background: 50% / 100% 100% no-repeat;
+}
+
+// this is bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap";
+// @import "../node_modules/bootstrap/scss/functions";
+// @import "../node_modules/bootstrap/scss/variables";
+// @import "../node_modules/bootstrap/scss/mixins";
+// @import "../node_modules/bootstrap/scss/utilities";
+// @import "../node_modules/bootstrap/scss/nav";
+// @import "../node_modules/bootstrap/scss/navbar";
+// @import "../node_modules/bootstrap/scss/forms";
+// @import "../node_modules/bootstrap/scss/buttons";
+// @import "../node_modules/bootstrap/scss/alert";
+// @import "../node_modules/bootstrap/scss/pagination";
+// @import "../node_modules/bootstrap/scss/bootstrap-grid";
+// @import "../node_modules/bootstrap/scss/grid";
+
 
 //mixins
 @mixin transition-mix ($property: all, $duration: 0.2s, $timing: linear, $delay: 0s) {
@@ -45,7 +69,7 @@
       text-decoration: none;
     }
   }
-  
+
   .btn {
     @include transition-mix;
     
