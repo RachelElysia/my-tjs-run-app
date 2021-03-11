@@ -47,7 +47,7 @@ function SignUp() {
         localStorage.setItem("user", JSON.stringify(data[0].user));
         localStorage.setItem("loggedIn", true);
         setFormData({ loggedIn: true, user: data[0].user });
-        router.push("/recipes");
+        router.back();
       });
     });
   };
@@ -128,8 +128,11 @@ function SignUp() {
   );
 }
 
+// ********{props.lastLocation ? props.lastLocation : "/recipes"}********
+// ???? ugh.
+
 // SignInComponent
-function SignIn() {
+function SignIn(props) {
   const router = useRouter();
 
   const [formData, setFormData] = useState({
@@ -155,7 +158,7 @@ function SignIn() {
         localStorage.setItem("loggedIn", true);
         setFormData({ loggedIn: true, user: data[0].user });
         alert(`Check out your favorite recipes ${data[0].user.fname}!`);
-        router.push("/recipes");
+        router.back();
       });
     });
   };
@@ -193,13 +196,13 @@ function SignIn() {
 }
 
 // Container Holding SignIn Component and SignUp Component
-function SignInUpContainer() {
+function SignInUpContainer(props) {
   return (
     <section className={styles["rachel-tile"]}>
       <Container className="my-4 py-4 h-75 w-75">
         <Row className="w-100 h-75 pt-5 rounded">
-          <SignUp />
-          <SignIn />
+          <SignUp lastLocation={props.lastLocation} />
+          <SignIn lastLocation={props.lastLocation} />
         </Row>
       </Container>
     </section>

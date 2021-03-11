@@ -21,11 +21,12 @@ from werkzeug.security import generate_password_hash, check_password_hash
 # Added static_url_path 3/10 for next.js static site
 app = Flask(__name__, static_url_path='')
 
-# Limit my text message route
-limiter = Limiter(
-    app,
-    key_func=get_remote_address,
-    default_limits=["6 per week", "3 per hour"]
+# # Limit my text message route
+# limiter = Limiter(
+#     app,
+#     key_func=get_remote_address,
+#     default_limits=["3 per hour"]
+# )
 
 ## added by Lucia debugging jinja ###
 app.secret_key = "12321abcba"
@@ -58,7 +59,7 @@ def text_message(fname, recipes_list):
   return text_message
 
 @app.route('/api/sms', methods=['POST'])
-@limiter.limit("1/minute", override_defaults=False)
+# @limiter.limit("1/minute", override_defaults=False, error_message="Texts aren't free, give me a minute.")
 def send_sms():
     """Send SMS."""
 
@@ -92,20 +93,14 @@ def send_sms():
 
     return jsonify(response)
 
-@app.errorhandler(429)
-def ratelimit_handler(e):
-    return make_response(
-            jsonify(error="ratelimit exceeded %s" % e.description)
-            , 429
-    )
-
 @app.route('/')
 def show_homepage():
     """Show the application's Flask/Jinja homepage on localhost:5000.
 
     - Changed this 3/9 to return next.js static index"""
+    # return app.send_static_file('index.html')
 
-    return app.send_static_file('index.html')
+    return render_template('homepage.html')
 
 @app.route('/api/recipes')
 def recipes_data():

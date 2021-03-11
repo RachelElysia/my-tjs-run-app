@@ -1,39 +1,34 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
+// External Components
 import { NavBar, TJNavBar, Footer } from "../components/headersfooter";
 import { SignInUpContainer } from "./login";
-import React, { useState, useEffect } from "react";
-import Fade from "react-reveal/fade";
 import { FavoriteButton } from "../components/favoritebutton";
+// React-y Things
+import React, { useState, useEffect} from "react";
+// useLocation?!!?!?!? - 3/11
 import Link from "next/link";
-
+// Client Side Data Fetching Next.js
+import useSWR from "swr";
+// Styling and Icons
+import styles from "../styles/Home.module.css";
+import Fade from "react-reveal/fade";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBook } from "@fortawesome/free-solid-svg-icons";
-
 const listicon = <FontAwesomeIcon icon={faBook} />;
-
-// needed for client side data fetching, see next.js docs
-import useSWR from "swr";
 
 //fetch('/recipes_data') -> Promise<response>
 //  This is going to fetch the data and it's going to wait until it's fetched.
 function RecipeCard(props) {
-  // Split data on the word instead of on the letter
-
-  //Figure out how to split directions to digestible chunks
+  // Split Directions into digestible chunks
   let directions = props.directions;
-
   let directionsSplit = directions.split("\n");
-
   const directionsForRecipe = directionsSplit.map((direction, index) => (
     <li key={direction}>{direction}</li>
   ));
-
   // directionsSplit = directionsSplit.split(". ", ".");
 
   // Fetching tag items and rendering with capitalized letters
   let tagItems;
-
   function tagFetch() {
     const fetcher = (url) => fetch(url).then((r) => r.json());
 
@@ -50,7 +45,6 @@ function RecipeCard(props) {
   tagFetch();
 
   let ingredientItems;
-
   function ingredientsFetch() {
     const fetcher2 = (url) => fetch(url).then((r) => r.json());
 
@@ -78,9 +72,8 @@ function RecipeCard(props) {
     <Fade right>
       <section
         className={styles["flex-container-myrecipespage"]}
-        id={`${props.recipe_id}`}
       >
-        <div className={styles["my-recipe-flex"]} style={backgroundStyle}>
+        <div className={styles["my-recipe-flex"]} id={`${props.recipe_id}`} style={backgroundStyle}>
           <div id={styles["column-left"]}>
             <FavoriteButton recipeId={props.recipe_id} />
             <p className={styles["card-recipe-title"]}>
@@ -116,15 +109,6 @@ function RecipeCard(props) {
 }
 
 function MyRecipesContainer(props) {
-  // const [user, setUser] = useState(null);
-
-  // useEffect(() => {
-  // const loggedInUser = localStorage.getItem('user');
-  // if (loggedInUser) {
-  //   setUser(loggedInUser);
-  // }
-  // }, []);
-
   const recipeCards = [];
 
   const leftLinks = [];
@@ -199,17 +183,21 @@ export default function Home(props) {
     overrideElement = <div>loading...</div>;
   }
 
+  // IDK
+  const lastLocation = "/myrecipes";
+
   if (user === null) {
-    return (
-      <div id="page-container">
-        <NavBar />
-        <TJNavBar />
-        <Fade bottom>
-          <SignInUpContainer />
-        </Fade>
-        <Footer />
-      </div>
-    );
+    router.push('/login')
+    // return (
+    //   <div id="page-container">
+    //     <NavBar />
+    //     <TJNavBar />
+    //     <Fade bottom>
+    //       <SignInUpContainer lastLocation={myrecipes} />
+    //     </Fade>
+    //     <Footer />
+    //   </div>
+    // );
   }
 
   return (

@@ -393,6 +393,12 @@
   justify-content: space-between;
 }
 
+.my-recipe-flex:target { color:#2bbbb3; margin-top:-12px; padding-top:12rem; }
+
+/* Add 'Currently Reading' to targeted section (optional) */
+.my-recipe-flex:target:before { content:'Currently Reading'; font-family:'Open Sans', sans; font-size:12px; background:#ccc; border-radius:3px; background-clip:padding-box; color:#fff; padding:0 5px; position:absolute; top:10rem; }
+
+
 .my-recipe-flex span {
   background-color: #fff;
   padding: 4px 10px;
@@ -756,11 +762,13 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
   padding: 3rem;
 }
 
+
 .rachel-tile {
   padding-top: 3rem;
   padding-bottom: 3rem;
   align-content: center;
-  background-image: url(http://localhost:5000/static/img/racheltile.jpg);
+  /* background-image: url(http://localhost:5000/static/img/racheltile.jpg); */
+  background-image: url(https://lh3.googleusercontent.com/7JQDRgZU06HAxH6QYaL_jMXH34L0gUtXpmK0DJq-yK5Vqu6DboEepU0NancleG4nsr92210OHnKNpdGkBn047q0BAv9rzj9IzMqnZNFIfoAksddURsbB0HixWCttCbm5e0whZRoY9g=w2400);
   background-repeat: repeat;
   background-size: 10%;
   background-attachment: fixed;
