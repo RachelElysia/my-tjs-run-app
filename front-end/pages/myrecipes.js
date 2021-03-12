@@ -5,7 +5,6 @@ import { SignInUpContainer } from "./login";
 import { FavoriteButton } from "../components/favoritebutton";
 // React-y Things
 import React, { useState, useEffect} from "react";
-// useLocation?!!?!?!? - 3/11
 import Link from "next/link";
 // Client Side Data Fetching Next.js
 import useSWR from "swr";
@@ -108,6 +107,7 @@ function RecipeCard(props) {
   );
 }
 
+// MyRecipesContainer Component
 function MyRecipesContainer(props) {
   const recipeCards = [];
 
@@ -122,6 +122,7 @@ function MyRecipesContainer(props) {
         ingredients={recipe.ingredients}
         img={recipe.img}
         tags={recipe.tags}
+        key={recipe.recipe_id+recipe.title}
       />
     );
     leftLinks.push(
@@ -148,9 +149,9 @@ function MyRecipesContainer(props) {
   );
 }
 
-// self calling function... turn a function into an object and then call it with ()
 
-export default function Home(props) {
+// Default Component
+export default function Home() {
   const fetcher3 = (url) => fetch(url).then((r) => r.json());
 
   const [user, setUser] = useState(null);
@@ -183,21 +184,18 @@ export default function Home(props) {
     overrideElement = <div>loading...</div>;
   }
 
-  // IDK
-  const lastLocation = "/myrecipes";
-
   if (user === null) {
-    router.push('/login')
-    // return (
-    //   <div id="page-container">
-    //     <NavBar />
-    //     <TJNavBar />
-    //     <Fade bottom>
-    //       <SignInUpContainer lastLocation={myrecipes} />
-    //     </Fade>
-    //     <Footer />
-    //   </div>
-    // );
+    // router.push('/login')
+    return (
+      <div id="page-container">
+        <NavBar />
+        <TJNavBar />
+        <Fade bottom>
+          <SignInUpContainer />
+        </Fade>
+        <Footer />
+      </div>
+    );
   }
 
   return (

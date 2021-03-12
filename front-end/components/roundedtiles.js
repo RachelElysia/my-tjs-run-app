@@ -25,7 +25,6 @@ function RecipeCard(props) {
       }
     }
 
-
     // Fetching and Rendering TAGS
     let tagItems;
   

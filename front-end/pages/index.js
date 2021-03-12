@@ -69,7 +69,7 @@ function TileHomepage(props) {
         <Container className="pt-5 mt-5 pb-5 translate-middle">
           <Row>{recipeCards}</Row>
           <Row>
-            <Col className="my-3" align="center">
+            <Col className="my-4" key="tag-line" align="center">
               <h2>
                 Shopping at Trader Joe's, <i>Revolutionized</i>
               </h2>
@@ -143,13 +143,14 @@ function Instructions() {
 }
 
 // For PopularRecipes Component
-function RecipeCards(props) {
+function PopularRecipeCards(props) {
   return props.recipeData24.map((recipe) => (
     <RecipeCard
       title={recipe.title}
       directions={recipe.directions}
       img={recipe.img}
       recipe_id={recipe.recipe_id}
+      key={recipe.title}
     />
   ));
 }
@@ -165,18 +166,18 @@ function PopularRecipes() {
   if (!mostPopularResult.data) return <div>loading...</div>;
 
   return (
-    <section className="bg-light">
-      <Fade>
-        <Container className="pt-2 mt-2 translate-middle bg-white">
-          <Col align="center">
+    <Fade>
+    <div className="bg-light pt-5 w-100" key="popular-container" align="center">
+      <Row align="center">
+          <Col className="col-12 my-5 py-5 bg-white w-75" id="popular-heading" align="center">
             <h2>Most Popular Recipes</h2>
-          </Col>
-          <div className={styles["flex-container-myrecipes"]}>
-            <RecipeCards recipeData24={mostPopularResult.data} />
+          <div className={styles["flex-container-myrecipes"]} key="popular-recipe-tiles">
+            <PopularRecipeCards recipeData24={mostPopularResult.data} />
           </div>
-        </Container>
-      </Fade>
-    </section>
+          </Col>
+      </Row>
+    </div>
+    </Fade>
   );
 }
 

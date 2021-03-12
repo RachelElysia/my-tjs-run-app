@@ -21,12 +21,13 @@ from werkzeug.security import generate_password_hash, check_password_hash
 # Added static_url_path 3/10 for next.js static site
 app = Flask(__name__, static_url_path='')
 
-# # Limit my text message route
-# limiter = Limiter(
-#     app,
-#     key_func=get_remote_address,
-#     default_limits=["3 per hour"]
-# )
+# Limit my text message route
+# Don't set default limits because they apply to all my routes
+limiter = Limiter(
+    app,
+    key_func=get_remote_address,
+    default_limits=[]
+)
 
 ## added by Lucia debugging jinja ###
 app.secret_key = "12321abcba"
@@ -58,8 +59,10 @@ def text_message(fname, recipes_list):
   
   return text_message
 
+
+
 @app.route('/api/sms', methods=['POST'])
-# @limiter.limit("1/minute", override_defaults=False, error_message="Texts aren't free, give me a minute.")
+@limiter.limit("12/month;4/day;3/hour;1/minute", override_defaults=False, error_message="Texts aren't free, give me a minute.")
 def send_sms():
     """Send SMS."""
 
@@ -339,9 +342,9 @@ def recipes_data_hungry():
 def popular_recipes():
   """Show default of 12 most popular recipes in descending order.
 
-  You can change get_random_recipes parameter to another value."""
+  I changed get_random_recipes parameter to 8 instead."""
 
-  recipe_data = crud.get_popular_recipes()
+  recipe_data = crud.get_popular_recipes(8)
   serialized_recipe_data = [i.serialize for i in recipe_data]
 
   return jsonify(serialized_recipe_data)
@@ -418,7 +421,6 @@ def get_resources():
   resources_data= crud.resources_page()
 
   return jsonify(resources_data)
-
 @app.route('/api/userlogin', methods=['POST'])
 def log_in():
     """Log In user."""
@@ -429,7 +431,6 @@ def log_in():
 
     user = crud.get_user_by_phone(phone_entered)
     print(user)
-
 
     if user and check_password_hash(user.password_hash, password_entered):
       userAccountLoggedIn = crud.get_user_by_phone(phone_entered)

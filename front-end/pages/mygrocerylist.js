@@ -1,12 +1,17 @@
+
+// External Components
 import {NavBar, TJNavBar, Footer} from '../components/headersfooter'
 import {SignInUpContainer} from './login'
 import {PersonalizedShoppingList} from '../components/personalizemygrocerylist'
-
+// React-y Things
 import React, { useState, useEffect } from 'react';
+// Client Side Data Fetching Next.js
 import useSWR from 'swr'
+// Styling and Icons
 import styles from '../styles/Home.module.css'
 import Fade from 'react-reveal/fade';
 
+// MyGroceryContainerComponent
 function MyGroceriesContainer(props) {
 
   return (
@@ -21,7 +26,8 @@ function MyGroceriesContainer(props) {
 
 };
 
-export default function Home(props) {
+// Default Component
+export default function Home() {
   // best place to fetch data because it's called right away
 
   const fetcher3 = url => fetch(url).then(r => r.json())

@@ -40,7 +40,7 @@ function ResourcesContainer(props) {
     console.log("This is my resourcesData:", resourcesData.data);
 
     resources = resourcesData.data.map((resource) => (
-      <Fade Bottom>
+    <Fade key="resource.number" Bottom>
         <Row className="border-top">
           <Col className="d-none d-md-block col-2">{resource.topic}</Col>
           <Col className="col-5 col-md-2">{resource.details}</Col>
@@ -51,7 +51,7 @@ function ResourcesContainer(props) {
             </Link>
           </Col>
         </Row>
-      </Fade>
+    </Fade>
     ));
   })();
 
@@ -77,12 +77,12 @@ function ResourcesContainer(props) {
             </p>
           </Col>
           <Col className="col-12 col-sm-6 col-md-2 p-3 bg-light" align="center">
-            <blockquote class="callout quote">
+            <blockquote className="callout quote">
               {leftquote}
-              <quote>
+              <div>
                 If you have knowledge, let others light their candle in it.{" "}
                 {rightquote}
-              </quote>
+              </div>
               <br />
               <cite>- Margaret Fuller</cite>
             </blockquote>
@@ -99,11 +99,11 @@ function ResourcesContainer(props) {
               </li>
               <li>
                 <strong>Frameworks & Libraries</strong>: Flask, React.js,
-                Next.js, Bootstrap, React-Reveal, Werkzeug
+                Next.js, Bootstrap, React-Reveal, Werkzeug, Flask-Limiter
               </li>
               <li>
                 <strong>Database & Industry Tools</strong>: PostgreSQL, Git,
-                GitHubm VS Code, SQLAlchemy, Next.js, Photoshop
+                GitHub, VS Code, SQLAlchemy, Next.js, Photoshop
               </li>
             </ul>
           </Col>

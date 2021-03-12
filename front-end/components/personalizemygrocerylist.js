@@ -139,6 +139,7 @@ function PersonalizedGroceryCards(props) {
             ingredients={recipe.ingredients}
             img={recipe.img}
             tags={recipe.tags}
+            key={recipe.recipe_id}
             />
         );
     }

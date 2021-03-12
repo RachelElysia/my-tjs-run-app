@@ -133,6 +133,7 @@ function SignUp() {
 
 // SignInComponent
 function SignIn(props) {
+
   const router = useRouter();
 
   const [formData, setFormData] = useState({
@@ -196,20 +197,20 @@ function SignIn(props) {
 }
 
 // Container Holding SignIn Component and SignUp Component
-function SignInUpContainer(props) {
+function SignInUpContainer() {
   return (
     <section className={styles["rachel-tile"]}>
       <Container className="my-4 py-4 h-75 w-75">
         <Row className="w-100 h-75 pt-5 rounded">
-          <SignUp lastLocation={props.lastLocation} />
-          <SignIn lastLocation={props.lastLocation} />
+          <SignUp />
+          <SignIn />
         </Row>
       </Container>
     </section>
   );
 }
 
-export default function Home(props) {
+export default function Home() {
   return (
     <div id="page-container">
       <NavBar />

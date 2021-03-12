@@ -66,11 +66,7 @@ nav {
 } 
 
 nav img {
-  position: fixed;
-  height: 40px;
-  top: 20px;
-  left: 20px;
-
+  height: 25px;
 }
 
 /* Change the color of links on hover */

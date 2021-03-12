@@ -232,7 +232,6 @@
   margin: 0 auto;
   margin-top: 5rem;
   margin-bottom: 5rem;
-  padding: 3rem;
     /* Then we define the flow direction 
      and if we allow the items to wrap 
    * Remember this is the same as:
@@ -622,6 +621,7 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
   background-color: #fff;
   margin: 0px;
   cursor: pointer;
+  border-radius: 6px;
 }
 
 .favorite-button:hover {

@@ -370,7 +370,7 @@ def resources_page():
 
     resources_list = []
 
-    for line in resources_file:
+    for index, line in enumerate(resources_file):
 
         line_data=line.rstrip().split("|")
         topic = line_data[0]
@@ -378,6 +378,7 @@ def resources_page():
         uses = line_data[2]
         resource_url = line_data[3]
         current_dict = {}
+        current_dict['number'] = index
         current_dict['topic'] = topic
         current_dict['details'] = details
         current_dict['uses'] = uses

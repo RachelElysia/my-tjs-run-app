@@ -121,11 +121,11 @@ function NavBar() {
       >
         <NavbarBrand href="/">
           <img
-            alt=""
-            src="http://localhost:5000/static/img/logo.png"
-            className="d-inline-block align-top"
-          />{" "}
-          My TJ's Run
+            alt="TJ's Run App"
+            src="http://localhost:5000/img/logo.png"
+            // className="d-inline-block align-top"
+          />
+          TJ's Run
         </NavbarBrand>
         <NavbarToggle aria-controls="basic-navbar-nav">{navicon}</NavbarToggle>
         <NavbarCollapse id="basic-navbar-nav">
