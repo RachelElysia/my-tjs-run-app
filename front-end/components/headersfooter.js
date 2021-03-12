@@ -49,6 +49,7 @@ import {
   faSms,
   faSearch,
   faBars,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 const basketicon = <FontAwesomeIcon icon={faShoppingBasket} />;
 const bookicon = <FontAwesomeIcon icon={faBook} />;
@@ -56,6 +57,7 @@ const searchlocationicon = <FontAwesomeIcon icon={faMapMarkedAlt} />;
 const smsicon = <FontAwesomeIcon icon={faSms} />;
 const searchicon = <FontAwesomeIcon icon={faSearch} />;
 const navicon = <FontAwesomeIcon icon={faBars} />;
+const usericon = <FontAwesomeIcon icon={faUser} />;
 
 function NavBar() {
   const [user, setUser] = useState(null);
@@ -79,9 +81,25 @@ function NavBar() {
     localStorage.clear();
   };
 
-  const welcome = user === null ? "" : `Welcome, ${user.fname}!`;
+
+  // const account = user === null ? "" : `Welcome, ${user.fname}!`;
+
   const logInOutButton = user === null ? "Log In" : "Log Out";
   const handleLogInOrOut = user === null ? handleLogIn : handleLogOut;
+
+  const account = user === null ? "" : (
+              <Button
+              className="btn"
+              type="button"
+              title="My Account"
+              onClick={(e) => {
+                e.preventDefault();
+                router.push("/account");
+              }}
+            >
+      {usericon} {user.fname}
+            </Button>
+  );
 
   const logInOrOut = (
     <Button className="btn" type="button" onClick={handleLogInOrOut}>
@@ -158,7 +176,7 @@ function NavBar() {
             </Button>
           </Form>
           <Button
-            className="btn"
+            className="btn mx-2"
             type="button"
             title="Find a Trader Joe's"
             onClick={(e) => {
@@ -168,8 +186,8 @@ function NavBar() {
           >
             {searchlocationicon}
           </Button>
-          <div className="span-2 mx-1">{welcome}</div>
-          <div className="span-1">{logInOrOut}</div>
+          <div className="span-2">{account}</div>
+          <div className="span-1 ml-2">{logInOrOut}</div>
         </NavbarCollapse>
       </Navbar>
     </>

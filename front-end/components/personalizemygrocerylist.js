@@ -93,7 +93,7 @@ function PersonalizedShoppingList(props) {
 
     return (
         <>
-            <div id={styles['navbar']}>
+            <main id={styles['navbar']}>
                 <center>
                     <h3>{basketicon} My Grocery List</h3>
                     <p className={styles['text_small']}> Choose from your favorite recipes to generate your personalized grocery list!</p>
@@ -103,7 +103,7 @@ function PersonalizedShoppingList(props) {
                     </button>
                 ))}
                 </center>
-            </div>
+            </main>
             <div className={styles['flex-container-myrecipespage']}>
                 <table><tbody>
                     {selected.map((item, index) => (
