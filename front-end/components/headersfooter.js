@@ -143,13 +143,12 @@ function NavBar() {
             src="http://localhost:5000/img/logo.png"
             // className="d-inline-block align-top"
           />
-          TJ's Run
         </NavbarBrand>
         <NavbarToggle aria-controls="basic-navbar-nav">{navicon}</NavbarToggle>
         <NavbarCollapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Link href="/myrecipes">
-              <NavLink as="a" href="/myrecips">
+              <NavLink as="a" href="/myrecipes">
                 {bookicon} My Recipes
               </NavLink>
             </Link>
@@ -231,7 +230,7 @@ function TJNavBar() {
                         onClick={(e) => {
                           e.preventDefault();
                           router.push(
-                            `${user === null ? "/login" : "recipes"}`
+                            `${user === null ? "/login" : "/recipes"}`
                           );
                         }}
                       >
