@@ -24,12 +24,13 @@ const searchicon = <FontAwesomeIcon icon={faSearch} />;
 
 // For RecipeCardContainer
 function RecipeCards(props) {
-  return props.recipeData24.map((recipe) => (
+  return props.recipeData24.map((recipe, index) => (
     <RecipeCard
       title={recipe.title}
       directions={recipe.directions}
       img={recipe.img}
       recipe_id={recipe.recipe_id}
+      key={index}
     />
   ));
 }

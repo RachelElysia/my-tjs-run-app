@@ -37,7 +37,7 @@ function RecipeCard(props) {
       if (!data) return <div>loading...</div>
     
       // NEEDED EXTRA {} AROUND IT TO SAY "yo, I'm a javascript template string!"
-      tagItems = data.map((tag) => <Link id={`${tag.tag_id}`} href={`/tags/${tag.tag_id}`}><a>{tag.name.toUpperCase()}</a></Link>);
+      tagItems = data.map((tag, index) => <Link key={index} id={`${tag.tag_id}`} href={`/tags/${tag.tag_id}`}><a>{tag.name.toUpperCase()}</a></Link>);
     };
     
     tagFetch();

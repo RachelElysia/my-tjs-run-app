@@ -773,3 +773,7 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
   background-size: 10%;
   background-attachment: fixed;
 }
+
+#find-store {
+  height: 60vh;
+}

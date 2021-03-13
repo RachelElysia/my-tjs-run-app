@@ -4,7 +4,7 @@ import { NavBar, TJNavBar, Footer } from "../components/headersfooter";
 import { SignInUpContainer } from "./login";
 import { FavoriteButton } from "../components/favoritebutton";
 // React-y Things
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 // Client Side Data Fetching Next.js
 import useSWR from "swr";
@@ -22,7 +22,7 @@ function RecipeCard(props) {
   let directions = props.directions;
   let directionsSplit = directions.split("\n");
   const directionsForRecipe = directionsSplit.map((direction, index) => (
-    <li key={direction}>{direction}</li>
+    <li key={index}>{direction}</li>
   ));
   // directionsSplit = directionsSplit.split(". ", ".");
 
@@ -37,8 +37,10 @@ function RecipeCard(props) {
     if (!data) return <div>loading...</div>;
 
     // NEEDED EXTRA {} AROUND IT TO SAY "yo, I'm a javascript template string!"
-    tagItems = data.map((tag) => (
-      <a href={`/tags/${tag.tag_id}`}> {tag.name.toUpperCase()} </a>
+    tagItems = data.map((tag, index) => (
+      <Link key={index} href={`/tags/${tag.tag_id}`}>
+        <a>{tag.name.toUpperCase()} </a>
+      </Link>
     ));
   }
   tagFetch();
@@ -69,14 +71,20 @@ function RecipeCard(props) {
 
   return (
     <Fade right>
-      <section
-        className={styles["flex-container-myrecipespage"]}
-      >
-        <div className={styles["my-recipe-flex"]} id={`${props.recipe_id}`} style={backgroundStyle}>
+      <section className={styles["flex-container-myrecipespage"]}>
+        <div
+          className={styles["my-recipe-flex"]}
+          id={`${props.recipe_id}`}
+          style={backgroundStyle}
+        >
           <div id={styles["column-left"]}>
             <FavoriteButton recipeId={props.recipe_id} />
             <p className={styles["card-recipe-title"]}>
-              <a href={`/recipes/${props.recipe_id}`}>{props.title}</a>
+              <span>
+                <Link href={`/recipes/${props.recipe_id}`}>
+                  <a>{props.title}</a>
+                </Link>
+              </span>
               <br />
             </p>
             <p className={styles["text_small"]}>
@@ -122,7 +130,7 @@ function MyRecipesContainer(props) {
         ingredients={recipe.ingredients}
         img={recipe.img}
         tags={recipe.tags}
-        key={recipe.recipe_id+recipe.title}
+        key={recipe.recipe_id + recipe.title}
       />
     );
     leftLinks.push(
@@ -148,7 +156,6 @@ function MyRecipesContainer(props) {
     </>
   );
 }
-
 
 // Default Component
 export default function Home() {

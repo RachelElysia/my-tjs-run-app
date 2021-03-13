@@ -10,7 +10,7 @@ function RecipeCard(props) {
   let directions = props.directions;
   let directionsSplit = directions.split("\n");
   const directionsForRecipe = directionsSplit.map((direction, index) => (
-    <li key={direction}>{direction}</li>
+    <li key={index}>{direction}</li>
   ));
 
   let tagItems;
@@ -24,8 +24,8 @@ function RecipeCard(props) {
     if (!tagsData.data) return <div>loading...</div>;
 
     // NEEDED EXTRA {} AROUND IT TO SAY "yo, I'm a javascript template string!"
-    tagItems = tagsData.data.map((tag) => (
-      <Link href={`/tags/${tag.tag_id}`}>
+    tagItems = tagsData.data.map((tag, index) => (
+      <Link key={index} href={`/tags/${tag.tag_id}`}>
         <a> {tag.name.toUpperCase()} </a>
       </Link>
     ));
