@@ -349,7 +349,7 @@ def popular_recipes():
 
   return jsonify(serialized_recipe_data)
 
-########### THIS IS REPLACED WITH REACT ONSUBMIT #############
+
 @app.route('/api/users', methods=['POST'])
 def register_user():
     """Create a new user."""
@@ -385,6 +385,59 @@ def register_user():
       print("YOU MADE A LOG IN!", jsonify(response, status_code))
 
       return jsonify(response, status_code)
+
+
+@app.route('/api/users/update', methods=['POST'])
+def update_user():
+    """Update existing user information."""
+
+    # Data Request
+    fname = request.form.get('fname')
+    lname = request.form.get('lname')
+    new_phone = request.form.get('new_phone')
+
+    user = crud.update_user(fname=fname, lname=lname, new_phone=new_phone)
+
+    userAccountUpdated = crud.get_user_by_phone(new_phone)
+
+    response = {
+      "image": "https://http.cat/409.jpg",
+      "user": userAccountUpdated.serialize,
+    }
+
+    print("YOU UPDATED USER INFORMATION!", jsonify(response, status_code))
+
+    return jsonify(response, status_code)
+
+
+def say_hi():
+  """Yeah here's my notes"""
+
+  return "Hi."
+
+@app.route('/api/user/delete', methods=['POST'])
+def delete_current_user():
+    """Delete existing user permanently."""
+
+    password_entered = request.form.get('deletepassword')
+
+    # Data from Request
+    data = request.json
+    phone = data['user_phone']
+    
+    user = crud.get_user_by_phone(phone_entered)
+
+    if user and check_password_hash(user.password_hash, password_entered):
+      response_message = crud.delete_user(user.user_id)
+
+    response = {
+      "image": "https://http.cat/409.jpg",
+      "message": response_message
+    }
+
+    print("YOU DELETED A USER!", jsonify(response, status_code))
+
+    return jsonify(response, status_code)
 
 @app.route('/api/users/<user_id>/info')
 def test_user(user_id):

@@ -1,3 +1,6 @@
+Planning|SQLDBM|Data Model Visualization|http://app.sqldbm.com
+Planning|Trello|Staying Organized Building my Project|http://www.trello.com
+Planning|Draw.io formally Diagrams.net|Wireframes and Customer Journey Map|http://draw.io
 Recipes API|Trader Joe's API|Where I thankfully found recipes data with minor errors|https://traderjoeapi.jackgisel.com/
 SMS API|Twilio API|How I built my text message service|https://www.twilio.com
 React|React Framework: Next JS| Overall Front-end Development|https://nextjs.org/

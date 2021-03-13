@@ -28,13 +28,30 @@ function AccountDetails(props) {
   });
 
   const updateNameNumber = (event) => {};
-  const deleteAccount = (event) => {};
+
+  const deleteAccount = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.target);
+
+    fetch("/api/user/delete", {
+      method: "POST",
+      body: data,
+    }).then((response) => {
+      console.log(response);
+      if (response.status !== 200) {
+        alert("Delete Account Failed. Password incorrect.");
+        return;
+      }
+      response.json().then((data) => {
+        alert(`${data[0].message}!`);
+        router.push('/');
+      });
+    });
+  };
 
 
   const user = props.user;
-
   console.log("This is my user:", user)
-
 
   return (
     <Col className="col-12 col-md-6 p-4 bg-light border-right border-bottom rounded-left">
@@ -51,7 +68,6 @@ function AccountDetails(props) {
               name="fname"
               id="fname"
               placeholder={user.fname}
-              required
               minLength="2"
               maxLength="40"
               autoFocus
@@ -68,7 +84,6 @@ function AccountDetails(props) {
               placeholder={user.lname}
               minLength="2"
               maxLength="40"
-              required
               className="w-100"
             />
           </Col>
@@ -164,7 +179,7 @@ function UpdateAccount(props) {
               type="password"
               name="confirmpassword"
               id="confirmpassword"
-              placeholder="New password"
+              placeholder="Confirm password"
             />
             </Col>
             <Col className="col-12 mt-2">

@@ -24,6 +24,46 @@ def create_user(fname, lname, phone, password_hash):
     
     return user
 
+
+def update_user(user_id, fname, lname, new_phone):
+    """Update user and return user."""
+
+    user = session.query(User).get(user_id)
+
+    if fname:
+        user.fname = fname
+    if lname:
+        user.lname = lname
+    if new_phone:
+        user.phone = new_phone
+
+    db.session.commit()
+
+    return user
+
+
+def update_password(user_id, new_password_hash):
+    """Update password and return user."""
+
+    user = session.query(User).get(user_id)
+    user.password_hash = new_password_hash
+    
+    db.session.commit()
+    
+    return user
+
+
+def delete_user(user_id):
+    """Delete user permanently."""
+
+    user = session.query(User).get(user_id)
+
+    db.session.delete(user)
+    session.commit()
+
+    return f'User {user_id} is deleted.'
+
+
 def create_tag(name, tag_id):   
     """Create and return tag."""
 
