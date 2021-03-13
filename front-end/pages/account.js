@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 // External Components
 import { NavBar, TJNavBar, Footer } from "../components/headersfooter";
-import {SignInUpContainer} from './login'
+import { SignInUpContainer } from "./login";
 // Bootstrap
 import dynamic from "next/dynamic";
 const Container = dynamic(() => import("react-bootstrap/Container"), {
@@ -44,21 +44,20 @@ function AccountDetails(props) {
       }
       response.json().then((data) => {
         alert(`${data[0].message}!`);
-        router.push('/');
+        router.push("/");
       });
     });
   };
 
-
   const user = props.user;
-  console.log("This is my user:", user)
+  console.log("This is my user:", user);
 
   return (
     <Col className="col-12 col-md-6 p-4 bg-light border-right border-bottom rounded-left">
       <h2>Your Information</h2>
 
       <form onSubmit={updateNameNumber}>
-          <Row className="my-4">
+        <Row className="my-4">
           <Col className="col-12 mt-2">
             <label htmlFor="fname">First Name:</label>
           </Col>
@@ -75,7 +74,7 @@ function AccountDetails(props) {
           </Col>
           <Col className="col-12 mt-2">
             <label htmlFor="lname">Last Name:</label>
-            </Col>
+          </Col>
           <Col className="col-12">
             <input
               type="text"
@@ -89,8 +88,8 @@ function AccountDetails(props) {
           </Col>
           <Col className="col-12 mt-2">
             <label htmlFor="phonein">Phone Number:</label>
-            </Col>
-            <Col className="col-12">
+          </Col>
+          <Col className="col-12">
             <input
               type="tel"
               name="phonein"
@@ -99,36 +98,37 @@ function AccountDetails(props) {
               maxLength="10"
             />
           </Col>
-          <Col  className="col-12 my-2">
+          <Col className="col-12 my-2">
             <Button type="submit">Update</Button>
           </Col>
-          </Row>
-        </form>
+        </Row>
+      </form>
 
-        <h3>Delete Your Account</h3>
-        <p><i>This action cannot be undone.</i></p>
-        <form onSubmit={deleteAccount}>
+      <h3>Delete Your Account</h3>
+      <p>
+        <i>This action cannot be undone.</i>
+      </p>
+      <form onSubmit={deleteAccount}>
         <Row className="my-4">
           <Col className="col-12 mt-1">
-          <label htmlFor="deletepassword">Password:</label>
+            <label htmlFor="deletepassword">Password:</label>
           </Col>
           <Col className="col-12">
-          <input
-            type="password"
-            name="deletepassword"
-            id="deletepassword"
-            placeholder="Your password"
-          />
+            <input
+              type="password"
+              name="deletepassword"
+              id="deletepassword"
+              placeholder="Your password"
+            />
           </Col>
           <Col className="col-12 my-2">
-          <Button type="submit">Delete My Account</Button>
+            <Button type="submit">Delete My Account</Button>
           </Col>
-          </Row>
-        </form>
+        </Row>
+      </form>
     </Col>
   );
 }
-
 
 // UpdateAccount Component
 function UpdateAccount(props) {
@@ -148,44 +148,44 @@ function UpdateAccount(props) {
       <Col className="col-12 col-md-6 p-4 bg-light border-bottom">
         <h2>Change Password</h2>
         <form onSubmit={updatePassword}>
-        <Row className="my-4">
-        <Col className="col-12 mt-2">
-            <label htmlFor="currentpassword">Current Password:</label>
+          <Row className="my-4">
+            <Col className="col-12 mt-2">
+              <label htmlFor="currentpassword">Current Password:</label>
             </Col>
             <Col className="col-12">
-            <input
-              type="password"
-              name="currentpassword"
-              id="currentpassword"
-              placeholder="Your password"
-            />
-            </Col>
-          <Col className="col-12 mt-2">
-            <label htmlFor="newpassword">New Password:</label>
-            </Col>
-            <Col className="col-12">
-            <input
-              type="password"
-              name="newpassword"
-              id="newpassword"
-              placeholder="New password"
-            />
+              <input
+                type="password"
+                name="currentpassword"
+                id="currentpassword"
+                placeholder="Your password"
+              />
             </Col>
             <Col className="col-12 mt-2">
-            <label htmlFor="confirmpassword">Confirm Password:</label>
+              <label htmlFor="newpassword">New Password:</label>
             </Col>
             <Col className="col-12">
-            <input
-              type="password"
-              name="confirmpassword"
-              id="confirmpassword"
-              placeholder="Confirm password"
-            />
+              <input
+                type="password"
+                name="newpassword"
+                id="newpassword"
+                placeholder="New password"
+              />
             </Col>
             <Col className="col-12 mt-2">
-            <Button type="submit">Update</Button>
+              <label htmlFor="confirmpassword">Confirm Password:</label>
             </Col>
-            </Row>
+            <Col className="col-12">
+              <input
+                type="password"
+                name="confirmpassword"
+                id="confirmpassword"
+                placeholder="Confirm password"
+              />
+            </Col>
+            <Col className="col-12 mt-2">
+              <Button type="submit">Update</Button>
+            </Col>
+          </Row>
         </form>
       </Col>
     </>
@@ -194,12 +194,10 @@ function UpdateAccount(props) {
 
 // Container Holding SignIn Component and SignUp Component
 function Account() {
-
-
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const loggedInUser = localStorage.getItem('user');
+    const loggedInUser = localStorage.getItem("user");
     if (loggedInUser) {
       setUser(JSON.parse(loggedInUser));
     }
@@ -209,8 +207,9 @@ function Account() {
     return (
       <div id="page-container">
         <NavBar />
-        <TJNavBar /><Fade bottom>
-        <SignInUpContainer />
+        <TJNavBar />
+        <Fade right>
+          <SignInUpContainer />
         </Fade>
         <Footer />
       </div>
@@ -219,18 +218,22 @@ function Account() {
 
   return (
     <section className={styles["rachel-tile"]}>
-      <Container className="my-5 py-5 px-5 h-75 w-75">
-        <Row className="w-100 h-75 pt-5 px-5 m-5 rounded">
-          <AccountDetails user={user} />
-          <UpdateAccount user={user} />
-          <Col className="col-12 bg-light border-top rounded-bottom">
-          <p>
-        <i>Your information is stored in a database and will never be shared with third
-        parties.</i>
-      </p>
-          </Col>
-        </Row>
-      </Container>
+      <Fade>
+        <Container className="my-5 py-5 px-5 h-75 w-75">
+          <Row className="w-100 h-75 pt-5 px-5 m-5 rounded">
+            <AccountDetails user={user} />
+            <UpdateAccount user={user} />
+            <Col className="col-12 bg-light border-top rounded-bottom">
+              <p>
+                <i>
+                  Your information is stored in a database and will never be
+                  shared with third parties.
+                </i>
+              </p>
+            </Col>
+          </Row>
+        </Container>
+      </Fade>
     </section>
   );
 }
@@ -240,9 +243,7 @@ export default function Home(props) {
     <div id="page-container">
       <NavBar />
       <TJNavBar />
-      <Fade bottom>
-        <Account />
-      </Fade>
+      <Account />
       <Footer />
     </div>
   );
