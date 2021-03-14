@@ -33,7 +33,7 @@ function AccountDetails(props) {
     event.preventDefault();
     const data = new FormData(event.target);
 
-    fetch("/api/user/delete", {
+    fetch(`/api/user/${user.user_id}/delete`, {
       method: "POST",
       body: data,
     }).then((response) => {

@@ -206,13 +206,18 @@
    padding-bottom: 5.5rem;    /* Footer height */
    overflow-y: scroll;
    max-width: 200rem;
-   min-height: 100vh;
+   min-height: 80vh;
    scroll-margin-top: 500px;
 
 }
 
-/* SEARCH PAGE, TJS RECIPES */
+.flex-container-myrecipespage:target { color:#2bbbb3; margin-top:50px; padding-top:14rem; }
 
+/* Add 'Current Recipe' to targeted section (optional) */
+.flex-container-myrecipespage:target:before { content:'Currently Reading'; font-family:'Open Sans', sans; font-size:12px; background:#ccc; border-radius:3px; background-clip:padding-box; color:#fff; padding:0 5px; position:absolute; top:12rem; }
+
+
+/* SEARCH PAGE, TJS RECIPES */
 .flex-container-myrecipes {
   /* We first create a flex layout context */
   display: flex;
@@ -230,6 +235,7 @@
   margin: 0 auto;
   margin-top: 5rem;
   margin-bottom: 5rem;
+  padding-bottom: 2rem;
     /* Then we define the flow direction 
      and if we allow the items to wrap 
    * Remember this is the same as:
@@ -389,12 +395,6 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
-.my-recipe-flex:target { color:#2bbbb3; margin-top:-12px; padding-top:12rem; }
-
-/* Add 'Currently Reading' to targeted section (optional) */
-.my-recipe-flex:target:before { content:'Currently Reading'; font-family:'Open Sans', sans; font-size:12px; background:#ccc; border-radius:3px; background-clip:padding-box; color:#fff; padding:0 5px; position:absolute; top:10rem; }
-
 
 .my-recipe-flex span {
   background-color: #fff;
@@ -630,8 +630,8 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
 /* MY RECIPES NAV BAR*/
 #navbar {
   position: fixed;
-  top: 5.2em;    /* NavBar TJNavBar height */
-  bottom: 0rem;
+  top: 1.5rem;    /* NavBar TJNavBar height */
+  bottom: 3rem;
   width: 250px; /* Set the width of the sidebar */
   z-index: 1; /* Stay on top */
   left: 0;
@@ -639,7 +639,7 @@ END USED ON MY GROCERY LIST AND SINGLE RECIPE */
   border-width: 1px darkgrey;
   background-color: #fff; /* Dark Grey */
   overflow-x: hidden; /* Disable horizontal scroll */
-  overflow: hidden;
+  overflow-y: scroll;
   z-index: 9; 
 
 }

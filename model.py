@@ -255,7 +255,7 @@ if __name__ == '__main__':
     os.system('dropdb recipes')
     os.system('createdb recipes')
 
-    connect_to_db(app)
+    # connect_to_db(app)
 
     # db.create_all()
 

@@ -227,6 +227,11 @@ def get_user_by_phone(phone):
 
     return User.query.filter(User.phone == phone).first()
 
+def get_user_by_id(user_id):
+    """Return a user by user ID."""
+
+    return User.query.filter(User.user_id == user_id).first()
+
 def get_tags_info_by_recipe_id(recipe_id):
     """Return multiple tags.
     

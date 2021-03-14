@@ -409,13 +409,7 @@ def update_user():
 
     return jsonify(response, status_code)
 
-
-def say_hi():
-  """Yeah here's my notes"""
-
-  return "Hi."
-
-@app.route('/api/user/delete', methods=['POST'])
+@app.route('/api/user/<user_id>/delete', methods=['POST'])
 def delete_current_user():
     """Delete existing user permanently."""
 
@@ -423,9 +417,8 @@ def delete_current_user():
 
     # Data from Request
     data = request.json
-    phone = data['user_phone']
-    
-    user = crud.get_user_by_phone(phone_entered)
+
+    user = crud.get_user_by_id(user_id)
 
     if user and check_password_hash(user.password_hash, password_entered):
       response_message = crud.delete_user(user.user_id)
@@ -435,9 +428,13 @@ def delete_current_user():
       "message": response_message
     }
 
+    user = crud.get_user_by_phone(phone_entered)
+    print(user)
+
     print("YOU DELETED A USER!", jsonify(response, status_code))
 
     return jsonify(response, status_code)
+
 
 @app.route('/api/users/<user_id>/info')
 def test_user(user_id):

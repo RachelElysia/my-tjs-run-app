@@ -71,8 +71,8 @@ function RecipeCard(props) {
     <Fade right>
       <section
         className={styles["flex-container-myrecipespage"]}
-      >
-        <div className={styles["my-recipe-flex"]} id={`${props.recipe_id}`} style={backgroundStyle}>
+        id={`${props.recipe_id}`} >
+        <div className={styles["my-recipe-flex"]} style={backgroundStyle}>
           <div id={styles["column-left"]}>
             <FavoriteButton recipeId={props.recipe_id} />
             <p className={styles["card-recipe-title"]}><span>

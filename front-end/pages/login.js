@@ -71,8 +71,8 @@ function SignUp() {
                   id="fname"
                   placeholder="Joe"
                   required
-                  minlength="2"
-                  maxlength="40"
+                  minLength="2"
+                  maxLength="40"
                   autoFocus
                 />
               </td>
@@ -83,8 +83,8 @@ function SignUp() {
                   name="lname"
                   id="lname"
                   placeholder="Coulombe"
-                  minlength="2"
-                  maxlength="40"
+                  minLength="2"
+                  maxLength="40"
                   required
                 />
               </td>

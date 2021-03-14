@@ -166,12 +166,12 @@ function NavBar() {
               autoComplete="off"
               required
             />
-            <Button className="btn" type="submit">
+            <Button className="btn mr-2" type="submit">
               {searchicon}
             </Button>
           </Form>
           <Button
-            className="btn mx-2"
+            className="btn mr-2"
             type="button"
             title="Find a Trader Joe's"
             onClick={(e) => {
@@ -181,8 +181,8 @@ function NavBar() {
           >
             {searchlocationicon}
           </Button>
-          <div className="span-2">{account}</div>
-          <div className="span-1 ml-2">{logInOrOut}</div>
+          <div className="span-2 mr-2">{account}</div>
+          <div className="span-1">{logInOrOut}</div>
         </NavbarCollapse>
       </Navbar>
     </>
