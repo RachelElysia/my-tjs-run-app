@@ -194,7 +194,6 @@
   justify-content: center;
   align-items: center;
   justify-items: center;
-  margin: 0 auto;
     /* Then we define the flow direction 
      and if we allow the items to wrap 
    * Remember this is the same as:
@@ -202,8 +201,6 @@
    * flex-wrap: wrap;
    */
    flex-flow: row wrap;
-   margin-top: 9rem;
-  
    /* Then we define how is distributed the remaining space */
    list-style: none;
    padding-bottom: 5.5rem;    /* Footer height */

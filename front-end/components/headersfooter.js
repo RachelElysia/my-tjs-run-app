@@ -10,9 +10,6 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 const Navbar = dynamic(() => import("react-bootstrap/Navbar"), { ssr: false });
 const Nav = dynamic(() => import("react-bootstrap/Nav"), { ssr: false });
-const NavDropdown = dynamic(() => import("react-bootstrap/NavDropdown"), {
-  ssr: false,
-});
 const NavbarBrand = dynamic(() => import("react-bootstrap/NavbarBrand"), {
   ssr: false,
 });
@@ -20,9 +17,6 @@ const NavbarToggle = dynamic(() => import("react-bootstrap/NavbarToggle"), {
   ssr: false,
 });
 const NavbarCollapse = dynamic(() => import("react-bootstrap/NavbarCollapse"), {
-  ssr: false,
-});
-const NavbarContext = dynamic(() => import("react-bootstrap/NavbarContext"), {
   ssr: false,
 });
 const NavLink = dynamic(() => import("react-bootstrap/NavLink"), {

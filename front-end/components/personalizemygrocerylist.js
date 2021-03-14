@@ -12,6 +12,7 @@ const Container = dynamic(() => import("react-bootstrap/Container"), {
 });
 const Row = dynamic(() => import("react-bootstrap/Row"), { ssr: false });
 const Col = dynamic(() => import("react-bootstrap/Col"), { ssr: false });
+const Button = dynamic(() => import("react-bootstrap/Button"), { ssr: false });
 // Styling & Icons
 import styles from "../styles/Home.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -145,7 +146,7 @@ function PersonalizedShoppingList(props) {
           <Row>
             <Col className="col-12">
               <form onSubmit={handleText}>
-                <button type="submit">Text Me My Grocery List</button>
+                <Button type="submit">Text Me My Grocery List</Button>
               </form>
             </Col>
           </Row>
