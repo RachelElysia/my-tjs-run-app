@@ -1,10 +1,12 @@
 "use strict";
 import Head from "next/head";
+// External Components
 import Modal from "./venmomodal";
+// React-y Things
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-
+// Bootstrap
 import dynamic from "next/dynamic";
 const Navbar = dynamic(() => import("react-bootstrap/Navbar"), { ssr: false });
 const Nav = dynamic(() => import("react-bootstrap/Nav"), { ssr: false });
@@ -39,7 +41,7 @@ const Container = dynamic(() => import("react-bootstrap/Container"), {
 });
 const Row = dynamic(() => import("react-bootstrap/Row"), { ssr: false });
 const Col = dynamic(() => import("react-bootstrap/Col"), { ssr: false });
-
+// Styling & Icons
 import styles from "../styles/Home.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {

@@ -209,6 +209,7 @@
    padding-bottom: 5.5rem;    /* Footer height */
    overflow-y: scroll;
    max-width: 200rem;
+   min-height: 100vh;
    scroll-margin-top: 500px;
 
 }
