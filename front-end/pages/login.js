@@ -215,7 +215,7 @@ export default function Home() {
     <div id="page-container">
       <NavBar />
       <TJNavBar />
-      <Fade bottom>
+      <Fade>
         <SignInUpContainer />
       </Fade>
       <Footer />

@@ -1,7 +1,7 @@
 """Server for TJ shopping by recipe app."""
 # Flask app
 from flask import Flask, render_template, request, flash, session, redirect, jsonify, make_response
-from flask_debugtoolbar import DebugToolbarExtension #added by Lucia
+from flask_debugtoolbar import DebugToolbarExtension # required /unused flask server
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 
@@ -14,7 +14,7 @@ import os
 from twilio.rest import Client
 
 # Other
-from jinja2 import StrictUndefined
+from jinja2 import StrictUndefined # required /unused flask server
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
@@ -29,14 +29,14 @@ limiter = Limiter(
     default_limits=[]
 )
 
-## added by Lucia debugging jinja ###
+## required /unused flask server ###
 app.secret_key = "12321abcba"
 app.jinja_env.undefined = StrictUndefined
 ### end ###
 
 # Text Recipe Data Validation
 def recipe_validation(recipes):
-  """This cleans my gross data returned from button toggles."""
+  """Cleans my gross data returned from button toggles."""
 
   recipes_list = recipes.lstrip(',').split(',')
   while('' in recipes_list): 
@@ -46,7 +46,7 @@ def recipe_validation(recipes):
 
 # Creating Text Message
 def text_message(fname, recipes_list):
-  """This builds the text message."""
+  """Builds the text message."""
 
   text_message = (f"{fname}'s Groceries List from My TJ's Run!\n ")
 
@@ -62,9 +62,9 @@ def text_message(fname, recipes_list):
 
 
 @app.route('/api/sms', methods=['POST'])
-@limiter.limit("12/month;4/day;3/hour;1/minute", override_defaults=False, error_message="Texts aren't free, give me a minute.")
+@limiter.limit("12/month;10/day;10/hour;1/minute", override_defaults=False, error_message="Texts aren't free, give me a minute.")
 def send_sms():
-    """Send SMS."""
+    """Send the SMS."""
 
     # Data from Request
     data = request.json
@@ -381,6 +381,7 @@ def register_user():
         "image": "https://http.cat/409.jpg",
         "user": userAccountMade.serialize,
       }
+      status_code = 200
 
       print("YOU MADE A LOG IN!", jsonify(response, status_code))
 

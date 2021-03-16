@@ -137,7 +137,6 @@ function NavBar() {
           <img
             alt="TJ's Run App"
             src="http://localhost:5000/img/logo.png"
-            // className="d-inline-block align-top"
           />
         </NavbarBrand>
         <NavbarToggle aria-controls="basic-navbar-nav">{navicon}</NavbarToggle>

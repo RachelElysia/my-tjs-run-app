@@ -28,15 +28,17 @@ const remove = <FontAwesomeIcon icon={faMinusSquare} />;
 const smsicon = <FontAwesomeIcon icon={faSms} />;
 
 function PersonalizedShoppingList(props) {
+
+  // SELECT FROM FAVORITE RECIPES
   const options = props.userRecipesData.map((recipe) => recipe.title);
 
   const [selected, setSelected] = useState([]);
 
-  // this toggles my button
+  // Toggle my Buttons
   const toggleRecipeSelected = ({ target }) => {
     const clickedRecipe = target.value;
 
-    // this sets the state for my selected recipes (adds/ removes)
+    // Set the state for my selected recipes (adds/ removes)
     setSelected((prev) => {
       if (prev.includes(clickedRecipe)) {
         return prev.filter((r) => r !== clickedRecipe);
@@ -46,13 +48,8 @@ function PersonalizedShoppingList(props) {
     });
   };
 
-  // THIS IS ALL TO TEXT THE GROCERIES
+  // TEXT SELECTED RECIPES
   const router = useRouter();
-
-  const [formData, setFormData] = useState({
-    user: {},
-    loggedIn: false,
-  });
 
   const [user, setUser] = useState(null);
 
@@ -101,6 +98,11 @@ function PersonalizedShoppingList(props) {
         });
     }
   };
+
+  const [formData, setFormData] = useState({
+    user: {},
+    loggedIn: false,
+  });
 
   return (
     <>

@@ -161,7 +161,7 @@
 
 /* This is used on My Recipes and my grocery list */
 .my-container {
-  top: 10rem;    /* NavBar TJNavBar height */
+  padding-top: 8rem;    /* NavBar TJNavBar height */
   margin-bottom: 2.5rem;    /* Footer height */
   margin-left: 250px;
   overflow-y: scroll;
@@ -203,7 +203,7 @@
    flex-flow: row wrap;
    /* Then we define how is distributed the remaining space */
    list-style: none;
-   padding-bottom: 5.5rem;    /* Footer height */
+   padding-bottom: 3.5rem;    /* Footer height */
    overflow-y: scroll;
    max-width: 200rem;
    min-height: 80vh;
@@ -211,10 +211,10 @@
 
 }
 
-.flex-container-myrecipespage:target { color:#2bbbb3; margin-top:50px; padding-top:14rem; }
+.flex-container-myrecipespage:target { color:#2bbbb3; margin-top:500px; padding-top:500px; }
 
 /* Add 'Current Recipe' to targeted section (optional) */
-.flex-container-myrecipespage:target:before { content:'Currently Reading'; font-family:'Open Sans', sans; font-size:12px; background:#ccc; border-radius:3px; background-clip:padding-box; color:#fff; padding:0 5px; position:absolute; top:12rem; }
+.flex-container-myrecipespage:target:before { content:'Currently Reading'; font-family:'Open Sans', sans; font-size:12px; background:#ccc; border-radius:3px; background-clip:padding-box; color:#fff; padding:0 5px; position:absolute; top:500px; }
 
 
 /* SEARCH PAGE, TJS RECIPES */
@@ -312,6 +312,7 @@
 .card-recipe-title {
   line-height: 1.7;
   border-radius: 5px;
+  margin-top: 15px;
 }
 
 .card-recipe-title a {
