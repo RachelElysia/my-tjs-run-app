@@ -41,12 +41,15 @@ Users can add and remove their favorite Trader Joe's recipes. With only a few cl
 - Enjoy mobile-friendly responsive web design
 - Enjoy the App-like experience with 100% client-side rendering
 - Create an account and login
+
 ![Login GIF](/static/img/LoginGif.gif)
 - Be kept logged in with their browser's Local Storage
 - Browse recipe tiles and view detailed recipes cards
 - Favorite and unfavorite recipes with a Button
+
 ![Favorite Toggle GIF](/static/img/FavoriteToggleGif.gif)
 - View their favorite recipes
+
 ![My Recipes GIF](/static/img/MyRecipesGif.gif)
 - Add recipes to their abridged grocery list from their favorites recipes (onToggle)
 - Receive a text of their abridged grocery list with a (onClick) Button (Twilio API)
@@ -58,6 +61,7 @@ Users can add and remove their favorite Trader Joe's recipes. With only a few cl
   - E.g. An intuitive header, (onHover) dropdown menu, footer, pagination, consistency
 - Can voluntarily contribute to the app upkeep (venmo modal)
 - View the engineer's resources rendered on a page built into the user interface
+
 ![My Resources GIF](/static/img/ResourcesGif.gif)
 
 ## Stack
