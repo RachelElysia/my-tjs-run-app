@@ -58,7 +58,7 @@ Users can add and remove their favorite Trader Joe's recipes. With only a few cl
   - E.g. An intuitive header, (onHover) dropdown menu, footer, pagination, consistency
 - Can voluntarily contribute to the app upkeep (venmo modal)
 - View the engineer's resources rendered on a page built into the user interface
-![My Resources GIF](/static/img/ResourecesGif.gif)
+![My Resources GIF](/static/img/ResourcesGif.gif)
 
 ## Stack
 
