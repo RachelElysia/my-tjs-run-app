@@ -47,6 +47,7 @@ Users can add and remove their favorite Trader Joe's recipes. With only a few cl
 - Favorite and unfavorite recipes with a Button
 ![Favorite Toggle GIF](/static/img/FavoriteToggleGif.gif)
 - View their favorite recipes
+
 ![My Recipes GIF](/static/img/MyRecipesGif.gif)
 - Add recipes to their abridged grocery list from their favorites recipes (onToggle)
 - Receive a text of their abridged grocery list with a (onClick) Button (Twilio API)
