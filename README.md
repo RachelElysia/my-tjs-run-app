@@ -7,7 +7,7 @@ Hackbright Academy Capstone Project (Solo, End-to-End Development)
     - [MVP Feature](#mvp-feature)
     - [Engineered Features](#engineered-features)
   - [Stack](#stack)
-  - [Features Under Construction](#features-under-construction)
+  - [Upcoming Features](#upcoming-features)
   - [Installation](#installation)
   - [About the Developer](#about-the-developer)
 <!-- toc -->
@@ -57,7 +57,7 @@ Frameworks & Libraries: Flask, React.js, Next.js, Bootstrap, React-Reveal, Werkz
 
 Database & Industry Tools: Next.js, PostgreSQL, SQLAlchemy, Git, GitHub, VS Code, Photoshop
 
-## Features Under Construction
+## Upcoming Features
 
 Users will:
 - Have ability to update or delete account from the user interface
