@@ -524,7 +524,7 @@ if __name__ == '__main__':
     DebugToolbarExtension(app)
     ### end ###
 
-    print("host on server.py:", os.environ.get('PORT') or '0.0.0.0')
+    print("port on server.py:", os.environ.get('PORT') or '5000')
 
-    app.run(host=os.environ.get('PORT') or '0.0.0.0', debug=True)
+    app.run(host='0.0.0.0', port=os.environ.get('PORT') or '5000', debug=True)
 
