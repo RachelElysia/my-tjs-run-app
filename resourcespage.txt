@@ -66,3 +66,4 @@ Git|Ignoring Files|Brush Up On This Always|https://help.github.com/articles/igno
 Domain Name|Buying a Domain Name|Searching until I *landed* har, on my favorite domain name|https://www.namecheap.com/
 React|Styled Components|Discovered but too much to Refactor/Explore on my App|https://developer.okta.com/blog/2020/03/16/react-styled-components
 Deployment|Digital Ocean vs Heroku|Researching Hosting|https://blog.back4app.com/digitalocean-vs-heroku/
+Deployment|Procfile for Heroku|Telling Heroku how to run my server's file|https://devcenter.heroku.com/articles/getting-started-with-python?singlepage=true#prepare-the-app

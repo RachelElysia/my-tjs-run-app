@@ -101,9 +101,9 @@ def show_homepage():
     """Show the application's Flask/Jinja homepage on localhost:5000.
 
     - Changed this 3/9 to return next.js static index"""
-    # return app.send_static_file('index.html')
+    return app.send_static_file('index.html')
 
-    return render_template('homepage.html')
+    # return render_template('homepage.html')
 
 @app.route('/api/recipes')
 def recipes_data():
@@ -524,4 +524,5 @@ if __name__ == '__main__':
     DebugToolbarExtension(app)
     ### end ###
 
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host=os.environ.get('PORT') or '0.0.0.0', debug=True)
+

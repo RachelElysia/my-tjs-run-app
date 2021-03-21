@@ -10,3 +10,5 @@ sqlparse==0.3.0
 virtualenv==15.1.0
 pytest==6.2.2
 Werkzeug==1.0.1
+psycopg2==2.8.6
+psycopg2-binary==2.8.6
