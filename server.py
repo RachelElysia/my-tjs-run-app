@@ -24,7 +24,7 @@ app = Flask(__name__, static_url_path='')
 # Limit my text message route
 # Don't set default limits because they apply to all my routes
 limiter = Limiter(
-    app,POR
+    app,
     key_func=get_remote_address,
     default_limits=[]
 )
