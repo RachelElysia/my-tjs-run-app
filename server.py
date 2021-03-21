@@ -24,7 +24,7 @@ app = Flask(__name__, static_url_path='')
 # Limit my text message route
 # Don't set default limits because they apply to all my routes
 limiter = Limiter(
-    app,
+    app,POR
     key_func=get_remote_address,
     default_limits=[]
 )
@@ -523,6 +523,8 @@ if __name__ == '__main__':
 
     DebugToolbarExtension(app)
     ### end ###
+
+    print("host on server.py:", os.environ.get('PORT') or '0.0.0.0')
 
     app.run(host=os.environ.get('PORT') or '0.0.0.0', debug=True)
 
