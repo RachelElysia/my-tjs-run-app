@@ -1,1 +1,0 @@
-_N_E=(window.webpackJsonp_N_E=window.webpackJsonp_N_E||[]).push([[14],{SJEF:function(n,_){},h7Pl:function(n,_,w){(window.__NEXT_P=window.__NEXT_P||[]).push(["/futureindex",function(){return w("SJEF")}])}},[["h7Pl",2]]]);
