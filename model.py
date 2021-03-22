@@ -222,7 +222,7 @@ class UserRecipe(db.Model):
 
 
 
-
+# DATABASE_URL IS MY ENVIRONMENT VARIABLE
 
 
 

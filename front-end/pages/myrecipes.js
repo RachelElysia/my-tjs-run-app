@@ -133,6 +133,8 @@ function MyRecipesContainer(props) {
     );
   }
 
+  const noneMessage = 'Uh oh, you have no saved recipes! Try the search feature to find your favorite recipes!';
+  
   return (
     <>
       <main id={styles["navbar"]}>
@@ -140,7 +142,7 @@ function MyRecipesContainer(props) {
           <h3>{listicon} My Recipes</h3>
           <p className={styles["text_small"]}>
             {" "}
-            Viewing your favorite recipes!
+            {leftLinks.length > 0 ? 'Viewing your favorite recipes!': noneMessage}
           </p>
           {leftLinks}
         </center>

@@ -67,3 +67,4 @@ Domain Name|Buying a Domain Name|Searching until I *landed* har, on my favorite 
 React|Styled Components|Discovered but too much to Refactor/Explore on my App|https://developer.okta.com/blog/2020/03/16/react-styled-components
 Deployment|Digital Ocean vs Heroku|Researching Hosting|https://blog.back4app.com/digitalocean-vs-heroku/
 Deployment|Procfile for Heroku|Telling Heroku how to run my server's file|https://devcenter.heroku.com/articles/getting-started-with-python?singlepage=true#prepare-the-app
+OS|Update Ubuntu|Ubuntu 18 did not play well with Heroku|https://allthings.how/how-to-upgrade-to-ubuntu-20-04-lts-using-do-release-upgrade-command/

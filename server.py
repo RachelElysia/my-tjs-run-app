@@ -62,7 +62,7 @@ def text_message(fname, recipes_list):
 
 
 @app.route('/api/sms', methods=['POST'])
-@limiter.limit("12/month;10/day;10/hour;1/minute", override_defaults=False, error_message="Texts aren't free, give me a minute.")
+@limiter.limit("10/month;4/day;3/hour;1/minute", override_defaults=False, error_message="Texts aren't free, give me a minute.")
 def send_sms():
     """Send the SMS."""
 

@@ -1,5 +1,7 @@
 const withCSS = require('@zeit/next-css')
 
+// THIS WAS SUGGESTED VIA THE INTERWEBS (withCSS) BUT CAUSED CRASHES IN RUNNING MY APP
+
 // module.exports = withCSS({
 
 //     cssLoaderOptions: {

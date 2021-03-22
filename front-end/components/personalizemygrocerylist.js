@@ -104,6 +104,8 @@ function PersonalizedShoppingList(props) {
     loggedIn: false,
   });
 
+  const noneMessage = 'Uh oh, you have no saved recipes! Try the search feature to find your favorite recipes before you receive a text of ingredients!';
+  
   return (
     <>
       <main id={styles["navbar"]}>
@@ -111,8 +113,7 @@ function PersonalizedShoppingList(props) {
           <h3>{basketicon} My Grocery List</h3>
           <p className={styles["text_small"]}>
             {" "}
-            Choose from your favorite recipes to generate your personalized
-            grocery list!
+            {options.length > 0 ? 'Choose from your favorite recipes to generate your personalized grocery list!': noneMessage}
           </p>
           {options.map((option) => (
             <button
@@ -148,7 +149,11 @@ function PersonalizedShoppingList(props) {
           <Row>
             <Col className="col-12">
               <form onSubmit={handleText}>
-                <Button type="submit">Text Me My Grocery List</Button>
+                <Button type="submit" disabled={selected.length === 0
+                  ? true
+                  : false}>{selected.length === 0
+                    ? "Add Recipes to Text"
+                    : "Text Me My Grocery List"}</Button>
               </form>
             </Col>
           </Row>

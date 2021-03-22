@@ -6,15 +6,19 @@ from random import choice, randint
 import re # this is to help split by two delimiters
 import crud
 
+# To make this populate my web database, switch out environment variable to be
+# DATABASE_URL="alkdjfladsj;" python3 seed_database.py
+# It will seed the database in the cloud!
+
 # I COMMENTED THIS OUT BECAUSE  I DONT WANT TO DROP AND RECREATE A NEW DATA BASE ANYTIME SOON
 # DEEP CLEANED recipes.json API and reseeded -3/7/21   - 3/14/21
-# import model
-# import server
+import model
+import server
 
-# os.system('dropdb recipes')
-# os.system('createdb recipes')
-# model.connect_to_db(server.app)
-# model.db.create_all()
+os.system('dropdb recipes')
+os.system('createdb recipes')
+model.connect_to_db(server.app)
+model.db.create_all()
 
 # Populate Tags DATA table (2 Columns, 2 Parameters, PK in API)
 with open('data/tags.json') as g:

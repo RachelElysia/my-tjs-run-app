@@ -54,7 +54,7 @@ function AccountDetails(props) {
 
   return (
     <Col className="col-12 col-md-6 p-4 bg-light border-right border-bottom rounded-left">
-      <h2>Your Information</h2>
+      <h2>Your Information (UNDER CONSTRUCTION, SORRY)</h2>
 
       <form onSubmit={updateNameNumber}>
         <Row className="my-4">
@@ -99,7 +99,7 @@ function AccountDetails(props) {
             />
           </Col>
           <Col className="col-12 my-2">
-            <Button type="submit">Update</Button>
+            <Button type="submit" disable>Update</Button>
           </Col>
         </Row>
       </form>
@@ -122,7 +122,7 @@ function AccountDetails(props) {
             />
           </Col>
           <Col className="col-12 my-2">
-            <Button type="submit">Delete My Account</Button>
+            <Button type="submit" disable>Delete My Account</Button>
           </Col>
         </Row>
       </form>
@@ -183,7 +183,7 @@ function UpdateAccount(props) {
               />
             </Col>
             <Col className="col-12 mt-2">
-              <Button type="submit">Update</Button>
+              <Button type="submit" disable>Update</Button>
             </Col>
           </Row>
         </form>
