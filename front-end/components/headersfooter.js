@@ -123,7 +123,7 @@ function NavBar() {
       <div>
         <Head>
           <title>My TJ Run</title>
-          <meta property="og:title" content="My page title" key="title" />
+          <meta property="og:title" content="TJ's Run App" key="title" />
         </Head>
       </div>
       <Navbar
@@ -136,7 +136,7 @@ function NavBar() {
         <NavbarBrand href="/">
           <img
             alt="TJ's Run App"
-            src="http://localhost:5000/img/logo.png"
+            src="img/logo.png"
           />
         </NavbarBrand>
         <NavbarToggle aria-controls="basic-navbar-nav">{navicon}</NavbarToggle>
@@ -267,8 +267,8 @@ function TJNavBar() {
                     </Link>
                   </td>
                   <td width="150px">
-                    <Link href="/tags/102">
-                      <a>St. Patrick's Day</a>
+                    <Link href="/tags/154">
+                      <a>Easter</a>
                     </Link>
                   </td>
                 </tr>
@@ -279,8 +279,8 @@ function TJNavBar() {
                     </Link>
                   </td>
                   <td>
-                    <Link href="/tags/154">
-                      <a>Easter</a>
+                    <Link href="/tags/43">
+                      <a>Spring</a>
                     </Link>
                   </td>
                 </tr>
@@ -291,8 +291,8 @@ function TJNavBar() {
                     </Link>
                   </td>
                   <td>
-                    <Link href="/tags/43">
-                      <a>Spring</a>
+                    <Link href="/tags/153">
+                      <a>On-the-go</a>
                     </Link>
                   </td>
                 </tr>

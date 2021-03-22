@@ -46,7 +46,7 @@ const Modal = ({showModal, setShowModal}) => {
               <div className={styles['modal-content']}>
                 <h1>I love TJ's!</h1>
                 <p>@Rachel-Perkins</p>
-                <img src={'http://localhost:5000/img/venmoqr.jpg'} className={styles['modal-img']} alt='My Venmo Info' />
+                <img src={'img/venmoqr.jpg'} className={styles['modal-img']} alt='My Venmo Info' />
               </div>
               <button className={styles['close-modal-button']}
                 aria-label='Close modal'

@@ -97,13 +97,17 @@ def send_sms():
     return jsonify(response)
 
 @app.route('/')
+@app.route('/recipes')
+@app.route('/myrecipes')
+@app.route('/login')
 def show_homepage():
     """Show the application's Flask/Jinja homepage on localhost:5000.
+    # return render_template('homepage.html')
 
     - Changed this 3/9 to return next.js static index"""
+
     return app.send_static_file('index.html')
 
-    # return render_template('homepage.html')
 
 @app.route('/api/recipes')
 def recipes_data():
