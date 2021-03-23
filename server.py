@@ -4,6 +4,7 @@ from flask import Flask, render_template, request, flash, session, redirect, jso
 from flask_debugtoolbar import DebugToolbarExtension # required /unused flask server
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
+from flask_sslify import SSLify
 
 # Database
 from model import connect_to_db
@@ -20,6 +21,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 # Added static_url_path 3/10 for next.js static site
 app = Flask(__name__, static_url_path='')
+sslify = SSLify(app)
 
 # Limit my text message route
 # Don't set default limits because they apply to all my routes
