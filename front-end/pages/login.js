@@ -42,11 +42,11 @@ function SignUp() {
         "You created an account! Build your favorite recipes to easily view your grocery list!"
       );
       response.json().then((data) => {
-        console.log(JSON.stringify(data[0].user));
-        console.log(data[0].user);
-        localStorage.setItem("user", JSON.stringify(data[0].user));
+        console.log(JSON.stringify(data.user));
+        console.log(data.user);
+        localStorage.setItem("user", JSON.stringify(data.user));
         localStorage.setItem("loggedIn", true);
-        setFormData({ loggedIn: true, user: data[0].user });
+        setFormData({ loggedIn: true, user: data.user });
         router.back();
       });
     });
@@ -132,7 +132,7 @@ function SignUp() {
 // ???? ugh.
 
 // SignInComponent
-function SignIn(props) {
+function SignIn() {
 
   const router = useRouter();
 
@@ -143,6 +143,7 @@ function SignIn(props) {
 
   const handleSubmitSignIn = (event) => {
     event.preventDefault();
+    // new keyword calls a constructor
     const data = new FormData(event.target);
 
     fetch("/api/userlogin", {
@@ -155,10 +156,10 @@ function SignIn(props) {
         return;
       }
       response.json().then((data) => {
-        localStorage.setItem("user", JSON.stringify(data[0].user));
+        localStorage.setItem("user", JSON.stringify(data.user));
         localStorage.setItem("loggedIn", true);
-        setFormData({ loggedIn: true, user: data[0].user });
-        alert(`Check out your favorite recipes ${data[0].user.fname}!`);
+        setFormData({ loggedIn: true, user: data.user });
+        alert(`Check out your favorite recipes ${data.user.fname}!`);
         router.back();
       });
     });

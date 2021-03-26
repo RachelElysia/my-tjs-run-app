@@ -1,6 +1,6 @@
 """Server for TJ shopping by recipe app."""
 # Flask app
-from flask import Flask, render_template, request, flash, session, redirect, jsonify, make_response
+from flask import Flask, render_template, request, redirect, jsonify
 from flask_debugtoolbar import DebugToolbarExtension # required /unused flask server
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
@@ -373,11 +373,11 @@ def register_user():
         "errorMessage": "This phone number is already associated to an account. Try logging in.",
         "image": "https://http.cat/409",
       }
-      status_code = 409
-      print("THIS NUMBER EXISTS ALREADY!")
-      print(jsonify(response, status_code))
+      status = 409
+      print(response.errorMessage)
+      print(jsonify(response), status)
 
-      return jsonify(response, status_code)
+      return jsonify(response), status
 
     else:
       userCreated = crud.create_user(fname, lname, phone, password_hash)
@@ -387,11 +387,11 @@ def register_user():
         "image": "https://http.cat/409.jpg",
         "user": userAccountMade.serialize,
       }
-      status_code = 200
+      status = 200
 
-      print("YOU MADE A LOG IN!", jsonify(response, status_code))
+      print("You made a login!", jsonify(response), status)
 
-      return jsonify(response, status_code)
+      return jsonify(response), status
 
 
 @app.route('/api/users/update', methods=['POST'])
@@ -411,10 +411,10 @@ def update_user():
       "image": "https://http.cat/409.jpg",
       "user": userAccountUpdated.serialize,
     }
+    status = 200
+    print("You updated user information!", jsonify(response), status)
 
-    print("YOU UPDATED USER INFORMATION!", jsonify(response, status_code))
-
-    return jsonify(response, status_code)
+    return jsonify(response), status
 
 @app.route('/api/user/<user_id>/delete', methods=['POST'])
 def delete_current_user():
@@ -434,13 +434,13 @@ def delete_current_user():
       "image": "https://http.cat/409.jpg",
       "message": response_message
     }
+    status = 200
 
     user = crud.get_user_by_phone(phone_entered)
-    print(user)
 
-    print("YOU DELETED A USER!", jsonify(response, status_code))
+    print(user, "\nYou deleted a user!", jsonify(response), status)
 
-    return jsonify(response, status_code)
+    return jsonify(response), status
 
 
 @app.route('/api/users/<user_id>/info')
@@ -464,13 +464,13 @@ def test_user(user_id):
 ]
   """
   userAccountMade = crud.get_user_by_phone(4084256597)
-  status_code = 200
+  status = 200
   response = {
     "image": "https://http.cat/409.jpg",
     "user": userAccountMade.serialize,
   }
 
-  return jsonify(response, status_code)
+  return jsonify(response), status
 
 @app.route('/api/resources')
 def get_resources():
@@ -490,26 +490,28 @@ def log_in():
     print(user)
 
     if user and check_password_hash(user.password_hash, password_entered):
-      userAccountLoggedIn = crud.get_user_by_phone(phone_entered)
+      userAccountLoggedIn = user
 
       response = {
-        "image": "https://http.cat/409.jpg",
-        "user": userAccountLoggedIn.serialize,
+        "image": "https://http.cat/200.jpg",
+        "user": userAccountLoggedIn.serialize
       }
       status = 200
-      print("YOU MADE IT LOG IN!")
-      print(jsonify(response, status))
-      return jsonify(response, status)
+      print("You made a login!")
+      print(jsonify(response), status)
+      return jsonify(response), status
 
     if not user:
       response = {
         "errorMessage": "This phone number is not associated to an account. Create your account.",
-        "image": "https://http.cat/422",
+        "image": "https://http.cat/422.jpg",
+        "user": None
       }
       status = 422
-      print("YOU TYPED IN A RANDOM PHONE NUMBER")
-      print(jsonify(response, status))
-      return jsonify(response, status)
+
+      print("You typed in a random phone number.")
+      print(jsonify(response), status)
+      return jsonify(response), status
 
     if user and not check_password_hash(user.password_hash, password_entered):
       response = {
@@ -518,8 +520,8 @@ def log_in():
       }
       status = 401
       print("YOU TYPED IN A WRONG PASSWORD")
-      print(jsonify(response, status))
-      return jsonify(response, status)
+      print(jsonify(response), status)
+      return jsonify(response), status
 
 if __name__ == '__main__':
     ### added by Lucia 2/11 debugging jinja ###

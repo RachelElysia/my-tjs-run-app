@@ -1,4 +1,3 @@
-import Head from "next/head";
 // React-y Things
 import React, { useState } from "react";
 import { useRouter } from "next/router";
@@ -42,6 +41,7 @@ function RecipeCardContainer(props) {
   const [currentPage, setCurrentPage] = useState([1]);
   const recipesPerPage = 12;
 
+  // slug
   const router = useRouter();
   const { search_phrase } = router.query;
 
