@@ -384,8 +384,9 @@ def register_user():
       userAccountMade = crud.get_user_by_phone(phone)
 
       response = {
+        "errorMessage": "None.",
         "image": "https://http.cat/409.jpg",
-        "user": userAccountMade.serialize,
+        "user": userAccountMade.serialize
       }
       status = 200
 

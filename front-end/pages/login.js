@@ -34,10 +34,10 @@ function SignUp() {
       method: "POST",
       body: data,
     }).then((response) => {
-      // if (response.status_code !== 200) {
-      //   alert('Please try a different phone number.');
-      //   return;
-      // }
+      if (response.status !== 200) {
+        alert('Please try a different phone number.');
+        return;
+      }
       alert(
         "You created an account! Build your favorite recipes to easily view your grocery list!"
       );
