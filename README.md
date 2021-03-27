@@ -90,4 +90,4 @@ Check back later!
 Rachel has spent a decade as a California educator teaching math
 and yearbook. Always advocating a growth mindset and STEaM education to her students, she took a bittersweet cross country move as a sign to explore her own interests in design and engineering. Engineering has challenged her in all the right ways and she looks forward to finding ways to build community through engineering.
 
-Learn more about Rachel on her [LinkedIn](linkedin.com/in/RachelElysia) or at RachelElysia.com.
+Learn more about Rachel on her [LinkedIn](https://www.linkedin.com/in/RachelElysia) or at [RachelElysia.com](https://www.rachelelysia.com).
